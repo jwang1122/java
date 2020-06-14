@@ -2,3 +2,4 @@ bin/
 RemoteSystemsTempFiles/
 doc/
 .metadata/
+/.recommenders/

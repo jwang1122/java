@@ -7,18 +7,22 @@ public class StringTest {
 	public static void main(String[] args) {
 		StringTest test = new StringTest();
 //		test.stringLength();
+		test.letterAtIndex("This is a test.");
 //		test.upperLowerCase();
 //		test.findIndex();
 //		test.concatenation();
 //		test.escapeSquence();
 //		test.stringBuilder();
-		test.stringBuilder2stringBuffer();
+//		test.stringBuilder2stringBuffer();
 	}
 	
 	void stringLength() {
 		System.out.println(String.format("the length of the text %s is %d.", s1, s1.length()));
 	}
 	
+	void letterAtIndex(String s) {
+		System.out.println(s);
+	}
 	void upperLowerCase() {
 		System.out.println(s2.toUpperCase());
 		System.out.println(s2.toLowerCase());
