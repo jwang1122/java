@@ -15,13 +15,43 @@ package com.huaxia.test;
 public class SwitchTest {
 	static String[] weekdays = { "No such day", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
 			"Sunday" };
+	static String[] FACES = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
 
 	public static void main(String[] args) {
 		SwitchTest test = new SwitchTest();
 		int day = 3;
 		// test.weekdayConverter(day);
+		
 		// System.out.println(test.day2Word(day));
 		System.out.println(test.number2Week(day));
+		int value = getCardValue("A");
+		System.out.println(value);
+		value = getCardValue("10");
+		System.out.println(value);
+		value = getCardValue("K");
+		System.out.println(value);
+	}
+
+	private static int getCardValue(String s) {
+		int value = 0;
+		switch (s) {
+		case "A":
+			value = 1;
+			break;
+		case "J":
+			value = 11;
+			break;
+		case "Q":
+			value = 12;
+			break;
+		case "K":
+			value = 13;
+			break;
+		default:
+			value = Integer.parseInt(s);
+			break;
+		}
+		return value;
 	}
 
 	void weekdayConverter(int day) {

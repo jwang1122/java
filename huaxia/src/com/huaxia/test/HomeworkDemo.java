@@ -1,6 +1,6 @@
 package com.huaxia.test;
 
-public class HomeworkDamo {
+public class HomeworkDemo {
 
 	public static void main(String[] args) {
 		// problem 1. simple straight way.

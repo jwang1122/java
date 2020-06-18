@@ -4,12 +4,36 @@ public class Print {
 
 	public static void main(String[] args) {
 		Print test = new Print();
-		test.basicPrint();
+//		test.basicPrint();
 //		test.rightTriangle();
 //		test.equilateralTriangle();
 //		test.upsideDownTriangle();
 //		test.diamond();
+		test.diamond(8);
 	}
+
+	/**
+	 * if i = 8, your output should look like below
+	 *       1
+	 *      2 2
+	 *     3 3 3
+	 *    4 4 4 4
+	 *   5 5 5 5 5
+	 *  6 6 6 6 6 6 
+	 * 7 7 7 7 7 7 7
+	 *  6 6 6 6 6 6
+	 *   5 5 5 5 5
+	 *    4 4 4 4
+	 *     3 3 3
+	 *      2 2
+	 *       1
+	 * @param i
+	 */
+	private void diamond(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	/**
 	 * Learn nested for loop, demo in class

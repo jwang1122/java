@@ -28,7 +28,7 @@ public class Cup {
 	}
 	
 	public String toString() {
-		return String.format("this %s cup filled with %s.", this.type, this.liquids);
+		return String.format("(%s, %s)", this.type, this.liquids);
 	}
 	
 	public static void main(String[] args) {
