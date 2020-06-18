@@ -15,8 +15,28 @@ public class StringTest {
 //		test.concatenation();
 //		test.stringEquals();
 //		test.escapeSquence();
-		test.stringBuilder();
+		test.convertStringToNumber();
+//		test.stringBuilder();
 //		test.stringBuilder2stringBuffer();
+	}
+
+	private void convertStringToNumber() {
+		String s1 = "2";
+		int i1 = Integer.parseInt(s1);
+		String s2 = "11";
+		int i2 = Integer.parseInt(s2);
+		System.out.println(s1 + s2);
+		System.out.println(i1 + i2);
+
+		s1 = "2.1";
+		s2 = "3.14";
+		float f1 = Float.parseFloat(s1);
+		float f2 = Float.parseFloat(s2);
+		System.out.println(f1 + f2);
+
+		double d1 = Double.parseDouble(s1);
+		double d2 = Double.parseDouble(s2);
+		System.out.println(d1 + d2);
 	}
 
 	/**
@@ -28,32 +48,32 @@ public class StringTest {
 		String s2 = "John"; // point to same memory as s1
 		String s3 = "Wang";
 		String s4 = "WANG";
-		
+
 		String s6 = new String("John"); // point to different memory from s1
-		
+
 		System.out.printf("s1=%s; s2=%s; s3=%s; s4=%s; s6=new String(\"John\")\n", s1, s2, s3, s4);
-		
+
 		System.out.println("Call s1==s2: " + (s1 == s2)); // address comparison
 		System.out.println("Call s1.equals(s2): " + s1.equals(s2));
-		
+
 		s2 = s6;
 		System.out.println("assign s2=s6, Call s1==s2: " + (s1 == s2));
 		System.out.println("Call s1.equals(s2): " + s1.equals(s2));
-		
+
 		System.out.println("Call s1==s3: " + (s1 == s3)); // address comparison
 		System.out.println("Call s1.equals(s3): " + s1.equals(s3));
-		
+
 		System.out.println("Call s1==s6: " + (s1 == s6));
 		System.out.println("Call s1.equals(s6): " + s1.equals(s6));
-		
+
 		System.out.println("Call s3.equalsIgnoreCase(s4): " + s3.equalsIgnoreCase(s4));
-		
+
 		System.out.println("Call s1.equals(s3): " + s1.equals(s3));
-		
+
 		Scanner console = new Scanner(System.in);
 		System.out.print("inter your name: ");
-		String s5 = console.next(); 
-		System.out.println(s5==s1); // address comparison
+		String s5 = console.next();
+		System.out.println(s5 == s1); // address comparison
 		System.out.println(s5.equals(s1)); // content comparison
 		console.close();
 	}
@@ -66,8 +86,8 @@ public class StringTest {
 		System.out.println(s);
 		System.out.println(s.charAt(index));
 		int i = 23421;
-		String s1 = ""+i; 
-		System.out.println(s1.charAt(s1.length()-2));
+		String s1 = "" + i;
+		System.out.println(s1.charAt(s1.length() - 2));
 	}
 
 	void upperLowerCase() {
