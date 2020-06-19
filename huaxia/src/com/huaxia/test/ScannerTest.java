@@ -23,7 +23,7 @@ public class ScannerTest {
 		System.out.printf("Hello, %s!\n", name);
 		input.close();		
 	}
-	
+
 	@SuppressWarnings("resource")
 	void stringDelimiter() {
 	     String input = "1fish2 fish red fish blue fish";
