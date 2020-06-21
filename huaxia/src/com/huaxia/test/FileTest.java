@@ -16,7 +16,7 @@ public class FileTest {
 		System.out.println("Done.");
 	}
 
-	private void appendToFileTest() throws Exception{
+	void appendToFileTest() throws Exception{
 		File file = new File("hello.txt");
 		FileWriter writer = new FileWriter(file, true);		
 		BufferedWriter bw = new BufferedWriter(writer);
@@ -26,7 +26,7 @@ public class FileTest {
 		
 	}
 
-	private void writeFileTest() throws Exception {
+	void writeFileTest() throws Exception {
 		File file = new File("hello.txt");
 		FileWriter writer = new FileWriter(file);		
 		BufferedWriter bw = new BufferedWriter(writer);
