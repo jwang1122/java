@@ -12,3 +12,9 @@
 
 * Git repository
 	- commit: right-click [project name]: Team > Commit >
+	
+## Open second Eclipse IDE window:
+* Right-click (Command+click) on the Eclipse Doc icon and choose Show in Finder.
+* Right-click on Eclipse.app and choose Show Packages Contents.* 
+* Navigate to Contents > MacOS directory.
+* Double-click the eclipse executable there to launch Eclipse. Make sure to select a different workspace than is already open.
