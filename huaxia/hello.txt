@@ -1,2 +1,7 @@
 this is first line.
 this is second line.
+<<<<<<< HEAD
+=======
+this is fourth line.
+this is fifth line.
+>>>>>>> branch 'master' of https://github.com/jwang1122/java.git

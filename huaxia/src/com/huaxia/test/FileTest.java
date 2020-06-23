@@ -12,7 +12,20 @@ public class FileTest {
 		FileTest test = new FileTest();
 		test.readFileTest();
 //		test.writeFileTest();
+
+//		test.appendToFileTest();
 		System.out.println("Done.");
+	}
+
+	void appendToFileTest() throws Exception{
+		File file = new File("hello.txt");
+		FileWriter writer = new FileWriter(file, true);		
+		BufferedWriter bw = new BufferedWriter(writer);
+		bw.write("this is fourth line.\n");
+		bw.write("this is fifth line.\n");
+		bw.close();
+		
+
 	}
 
 	void writeFileTest() throws Exception {
