@@ -3,6 +3,7 @@ package com.huaxia.test;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 
@@ -10,11 +11,21 @@ public class FileTest {
 
 	public static void main(String[] args) throws Exception{
 		FileTest test = new FileTest();
-		test.readFileTest();
+//		test.readFileTest();
 //		test.writeFileTest();
-
 //		test.appendToFileTest();
+		test.readCSVFile();
 		System.out.println("Done.");
+	}
+
+	private void readCSVFile() throws Exception {
+		BufferedReader br = new BufferedReader(new FileReader("data/students.csv"));
+		String line = "";
+		while((line=br.readLine())!=null) {
+			System.out.println(line);
+		}
+		
+		
 	}
 
 	void appendToFileTest() throws Exception{

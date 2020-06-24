@@ -6,11 +6,11 @@ public class ExceptionTest {
 		ExceptionTest test = new ExceptionTest();
 //		test.uncheckedArrayUsage();
 		test.tryCatchTest();
-		System.out.println(test.area(1.0f));
-		System.out.println(test.area(-2.0f));
-
-		test.throwExceptionTest();
-		System.out.println("Done.");
+//		System.out.println(test.area(1.0f));
+//		System.out.println(test.area(-2.0f));
+//
+//		test.throwExceptionTest();
+//		System.out.println("Done.");
 	}
 
 	private void throwExceptionTest() {
