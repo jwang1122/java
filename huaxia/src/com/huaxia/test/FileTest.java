@@ -3,7 +3,6 @@ package com.huaxia.test;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 
@@ -24,7 +23,7 @@ public class FileTest {
 		while((line=br.readLine())!=null) {
 			System.out.println(line);
 		}
-		
+		br.close();
 		
 	}
 
