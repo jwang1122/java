@@ -10,12 +10,12 @@ public class ExceptionTest {
 		test.tryCatchTest();
 //		System.out.println(test.area(1.0f));
 //		System.out.println(test.area(-2.0f));
-		try {
-			float area = test.area(-2.3f);
-			System.out.printf("Area of circle with radius %f is %f.", 2.3, area);
-		} catch (InvalidValueException e) {
-			System.out.println("Error: " + e);
-		}
+//		try {
+//			float area = test.area(-2.3f);
+//			System.out.printf("Area of circle with radius %f is %f.", 2.3, area);
+//		} catch (Exception e) {
+//			System.out.println("Error: " + e);
+//		}
 		System.out.println("Done.");
 
 	}
@@ -35,10 +35,10 @@ public class ExceptionTest {
 	 * @return
 	 * @throws InvalidValueException 
 	 */
-	float area(float radius) throws InvalidValueException {
-		if (radius < 0) {
-			throw new InvalidValueException("Circle radius cannot be negative.");
-		}
+	float area(float radius) {
+//		if (radius < 0) {
+//			throw new Exception("Circle radius cannot be negative.");
+//		}
 		return (float) (Math.PI * radius * radius);
 	}
 

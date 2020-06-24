@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 public class FileTest {
 
@@ -17,13 +18,18 @@ public class FileTest {
 		System.out.println("Done.");
 	}
 
-	private void readCSVFile() throws Exception {
+	public ArrayList<String[]> readCSVFile() throws Exception {
 		BufferedReader br = new BufferedReader(new FileReader("data/students.csv"));
+		ArrayList<String[]> students = new ArrayList<String[]>();
 		String line = "";
 		while((line=br.readLine())!=null) {
+			String[] row = line.split(",");
+			students.add(row);
 			System.out.println(line);
 		}
+		// add for loop to display certain column data
 		br.close();
+		return students;
 		
 	}
 
