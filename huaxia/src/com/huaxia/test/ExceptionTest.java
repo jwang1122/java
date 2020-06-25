@@ -7,9 +7,21 @@ public class ExceptionTest {
 	public static void main(String[] args) {
 		ExceptionTest test = new ExceptionTest();
 //		test.uncheckedArrayUsage();
-		test.tryCatchTest();
-//		System.out.println(test.area(1.0f));
-//		System.out.println(test.area(-2.0f));
+//		test.tryCatchTest();
+		try {
+			System.out.println(test.area(1.0f));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+			System.out.println("Error: " + e.getMessage());
+		}
+		try {
+			System.out.println(test.area(-2.0f));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error: " + e.getMessage());
+//			e.printStackTrace();
+		}
 //		try {
 //			float area = test.area(-2.3f);
 //			System.out.printf("Area of circle with radius %f is %f.", 2.3, area);
@@ -33,12 +45,13 @@ public class ExceptionTest {
 	 * add throw Exception
 	 * @param radius
 	 * @return
+	 * @throws Exception 
 	 * @throws InvalidValueException 
 	 */
-	float area(float radius) {
-//		if (radius < 0) {
-//			throw new Exception("Circle radius cannot be negative.");
-//		}
+	float area(float radius) throws Exception {
+		if (radius < 0) {
+			throw new Exception("Circle radius cannot be negative. it is "+radius);
+		}
 		return (float) (Math.PI * radius * radius);
 	}
 

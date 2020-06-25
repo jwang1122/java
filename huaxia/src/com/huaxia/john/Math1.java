@@ -17,4 +17,8 @@ public class Math1 {
 	double circlearea(double r) {
 		return r*r*Math.PI;
 	}
+	
+	double rectangleArea(double width, double height) {
+		return width*height;
+	}
 }
