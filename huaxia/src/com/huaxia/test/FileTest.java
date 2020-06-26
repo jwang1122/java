@@ -5,15 +5,38 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 public class FileTest {
 
 	public static void main(String[] args) throws Exception{
 		FileTest test = new FileTest();
+<<<<<<< HEAD
 //		test.writeFileTest();
 //		test.readFileTest();
 		test.appendToFileTest();
+=======
+//		test.readFileTest();
+//		test.writeFileTest();
+//		test.appendToFileTest();
+		test.readCSVFile();
+>>>>>>> b5f2cb298fb83b732aceaff37194adee816b53ef
 		System.out.println("Done.");
+	}
+
+	public ArrayList<String[]> readCSVFile() throws Exception {
+		BufferedReader br = new BufferedReader(new FileReader("data/students.csv"));
+		ArrayList<String[]> students = new ArrayList<String[]>();
+		String line = "";
+		while((line=br.readLine())!=null) {
+			String[] row = line.split(",");
+			students.add(row);
+			System.out.println(line);
+		}
+		// add for loop to display certain column data
+		br.close();
+		return students;
+		
 	}
 
 	void appendToFileTest() throws Exception{
@@ -24,6 +47,7 @@ public class FileTest {
 		bw.write("this is fifth line.\n");
 		bw.close();
 		
+
 	}
 
 	void writeFileTest() throws Exception {

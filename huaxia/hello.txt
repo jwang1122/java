@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 this is fourth line.
 this is fifth line.
 this is fourth line.
 this is fifth line.
+=======
+this is first line.
+this is second line.
+<<<<<<< HEAD
+=======
+>>>>>>> b5f2cb298fb83b732aceaff37194adee816b53ef
 this is fourth line.
 this is fifth line.
+>>>>>>> branch 'master' of https://github.com/jwang1122/java.git

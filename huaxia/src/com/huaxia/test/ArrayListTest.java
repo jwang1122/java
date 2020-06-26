@@ -1,15 +1,18 @@
 package com.huaxia.test;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ArrayListTest {
 	static final String[] type = { "Glass", "Paper", "Plastic", "China" };
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		ArrayListTest test = new ArrayListTest();
 		ArrayList<Integer> myInts = test.createIntegerArrayList();
 		System.out.println(myInts);
+		System.out.println(myInts.size());
 		ArrayList<String> cupTypes = test.arrayToArrayList();
 		System.out.println(cupTypes);
 		test.createObjectArrayList();
@@ -19,6 +22,7 @@ public class ArrayListTest {
 		test.numberOfElementsInArrayList();
 		test.findPosition();
 		test.clearArrayList();
+		test.writeObjectArrayListToFile();
 	}
 	
 	private void clearArrayList() {
@@ -61,6 +65,11 @@ public class ArrayListTest {
 	ArrayList<String> arrayToArrayList() {
 		ArrayList<String> cupTypes = new ArrayList<String>();
 		cupTypes.addAll(Arrays.asList(type));
+		
+		cupTypes = new ArrayList<String>(10);
+		System.out.println(cupTypes.size());
+		
+		cupTypes = new ArrayList<String>(Arrays.asList(type));
 		return cupTypes;
 	}
 	
@@ -75,7 +84,7 @@ public class ArrayListTest {
 		return integers;
 	}
 
-	private void createObjectArrayList() {
+	ArrayList<Cup>  createObjectArrayList() {
 		ArrayList<Cup> cups = new ArrayList<Cup>();
 		Cup cup = new Cup("Glass","Hot Water");
 		cups.add(cup);
@@ -83,7 +92,17 @@ public class ArrayListTest {
 		cups.add(cup);
 		cup = new Cup("Plastic","Coca-Cola");
 		cups.add(cup);
-		System.out.println(cups);
+		return cups;
+	}
+	
+	void writeObjectArrayListToFile() throws IOException {
+		FileWriter fw = new FileWriter("cups.csv");
+		ArrayList<Cup> cups = createObjectArrayList();
+		fw.write("cup type, liquids\n");
+		for (Cup c : cups) {
+			fw.write(c.type+","+c.liquids +"\n");
+		}
+		fw.close();
 	}
 
 }

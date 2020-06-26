@@ -1,43 +1,64 @@
 package com.huaxia.test;
 
+import com.huaxia.john.InvalidValueException;
+
 public class ExceptionTest {
 
 	public static void main(String[] args) {
 		ExceptionTest test = new ExceptionTest();
 //		test.uncheckedArrayUsage();
-		test.tryCatchTest();
-		System.out.println(test.area(1.0f));
-		System.out.println(test.area(-2.0f));
-		test.throwExceptionTest();
+//		test.tryCatchTest();
+		try {
+			System.out.println(test.area(1.0f));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+			System.out.println("Error: " + e.getMessage());
+		}
+		try {
+			System.out.println(test.area(-2.0f));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error: " + e.getMessage());
+//			e.printStackTrace();
+		}
+//		try {
+//			float area = test.area(-2.3f);
+//			System.out.printf("Area of circle with radius %f is %f.", 2.3, area);
+//		} catch (Exception e) {
+//			System.out.println("Error: " + e);
+//		}
 		System.out.println("Done.");
+
 	}
 
-	private void throwExceptionTest() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void tryCatchTest() {
+	void tryCatchTest() {
 		try {
 			uncheckedArrayUsage();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
-		
+
 	}
+
 	/**
 	 * add throw Exception
 	 * @param radius
 	 * @return
+	 * @throws Exception 
+	 * @throws InvalidValueException 
 	 */
-	private float area(float radius) {
+	float area(float radius) throws Exception {
+		if (radius < 0) {
+			throw new Exception("Circle radius cannot be negative. it is "+radius);
+		}
 		return (float) (Math.PI * radius * radius);
 	}
-	
-	private void uncheckedArrayUsage() {
-		int[] numbers = {1,2,3,4,5};
+
+	void uncheckedArrayUsage() {
+		int[] numbers = { 1, 2, 3, 4, 5 };
 		System.out.println(numbers[5]);
-		
+
 	}
 
 }
