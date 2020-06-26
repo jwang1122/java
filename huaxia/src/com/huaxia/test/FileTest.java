@@ -10,15 +10,15 @@ public class FileTest {
 
 	public static void main(String[] args) throws Exception{
 		FileTest test = new FileTest();
-		test.readFileTest();
 //		test.writeFileTest();
-//		test.appendToFileTest();
+//		test.readFileTest();
+		test.appendToFileTest();
 		System.out.println("Done.");
 	}
 
 	void appendToFileTest() throws Exception{
-		File file = new File("hello.txt");
-		FileWriter writer = new FileWriter(file, true);		
+//		File file = new File("hello.txt");
+		FileWriter writer = new FileWriter("hello.txt",true);		
 		BufferedWriter bw = new BufferedWriter(writer);
 		bw.write("this is fourth line.\n");
 		bw.write("this is fifth line.\n");
