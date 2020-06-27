@@ -11,16 +11,10 @@ public class FileTest {
 
 	public static void main(String[] args) throws Exception{
 		FileTest test = new FileTest();
-<<<<<<< HEAD
-//		test.writeFileTest();
-//		test.readFileTest();
-		test.appendToFileTest();
-=======
 //		test.readFileTest();
 //		test.writeFileTest();
 //		test.appendToFileTest();
 		test.readCSVFile();
->>>>>>> b5f2cb298fb83b732aceaff37194adee816b53ef
 		System.out.println("Done.");
 	}
 
