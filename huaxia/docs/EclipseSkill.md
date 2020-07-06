@@ -1,5 +1,7 @@
 # Eclipse IDE Skills
 
+* Install Dark Theme
+	- menu: Help >Eclipse Market Place > Search > Find:Darkest Dark Theme
 * Switch to different workspace
 	- menu: File > Switch Workspace...
 
@@ -8,6 +10,7 @@
 
 * Edit Java code style
 	- right-click [project name]: Properties > Java Code Style:Formatter > Configure workspace setting > Active Profile:[give name] > button:[Edit] >
+	
 	![Comments Style](commentsStyle.png)
 
 * Git repository

@@ -10,7 +10,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
-import com.huaxia.test.FileTest;
+import com.huaxia.java1.FileTest;
 
 public class StudentScoreChart extends ApplicationFrame{
 
