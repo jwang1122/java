@@ -4,12 +4,12 @@ public class Print {
 
 	public static void main(String[] args) {
 		Print test = new Print();
-//		test.basicPrint();
+		test.basicPrint();
 //		test.rightTriangle();
 //		test.equilateralTriangle();
 //		test.upsideDownTriangle();
 //		test.diamond();
-		test.diamond(8);
+//		test.diamond(8);
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class Print {
 		System.out.println(sf1);
 		sf1 = String.format("%d-%d=%d", a, b, (a - b));
 		System.out.println(sf1);
-		System.out.printf("%d-%d=%d", a,b,(a-b));
+		System.out.printf("%d+%d=%d", a,b,(a+b));
 		System.out.println();
 	}
 

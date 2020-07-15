@@ -1,6 +1,6 @@
 package com.huaxia.john;
 
-public class Hello {
+public class HelloWorld {
 
 	public static void main(String[] args) {
 		

@@ -5,14 +5,16 @@ public class IfElseTest {
 
 	public static void main(String[] args) {
 		IfElseTest test = new IfElseTest();
-//		test.ifElse();
+//		test.ifElse(20);
 //		test.ifElseIf();
+		// write simple loop print out odd number between 0-20
 //		test.ternary();
-		System.out.println(test.number2Week(0));
+		String weekday = test.number2Week(9);
+		System.out.println(weekday);
 	}
 
-	void ifElse() {
-		int time = 20;
+	
+	void ifElse(int time) {
 		if (time < 18) {
 		  System.out.println("Good day.");
 		} else {
@@ -32,12 +34,12 @@ public class IfElseTest {
 	}
 	
 	void ternary() {
-		int time = 20;
+		int time = 16;
 		String result = (time < 18) ? "Good day." : "Good evening.";
 		System.out.println(result);		
 	}
 	
-	// make code change, allow invalid numbers (day < 1 or day >7)
+	// make code change, only allow valid numbers (day >= 1 and day <=7)
 	String number2Week(int day) {
 		return weekdays[day];
 	}

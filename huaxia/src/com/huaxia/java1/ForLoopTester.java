@@ -19,10 +19,10 @@ public class ForLoopTester {
 
 	public static void main(String[] args) {
 		ForLoopTester test = new ForLoopTester();
-		test.simpleFor();
+//		test.simpleFor();
 //		test.stepBy2();
 //		test.stepByNeigative2();
-//		test.forEach();
+		test.forEach();
 //		test.breakOnCondition(4);
 //		test.continueOnCondition(4);
 //		boolean b = test.isPrime(17);
@@ -50,7 +50,7 @@ public class ForLoopTester {
 	 */
 	void stepByNeigative2() {
 		for (int i = 12, n = 0; i >= 0; i -= 2, n = i * i) {
-			System.out.println(n);
+			System.out.println("n=" + n);
 		}
 		System.out.println("Bye...");
 	}

@@ -24,7 +24,7 @@ public class DataTypeTester {
 		System.out.println(d);
 
 		double pi = 3.1415926535;
-		myInt = (int) pi;
+		myInt = (int)pi;
 		System.out.println(pi);
 		System.out.println(myInt);
 	}

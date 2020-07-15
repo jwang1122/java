@@ -1,4 +1,4 @@
-package com.huaxia.java1;
+package com.huaxia.test;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -14,11 +14,11 @@ public class WhileLoopTester {
 	public static void main(String[] args) {
 		WhileLoopTester test = new WhileLoopTester();
 		int i = 0; // change to i=6
-		test.whileTest(i);
+//		test.whileTest(i);
 //		test.doWhileTest(i);
 //		test.breakOnCondition(4);
 //		test.continueOnCondition(4);
-//		test.dice();
+		test.dice();
 //		test.infiniteLoop();
 	}
 
@@ -70,7 +70,7 @@ public class WhileLoopTester {
 		while (i < 10) {
 			System.out.println(i);
 			i++;
-			if (i == 4) {
+			if (i == 6) {
 				break;
 			}
 		}
@@ -82,7 +82,7 @@ public class WhileLoopTester {
 	 */
 	void continueOnCondition(int i) {
 		while (i < 10) {
-			if (i == 4) {
+			if (i == 7) {
 				i++;
 				continue;
 			}

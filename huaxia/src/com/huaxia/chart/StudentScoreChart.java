@@ -14,6 +14,7 @@ import com.huaxia.java1.FileTest;
 
 public class StudentScoreChart extends ApplicationFrame{
 
+	private static final long serialVersionUID = 1L;
 	public StudentScoreChart(String title, String chartTitle) {
 		super(title);
 		JFreeChart lineChart = ChartFactory.createLineChart(chartTitle, "Student ID", "Scores", createDataset(),

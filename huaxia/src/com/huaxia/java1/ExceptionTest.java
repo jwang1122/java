@@ -11,14 +11,12 @@ public class ExceptionTest {
 		try {
 			System.out.println(test.area(1.0f));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 //			e.printStackTrace();
 			System.out.println("Error: " + e.getMessage());
 		}
 		try {
 			System.out.println(test.area(-2.0f));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			System.out.println("Error: " + e.getMessage());
 //			e.printStackTrace();
 		}

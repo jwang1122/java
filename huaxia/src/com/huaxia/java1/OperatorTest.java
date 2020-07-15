@@ -11,13 +11,13 @@ public class OperatorTest {
 	}
 
 	void mathOperator() {
-		float x = 100 + 50;
+		double x = 100 + 50;
 		System.out.println(x);
 		x = 100 - 3;
 		System.out.println(x);
 		x = 24 * 12;
 		System.out.println(x);
-		x = (float)(13.0 / 12);
+		x = (13.0 / 12);
 		System.out.println(x);
 		x = 13 % 12;
 		System.out.println(x);
@@ -49,7 +49,7 @@ public class OperatorTest {
 		String s1 = "John";
 		String s2 = "John";
 		System.out.println(s1 == s2);
-		// Try others in class
+		// Try others comparison operator by yourself in class
 	}
 
 	void logicOperator() {
@@ -62,8 +62,9 @@ public class OperatorTest {
 		}
 
 		if (x > 3 || x < 4) {
-			System.out.print(x);
+			System.out.println(x);
 		}
 		// try ! in class
+		System.out.println(! (x<3));
 	}
 }
