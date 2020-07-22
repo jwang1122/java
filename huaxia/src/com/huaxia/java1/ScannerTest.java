@@ -57,7 +57,6 @@ public class ScannerTest {
 	 * 
 	 * @throws Exception
 	 */
-	@SuppressWarnings("resource")
 	void fileToClass() throws IOException {
 		Scanner fileInput = new Scanner(new File("data/students.csv"));
 		ArrayList<Student> students = new ArrayList<Student>();

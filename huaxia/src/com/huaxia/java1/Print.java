@@ -29,7 +29,7 @@ public class Print {
 	 *       1
 	 * @param i
 	 */
-	private void diamond(int i) {
+	public void diamond(int i) {
 		// TODO Auto-generated method stub
 		
 	}

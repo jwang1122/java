@@ -1,4 +1,4 @@
-package com.huaxia.test;
+package com.huaxia.john;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -14,7 +14,7 @@ public class WhileLoopTester {
 	public static void main(String[] args) {
 		WhileLoopTester test = new WhileLoopTester();
 		int i = 0; // change to i=6
-//		test.whileTest(i);
+		test.whileTest(i);
 //		test.doWhileTest(i);
 //		test.breakOnCondition(4);
 //		test.continueOnCondition(4);

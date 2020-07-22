@@ -1,4 +1,4 @@
-package com.huaxia.test;
+package com.huaxia.john;
 
 public class Pencil {
 	String type;
