@@ -5,24 +5,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+
 public class ArrayListTest {
 	static final String[] type = { "Glass", "Paper", "Plastic", "China" };
 
 	public static void main(String[] args) throws IOException {
 		ArrayListTest test = new ArrayListTest();
-		ArrayList<Integer> myInts = test.createIntegerArrayList();
-		System.out.println(myInts);
-		System.out.println(myInts.size());
-		ArrayList<String> cupTypes = test.arrayToArrayList();
-		System.out.println(cupTypes);
-		test.insertItemIntoArrayList();
-		test.removeItemFromArrayList();
-		test.replaceItemInArrayList();
-		test.numberOfElementsInArrayList();
-		test.findPosition();
-		test.clearArrayList();
-		test.createObjectArrayList();
+//		ArrayList<Integer> myInts = test.createIntegerArrayList();
+//		System.out.println(myInts);
+//		System.out.println(myInts.size());
+//		ArrayList<String> cupTypes = test.arrayToArrayList();
+//		System.out.println(cupTypes);
+//		test.insertItemIntoArrayList();
+//		test.removeItemFromArrayList();
+//		test.replaceItemInArrayList();
+//		test.numberOfElementsInArrayList();
+//		test.findPosition();
+//		test.clearArrayList();
+//		List<Card> cardList = test.createObjectArrayList();
+//		for(Card c : cardList) {
+//			System.out.println(c);
+//		}
 		test.writeObjectArrayListToFile();
+		System.out.println("Done.");
 	}
 	
 	private void clearArrayList() {
@@ -84,23 +89,23 @@ public class ArrayListTest {
 		return integers;
 	}
 
-	ArrayList<Cup>  createObjectArrayList() {
-		ArrayList<Cup> cups = new ArrayList<Cup>();
-		Cup cup = new Cup("Glass","Hot Water");
-		cups.add(cup);
-		cup = new Cup("Paper","Ice Water");
-		cups.add(cup);
-		cup = new Cup("Plastic","Coca-Cola");
-		cups.add(cup);
-		return cups;
+	ArrayList<Card>  createObjectArrayList() {
+		ArrayList<Card> cards = new ArrayList<Card>();
+		Card card = new Card("A","Hearts");
+		cards.add(card);
+		card = new Card("2","Spades");
+		cards.add(card);
+		card = new Card("K","Diamonds");
+		cards.add(card);
+		return cards;
 	}
 	
 	void writeObjectArrayListToFile() throws IOException {
-		FileWriter fw = new FileWriter("cups.csv");
-		ArrayList<Cup> cups = createObjectArrayList();
-		fw.write("cup type, liquids\n");
-		for (Cup c : cups) {
-			fw.write(c.type+","+c.liquids +"\n");
+		FileWriter fw = new FileWriter("card.csv");
+		ArrayList<Card> cards = createObjectArrayList();
+		fw.write("Face, Suit\n");
+		for (Card c : cards) {
+			fw.write(c.face + "," + c.suit +"\n");
 		}
 		fw.close();
 	}
