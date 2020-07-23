@@ -4,28 +4,28 @@ package com.huaxia.john;
 
 public class ExceptionTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		ExceptionTest test = new ExceptionTest();
 //		test.uncheckedArrayUsage();
 //		test.tryCatchTest();
 		try {
-			System.out.println(test.area(1.0f));
-		} catch (Exception e) {
-//			e.printStackTrace();
-			System.out.println("Error: " + e.getMessage());
+			System.out.println(test.area(-1.0f));
+		} catch (Exception e1) {
+			System.out.println("Error: " + e1.getMessage());
+//			e1.printStackTrace();
 		}
-//		try {
-//			System.out.println(test.area(-2.0f));
-//		} catch (Exception e) {
-//			System.out.println("Error: " + e.getMessage());
-////			e.printStackTrace();
-//		}
-//		try {
-//			float area = test.area(-2.3f);
-//			System.out.printf("Area of circle with radius %f is %f.", 2.3, area);
-//		} catch (Exception e) {
-//			System.out.println("Error: " + e);
-//		}
+		try {
+			System.out.println(test.area(-2.0f));
+		} catch (Exception e2) {
+			System.out.println("Error: " + e2.getMessage());
+//			e.printStackTrace();
+		}
+		try {
+			float area = test.area(2.3f);
+			System.out.printf("Area of circle with radius %4.2f is %5.2f.\n", 2.3, area);
+		} catch (Exception err) {
+			System.out.println("Error: " + err);
+		}
 		System.out.println("Done.");
 
 	}

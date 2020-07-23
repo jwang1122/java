@@ -3,3 +3,4 @@ RemoteSystemsTempFiles/
 doc/
 .metadata/
 /.recommenders/
+.DS_Store
