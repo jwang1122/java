@@ -6,6 +6,6 @@ doc/
 
 lib/
 .classpath
+.project
 
-huaxia/.DS_Store
 .DS_Store
