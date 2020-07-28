@@ -3,4 +3,9 @@ RemoteSystemsTempFiles/
 doc/
 .metadata/
 /.recommenders/
+
+lib/
+.classpath
+
+huaxia/.DS_Store
 .DS_Store
