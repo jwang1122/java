@@ -7,7 +7,7 @@ BlackJackCard.java
 CatdTest.java
 ```
 
-* Finishi the Card class:
+* Finish the Card class:
 
 ```java
 public class Card {
@@ -27,7 +27,7 @@ private String suit;
 	} 
 	// equals method
 	public String toString() {
-		return "[face+" of "+ suit+"," +getValue()+"]";
+		return "[" + face" +" of "+ suit+", " + getValue() + "]";
 	} 
 }
 ```
@@ -54,38 +54,39 @@ import java.awt.Color;
 public class CardTestOne
 {
 	public static void main( String args[] ) {
-		Card two = new BlackJackCard("1","DIAMONDS"); 
-		out.println(two);
-		Card three = new BlackJackCard("4","CLUBS"); 
-		out.println(three);
-		Card four = new BlackJackCard("Q","SPADES"); 
-		out.println(four);
-		Card five = new BlackJackCard("Q","HEARTS"); 
-		out.println(five);
-		Card six = new BlackJackCard("9","SPADES"); 
-		out.println(six);
-		Card seven = new BlackJackCard("K", "DIAMONDS");
-		out.println(seven)
-		out.println(one.equals(two)); 
-		out.println(one.equals(one)); 
-		out.println(four.equals(five)); 
-		out.println(three.equals(four));
-		out.println(five.equals(seven));
+	        Card one = new BlackJackCard("1","DIAMONDS"); 
+	        out.println(one);
+	        Card two = new BlackJackCard("4","CLUBS"); 
+	        out.println(two);
+	        Card three = new BlackJackCard("Q","SPADES"); 
+	        out.println(three);
+	        Card four = new BlackJackCard("Q","HEARTS"); 
+	        out.println(four);
+	        Card five = new BlackJackCard("9","SPADES"); 
+	        out.println(five);
+	        Card six = new BlackJackCard("K", "DIAMONDS");
+	        out.println(six);
+	        out.println(one.equals(two)); 
+	        out.println(one.equals(one)); 
+	        out.println(four.equals(five)); 
+	        out.println(three.equals(four));
+	        out.println(five.equals(six));	}
+
 	} 
 }
 ```
 * Predicted Output
 
 ```
-[A of DIAMONDS, 11]
-[4 of CLUBS, 4] 
-[Q of SPADES, 10] 
-[Q of HEARTS, 10] 
-[9 of SPADES, 9] 
-[K of DIAMONDS, 10]
+[1, DIAMONDS]
+[4, CLUBS]
+[Q, SPADES]
+[Q, HEARTS]
+[9, SPADES]
+[K, DIAMONDS]
 false
 true
 false
-false
 true
+false
 ```

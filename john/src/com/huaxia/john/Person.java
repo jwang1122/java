@@ -6,6 +6,9 @@ public class Person {
 	protected char gender;
 	protected int age;
 
+	public Person() {
+		
+	}
 	public Person(String name, String ssn, char gender, int age) {
 		super();
 		this.name = name;
