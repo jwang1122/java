@@ -12,10 +12,13 @@ PlayerTest.java
 * Write a Player Class that has the following methods in it:
 
 ```java
-public void addCardToHand( Card temp ) public void resetHand()
+public void addCardToHand( Card temp ) 
+public void resetHand()
 public boolean hit()
-public void setWinCount( int numWins ) public int getWinCount()
-public int getHandSize() public int getHandValue()
+public void setWinCount( int numWins ) 
+public int getWinCount()
+public int getHandSize() 
+public int getHandValue()
 ```
 The Player class should have an ArrayList to hold the Cards in the player’s hand and an int to store the winCount. You should also have the following toString method:
 

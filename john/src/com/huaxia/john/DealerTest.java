@@ -1,31 +1,5 @@
-# Black Jack Card Game - Part 4
+package com.huaxia.john;
 
-* Involved classes:
-
-```
-Card.java 
-BlackJackCard.Java 
-Deck.java 
-Player.java 
-PlayerTest.java
-DealerTest.java 
-Dealer.java
-```
-Write the Dealer class that extends the Player class. The dealer will always hit if the hand value is less than or equal to 16. Use all the previous classes you have written.
-The Dealer Class will be
-
-```
-//define Dealer class here 
-//instance variable - Deck
-//constructors 
-//method to shuffle 
-//method to deal a card 
-//hit method goes here
-```
-
-The DealerTest Class will be
-
-```java
 import static java.lang.System.out;
 
 public class DealerTest {
@@ -61,19 +35,3 @@ public class DealerTest {
 		}
 	}
 }
-```
-* Possible Output:
-
-```
-PLAYER 
-Hand Value :: 17
-Hand Size :: 2
-Cards in Hand :: hand = [[8, DIAMONDS], [9, CLUBS]] - # wins 0
-
-DEALER 
-Hand Value :: 12
-Hand Size :: 2
-Cards in Hand :: hand = [[2, SPADES], [10, HEARTS]] - # wins 0
-
-Player has bigger hand value!
-```
