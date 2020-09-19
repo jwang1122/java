@@ -9,11 +9,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class ImageButton extends JFrame {
-	
+
+	private static final long serialVersionUID = 1L;
 
 	public ImageButton(String title) throws HeadlessException {
 		super(title);
 		setSize(400, 500);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		JButton b = new JButton(new ImageIcon("ok-hand.png"));// creating instance of JButton
 		b.setBounds(130, 100, 60, 60);// x axis, y axis, width, height
 		b.addActionListener(new ActionListener() {

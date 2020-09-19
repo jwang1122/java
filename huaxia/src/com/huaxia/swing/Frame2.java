@@ -8,7 +8,7 @@ public class Frame2 extends JFrame {
 
 	public Frame2(){
 		setSize(400, 500);
-		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		JTextField t = new JTextField();
 		t.setBounds(50, 50, 200, 30);
 		add(t);

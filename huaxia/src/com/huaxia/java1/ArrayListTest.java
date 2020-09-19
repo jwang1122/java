@@ -30,38 +30,38 @@ public class ArrayListTest {
 		System.out.println("Done.");
 	}
 	
-	private void clearArrayList() {
+	void clearArrayList() {
 		ArrayList<String> cupTypes = arrayToArrayList();
 		System.out.println(cupTypes);
 		cupTypes.clear();
 		System.out.println(cupTypes.isEmpty());		
 	}
 
-	private void findPosition() {
+	void findPosition() {
 		ArrayList<String> cupTypes = arrayToArrayList();
 		int position = cupTypes.indexOf("Plastic");
 		System.out.println(position);
 	}
 
-	private void numberOfElementsInArrayList() {
+	void numberOfElementsInArrayList() {
 		ArrayList<Integer> list = createIntegerArrayList();
 		int numOfItem = list.size();
 		System.out.println(numOfItem);
 	}
 
-	private void replaceItemInArrayList() {
+	void replaceItemInArrayList() {
 		ArrayList<Integer> list = createIntegerArrayList();
 		list.set(3,15);
 		System.out.println(list);
 	}
 
-	private void removeItemFromArrayList() {
+	void removeItemFromArrayList() {
 		ArrayList<Integer> list = createIntegerArrayList();
 		list.remove(3);
 		System.out.println(list);
 	}
 
-	private void insertItemIntoArrayList() {
+	void insertItemIntoArrayList() {
 		ArrayList<Integer> list = createIntegerArrayList();
 		list.add(3,15);
 		System.out.println(list);
@@ -78,7 +78,7 @@ public class ArrayListTest {
 		return cupTypes;
 	}
 	
-	private ArrayList<Integer> createIntegerArrayList() {
+	ArrayList<Integer> createIntegerArrayList() {
 		ArrayList<Integer> integers = new ArrayList<Integer>();
 		integers.add(10);
 		integers.add(20);
