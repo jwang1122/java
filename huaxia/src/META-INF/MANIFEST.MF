@@ -1,0 +1,2 @@
+Main-Class: com.huaxia.swing.RandomMoveImage
+Class-Path: .;resources;
