@@ -9,7 +9,7 @@ public class IfElseTest {
 //		test.ifElseIf();
 		// write simple loop print out odd number between 0-20
 //		test.ternary();
-		String weekday = test.number2Week(9);
+		String weekday = test.number2Week(3);
 		System.out.println(weekday);
 	}
 
