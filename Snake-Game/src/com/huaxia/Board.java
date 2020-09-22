@@ -11,240 +11,244 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.net.URL;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Board extends JPanel implements ActionListener {
 
-    /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private final int B_WIDTH = 300;
-    private final int B_HEIGHT = 300;
-    private final int DOT_SIZE = 10;
-    private final int ALL_DOTS = 900;
-    private final int RAND_POS = 29;
-    private final int DELAY = 140;
+	private final int B_HEIGHT = 300;
+	private final int DOT_SIZE = 10;
+	private final int ALL_DOTS = 900;
+	private final int RAND_POS = 29;
+	private final int DELAY = 140;
 
-    private final int x[] = new int[ALL_DOTS];
-    private final int y[] = new int[ALL_DOTS];
+	private final int x[] = new int[ALL_DOTS];
+	private final int y[] = new int[ALL_DOTS];
 
-    private int dots;
-    private int apple_x;
-    private int apple_y;
+	private int dots;
+	private int apple_x;
+	private int apple_y;
 
-    private boolean leftDirection = false;
-    private boolean rightDirection = true;
-    private boolean upDirection = false;
-    private boolean downDirection = false;
-    private boolean inGame = true;
+	private boolean leftDirection = false;
+	private boolean rightDirection = true;
+	private boolean upDirection = false;
+	private boolean downDirection = false;
+	private boolean inGame = true;
 
-    private Timer timer;
-    private Image ball;
-    private Image apple;
-    private Image head;
+	private Timer timer;
+	private Image ball;
+	private Image apple;
+	private Image head;
 
-    public Board() {
-        
-        initBoard();
-    }
-    
-    private void initBoard() {
+	public Board() {
 
-        addKeyListener(new TAdapter());
-        setBackground(Color.black);
-        setFocusable(true);
+		initBoard();
+	}
 
-        setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
-        loadImages();
-        initGame();
-    }
+	private void initBoard() {
 
-    private void loadImages() {
+		addKeyListener(new TAdapter());
+		setBackground(Color.black);
+		setFocusable(true);
 
-        ImageIcon iid = new ImageIcon("src/resources/dot.png");
-        ball = iid.getImage();
+		setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
+		loadImages();
+		initGame();
+	}
 
-        ImageIcon iia = new ImageIcon("src/resources/apple.png");
-        apple = iia.getImage();
+	private void loadImages() {
+		URL iconUrl = this.getClass().getResource("resources/dot.png");
+		Toolkit tk = this.getToolkit();
+		ball = tk.getImage(iconUrl);
+//      ImageIcon iid = new ImageIcon("resources/dot.png");
+//		ball = iid.getImage();
+		iconUrl = this.getClass().getResource("resources/apple.png");
+//		ImageIcon iia = new ImageIcon("resources/apple.png");
+		apple = tk.getImage(iconUrl);
+		iconUrl = this.getClass().getResource("resources/head.png");
+//		ImageIcon iih = new ImageIcon("resources/head.png");
+		head = tk.getImage(iconUrl);
+	}
 
-        ImageIcon iih = new ImageIcon("src/resources/head.png");
-        head = iih.getImage();
-    }
+	private void initGame() {
 
-    private void initGame() {
+		dots = 3;
 
-        dots = 3;
+		for (int z = 0; z < dots; z++) {
+			x[z] = 50 - z * 10;
+			y[z] = 50;
+		}
 
-        for (int z = 0; z < dots; z++) {
-            x[z] = 50 - z * 10;
-            y[z] = 50;
-        }
-        
-        locateApple();
+		locateApple();
 
-        timer = new Timer(DELAY, this);
-        timer.start();
-    }
+		timer = new Timer(DELAY, this);
+		timer.start();
+	}
 
-    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
 
-        doDrawing(g);
-    }
-    
-    private void doDrawing(Graphics g) {
-        
-        if (inGame) {
+		doDrawing(g);
+	}
 
-            g.drawImage(apple, apple_x, apple_y, this);
+	private void doDrawing(Graphics g) {
 
-            for (int z = 0; z < dots; z++) {
-                if (z == 0) {
-                    g.drawImage(head, x[z], y[z], this);
-                } else {
-                    g.drawImage(ball, x[z], y[z], this);
-                }
-            }
+		if (inGame) {
 
-            Toolkit.getDefaultToolkit().sync();
+			g.drawImage(apple, apple_x, apple_y, this);
 
-        } else {
+			for (int z = 0; z < dots; z++) {
+				if (z == 0) {
+					g.drawImage(head, x[z], y[z], this);
+				} else {
+					g.drawImage(ball, x[z], y[z], this);
+				}
+			}
 
-            gameOver(g);
-        }        
-    }
+			Toolkit.getDefaultToolkit().sync();
 
-    private void gameOver(Graphics g) {
-        
-        String msg = "Game Over";
-        Font small = new Font("Helvetica", Font.BOLD, 14);
-        FontMetrics metr = getFontMetrics(small);
+		} else {
 
-        g.setColor(Color.white);
-        g.setFont(small);
-        g.drawString(msg, (B_WIDTH - metr.stringWidth(msg)) / 2, B_HEIGHT / 2);
-    }
+			gameOver(g);
+		}
+	}
 
-    private void checkApple() {
+	private void gameOver(Graphics g) {
 
-        if ((x[0] == apple_x) && (y[0] == apple_y)) {
+		String msg = "Game Over";
+		Font small = new Font("Helvetica", Font.BOLD, 14);
+		FontMetrics metr = getFontMetrics(small);
 
-            dots++;
-            locateApple();
-        }
-    }
+		g.setColor(Color.white);
+		g.setFont(small);
+		g.drawString(msg, (B_WIDTH - metr.stringWidth(msg)) / 2, B_HEIGHT / 2);
+	}
 
-    private void move() {
+	private void checkApple() {
 
-        for (int z = dots; z > 0; z--) {
-            x[z] = x[(z - 1)];
-            y[z] = y[(z - 1)];
-        }
+		if ((x[0] == apple_x) && (y[0] == apple_y)) {
 
-        if (leftDirection) {
-            x[0] -= DOT_SIZE;
-        }
+			dots++;
+			locateApple();
+		}
+	}
 
-        if (rightDirection) {
-            x[0] += DOT_SIZE;
-        }
+	private void move() {
 
-        if (upDirection) {
-            y[0] -= DOT_SIZE;
-        }
+		for (int z = dots; z > 0; z--) {
+			x[z] = x[(z - 1)];
+			y[z] = y[(z - 1)];
+		}
 
-        if (downDirection) {
-            y[0] += DOT_SIZE;
-        }
-    }
+		if (leftDirection) {
+			x[0] -= DOT_SIZE;
+		}
 
-    private void checkCollision() {
+		if (rightDirection) {
+			x[0] += DOT_SIZE;
+		}
 
-        for (int z = dots; z > 0; z--) {
+		if (upDirection) {
+			y[0] -= DOT_SIZE;
+		}
 
-            if ((z > 4) && (x[0] == x[z]) && (y[0] == y[z])) {
-                inGame = false;
-            }
-        }
+		if (downDirection) {
+			y[0] += DOT_SIZE;
+		}
+	}
 
-        if (y[0] >= B_HEIGHT) {
-            inGame = false;
-        }
+	private void checkCollision() {
 
-        if (y[0] < 0) {
-            inGame = false;
-        }
+		for (int z = dots; z > 0; z--) {
 
-        if (x[0] >= B_WIDTH) {
-            inGame = false;
-        }
+			if ((z > 4) && (x[0] == x[z]) && (y[0] == y[z])) {
+				inGame = false;
+			}
+		}
 
-        if (x[0] < 0) {
-            inGame = false;
-        }
-        
-        if (!inGame) {
-            timer.stop();
-        }
-    }
+		if (y[0] >= B_HEIGHT) {
+			inGame = false;
+		}
 
-    private void locateApple() {
+		if (y[0] < 0) {
+			inGame = false;
+		}
 
-        int r = (int) (Math.random() * RAND_POS);
-        apple_x = ((r * DOT_SIZE));
+		if (x[0] >= B_WIDTH) {
+			inGame = false;
+		}
 
-        r = (int) (Math.random() * RAND_POS);
-        apple_y = ((r * DOT_SIZE));
-    }
+		if (x[0] < 0) {
+			inGame = false;
+		}
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
+		if (!inGame) {
+			timer.stop();
+		}
+	}
 
-        if (inGame) {
+	private void locateApple() {
 
-            checkApple();
-            checkCollision();
-            move();
-        }
+		int r = (int) (Math.random() * RAND_POS);
+		apple_x = ((r * DOT_SIZE));
 
-        repaint();
-    }
+		r = (int) (Math.random() * RAND_POS);
+		apple_y = ((r * DOT_SIZE));
+	}
 
-    private class TAdapter extends KeyAdapter {
+	@Override
+	public void actionPerformed(ActionEvent e) {
 
-        @Override
-        public void keyPressed(KeyEvent e) {
+		if (inGame) {
 
-            int key = e.getKeyCode();
+			checkApple();
+			checkCollision();
+			move();
+		}
 
-            if ((key == KeyEvent.VK_LEFT) && (!rightDirection)) {
-                leftDirection = true;
-                upDirection = false;
-                downDirection = false;
-            }
+		repaint();
+	}
 
-            if ((key == KeyEvent.VK_RIGHT) && (!leftDirection)) {
-                rightDirection = true;
-                upDirection = false;
-                downDirection = false;
-            }
+	private class TAdapter extends KeyAdapter {
 
-            if ((key == KeyEvent.VK_UP) && (!downDirection)) {
-                upDirection = true;
-                rightDirection = false;
-                leftDirection = false;
-            }
+		@Override
+		public void keyPressed(KeyEvent e) {
 
-            if ((key == KeyEvent.VK_DOWN) && (!upDirection)) {
-                downDirection = true;
-                rightDirection = false;
-                leftDirection = false;
-            }
-        }
-    }
+			int key = e.getKeyCode();
+
+			if ((key == KeyEvent.VK_LEFT) && (!rightDirection)) {
+				leftDirection = true;
+				upDirection = false;
+				downDirection = false;
+			}
+
+			if ((key == KeyEvent.VK_RIGHT) && (!leftDirection)) {
+				rightDirection = true;
+				upDirection = false;
+				downDirection = false;
+			}
+
+			if ((key == KeyEvent.VK_UP) && (!downDirection)) {
+				upDirection = true;
+				rightDirection = false;
+				leftDirection = false;
+			}
+
+			if ((key == KeyEvent.VK_DOWN) && (!upDirection)) {
+				downDirection = true;
+				rightDirection = false;
+				leftDirection = false;
+			}
+		}
+	}
 }
