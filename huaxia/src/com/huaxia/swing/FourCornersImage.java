@@ -1,4 +1,4 @@
-package com.huaxia.john;
+package com.huaxia.swing;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -21,6 +21,7 @@ public class FourCornersImage extends JFrame {
 	static final String ROCKETS2 = "Astros.png";
 	
 	boolean astros1 = false;
+	boolean range1 = false;
 	public FourCornersImage(String framename) {
 		super(framename);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,8 +44,27 @@ public class FourCornersImage extends JFrame {
 			  astros1 = !astros1;
 		  }
 		});
+		astrosBtn.setBounds(10, 10, 300, 300);
 		this.add(astrosBtn);
-		setVisible(true);
+		
+		ImageIcon rangeIcon1 = new ImageIcon(t.getImage(FOLDER + RANGERS1));
+		ImageIcon rangeIcon2 = new ImageIcon(t.getImage(FOLDER + RANGERS2));
+		JButton rangeBtn = new JButton(rangeIcon1);
+		rangeBtn.addActionListener(new ActionListener()
+		{
+		  public void actionPerformed(ActionEvent e)
+		  {
+			  if(range1) {
+				  rangeBtn.setIcon(rangeIcon1);
+			  }else {
+				  rangeBtn.setIcon(rangeIcon2);
+			  }
+			  range1 = !range1;
+		  }
+		});
+		rangeBtn.setBounds(300, 10, 300, 300);
+		this.add(rangeBtn);
+		setLayout(null);
 	}
 
 	public static void main(String[] args) {
