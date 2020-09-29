@@ -44,11 +44,13 @@ public class FourCornersImage extends JFrame {
 		  }
 		});
 		this.add(astrosBtn);
+		setLayout(null);
 		setVisible(true);
 	}
 
 	public static void main(String[] args) {
 		FourCornersImage frame = new FourCornersImage("4-Corner image");
+		frame.setVisible(true);
 	}
 
 }

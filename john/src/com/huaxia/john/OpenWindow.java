@@ -1,4 +1,4 @@
-package com.huaxia.swing;
+package com.huaxia.john;
 
 import javax.swing.JFrame;
 
