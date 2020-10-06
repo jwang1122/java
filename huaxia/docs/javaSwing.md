@@ -1,5 +1,30 @@
 # Java Swing-I
 
+## 2020-09029
+* check homework, do Math1.java
+* OpenWindow.java
+* AddButton.java // anonymous class
+* GetInfo.java //interface
+* Student.java // implements GetInfo
+* StudentTest.java // test student  
+    1. normal interface
+    1. named class
+    1. anonymous class
+* Create Teacher.java // implements GetInfo
+* Create Manager.java // implements GetInfo
+* Create School.java // implements GetInfo
+* AddButtonWithAction.java // extends JFrame
+* AddTextField.java
+* AddLabel.java
+* Frame2.java // extends JFrame and add TextField
+* ImageButton.java
+* Math1.java
+* MoveImage.java + MyPanel1 //
+* KeyboardControljava.java + MyPanel2
+* FourCorners Program.docx >> FourCornersImage.java
+
+
+
 ## Create jar file
 
 ```
@@ -35,4 +60,5 @@ Class-Path: .; snake.jar
 ```
 jar cmvf snake.jar META-INF/MANIFEST.MF
 ```
+
 
