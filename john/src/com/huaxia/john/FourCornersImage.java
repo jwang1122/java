@@ -44,7 +44,6 @@ public class FourCornersImage extends JFrame {
 		  }
 		});
 		this.add(astrosBtn);
-		setLayout(null);
 		setVisible(true);
 	}
 
