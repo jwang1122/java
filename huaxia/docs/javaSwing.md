@@ -1,6 +1,7 @@
 # Java Swing-I
 
 ## 2020-09029
+* check homework, do Math1.java
 * OpenWindow.java
 * AddButton.java // anonymous class
 * GetInfo.java //interface

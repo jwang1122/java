@@ -12,12 +12,12 @@ public class AddButton {
 
 		JButton b = new JButton("click");// creating instance of JButton
 		b.setBounds(130, 100, 100, 30);// x axis, y axis, width, height
-//		b.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				System.out.println("The button clicked.");				
-//			}
-//		});
+		b.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("The button clicked.");				
+			}
+		});
 		f.add(b);// adding button in JFrame
 		
 		f.setSize(400, 500);// 400 width and 500 height
