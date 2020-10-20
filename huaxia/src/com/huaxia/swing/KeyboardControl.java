@@ -2,9 +2,9 @@ package com.huaxia.swing;
 
 import javax.swing.JFrame;
 
-public class KeyboardControljava extends JFrame{
+public class KeyboardControl extends JFrame{
 
-	public KeyboardControljava() {
+	public KeyboardControl() {
 		setSize(400,400);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
@@ -13,7 +13,7 @@ public class KeyboardControljava extends JFrame{
 		
 	}
 	public static void main(String[] args) {
-		KeyboardControljava mi = new KeyboardControljava();
+		KeyboardControl mi = new KeyboardControl();
 		mi.setVisible(true);
 
 	}

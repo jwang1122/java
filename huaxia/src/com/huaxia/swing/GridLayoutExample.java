@@ -14,7 +14,7 @@ public class GridLayoutExample {
     public static void main(String[] args) {
         // Create and set up a frame window
 //        JFrame.setDefaultLookAndFeelDecorated(true);
-        JFrame frame = new JFrame("Border Layout");
+        JFrame frame = new JFrame("Grid Layout");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          
         // Define new buttons 
