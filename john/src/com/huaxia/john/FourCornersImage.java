@@ -10,7 +10,7 @@ public class FourCornersImage extends JFrame {
 
 	private static final int WIDTH = 1200;
 	private static final int HEIGHT = 1200;
-	static final String FOLDER = "C:/Users/12818/workspace/java/john/doc/";
+	static final String FOLDER = "/Users/12818/workspace/java/john/doc/";
 	static final String RANGERS1 = "TexasRangers.png";
 	static final String RANGERS2 = "Rangers.png";
 	static final String ASTROS1 = "HoustonAstros.png";
@@ -25,7 +25,6 @@ public class FourCornersImage extends JFrame {
 		super(framename);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(WIDTH, HEIGHT);
-//		add(new FourCornersPanel ());
 		
 		Toolkit t = Toolkit.getDefaultToolkit();
 		ImageIcon astrosIcon1 = new ImageIcon(t.getImage(FOLDER + ASTROS1));
@@ -43,8 +42,9 @@ public class FourCornersImage extends JFrame {
 			  astros1 = !astros1;
 		  }
 		});
-		this.add(astrosBtn);
-		setVisible(true);
+		astrosBtn.setBounds(10, 10, 300, 300);
+		add(astrosBtn);
+		setLayout(null);
 	}
 
 	public static void main(String[] args) {
