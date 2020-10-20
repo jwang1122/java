@@ -17,7 +17,7 @@ public class MyPanel extends JPanel {
 	public void paint(Graphics g) {
 
 		Toolkit t = Toolkit.getDefaultToolkit();
-		URL iconUrl = this.getClass().getResource("resources/apple.png");
+		URL iconUrl = this.getClass().getResource("resources/tiger.jpeg");
 		apple = t.getImage(iconUrl);
 		g.drawImage(apple, apple_x, apple_y, this);
 

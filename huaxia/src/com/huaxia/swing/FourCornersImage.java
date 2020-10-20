@@ -10,7 +10,7 @@ public class FourCornersImage extends JFrame {
 
 	private static final int WIDTH = 1200;
 	private static final int HEIGHT = 1200;
-	static final String FOLDER = "/Users/12818/workspace/java/john/doc/";
+	static final String FOLDER = "/Users/wangqianjiang/workspace/java/john/doc/";
 	static final String RANGERS1 = "TexasRangers.png";
 	static final String RANGERS2 = "Rangers.png";
 	static final String ASTROS1 = "HoustonAstros.png";
