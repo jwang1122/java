@@ -43,7 +43,7 @@ public class FourCornersImage extends JFrame {
 			  astros1 = !astros1;
 		  }
 		});
-		astrosBtn.setBounds(10, 10, 300, 300);
+		astrosBtn.setBounds(10, 10, 300, 300);<<<<<<< HEAD
 		add(astrosBtn);
 		setLayout(null);
 	}
