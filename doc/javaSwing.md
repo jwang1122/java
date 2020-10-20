@@ -16,7 +16,13 @@ Layout Manager
     - ask student add more component in the panel, such as JTextField, and JLabel
 * BorderLayoutExample.java; resize the window. 
     - BorderLayoutExample1.java; ask student add more components in the center as FlowLayout.
-* CardLayout.java; 
+* CardLayoutExample.java; class level attributes, JFrame.getContentPanel()
+* BoxLayoutExample.java;
+* GridLayoutExample.java;
+* GridBagLayoutExample.java;
+* SpringLayoutExample.java;
+* GroupLayoutExample.java;
+
 
 
 ## Swing Hierarchy
