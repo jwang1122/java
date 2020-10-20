@@ -27,7 +27,8 @@ public class FourCornersImage extends JFrame {
 		setSize(WIDTH, HEIGHT);
 		
 		Toolkit t = Toolkit.getDefaultToolkit();
-		ImageIcon astrosIcon1 = new ImageIcon(t.getImage(FOLDER + ASTROS1));
+		Image image1 = t.getImage(FOLDER + ASTROS1);
+		ImageIcon astrosIcon1 = new ImageIcon(image1);
 		ImageIcon astrosIcon2 = new ImageIcon(t.getImage(FOLDER + ASTROS2));
 		JButton astrosBtn = new JButton(astrosIcon1);
 		astrosBtn.addActionListener(new ActionListener()
