@@ -9,7 +9,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-class ListExample {
+class ListExample2 {
 
 	// frame
 	static JFrame f;
@@ -24,7 +24,7 @@ class ListExample {
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// create a object
-		ListExample s = new ListExample();
+		ListExample2 s = new ListExample2();
 
 		// create a panel
 		JPanel p = new JPanel();
