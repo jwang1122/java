@@ -14,10 +14,11 @@ public class MyPanel extends JPanel {
 	private int apple_x = 100;
 	private int apple_y = 100;
 
+	@Override
 	public void paint(Graphics g) {
 
 		Toolkit t = Toolkit.getDefaultToolkit();
-		URL iconUrl = this.getClass().getResource("resources/apple.png");
+		URL iconUrl = this.getClass().getResource("resources/tiger.jpeg");
 		apple = t.getImage(iconUrl);
 		g.drawImage(apple, apple_x, apple_y, this);
 

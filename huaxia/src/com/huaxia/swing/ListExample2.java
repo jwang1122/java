@@ -15,16 +15,13 @@ class ListExample2 {
 	static JFrame f;
 
 	// lists
-	static JList b;
+	static JList<String> b;
 
 	// main class
 	public static void main(String[] args) {
 		// create a new frame
-		f = new JFrame("frame");
+		f = new JFrame("Scrollable Pane");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		// create a object
-		ListExample2 s = new ListExample2();
 
 		// create a panel
 		JPanel p = new JPanel();
@@ -36,7 +33,7 @@ class ListExample2 {
 		String week[] = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
 		// create list
-		b = new JList(week);
+		b = new JList<String>(week);
 
 		// set a selected index
 		b.setSelectedIndex(2);

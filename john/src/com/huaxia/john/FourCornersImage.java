@@ -18,17 +18,18 @@ public class FourCornersImage extends JFrame {
 	static final String MAVERICKS1 = "DallasMavericks.png";
 	static final String MAVERICKS = "Mavericks.png";
 	static final String ROCKETS1 = "HoustonRockets.png";
-	static final String ROCKETS2 = "Astros.png";
+	static final String ROCKETS2 = "Rockets.png";
 	
 	boolean astros1 = false;
+	boolean range1 = false;
 	public FourCornersImage(String framename) {
 		super(framename);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(WIDTH, HEIGHT);
+//		add(new FourCornersPanel ());
 		
 		Toolkit t = Toolkit.getDefaultToolkit();
-		Image image1 = t.getImage(FOLDER + ASTROS1);
-		ImageIcon astrosIcon1 = new ImageIcon(image1);
+		ImageIcon astrosIcon1 = new ImageIcon(t.getImage(FOLDER + ASTROS1));
 		ImageIcon astrosIcon2 = new ImageIcon(t.getImage(FOLDER + ASTROS2));
 		JButton astrosBtn = new JButton(astrosIcon1);
 		astrosBtn.addActionListener(new ActionListener()
@@ -44,7 +45,25 @@ public class FourCornersImage extends JFrame {
 		  }
 		});
 		astrosBtn.setBounds(10, 10, 300, 300);
-		add(astrosBtn);
+		this.add(astrosBtn);
+		
+		ImageIcon rangeIcon1 = new ImageIcon(t.getImage(FOLDER + RANGERS1));
+		ImageIcon rangeIcon2 = new ImageIcon(t.getImage(FOLDER + RANGERS2));
+		JButton rangeBtn = new JButton(rangeIcon1);
+		rangeBtn.addActionListener(new ActionListener()
+		{
+		  public void actionPerformed(ActionEvent e)
+		  {
+			  if(range1) {
+				  rangeBtn.setIcon(rangeIcon1);
+			  }else {
+				  rangeBtn.setIcon(rangeIcon2);
+			  }
+			  range1 = !range1;
+		  }
+		});
+		rangeBtn.setBounds(300, 10, 300, 300);
+		this.add(rangeBtn);
 		setLayout(null);
 	}
 
