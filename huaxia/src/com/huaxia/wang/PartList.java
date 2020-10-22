@@ -54,9 +54,7 @@ public class PartList {
 	
 	void sortTreeMap() {
 		treemap = new TreeMap<String, Part>(new TreeMapComparator());
-		for(Part p : map.values()) {
-			treemap.put(p.getUuid(), p);
-		}		
+		treemap.putAll(map);
 	}
 	
 	public HashMap<String, Part> getMap() {
