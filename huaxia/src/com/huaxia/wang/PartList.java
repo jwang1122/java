@@ -12,9 +12,9 @@ import java.util.UUID;
 
 public class PartList {
 	public static final String filename = "/Users/12818/workspace/java/huaxia/docs/autoparts.dat";
-	private HashMap<String, Part> map = new HashMap<>();
+	private HashMap<String, Part> randomPartMap = new HashMap<>();
 	private List<Part> autoPartList = new ArrayList<Part>();
-	private TreeMap<String, Part> treemap;
+	private TreeMap<String, Part> sortedPartMap;
 	
 	void buildMapFromDataFile() {
 		try {
@@ -33,8 +33,8 @@ public class PartList {
 				UUID uuid = UUID.randomUUID();
 				String id = uuid.toString();
 				part.setUuid(id);
-				if (map.containsValue(part)) {
-					for(Part p: map.values()) {
+				if (randomPartMap.containsValue(part)) {
+					for(Part p: randomPartMap.values()) {
 						if(p.equals(part)) {
 							p.addCount();
 							break;
@@ -42,7 +42,7 @@ public class PartList {
 					}
 				}else {
 					part.addCount();
-					map.put(part.getUuid(), part);
+					randomPartMap.put(part.getUuid(), part);
 					
 				}
 			}			
@@ -53,24 +53,24 @@ public class PartList {
 	}
 	
 	void sortTreeMap() {
-		treemap = new TreeMap<String, Part>(new TreeMapComparator());
-		treemap.putAll(map);
+		sortedPartMap = new TreeMap<String, Part>(new AutoPartComparator());
+		sortedPartMap.putAll(randomPartMap);
 	}
 	
-	public HashMap<String, Part> getMap() {
-		return map;
+	public HashMap<String, Part> getRandomPartMap() {
+		return randomPartMap;
 	}
 
-	public TreeMap<String, Part> getTreemap() {
-		return treemap;
+	public TreeMap<String, Part> getSortedPartMap() {
+		return sortedPartMap;
 	}
 
-	class TreeMapComparator implements Comparator<String>{
+	class AutoPartComparator implements Comparator<String>{
 
 		@Override
 		public int compare(String k1, String k2) {
-			Part p1 = (Part)map.get(k1);
-			Part p2 = (Part)map.get(k2);
+			Part p1 = (Part)randomPartMap.get(k1);
+			Part p2 = (Part)randomPartMap.get(k2);
 			int i = p1.getMake().compareTo(p2.getMake());
 			if (i != 0) {
 				return i;

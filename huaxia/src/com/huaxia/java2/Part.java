@@ -1,27 +1,6 @@
 package com.huaxia.java2;
 
-public class Part implements Comparable<Part> {
-
-	@Override
-	public int compareTo(Part other) {
-		int i = make.compareTo(other.getMake());
-		if (i != 0) {
-			return i;
-		}
-		i = model.compareTo(other.getModel());
-		if (i != 0) {
-			return i;
-		}
-		if (year == other.getYear()) {
-			return 0;
-		}
-		if (year < other.getYear()) {
-			return -1;
-		}
-		return 1;
-
-	}
-
+public class Part implements Comparable<Part>{
 	private String make;
 	private String model;
 	private int year;
@@ -33,6 +12,24 @@ public class Part implements Comparable<Part> {
 		this.make = make;
 		this.model = model;
 		this.year = year;
+	}
+
+	@Override
+	public int compareTo(Part other) {
+		int i = make.compareTo(other.getMake());
+		if (i != 0) {
+			return i;
+		}
+		i = model.compareTo(other.getModel());
+		if (i != 0) {
+			return i;
+		}
+		int year2 = other.getYear();
+		if (year == year2)
+			return 0;
+		if (year < year2)
+			return -1;
+		return 1;
 	}
 
 	public void addCount() {

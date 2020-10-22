@@ -15,11 +15,11 @@ public class PartsRunner {
 		
 		parts.buildMapFromDataFile();
 		System.out.println("Random Auto-Parts");
-		displayMap(parts.getMap());
+		displayMap(parts.getRandomPartMap());
 
 		System.out.println("\nSorted Auto-Parts");
 		parts.sortTreeMap();
-		displayMap(parts.getTreemap());
+		displayMap(parts.getSortedPartMap());
 	}
 	
 	private static void displayMap(Map<String, Part> map) {

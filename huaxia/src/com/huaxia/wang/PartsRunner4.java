@@ -14,7 +14,7 @@ public class PartsRunner4 {
 		parts.buildMapFromDataFile();
 		parts.sortTreeMap();
 		System.out.println("\nSorted Auto-Parts");
-		for (Entry<String, Part> e : parts.getTreemap().entrySet()) {
+		for (Entry<String, Part> e : parts.getSortedPartMap().entrySet()) {
 			System.out.println(e.getValue());
 		}
 	}
