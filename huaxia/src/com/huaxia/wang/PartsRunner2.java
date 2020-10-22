@@ -20,7 +20,7 @@ public class PartsRunner2 {
 	private Map<String, Part> sortedParts;
 
 	public PartsRunner2() {
-		PartList1 parts = new PartList1();
+		PartList2 parts = new PartList2();
 		HashMap<String, Part> map = parts.loadParts();
 		System.out.println("Total number of parts is " + map.size());
 		for (String key : map.keySet()) {

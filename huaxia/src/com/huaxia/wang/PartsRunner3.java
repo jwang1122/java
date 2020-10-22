@@ -17,7 +17,7 @@ public class PartsRunner3 {
 	private Map<String, Part> sortedParts;
 
 	public PartsRunner3() {
-		PartList1 parts = new PartList1();
+		PartList2 parts = new PartList2();
 		HashMap<String, Part> map = parts.loadParts();
 		System.out.println("Total number of parts is " + map.size());
 		for (String key : map.keySet()) {
