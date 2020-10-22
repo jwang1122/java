@@ -1,31 +1,51 @@
 package com.huaxia.java2;
 
-import java.io.File;
-import java.util.Scanner;
-import java.util.*;
-import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
 
 public class PartsRunner {
 
-	public static void main(String[] args) throws IOException {
-		Scanner input = new Scanner(new File("partinfo.dat"));
-		PartList list = new PartList();
-		ArrayList<Part> arr = new ArrayList<>();
-		while (input.hasNext()) {
-			String line = input.nextLine();
-			String[] s = line.split(" ");
-			Part p = new Part(s);
-			arr.add(p);
-
-			// list.sortMap();
-			// TreeMap<Part, Integer> map =list.sortMap();
-			// for(Part q : map.keySet()) {
-			// int i= map.get(p);
-			// System.out.println(p);
-
+	public static void main(String[] args) {
+		PartList parts = new PartList();
+		HashMap<String, Part> map = parts.loadParts();
+		System.out.println("Total number of parts is " + map.size());
+		for(String key : map.keySet()) {
+			Part p = map.get(key);
+			System.out.println(p);
 		}
-		System.out.println(arr);
-		System.out.println();
+		
+		List<Entry<String, Part>> entries = new ArrayList<>(map.entrySet());
+		Collections.sort(entries, new Comparator<Entry<String,Part>>() {
+
+			@Override
+			public int compare(Entry<String, Part> e1, Entry<String, Part> e2) {
+				Part p1 = (Part)e1.getValue();
+				Part p2 = (Part)e2.getValue();
+				int i = p1.getMake().compareTo(p2.getMake());
+				if (i!=0) {
+					return i;
+				}
+				i = p1.getModel().compareTo(p2.getModel());
+				if (i!=0) {
+					return i;
+				}
+				int year1 = p1.getYear();
+				int year2 = p2.getYear();
+				if(year1==year2) return 0;
+				if(year1<year2) return -1;
+				return 1;				
+			}
+			
+		});
+		System.out.println("\nSorted Auto-Parts");
+		for(Entry<String, Part> e : entries) {
+			System.out.println(e.getValue());
+		}
 	}
+
+
 }
-//}
