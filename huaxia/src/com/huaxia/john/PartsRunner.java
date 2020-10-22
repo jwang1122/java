@@ -22,7 +22,7 @@ public class PartsRunner {
 		Collections.sort(entries, new Comparator<Entry<String,Part>>() {
 
 			@Override
-			public int compare(Entry e1, Entry e2) {
+			public int compare(Entry<String, Part> e1, Entry<String, Part> e2) {
 				Part p1 = (Part)e1.getValue();
 				Part p2 = (Part)e2.getValue();
 				int i = p1.getMake().compareTo(p2.getMake());
@@ -42,7 +42,7 @@ public class PartsRunner {
 			
 		});
 		System.out.println("\nSorted Auto-Parts");
-		for(Entry e : entries) {
+		for(Entry<String, Part> e : entries) {
 			System.out.println(e.getValue());
 		}
 	}
