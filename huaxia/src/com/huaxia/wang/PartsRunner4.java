@@ -1,4 +1,4 @@
-package com.huaxia.john;
+package com.huaxia.wang;
 
 import java.util.Map.Entry;
 
@@ -14,7 +14,7 @@ public class PartsRunner4 {
 		parts.buildMapFromDataFile();
 		parts.sortTreeMap();
 		System.out.println("\nSorted Auto-Parts");
-		for (Entry<String, Part> e : parts.treemap.entrySet()) {
+		for (Entry<String, Part> e : parts.getTreemap().entrySet()) {
 			System.out.println(e.getValue());
 		}
 	}

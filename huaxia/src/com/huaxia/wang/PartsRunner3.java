@@ -1,32 +1,41 @@
-package com.huaxia.john;
+package com.huaxia.wang;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
-public class PartsRunner1 {
-	private List<Entry<String, Part>> entries;
-	
-	public PartsRunner1() {
-		PartList parts = new PartList();
+/**
+ * This version of sort, return back with sorted LinkedHashMap.
+ * 
+ * @author john
+ *
+ */
+public class PartsRunner3 {
+	private Map<String, Part> sortedParts;
+
+	public PartsRunner3() {
+		PartList1 parts = new PartList1();
 		HashMap<String, Part> map = parts.loadParts();
 		System.out.println("Total number of parts is " + map.size());
 		for (String key : map.keySet()) {
 			Part p = map.get(key);
 			System.out.println(p);
 		}
-
-		entries = new ArrayList<>(map.entrySet());
-		Collections.sort(entries, new MyComparator());		
+		
+		sortedParts = map.entrySet()
+						.stream()
+						.sorted(new MyComparator())
+						.collect(Collectors.toMap(Entry::getKey, Entry::getValue, 
+								(e1, e2) -> e2, LinkedHashMap::new));
 	}
-	
+
 	public static void main(String[] args) {
-		PartsRunner1 runner = new PartsRunner1();
+		PartsRunner3 runner = new PartsRunner3();
 		System.out.println("\nSorted Auto-Parts");
-		for (Entry<String, Part> e : runner.entries) {
+		for (Entry<String, Part> e : runner.sortedParts.entrySet()) {
 			System.out.println(e.getValue());
 		}
 	}

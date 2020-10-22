@@ -1,27 +1,6 @@
-package com.huaxia.john;
+package com.huaxia.wang;
 
-public class Part implements Comparable<Part> {
-
-	@Override
-	public int compareTo(Part other) {
-		int i = make.compareTo(other.getMake());
-		if (i != 0) {
-			return i;
-		}
-		i = model.compareTo(other.getModel());
-		if (i != 0) {
-			return i;
-		}
-		if (year == other.getYear()) {
-			return 0;
-		}
-		if (year < other.getYear()) {
-			return -1;
-		}
-		return 1;
-
-	}
-
+public class Part{
 	private String make;
 	private String model;
 	private int year;

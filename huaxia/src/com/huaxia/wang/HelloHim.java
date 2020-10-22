@@ -1,4 +1,4 @@
-package com.huaxia.john;
+package com.huaxia.wang;
 
 import java.util.Scanner;
 

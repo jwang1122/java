@@ -1,7 +1,5 @@
 package com.huaxia.java1;
 
-import com.huaxia.john.InvalidValueException;
-
 public class ExceptionTest {
 
 	public static void main(String[] args) {

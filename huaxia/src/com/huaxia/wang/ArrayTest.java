@@ -1,4 +1,4 @@
-package com.huaxia.john;
+package com.huaxia.wang;
 
 public class ArrayTest {
 	int[] integerArray = {1,3,65,32,12};

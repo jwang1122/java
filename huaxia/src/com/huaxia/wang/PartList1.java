@@ -1,4 +1,4 @@
-package com.huaxia.john;
+package com.huaxia.wang;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,7 +17,7 @@ import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class PartList {
+public class PartList1 {
 	public static final String filename = "/Users/12818/workspace/java/huaxia/docs/autoparts.dat";
 	private HashMap<String, Part> map = new HashMap<>();
 	private List<Part> autoPartList = new ArrayList<Part>();
@@ -25,7 +25,7 @@ public class PartList {
 	TreeMap<String, Part> treemap;
 	
 	public static void main(String[] args) {
-		PartList list = new PartList();
+		PartList1 list = new PartList1();
 		list.buildMapFromDataFile();
 		for(Part p : list.autoPartList) {
 			System.out.println(p);
@@ -133,7 +133,7 @@ public class PartList {
 	void sortMap() {
 		sortedParts = map.entrySet()
 				.stream()
-				.sorted(new MyComparator())
+				.sorted(new MyComparator1())
 				.collect(Collectors.toMap(Entry::getKey, Entry::getValue, 
 						(e1, e2) -> e2, LinkedHashMap::new));
 		
@@ -180,7 +180,7 @@ public class PartList {
 	}
 }
 
-class MyComparator implements Comparator<Entry<String, Part>> {
+class MyComparator1 implements Comparator<Entry<String, Part>> {
 
 	@Override
 	public int compare(Entry<String, Part> o1, Entry<String, Part> o2) {

@@ -1,4 +1,4 @@
-package com.huaxia.john;
+package com.huaxia.wang;
 
 public class Math1 {
 	public int add(int x, int y) {

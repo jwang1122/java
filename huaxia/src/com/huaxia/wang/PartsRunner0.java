@@ -1,4 +1,4 @@
-package com.huaxia.john;
+package com.huaxia.wang;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,10 +7,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
-public class PartsRunner {
+public class PartsRunner0 {
 
 	public static void main(String[] args) {
-		PartList parts = new PartList();
+		PartList1 parts = new PartList1();
 		HashMap<String, Part> map = parts.loadParts();
 		System.out.println("Total number of parts is " + map.size());
 		for(String key : map.keySet()) {
