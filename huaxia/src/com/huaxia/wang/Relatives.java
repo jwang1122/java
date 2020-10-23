@@ -2,10 +2,12 @@ package com.huaxia.wang;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.URL;
 import java.util.*;
 
 public class Relatives {
-	public static final String filename = "/Users/12818/workspace/java/huaxia/docs/relatives.dat";
+//	public static final String filename = "/Users/12818/workspace/java/huaxia/docs/relatives.dat";
+	public static final String filename = "/com/huaxia/wang/relatives.dat";
 
 	private Map<String, List<String>> relativeMap;
 
@@ -25,7 +27,9 @@ public class Relatives {
 	public void loadData() {
 		Scanner input;
 		try {
-			input = new Scanner(new File(filename));
+			URL url = this.getClass().getResource(filename);
+
+			input = new Scanner(new File(url.getFile()));
 			String line = input.nextLine(); // skeep first line 14
 			while (input.hasNext()) {
 				line = input.nextLine();
