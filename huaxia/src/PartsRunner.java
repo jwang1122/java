@@ -1,4 +1,4 @@
-package com.huaxia.homeworks;
+
 
 import static java.lang.System.in;
 import static java.lang.System.out;

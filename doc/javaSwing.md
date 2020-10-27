@@ -11,7 +11,7 @@ The layout manager automatically positions all the components within the contain
 Layout Manager
 
 * √ remove setLayout(null) from FourCornersImages.java
-* √ FlowLayout.java; change the window size feel the button position changes. remove frame.pack() function call, see the result. 
+* √- FlowLayout.java; change the window size feel the button position changes. remove frame.pack() function call, see the result. 
     - ask student add code for button click response
     - ask student add more component in the panel, such as JTextField, and JLabel
 * BorderLayoutExample.java; resize the window. 
@@ -38,17 +38,26 @@ Layout Manager
 1. √ Frame2.java; Extends JFrame
 1. √ DisplayImage.java & MyPanel.java; display an apple image, load some image from internet
 1. √ FourCornersImages.java; Homework, display images in JFrame
-1. MovingImage.java & MyPanel1.java
-1. RandomMovineImage.java & MyPanel3.java
-1. KeyboardControl.java & MyPanel2.java
+1. √ MovingImage.java & MyPanel1.java
+1. √ RandomMovineImage.java & MyPanel3.java
+1. √ KeyboardControl.java & MyPanel2.java
 1. CheckBoxExample.java & CheckBoxExample1.java; (with icon)
 1. RadioButtonExample.java; 2 ways to add an ActionListener for jButton
 1. ListExample.java; without layout(FlowLayout), use GridLayout(), use BorderLayout() 
 1. ListExample2.java; with scroll
 1. listExample1.java; select birthday
+1. OptionPaneExample.java; 
 
+## Applications
+1. Calculator.java; Default layout=FlowLayout, JFrame, JPanel, JTextField, JButton 
+1. Tic Tac Toe; com.huaxia.tictactoe; layout=null, resizable=false; getClass().getResource() refer to MyPanel.java; CheckBox, JOptionPane,
+```java
+    Toolkit t = Toolkit.getDefaultToolkit();
+    URL iconUrl = this.getClass().getResource("resources/tiger.jpeg");
+    apple = t.getImage(iconUrl);
 
-
+```
+1. 
 ## Anonymous Class
 1. √ GetInfo.java; interface
 1. √ Student.java; implements GetInfo

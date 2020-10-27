@@ -1,4 +1,4 @@
-package com.huaxia.homeworks;
+
 
 public class Part implements Comparable<Part>{
 	private String make;
