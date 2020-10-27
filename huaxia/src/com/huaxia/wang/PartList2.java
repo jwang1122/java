@@ -13,7 +13,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class PartList2 {
-	public static final String filename = "/Users/12818/workspace/java/huaxia/docs/autoparts.dat";
+//	public static final String filename = "/Users/12818/workspace/java/huaxia/docs/autoparts.dat";
+	public static final String filename = "/Users/wangqianjiang/workspace/java/huaxia/docs/autoparts.dat";
 	private HashMap<String, Part> randomPartMap = new HashMap<>();
 	private List<Part> autoPartList = new ArrayList<Part>();
 	private Map<String, Part> sortedPartMap;

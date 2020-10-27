@@ -1,4 +1,4 @@
-package com.huaxia.wang;
+package com.huaxia.java2;
 
 import java.util.Collections;
 import java.util.List;

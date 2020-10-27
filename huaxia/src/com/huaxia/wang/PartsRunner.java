@@ -17,8 +17,8 @@ public class PartsRunner {
 		System.out.println("Random Auto-Parts");
 		displayMap(parts.getRandomPartMap());
 
-		System.out.println("\nSorted Auto-Parts");
 		parts.sortTreeMap();
+		System.out.println("\nSorted Auto-Parts");
 		displayMap(parts.getSortedPartMap());
 	}
 	
