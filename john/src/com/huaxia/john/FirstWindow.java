@@ -127,7 +127,6 @@ public class FirstWindow extends JFrame implements ActionListener {
 	public FirstWindow(int row, int cols) {
 
 		setSize(800, 600);
-		setVisible(true);
 		setLayout(new BorderLayout());
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -186,7 +185,8 @@ public class FirstWindow extends JFrame implements ActionListener {
 
 	public static void main(String[] args) {
 		FirstWindow window = new FirstWindow();
-		
+		window.setVisible(true);
+	
 	}
 
 	@Override
