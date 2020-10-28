@@ -8,6 +8,10 @@
 1. MenuExample.java; build simple menu and sub menu
 1. MenuExample1.java; add Edit menu for cut, copy, paste, selectAll
 1. MenuExample2.java; surround JTextArea with JScrollPane.
+1. PopupMenuExample.java; build simple popup menu, no action
+1. PopupMenuExample1.java; anonymous class for ActionListener
+1. PopupMenuExample.java; implements ActionListener.
+1. SeparatorExample.java; add separator line between menu item.
 
 ## Swing Layout
 [Swing Layout](https://www.tutorialspoint.com/swing/swing_layouts.htm)
@@ -22,11 +26,11 @@ Layout Manager
 * √ BorderLayoutExample.java; resize the window. 
     - BorderLayoutExample1.java; ask student add more components in the center as FlowLayout.
 * √ CardLayoutExample.java; class level attributes, JFrame.getContentPanel()
-* √ BoxLayoutExample.java;
+* √ BoxLayoutExample.java; disappare when change Window size.
 * √ GridLayoutExample.java;
 * √ GridBagLayoutExample.java;
-* √ SpringLayoutExample.java;
-* √ GroupLayoutExample.java;
+* √ SpringLayoutExample.java; Fixed relationship between components
+* √ GroupLayoutExample.java; need set both Horizontal and Vertical
 
 ## Swing Hierarchy
 ![Container](Swing.png)
@@ -57,7 +61,11 @@ Layout Manager
 
 ## Pane
 1. ScrolledPaneExample.java; add JScrollPane around the TextArea
-1. 
+1. OptionPaneExample.java;
+1. TabbedPaneExmple.java;
+1. DesktopPaneExample.java;
+1. EditorPaneExample.java;
+
 
 ## Applications
 1. Calculator.java; Default layout=FlowLayout, JFrame, JPanel, JTextField, JButton 
