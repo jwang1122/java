@@ -135,10 +135,10 @@ class TTT1 extends JFrame implements ItemListener, ActionListener {
 		type = true;
 		set = true;
 		Toolkit t = Toolkit.getDefaultToolkit();
-		URL iconUrl1 = this.getClass().getResource("/com/huaxia/tictactoe/ic1.jpg");
-		URL iconUrl2 = this.getClass().getResource("/com/huaxia/tictactoe/ic2.jpg");
-		URL iconUrl11 = this.getClass().getResource("/com/huaxia/tictactoe/ic11.jpg");
-		URL iconUrl22 = this.getClass().getResource("/com/huaxia/tictactoe/ic22.jpg");
+		URL iconUrl1 = this.getClass().getResource("ic1.jpg");
+		URL iconUrl2 = this.getClass().getResource("ic2.jpg");
+		URL iconUrl11 = this.getClass().getResource("ic11.jpg");
+		URL iconUrl22 = this.getClass().getResource("ic22.jpg");
 		ic1 = new ImageIcon(t.getImage(iconUrl1));
 		ic2 = new ImageIcon(t.getImage(iconUrl2));
 		ic11 = new ImageIcon(t.getImage(iconUrl11));
@@ -229,13 +229,13 @@ class TTT1 extends JFrame implements ItemListener, ActionListener {
 					b[(a[i][1] - 1)].setIcon(ic11);
 					b[(a[i][2] - 1)].setIcon(ic11);
 					b[(a[i][3] - 1)].setIcon(ic11);
-					JOptionPane.showMessageDialog(TTT1.this, "!!!YOU won!!! click reset");
+					JOptionPane.showMessageDialog(this, "!!!YOU won!!! click reset");
 					break;
 				} else if (icon1 == ic2) {
 					b[(a[i][1] - 1)].setIcon(ic22);
 					b[(a[i][2] - 1)].setIcon(ic22);
 					b[(a[i][3] - 1)].setIcon(ic22);
-					JOptionPane.showMessageDialog(TTT1.this, "!!!AWK (COMPUTER) won!!! click reset");
+					JOptionPane.showMessageDialog(this, "!!!AWK (COMPUTER) won!!! click reset");
 					break;
 				}
 			}

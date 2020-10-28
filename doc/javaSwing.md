@@ -11,17 +11,17 @@ The layout manager automatically positions all the components within the contain
 Layout Manager
 
 * √ remove setLayout(null) from FourCornersImages.java
-* √- FlowLayout.java; change the window size feel the button position changes. remove frame.pack() function call, see the result. 
+* √ FlowLayout.java; change the window size feel the button position changes. remove frame.pack() function call, see the result. 
     - ask student add code for button click response
     - ask student add more component in the panel, such as JTextField, and JLabel
-* BorderLayoutExample.java; resize the window. 
+* √ BorderLayoutExample.java; resize the window. 
     - BorderLayoutExample1.java; ask student add more components in the center as FlowLayout.
-* CardLayoutExample.java; class level attributes, JFrame.getContentPanel()
-* BoxLayoutExample.java;
-* GridLayoutExample.java;
-* GridBagLayoutExample.java;
-* SpringLayoutExample.java;
-* GroupLayoutExample.java;
+* √ CardLayoutExample.java; class level attributes, JFrame.getContentPanel()
+* √ BoxLayoutExample.java;
+* √ GridLayoutExample.java;
+* √ GridBagLayoutExample.java;
+* √ SpringLayoutExample.java;
+* √ GroupLayoutExample.java;
 
 
 
@@ -41,7 +41,7 @@ Layout Manager
 1. √ MovingImage.java & MyPanel1.java
 1. √ RandomMovineImage.java & MyPanel3.java
 1. √ KeyboardControl.java & MyPanel2.java
-1. CheckBoxExample.java & CheckBoxExample1.java; (with icon)
+1. √ CheckBoxExample.java & CheckBoxExample1.java; (with icon)
 1. RadioButtonExample.java; 2 ways to add an ActionListener for jButton
 1. ListExample.java; without layout(FlowLayout), use GridLayout(), use BorderLayout() 
 1. ListExample2.java; with scroll

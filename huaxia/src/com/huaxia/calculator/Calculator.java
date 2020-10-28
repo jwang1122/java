@@ -1,4 +1,4 @@
-package com.huaxia.swing;
+package com.huaxia.calculator;
 
 //Java program to create a simple calculator 
 //with basic +, -, /, * using java swing elements 
@@ -30,7 +30,6 @@ class Calculator extends JFrame implements ActionListener {
 	{ 
 		// create a frame 
 		f = new JFrame("calculator"); 
-		f.setResizable(false);
 		try { 
 			// set look and feel 
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); 
@@ -43,7 +42,7 @@ class Calculator extends JFrame implements ActionListener {
 		Calculator c = new Calculator(); 
 
 		// create a textfield 
-		l = new JTextField(16); 
+		l = new JTextField(25); 
 
 		// set the textfield to non editable 
 		l.setEditable(false); 
@@ -124,7 +123,8 @@ class Calculator extends JFrame implements ActionListener {
 		// add panel to frame 
 		f.add(p); 
 
-		f.setSize(200, 220); 
+		f.setSize(350, 230); 
+		f.setResizable(false);
 		f.setVisible(true);; 
 	} 
 	public void actionPerformed(ActionEvent e) 
