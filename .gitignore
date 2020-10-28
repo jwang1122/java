@@ -4,6 +4,9 @@ RemoteSystemsTempFiles/
 /.recommenders/
 
 lib/
+build/
+lib/
+*.class
 .classpath
 .project
 
