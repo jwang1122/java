@@ -1,11 +1,10 @@
 package com.huaxia.swing;
 
+import java.awt.FlowLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import java.awt.FlowLayout;
  
 public class FlowLayoutExample {
  

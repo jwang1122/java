@@ -8,6 +8,7 @@ import javax.swing.*;
 
 public class FourCornersImage extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private static final int WIDTH = 1200;
 	private static final int HEIGHT = 1200;
 	static final String FOLDER = "/Users/wangqianjiang/workspace/java/john/doc/";

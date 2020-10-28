@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Domino implements Comparable<Domino>{
 	
@@ -32,33 +34,35 @@ public class Domino implements Comparable<Domino>{
 	@Override
 	public int compareTo(Domino dom) {
 		 int diff;
+		 if(this.equals(dom)) {
+			 return 0;
+		 }
 		 diff=Math.max(side1,side2)-Math.min(dom.getSide1(), dom.getSide2());
 		 if(diff!=0)
 			 return diff;
-		return Math.min(side1, side2)-Math.min(dom.getSide1(), dom.getSide2());
+		 diff = Math.min(side1, side2)-Math.max(dom.getSide1(), dom.getSide2());
+		 return diff;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + side1;
-		result = prime * result + side2;
+		result = prime * result + Math.min(side1, side2);
+		result = prime * result + Math.max(side1, side2);
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
+		if(obj==null) {
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Domino other = (Domino) obj;
-		if (side1 != other.side1)
-			return false;
-		if (side2 != other.side2)
-			return false;
-		return true;
+		}
+		if(obj instanceof Domino) {
+			Domino d = (Domino)obj;
+			return Math.min(side1,side2)==Math.min(d.getSide1(), d.getSide2()) && Math.max(side1,side2)==Math.max(d.getSide1(), d.getSide2());
+		}
+		return false;
 	}
 
 }

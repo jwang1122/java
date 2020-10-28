@@ -49,7 +49,7 @@ public class DominoMeanie {
 		System.out.println("Player 3 number of dominoes: " + players[2].getHand().size());
 
 		// randNum = new Random(randSeed);
-
+		input.close();
 	}
 
 }

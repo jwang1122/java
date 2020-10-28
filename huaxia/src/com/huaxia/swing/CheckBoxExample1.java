@@ -5,8 +5,10 @@ import java.awt.*;
 import javax.swing.*; 
 
 class CheckBoxExample1 extends JFrame implements ItemListener { 
-  
-    // frame 
+
+	private static final long serialVersionUID = 1L;
+
+	// frame 
     static JFrame f; 
   
     // label 
