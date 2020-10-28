@@ -8,14 +8,13 @@ import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.Random;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class MyPanel3 extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
-	private final int RAND_POS = 29;
-	private final int DOT_SIZE = 10;
+//	private final int RAND_POS = 29;
+//	private final int DOT_SIZE = 10;
 
 	private Image apple;
 	private int apple_x = 100;

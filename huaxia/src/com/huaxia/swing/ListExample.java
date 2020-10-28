@@ -1,13 +1,9 @@
 package com.huaxia.swing;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 class ListExample {
 
@@ -15,7 +11,7 @@ class ListExample {
 	static JFrame f;
 
 	// lists
-	static JList b;
+	static JList<String> b;
 
 	// main class
 	public static void main(String[] args) {
@@ -23,7 +19,7 @@ class ListExample {
 		f = new JFrame("frame");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// create a object
-		ListExample s = new ListExample();
+//		ListExample s = new ListExample();
 
 		// create a panel
 		JPanel p = new JPanel();
@@ -35,7 +31,7 @@ class ListExample {
 		String week[] = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
 		// create list
-		b = new JList(week);
+		b = new JList<String>(week);
 
 		// set a selected index
 		b.setSelectedIndex(2);

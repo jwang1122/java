@@ -12,12 +12,14 @@ import javax.swing.event.ListSelectionListener;
 //(program to select your birthday using lists) . 
 class ListExample1 extends JFrame implements ListSelectionListener 
 { 
-	
+
+	private static final long serialVersionUID = 1L;
+
 	//frame 
 	static JFrame f; 
 	
 	//lists 
-	static JList b,b1,b2; 
+	static JList<String> b,b1,b2; 
 	
 	//label 
 	static JLabel l1; 
@@ -56,9 +58,9 @@ class ListExample1 extends JFrame implements ListSelectionListener
 		} 
 		
 		//create lists 
-		b= new JList(date); 
-		b1= new JList(month); 
-		b2= new JList(year); 
+		b= new JList<String>(date); 
+		b1= new JList<String>(month); 
+		b2= new JList<String>(year); 
 		
 		//set a selected index 
 		b.setSelectedIndex(2); 

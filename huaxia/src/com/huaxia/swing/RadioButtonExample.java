@@ -1,12 +1,14 @@
 package com.huaxia.swing;
 
-//Java program to show JRadioButton Example. 
-//in java. Importing different Package. 
-import java.awt.*; 
-import javax.swing.*; 
-import java.awt.event.*; 
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton; 
 
 class Demo extends JFrame {
+
+	private static final long serialVersionUID = 1L;
 
 	// Declaration of object of JRadioButton class. 
 	JRadioButton jRadioButton1; 

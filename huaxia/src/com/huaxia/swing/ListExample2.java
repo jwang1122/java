@@ -1,7 +1,6 @@
 package com.huaxia.swing;
 
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;

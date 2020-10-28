@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Domino implements Comparable<Domino>{
 	
 	private int side1, side2;

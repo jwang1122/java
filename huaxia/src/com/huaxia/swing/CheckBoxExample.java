@@ -2,13 +2,14 @@ package com.huaxia.swing;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel; 
 
 public class CheckBoxExample extends JFrame { 
+
+	private static final long serialVersionUID = 1L;
 	static final String FOLDER = "/Users/wangqianjiang/workspace/java/john/doc/";
 	static final String ASTROS1 = "HoustonAstros.png";
 	

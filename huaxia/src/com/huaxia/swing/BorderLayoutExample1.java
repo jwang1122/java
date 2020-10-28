@@ -36,6 +36,7 @@ public class BorderLayoutExample1 {
         JButton jb6 = new JButton("jb6");
         JTextField txt = new JTextField("Default value");
         panel1.add(txt);
+        panel1.add(jb6);
         panel.add(panel1, BorderLayout.CENTER);
         // Set the window to be visible as the default to be false
         frame.add(panel);

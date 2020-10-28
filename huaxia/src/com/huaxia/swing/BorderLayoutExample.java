@@ -1,12 +1,10 @@
 package com.huaxia.swing;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
  
 public class BorderLayoutExample {
  

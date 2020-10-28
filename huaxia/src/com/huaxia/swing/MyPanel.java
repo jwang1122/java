@@ -5,7 +5,6 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.net.URL;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class MyPanel extends JPanel {

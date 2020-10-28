@@ -4,6 +4,11 @@
 [javax.swing api](https://docs.oracle.com/javase/7/docs/api/javax/swing/package-summary.html)
 [Java API](https://docs.oracle.com/javase/8/docs/api/)
 
+## Menu
+1. MenuExample.java; build simple menu and sub menu
+1. MenuExample1.java; add Edit menu for cut, copy, paste, selectAll
+1. MenuExample2.java; surround JTextArea with JScrollPane.
+
 ## Swing Layout
 [Swing Layout](https://www.tutorialspoint.com/swing/swing_layouts.htm)
 
@@ -23,8 +28,6 @@ Layout Manager
 * √ SpringLayoutExample.java;
 * √ GroupLayoutExample.java;
 
-
-
 ## Swing Hierarchy
 ![Container](Swing.png)
 
@@ -43,10 +46,18 @@ Layout Manager
 1. √ KeyboardControl.java & MyPanel2.java
 1. √ CheckBoxExample.java & CheckBoxExample1.java; (with icon)
 1. RadioButtonExample.java; 2 ways to add an ActionListener for jButton
+1. TextAreaExample.java; copy large file to see some text been hidden.
+1. ScrolledPaneExample.java; add JScrollPane around the TextArea
 1. ListExample.java; without layout(FlowLayout), use GridLayout(), use BorderLayout() 
 1. ListExample2.java; with scroll
 1. listExample1.java; select birthday
-1. OptionPaneExample.java; 
+1. OptionPaneExample.java;
+1. ComboBoxExample.java 
+1. ComboBoxExample1.java; ActionListener, ItemListener; ask student add clear button to clear label message.
+
+## Pane
+1. ScrolledPaneExample.java; add JScrollPane around the TextArea
+1. 
 
 ## Applications
 1. Calculator.java; Default layout=FlowLayout, JFrame, JPanel, JTextField, JButton 
