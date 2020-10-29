@@ -19,7 +19,7 @@ public class DominoMeanie {
 		ArrayList<Domino> deck = s.shuffle(randSeed);
 		Player[] players = new Player[playerNum];
 		for(int i=0; i<playerNum; i++) {
-			players[i] = new Player("Player " + i);
+			players[i] = new Player("Player " + (i+1));
 		}
 		System.out.println("Total Dominoes in deck: " + deck.size());
 		for(int i=0; i<deck.size(); i++) {
@@ -68,7 +68,9 @@ class Player{
 	
 	public Domino removeDominoFromHand() {
 		if(hand.size()>0) {
-			return hand.get(0);
+			Domino tmp = hand.get(0);
+			hand.remove(0);
+			return tmp;
 		}
 		return null;
 	}

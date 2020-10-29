@@ -65,6 +65,8 @@ Layout Manager
 1. TabbedPaneExmple.java;
 1. DesktopPaneExample.java;
 1. EditorPaneExample.java;
+1. SplitPaneExample.java; resize the pane will cause ComboBox stopping work.
+
 
 
 ## Applications

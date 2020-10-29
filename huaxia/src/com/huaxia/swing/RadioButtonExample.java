@@ -1,5 +1,8 @@
 package com.huaxia.swing;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -39,7 +42,16 @@ class Demo extends JFrame {
 		jRadioButton2 = new JRadioButton(); 
 
 		// Initialization of object of "JButton" class. 
-		jButton = new JButton("Click"); 
+		jButton = new JButton("Clear");
+		jButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 
 		// Initialization of object of "ButtonGroup" class. 
 		buttonGroup = new ButtonGroup(); 

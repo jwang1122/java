@@ -61,6 +61,7 @@ public class DominoSet {
 			}
 		}
 		displayList("Total Dominoes", orderedDominoes);
+		displayList("After Shuffle Dominoes", ds.getSetOfDominoes());
 		displayList("Player1", player1Hand);
 		displayList("Player2", player2Hand);
 		displayList("Player3", player3Hand);
