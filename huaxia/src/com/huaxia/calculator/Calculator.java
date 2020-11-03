@@ -124,7 +124,7 @@ class Calculator extends JFrame implements ActionListener {
 		f.add(p); 
 
 		f.setSize(350, 230); 
-		f.setResizable(false);
+//		f.setResizable(false);
 		f.setVisible(true);; 
 	} 
 	public void actionPerformed(ActionEvent e) 
