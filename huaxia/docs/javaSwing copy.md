@@ -4,10 +4,6 @@
 [javax.swing api](https://docs.oracle.com/javase/7/docs/api/javax/swing/package-summary.html)
 [Java API](https://docs.oracle.com/javase/8/docs/api/)
 
-## Ant build jar
-* build.xml > Snake-Game
-* Calculator.java; modify to use BorderLayout and GridLayout
-* 
 ## Menu
 1. MenuExample.java; build simple menu and sub menu
 1. MenuExample1.java; add Edit menu for cut, copy, paste, selectAll
