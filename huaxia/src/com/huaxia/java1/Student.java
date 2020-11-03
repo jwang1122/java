@@ -27,12 +27,10 @@ public class Student implements Comparable<Student>{
 	public int compareTo(Student other) {
 		return this.id < other.id ? -1: this.id == other.id ? 0 :1;
 	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
-	}	
+		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", score=" + score + "]";
+	}
+
 }
