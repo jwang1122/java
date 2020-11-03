@@ -30,6 +30,7 @@ class Calculator extends JFrame implements ActionListener {
 	{ 
 		// create a frame 
 		f = new JFrame("calculator"); 
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		try { 
 			// set look and feel 
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); 
