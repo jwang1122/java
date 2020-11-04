@@ -16,6 +16,8 @@ public class JsonExample4 {
 		for (Student student : studentArray) {
 			System.out.println(student);
 		}
+		
+		
 	}
 
 }
