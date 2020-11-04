@@ -4,10 +4,11 @@
 [javax.swing api](https://docs.oracle.com/javase/7/docs/api/javax/swing/package-summary.html)
 [Java API](https://docs.oracle.com/javase/8/docs/api/)
 
-## Ant build jar
-* build.xml > Snake-Game
-* Calculator.java; modify to use BorderLayout and GridLayout
-* 
+## Applications & build.xml
+* √ Calculator.java; add BorderLayout and GridLayout
+* √ Snake-Game; Ant build.xml
+* √ Tic Tac Toe, TT1.java; build jar; load image by using classpath
+
 ## Menu
 1. MenuExample.java; build simple menu and sub menu
 1. MenuExample1.java; add Edit menu for cut, copy, paste, selectAll
@@ -69,8 +70,6 @@ Layout Manager
 1. TabbedPaneExmple.java;
 1. DesktopPaneExample.java;
 1. EditorPaneExample.java;
-1. SplitPaneExample.java; resize the pane will cause ComboBox stopping work.
-
 
 
 ## Applications
