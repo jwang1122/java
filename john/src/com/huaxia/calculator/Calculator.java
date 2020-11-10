@@ -31,6 +31,7 @@ class Calculator extends JFrame implements ActionListener {
 		// create a frame 
 		f = new JFrame("calculator"); 
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setLayout(new BorderLayout());
 		try { 
 			// set look and feel 
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); 
@@ -78,7 +79,7 @@ class Calculator extends JFrame implements ActionListener {
 
 		// create a panel 
 		JPanel p = new JPanel(); 
-
+		p.setLayout(new GridLayout(5, 4));
 		// add action listeners 
 		bm.addActionListener(c); 
 		bd.addActionListener(c); 
@@ -99,7 +100,7 @@ class Calculator extends JFrame implements ActionListener {
 		beq1.addActionListener(c); 
 
 		// add elements to panel 
-		p.add(l); 
+		f.add(l, BorderLayout.NORTH); 
 		p.add(ba); 
 		p.add(b1); 
 		p.add(b2); 
@@ -122,7 +123,7 @@ class Calculator extends JFrame implements ActionListener {
 		p.setBackground(Color.blue); 
 
 		// add panel to frame 
-		f.add(p); 
+		f.add(p, BorderLayout.CENTER); 
 
 		f.setSize(350, 230); 
 //		f.setResizable(false);
