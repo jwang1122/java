@@ -49,11 +49,13 @@ public class MainGraphics {
 	Player player3 = new Player(imageyellowC);;
 	Player player4 = new Player(imageredC);
 	ArrayList<Player> fourPlayers = shufflePlayers();
+	ArrayList<Tile> deck = shuffle(list);
 	int chooseTile;
 	boolean case1Selected, case2Selected = false;
 	int x1, x2, y1, y2; // tile1 and tile2 grid positions
 	Color fond = new Color(238, 231, 188);
-
+	int roundNum = 1;
+	
 	public static void main(String[] args) {
 		new Menu(null, "Menu", true);
 		MainGraphics kingdomino = new MainGraphics();
@@ -62,51 +64,70 @@ public class MainGraphics {
 	}
 
 	private void startPlay() {
-		int roundNum = 1;
-		ArrayList<Tile> deck = shuffle(list);
-		while (!endGame(deck)) {
+		while (deck.size() != 0) {
+			showPlayOrder(roundNum);
 			ArrayList<Tile> tileList = getNewTileList(deck);
-			JOptionPane.showMessageDialog(null,
-					"Round " + roundNum + ":\nPlayers will start in this order :\n" + fourPlayers.get(0).getName()
-							+ ", " + fourPlayers.get(1).getName() + ", " + fourPlayers.get(2).getName() + ", "
-							+ fourPlayers.get(3).getName(),
-					"Round", JOptionPane.INFORMATION_MESSAGE);
 			for (int i = 0; i < 4; i++) {
 				boolean finished = false;
 				do {
-					
-					JFrame frame = new JFrame();
-					displayFrame(frame, fourPlayers.get(i), sortTile(tileList)); // setVisible(true)
-					frame.addMouseListener(new TilePositionListener(tileList));
-					while (chooseTile == 0) {
-						try {
-							TimeUnit.MILLISECONDS.sleep(20);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
-					if (!isEmpty(tileList.get(chooseTile - 1))) {
-						finished = play(fourPlayers.get(i), tileList, frame);
-					} else {
-						JOptionPane.showMessageDialog(null, "This tile cannot be taken ! Please try again :", "Error",
-								JOptionPane.INFORMATION_MESSAGE);
-					}
-					chooseTile = 0;
-					case1Selected = false;
-					case2Selected = false;
-					frame.dispose();
+					finished = doGame(fourPlayers.get(i), tileList);
 				} while (!finished);
 			}
 			fourPlayers = shufflePlayers();
 			roundNum += 1;
 		}
+		showGameResult();
+	}
+
+	private void showPlayOrder(int roundNum) {
+		JOptionPane.showMessageDialog(null, "Round " + roundNum + ":\nPlayers will start in this order :\n"
+				+ fourPlayers.get(0).getName() + ", " + fourPlayers.get(1).getName() + ", "
+				+ fourPlayers.get(2).getName() + ", "
+				+ fourPlayers.get(3).getName(), "Round", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	private boolean doGame(Player player, ArrayList<Tile> tileList) {
+		JFrame frame = new JFrame();
+		displayFrame(frame, player, sortTile(tileList)); // setVisible(true)
+		frame.addMouseListener(new TilePositionListener(tileList));
+		waitForPlayer();
+		boolean finished = placeTile(player, tileList, frame);
+		reset(frame);
+		return finished;
+	}
+
+	private void reset(JFrame frame) {
+		chooseTile = 0;
+		case1Selected = false;
+		case2Selected = false;
+		frame.dispose();
+	}
+
+	private boolean placeTile(Player player, ArrayList<Tile> tileList, JFrame frame) {
+		if (!isEmpty(tileList.get(chooseTile - 1))) {
+			play(player, tileList, frame);
+			return true;
+		}
+		JOptionPane.showMessageDialog(null, "This tile cannot be taken ! Please try again :", "Error", JOptionPane.INFORMATION_MESSAGE);
+		return false;
+	}
+
+	private void waitForPlayer() {
+		while (chooseTile == 0) {
+			try {
+				TimeUnit.MILLISECONDS.sleep(20);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private void showGameResult() {
 		player1.setScores();
 		player2.setScores();
 		player3.setScores();
 		player4.setScores();
-
 		printClassement4(player1, player2, player3, player4);
-
 		JOptionPane.showMessageDialog(null, "Game Over!", "Over", JOptionPane.INFORMATION_MESSAGE);
 	}
 
@@ -288,8 +309,7 @@ public class MainGraphics {
 				winners.add(player3);
 				winners.add(player4);
 				return winners;
-			} else if (winner2(winnerPlayer1Player2Player3.get(0),
-					player4) == winner2(winnerPlayer1Player2Player3.get(1), player4)) {
+			} else if (winner2(winnerPlayer1Player2Player3.get(0), player4) == winner2(winnerPlayer1Player2Player3.get(1), player4)) {
 				winners.add(player4);
 				return winners;
 			} else {
@@ -304,8 +324,7 @@ public class MainGraphics {
 				winners.add(winnerPlayer1Player2Player3.get(1));
 				winners.add(player4);
 				return winners;
-			} else if (winner2(winnerPlayer1Player2Player3.get(0),
-					player4) == winner2(winnerPlayer1Player2Player3.get(1), player4)) {
+			} else if (winner2(winnerPlayer1Player2Player3.get(0), player4) == winner2(winnerPlayer1Player2Player3.get(1), player4)) {
 				winners.add(player4);
 				return winners;
 			} else {
@@ -321,11 +340,10 @@ public class MainGraphics {
 	private void printWinners(ArrayList<Player> listWinners) {
 		if (listWinners.size() == 1) {
 			Player player1 = listWinners.get(0);
-			JOptionPane.showMessageDialog(null,
-					"The big winner is " + player1.getName() + "!\nHe gets a score of " + player1.getScores()[0]
-							+ " points!\nIts most extensive property is " + player1.getScores()[1]
-							+ "  !\nFinally he owns a total of " + player1.getScores()[2] + " crowns!\n ",
-					"Winner", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "The big winner is " + player1.getName() + "!\nHe gets a score of "
+					+ player1.getScores()[0] + " points!\nIts most extensive property is " + player1.getScores()[1]
+					+ "  !\nFinally he owns a total of " + player1.getScores()[2]
+					+ " crowns!\n ", "Winner", JOptionPane.INFORMATION_MESSAGE);
 		}
 
 	}
@@ -343,8 +361,8 @@ public class MainGraphics {
 						+ player3.getScores()[1] + "  !\nFinally he owns a total of" + player3.getScores()[2]
 						+ " Crowns!\n " + player4.getName() + " gets a score of " + player4.getScores()[0]
 						+ " points!\nIts most extensive property is " + player4.getScores()[1]
-						+ " !\nFinally he owns a total of " + player4.getScores()[2] + " Crowns!\n ", "losing",
-						JOptionPane.INFORMATION_MESSAGE);
+						+ " !\nFinally he owns a total of " + player4.getScores()[2]
+						+ " Crowns!\n ", "losing", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 
@@ -372,10 +390,6 @@ public class MainGraphics {
 			}
 		}
 		return numEmptyTile;
-	}
-
-	private boolean endGame(ArrayList<Tile> list) {
-		return list.size() == 0;
 	}
 
 	private ArrayList<Player> shufflePlayers() {
@@ -426,8 +440,8 @@ public class MainGraphics {
 	private void drawTerrian(Graphics g, Player player, int i, int j) {
 		char terrain = player.getBoard().property[j][i].getTile();
 		if (terrain == 'C') {
-			g.drawImage(player.getCastleImage(), 400 + lengthCase * i, 30 + lengthCase * j, lengthCase, lengthCase,
-					null);
+			g.drawImage(player.getCastleImage(), 400 + lengthCase * i, 30 + lengthCase
+					* j, lengthCase, lengthCase, null);
 			return;
 		}
 		if (terrain == '#') {
@@ -494,25 +508,25 @@ public class MainGraphics {
 			JOptionPane.showMessageDialog(null, "\n" + player.getName() + " you now have a score of "
 					+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
 		} else {
-			JOptionPane.showMessageDialog(null,
-					"The tile you have chosen cannot be placed! So you keep the score of "
-							+ player.getBoard().copy().score() + " points!\n",
-					"Score", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "The tile you have chosen cannot be placed! So you keep the score of "
+					+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
 		}
 		tileList.set(chooseTile - 1, tileEmpty);
 		return true;
 	}
-	
-	class TilePositionListener implements MouseListener{
+
+	class TilePositionListener implements MouseListener {
 		ArrayList<Tile> tileList;
+
 		public TilePositionListener(ArrayList<Tile> tileList) {
 			this.tileList = tileList;
 		}
+
 		public void mousePressed(MouseEvent e) {
 
 			int x = e.getX();
 			int y = e.getY();
-			System.out.println("mouse at (" + x + ", " + y + ")");
+			//			System.out.println("mouse at (" + x + ", " + y + ")");
 			if (x >= 100 && x <= 240) {
 				for (int i = 0; i < tileList.size(); i++) {
 					if (y >= 130 + 140 * i && y <= 200 + 140 * i) {

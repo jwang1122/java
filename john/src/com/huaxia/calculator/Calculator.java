@@ -12,7 +12,7 @@ class Calculator extends JFrame implements ActionListener {
 
 	// create a frame 
 	static JFrame f; 
-
+	
 	// create a textfield 
 	static JTextField l; 
 
@@ -31,7 +31,8 @@ class Calculator extends JFrame implements ActionListener {
 		// create a frame 
 		f = new JFrame("calculator"); 
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setLayout(new BorderLayout());
+		Container container = f.getContentPane();
+		container.setLayout(new BorderLayout());
 		try { 
 			// set look and feel 
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); 
@@ -42,16 +43,16 @@ class Calculator extends JFrame implements ActionListener {
 
 		// create a object of class 
 		Calculator c = new Calculator(); 
-
 		// create a textfield 
-		l = new JTextField(25); 
-
+		l = new JTextField(); 
+		l.setEditable(false);
+		container.add(l, BorderLayout.NORTH);
 		// set the textfield to non editable 
-		l.setEditable(false); 
-
+	
 		// create number buttons and some operators 
 		JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, bs, bd, bm, be, beq, beq1; 
-
+		JPanel center = new JPanel();
+		center.setLayout(new GridLayout(4,4));
 		// create number buttons 
 		b0 = new JButton("0"); 
 		b1 = new JButton("1"); 
@@ -63,7 +64,7 @@ class Calculator extends JFrame implements ActionListener {
 		b7 = new JButton("7"); 
 		b8 = new JButton("8"); 
 		b9 = new JButton("9"); 
-
+		
 		// equals button 
 		beq1 = new JButton("="); 
 
@@ -73,13 +74,13 @@ class Calculator extends JFrame implements ActionListener {
 		bd = new JButton("/"); 
 		bm = new JButton("*"); 
 		beq = new JButton("C"); 
-
+		
 		// create . button 
 		be = new JButton("."); 
 
 		// create a panel 
-		JPanel p = new JPanel(); 
-		p.setLayout(new GridLayout(5, 4));
+//		JPanel p = new JPanel(); 
+
 		// add action listeners 
 		bm.addActionListener(c); 
 		bd.addActionListener(c); 
@@ -100,30 +101,29 @@ class Calculator extends JFrame implements ActionListener {
 		beq1.addActionListener(c); 
 
 		// add elements to panel 
-		f.add(l, BorderLayout.NORTH); 
-		p.add(ba); 
-		p.add(b1); 
-		p.add(b2); 
-		p.add(b3); 
-		p.add(bs); 
-		p.add(b4); 
-		p.add(b5); 
-		p.add(b6); 
-		p.add(bm); 
-		p.add(b7); 
-		p.add(b8); 
-		p.add(b9); 
-		p.add(bd); 
-		p.add(be); 
-		p.add(b0); 
-		p.add(beq); 
-		p.add(beq1); 
+//		p.add(l); 
+		center.add(ba); 
+		center.add(b1); 
+		center.add(b2); 
+		center.add(b3); 
+		center.add(bs); 
+		center.add(b4); 
+		center.add(b5); 
+		center.add(b6); 
+		center.add(bm); 
+		center.add(b7); 
+		center.add(b8); 
+		center.add(b9); 
+		center.add(bd); 
+		center.add(be); 
+		center.add(b0); 
+		center.add(beq); 
+		
 
 		// set Background of panel 
-		p.setBackground(Color.blue); 
-
-		// add panel to frame 
-		f.add(p, BorderLayout.CENTER); 
+		center.setBackground(Color.blue); 
+		container.add(center, BorderLayout.CENTER);
+		container.add(beq1, BorderLayout.SOUTH); 
 
 		f.setSize(350, 230); 
 //		f.setResizable(false);
