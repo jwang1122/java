@@ -11,6 +11,7 @@ public class RandomWriter {
 	static int seed = 5;
 	static int size = 2;
 	static int num = 100;
+	
 	public static void main(String[] args) {
 //		Scanner input = new Scanner(System.in);
 //		System.out.println("Enter the seed value:");
