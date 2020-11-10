@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 public class Player {
 	static final int boardSize = 9;
-	int[] scores;
+	int[] scores = new int[3];
 	String name;
 	Board board;
 	Image castleImage;
@@ -25,8 +25,10 @@ public class Player {
 		return this.scores;
 	}
 
-	public void setScores(int[] scores) {
-		this.scores = scores;
+	public void setScores() {
+		this.scores[0] = board.copy().score();
+		this.scores[1] = board.maxField();
+		this.scores[2] = board.numCrowns();
 	}
 
 	public String getName() {
@@ -198,6 +200,12 @@ public class Player {
 	@Override
 	public String toString() {
 		return "Player [name=" + name + "]";
+	}
+
+	public void setNewScore() {
+		this.scores[0] = board.copy().score();
+		this.scores[1] = board.maxField();
+		this.scores[2] = board.numCrowns();
 	}
 
 }
