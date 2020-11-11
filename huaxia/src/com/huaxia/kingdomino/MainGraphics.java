@@ -39,10 +39,17 @@ public class MainGraphics {
 	static final int lengthBoard = 9;
 	static final int numDominos = 48;
 
+<<<<<<< HEAD
 	Player player1 = new Player(Player.PlayerColor.BluePlayer);
 	Player player2 = new Player(Player.PlayerColor.GreenPlayer);
 	Player player3 = new Player(Player.PlayerColor.YellowPlayer);
 	Player player4 = new Player(Player.PlayerColor.RedPlayer);
+=======
+	Player player1 = new Player(imageblueC,"Blue player's name");;
+	Player player2 = new Player(imagegreenC, "Green player's name");;
+	Player player3 = new Player(imageyellowC, "Yellow player's name");;
+	Player player4 = new Player(imageredC, "Red player's name");
+>>>>>>> master
 	ArrayList<Player> fourPlayers = shufflePlayers();
 	ArrayList<Tile> deck = shuffle(list);
 	int chooseTile;

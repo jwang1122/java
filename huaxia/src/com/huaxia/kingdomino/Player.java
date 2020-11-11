@@ -32,12 +32,19 @@ public class Player {
 	Image castleImage;
 	String message;
 
+<<<<<<< HEAD
 	public Player(PlayerColor color) {
 		setAttributes(color);
 //		name = JOptionPane.showInputDialog(null, message, "Players", JOptionPane.QUESTION_MESSAGE);
 		if(name==null || name.length()==0) {
 			name=color.toString();
 		}
+=======
+	public Player(Image castleImage, String message) {
+		name = "Player 1";
+		name = JOptionPane.showInputDialog(null, message, "Players",
+				JOptionPane.QUESTION_MESSAGE);
+>>>>>>> master
 		board = new Board(boardSize);
 		scores = new int[3];
 	}
