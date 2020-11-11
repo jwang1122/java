@@ -1,26 +1,68 @@
 package com.huaxia.kingdomino;
 
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
 public class Player {
+	enum PlayerColor {
+		BluePlayer, GreenPlayer, YellowPlayer, RedPlayer
+	};
+
 	static final int boardSize = 9;
+	static Image imageredC, imageblueC, imagegreenC, imageyellowC; // castle images
+	static {
+		try {
+			imageredC = ImageIO.read(new File("redC.png"));
+			imageblueC = ImageIO.read(new File("blueC.png"));
+			imagegreenC = ImageIO.read(new File("greenC.png"));
+			imageyellowC = ImageIO.read(new File("yellowC.png"));
+		} catch (IOException e) {
+			System.err.println(e);
+		}
+	}
+
 	int[] scores = new int[3];
 	String name;
 	Board board;
 	Image castleImage;
+	String message;
 
-	public Player(Image castleImage) {
-		name = "Player 1";
-		name = JOptionPane.showInputDialog(null, "Blue Player Name", "Players",
-				JOptionPane.QUESTION_MESSAGE);
+	public Player(PlayerColor color) {
+		setAttributes(color);
+//		name = JOptionPane.showInputDialog(null, message, "Players", JOptionPane.QUESTION_MESSAGE);
+		if(name==null || name.length()==0) {
+			name=color.toString();
+		}
 		board = new Board(boardSize);
-		this.castleImage = castleImage;
 		scores = new int[3];
 	}
-	
+
+	private void setAttributes(PlayerColor color) {
+		switch (color) {
+		case BluePlayer:
+			castleImage = imageblueC;
+			message = "Blue player's name";
+			break;
+		case GreenPlayer:
+			castleImage = imagegreenC;
+			message = "Green player's name";
+			break;
+		case YellowPlayer:
+			castleImage = imageyellowC;
+			message = "Yellow player's name";
+			break;
+		case RedPlayer:
+			castleImage = imageredC;
+			message = "Red player's name";
+			break;
+		}
+	}
+
 	public int[] getScores() {
 		return this.scores;
 	}
@@ -46,20 +88,21 @@ public class Player {
 	public void setBoard(Board board) {
 		this.board = board;
 	}
- 
+
 	public Image getCastleImage() {
 		return castleImage;
 	}
-	
+
 	public void setCastleImage(Image castleImage) {
 		this.castleImage = castleImage;
 	}
+
 	public Player(String name, Board board) {
 		int[] scores = { 0, 0, 0 };
 		this.scores = scores;
 		this.name = name;
 		this.board = board;
-		 
+
 	}
 
 	public int choosetile(ArrayList<Tile> deck, int[] crowns) {

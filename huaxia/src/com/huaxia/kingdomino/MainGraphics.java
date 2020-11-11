@@ -21,7 +21,6 @@ import javax.swing.JPanel;
 public class MainGraphics {
 	static ArrayList<Tile> list = new Data().getDeck();
 	static Image imageF, imageL, imageM, imageP, imageQ, imageW; // tile images
-	static Image imageredC, imageblueC, imagegreenC, imageyellowC; // castle images
 
 	static {
 		try {
@@ -31,10 +30,6 @@ public class MainGraphics {
 			imageP = ImageIO.read(new File("Swamp.jpg"));
 			imageQ = ImageIO.read(new File("Mountain.jpg"));
 			imageW = ImageIO.read(new File("Water.jpg"));
-			imageredC = ImageIO.read(new File("redC.png"));
-			imageblueC = ImageIO.read(new File("blueC.png"));
-			imagegreenC = ImageIO.read(new File("greenC.png"));
-			imageyellowC = ImageIO.read(new File("yellowC.png"));
 		} catch (IOException e) {
 			System.err.println(e);
 		}
@@ -44,10 +39,10 @@ public class MainGraphics {
 	static final int lengthBoard = 9;
 	static final int numDominos = 48;
 
-	Player player1 = new Player(imageblueC);;
-	Player player2 = new Player(imagegreenC);;
-	Player player3 = new Player(imageyellowC);;
-	Player player4 = new Player(imageredC);
+	Player player1 = new Player(Player.PlayerColor.BluePlayer);
+	Player player2 = new Player(Player.PlayerColor.GreenPlayer);
+	Player player3 = new Player(Player.PlayerColor.YellowPlayer);
+	Player player4 = new Player(Player.PlayerColor.RedPlayer);
 	ArrayList<Player> fourPlayers = shufflePlayers();
 	ArrayList<Tile> deck = shuffle(list);
 	int chooseTile;
@@ -57,9 +52,9 @@ public class MainGraphics {
 	int roundNum = 1;
 	
 	public static void main(String[] args) {
-		new Menu(null, "Menu", true);
+//		new Menu(null, "Menu", true);
 		MainGraphics kingdomino = new MainGraphics();
-		JOptionPane.showMessageDialog(null, "Start of the game :\n", "Start", JOptionPane.INFORMATION_MESSAGE);
+//		JOptionPane.showMessageDialog(null, "Start of the game :\n", "Start", JOptionPane.INFORMATION_MESSAGE);
 		kingdomino.startPlay();
 	}
 
@@ -472,6 +467,10 @@ public class MainGraphics {
 
 	public void displayDomino(Graphics g, ArrayList<Tile> list) {
 		for (int i = 0; i < list.size(); i++) {
+			Font font = new Font("Calibri", Font.BOLD, 20);
+			g.setFont(font);
+			g.setColor(Color.DARK_GRAY);
+			g.drawString(""+list.get(i).number, 50, 145+i*135);
 			for (int j = 0; j < 2; j++) {
 				char terrain;
 				int numCrowns;
@@ -490,8 +489,6 @@ public class MainGraphics {
 					g.drawImage(getImage(terrain), 100 + j * 70, 100 + i * 140, obs);
 				}
 				if (numCrowns > 0) {
-					Font font = new Font("Calibri", Font.PLAIN, 20);
-					g.setFont(font);
 					g.setColor(Color.WHITE);
 					g.drawString(String.valueOf(numCrowns), 105 + j * 70, 120 + i * 140);
 				}
