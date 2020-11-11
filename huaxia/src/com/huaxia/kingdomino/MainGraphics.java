@@ -68,10 +68,10 @@ public class MainGraphics {
 			showPlayOrder(roundNum);
 			ArrayList<Tile> tileList = getNewTileList(deck);
 			for (int i = 0; i < 4; i++) {
-				boolean finished = false;
+				boolean isSuccess = false;
 				do {
-					finished = doGame(fourPlayers.get(i), tileList);
-				} while (!finished);
+					isSuccess = doGame(fourPlayers.get(i), tileList);
+				} while (!isSuccess);
 			}
 			fourPlayers = shufflePlayers();
 			roundNum += 1;
@@ -90,10 +90,10 @@ public class MainGraphics {
 		JFrame frame = new JFrame();
 		displayFrame(frame, player, sortTile(tileList)); // setVisible(true)
 		frame.addMouseListener(new TilePositionListener(tileList));
-		waitForPlayer();
-		boolean finished = placeTile(player, tileList, frame);
+		waitForPlayerChooseTile();
+		boolean isSuccess = placeTileInBoard(player, tileList, frame);
 		reset(frame);
-		return finished;
+		return isSuccess;
 	}
 
 	private void reset(JFrame frame) {
@@ -103,7 +103,7 @@ public class MainGraphics {
 		frame.dispose();
 	}
 
-	private boolean placeTile(Player player, ArrayList<Tile> tileList, JFrame frame) {
+	private boolean placeTileInBoard(Player player, ArrayList<Tile> tileList, JFrame frame) {
 		if (!isEmpty(tileList.get(chooseTile - 1))) {
 			play(player, tileList, frame);
 			return true;
@@ -112,7 +112,7 @@ public class MainGraphics {
 		return false;
 	}
 
-	private void waitForPlayer() {
+	private void waitForPlayerChooseTile() {
 		while (chooseTile == 0) {
 			try {
 				TimeUnit.MILLISECONDS.sleep(20);
