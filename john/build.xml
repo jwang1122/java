@@ -17,11 +17,19 @@
 
 	<target name="compile" depends="init">
 		<!-- Compile the Java code from ${src} into ${build} -->
+<<<<<<< HEAD
 		<javac srcdir="${src}" destdir="${build}"/>
 		<copy todir="${build}/com/huaxia/tictactoe">
 		  <fileset dir="${src}/com/huaxia/tictactoe">
 		  	<include name="*.jpg"/>
 		  	<include name="*.class"/>
+=======
+		<javac target="14" srcdir="${src}" destdir="${build}"/>
+		<copy todir="${build}/com/huaxia/">
+		  <fileset dir="${src}/com/huaxia/">
+		 	<include name="**/*.class"/>
+			<include name="**/*.jpg"/>
+>>>>>>> update class note
 		  </fileset>
 		</copy>
 	</target>

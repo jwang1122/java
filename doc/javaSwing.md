@@ -70,10 +70,11 @@ Layout Manager
 1. TabbedPaneExmple.java;
 1. DesktopPaneExample.java;
 1. EditorPaneExample.java;
+1. EditorPaneExample1.java;
 
 
 ## Applications
-1. Calculator.java; Default layout=FlowLayout, JFrame, JPanel, JTextField, JButton 
+1. √ Calculator.java; Default layout=FlowLayout, JFrame, JPanel, JTextField, JButton 
 1. Tic Tac Toe; com.huaxia.tictactoe; layout=null, resizable=false; getClass().getResource() refer to MyPanel.java; CheckBox, JOptionPane,
 ```java
     Toolkit t = Toolkit.getDefaultToolkit();
