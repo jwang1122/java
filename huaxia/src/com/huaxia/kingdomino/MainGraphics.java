@@ -3,53 +3,28 @@ package com.huaxia.kingdomino;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.ImageObserver;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class MainGraphics {
 	static ArrayList<Tile> list = new Data().getDeck();
-	static Image imageF, imageL, imageM, imageP, imageQ, imageW; // tile images
-
-	static {
-		try {
-			imageF = ImageIO.read(new File("Forest.jpg"));
-			imageL = ImageIO.read(new File("Field.jpg"));
-			imageM = ImageIO.read(new File("Mine.jpg"));
-			imageP = ImageIO.read(new File("Swamp.jpg"));
-			imageQ = ImageIO.read(new File("Mountain.jpg"));
-			imageW = ImageIO.read(new File("Water.jpg"));
-		} catch (IOException e) {
-			System.err.println(e);
-		}
-	}
 
 	static final int lengthCase = 70;
 	static final int lengthBoard = 9;
 	static final int numDominos = 48;
 
-<<<<<<< HEAD
 	Player player1 = new Player(Player.PlayerColor.BluePlayer);
 	Player player2 = new Player(Player.PlayerColor.GreenPlayer);
 	Player player3 = new Player(Player.PlayerColor.YellowPlayer);
 	Player player4 = new Player(Player.PlayerColor.RedPlayer);
-=======
-	Player player1 = new Player(imageblueC,"Blue player's name");;
-	Player player2 = new Player(imagegreenC, "Green player's name");;
-	Player player3 = new Player(imageyellowC, "Yellow player's name");;
-	Player player4 = new Player(imageredC, "Red player's name");
->>>>>>> master
 	ArrayList<Player> fourPlayers = shufflePlayers();
 	ArrayList<Tile> deck = shuffle(list);
 	int chooseTile;
@@ -57,11 +32,11 @@ public class MainGraphics {
 	int x1, x2, y1, y2; // tile1 and tile2 grid positions
 	Color fond = new Color(238, 231, 188);
 	int roundNum = 1;
-	
+
 	public static void main(String[] args) {
-//		new Menu(null, "Menu", true);
+		//		new Menu(null, "Menu", true);
 		MainGraphics kingdomino = new MainGraphics();
-//		JOptionPane.showMessageDialog(null, "Start of the game :\n", "Start", JOptionPane.INFORMATION_MESSAGE);
+		//		JOptionPane.showMessageDialog(null, "Start of the game :\n", "Start", JOptionPane.INFORMATION_MESSAGE);
 		kingdomino.startPlay();
 	}
 
@@ -93,7 +68,7 @@ public class MainGraphics {
 		displayFrame(frame, player, sortTile(tileList)); // setVisible(true)
 		frame.addMouseListener(new TilePositionListener(tileList));
 		waitForPlayerChooseTile();
-		boolean isSuccess = placeTileInBoard(player, tileList, frame);
+		boolean isSuccess = playOnSelectGoodTile(player, tileList, frame);
 		reset(frame);
 		return isSuccess;
 	}
@@ -105,7 +80,7 @@ public class MainGraphics {
 		frame.dispose();
 	}
 
-	private boolean placeTileInBoard(Player player, ArrayList<Tile> tileList, JFrame frame) {
+	private boolean playOnSelectGoodTile(Player player, ArrayList<Tile> tileList, JFrame frame) {
 		if (!isEmpty(tileList.get(chooseTile - 1))) {
 			play(player, tileList, frame);
 			return true;
@@ -129,7 +104,7 @@ public class MainGraphics {
 		player2.setScores();
 		player3.setScores();
 		player4.setScores();
-		printClassement4(player1, player2, player3, player4);
+		showFinalResults();
 		JOptionPane.showMessageDialog(null, "Game Over!", "Over", JOptionPane.INFORMATION_MESSAGE);
 	}
 
@@ -154,220 +129,76 @@ public class MainGraphics {
 		frame.setResizable(false);
 	}
 
-	private void play(Player player, Tile tile) {
-		int nbCases = 8;
-
-		boolean playable = true;
-		do {
-			while (!case1Selected || !case2Selected) {
-				try {
-					TimeUnit.MILLISECONDS.sleep(20);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+	private void waitForPlayerSelect2Locations() {
+		while (!case1Selected || !case2Selected) {
+			try {
+				TimeUnit.MILLISECONDS.sleep(20);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
-			boolean x1Valid = true;
-			boolean y1Valid = true;
-			boolean x2Valid = true;
-			boolean y2Valid = true;
-			int[] info = new int[4];
-			do {
-				while (!case1Selected || !case2Selected) {
-					try {
-						TimeUnit.MILLISECONDS.sleep(20);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
+		}
+	}
 
-				if (x1 >= 0 && x1 <= nbCases) {
-					info[0] = x1;
-					x1Valid = false;
-				} else {
-					case1Selected = false;
-					case2Selected = false;
-				}
-			} while (x1Valid);
-			do {
-				while (!case1Selected || !case2Selected) {
-					try {
-						TimeUnit.MILLISECONDS.sleep(20);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-				if (y1 >= 0 && y1 <= nbCases) {
-					info[1] = y1;
-					y1Valid = false;
-				} else {
-					case1Selected = false;
-					case2Selected = false;
-				}
-			} while (y1Valid);
-			do {
-				while (!case1Selected || !case2Selected) {
-					try {
-						TimeUnit.MILLISECONDS.sleep(20);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-				if (x2 >= 0 && x2 <= nbCases) {
-					info[2] = x2;
-					x2Valid = false;
-				} else {
-					case1Selected = false;
-					case2Selected = false;
-				}
-			} while (x2Valid);
-			do {
-				while (!case1Selected || !case2Selected) {
-					try {
-						TimeUnit.MILLISECONDS.sleep(20);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-				if (y2 >= 0 && y2 <= nbCases) {
-					info[3] = y2;
-					y2Valid = false;
-				} else {
-					case1Selected = false;
-					case2Selected = false;
-				}
-			} while (y2Valid);
-			if (player.getBoard().graphicPlayable(tile, info[0], info[1], info[2], info[3])) {
-				tile.insertTile(player.getBoard(), info[0], info[1], info[2], info[3]);
-				playable = false;
+	private void handleSelectedTile(Player player, Tile tile) {
+		boolean success = false;
+		do {
+			waitForPlayerSelect2Locations();
+			checkForValidLocations();
+			success = dropTile(player, tile);
+		} while (!success);
+	}
+
+	private void checkForValidLocations() {
+		boolean valid = false;
+		do {
+			waitForPlayerSelect2Locations();
+			if (x1 >= 0 && x1 < lengthBoard && y1 >= 0 && y1 < lengthBoard && x2 >= 0 && x2 < lengthBoard && y2 >= 0
+					&& y2 < lengthBoard) {
+				valid = true;
 			} else {
 				case1Selected = false;
 				case2Selected = false;
 			}
-		} while (playable);
+		} while (!valid);
 	}
 
-	private ArrayList<Player> winner2(Player player1, Player player2) {
-		ArrayList<Player> listWinners = new ArrayList<Player>();
-		int[] scoresPlayer1 = player1.getScores();
-		int[] scoresPlayer2 = player2.getScores();
-		int score1 = scoresPlayer1[0];
-		int score2 = scoresPlayer2[0];
-		int maxField1 = scoresPlayer1[1];
-		int maxField2 = scoresPlayer2[1];
-		int numCrowns1 = scoresPlayer1[2];
-		int numCrowns2 = scoresPlayer2[2];
-		if (score1 == score2) {
-			if (maxField1 == maxField2) {
-				if (numCrowns1 == numCrowns2) {
-					listWinners.add(player1);
-					listWinners.add(player2);
-				} else if (numCrowns1 > numCrowns2) {
-					listWinners.add(player1);
-				} else {
-					listWinners.add(player2);
-				}
-			} else if (maxField1 > maxField2) {
-				listWinners.add(player1);
-			} else {
-				listWinners.add(player2);
-			}
-		} else if (score1 > score2) {
-			listWinners.add(player1);
-		} else {
-			listWinners.add(player2);
+	private boolean dropTile(Player player, Tile tile) {
+		if (player.graphicPlayable(tile, x1, y1, x2, y2)) {
+			player.insertTile(tile, x1, y1, x2, y2);
+			return true;
 		}
-		return listWinners;
+		case1Selected = false;
+		case2Selected = false;
+		return false;
 	}
 
-	private ArrayList<Player> winner3(Player player1, Player player2, Player player3) {
-		ArrayList<Player> winners = new ArrayList<Player>();
-		ArrayList<Player> winnerPlayer1Player2 = winner2(player1, player2);
-		if (winnerPlayer1Player2.size() == 2) {
-			if (winner2(winnerPlayer1Player2.get(0), player3).size() == 2) {
-				winners.add(player1);
-				winners.add(player2);
-				winners.add(player3);
-				return winners;
-			} else if (winner2(winnerPlayer1Player2.get(0), player3) == winner2(winnerPlayer1Player2.get(1), player3)) {
-				winners.add(player3);
-				return winners;
-			} else {
-				winners.add(player1);
-				winners.add(player2);
-				return winners;
-			}
-		} else {
-			return winner2(winnerPlayer1Player2.get(0), player3);
-		}
-	}
-
-	private ArrayList<Player> winner4(Player player1, Player player2, Player player3, Player player4) {
-		ArrayList<Player> winners = new ArrayList<Player>();
-		ArrayList<Player> winnerPlayer1Player2Player3 = winner3(player1, player2, player3);
-		if (winnerPlayer1Player2Player3.size() == 3) {
-			if (winner2(winnerPlayer1Player2Player3.get(0), player4).size() == 2) {
-				winners.add(player1);
-				winners.add(player2);
-				winners.add(player3);
-				winners.add(player4);
-				return winners;
-			} else if (winner2(winnerPlayer1Player2Player3.get(0), player4) == winner2(winnerPlayer1Player2Player3.get(1), player4)) {
-				winners.add(player4);
-				return winners;
-			} else {
-				winners.add(player1);
-				winners.add(player2);
-				winners.add(player3);
-				return winners;
-			}
-		} else if (winnerPlayer1Player2Player3.size() == 2) {
-			if (winner2(winnerPlayer1Player2Player3.get(0), player4).size() == 2) {
-				winners.add(winnerPlayer1Player2Player3.get(0));
-				winners.add(winnerPlayer1Player2Player3.get(1));
-				winners.add(player4);
-				return winners;
-			} else if (winner2(winnerPlayer1Player2Player3.get(0), player4) == winner2(winnerPlayer1Player2Player3.get(1), player4)) {
-				winners.add(player4);
-				return winners;
-			} else {
-				winners.add(winnerPlayer1Player2Player3.get(0));
-				winners.add(winnerPlayer1Player2Player3.get(1));
-				return winners;
-			}
-		} else {
-			return winner2(winnerPlayer1Player2Player3.get(0), player4);
-		}
-	}
-
-	private void printWinners(ArrayList<Player> listWinners) {
-		if (listWinners.size() == 1) {
+	private void showWinnerScores(ArrayList<Player> listWinners) {
 			Player player1 = listWinners.get(0);
 			JOptionPane.showMessageDialog(null, "The big winner is " + player1.getName() + "!\nHe gets a score of "
 					+ player1.getScores()[0] + " points!\nIts most extensive property is " + player1.getScores()[1]
 					+ "  !\nFinally he owns a total of " + player1.getScores()[2]
 					+ " crowns!\n ", "Winner", JOptionPane.INFORMATION_MESSAGE);
-		}
-
 	}
 
-	private void printClassement4(Player player1, Player player2, Player player3, Player player4) {
-		ArrayList<Player> listWinners = winner4(player1, player2, player3, player4);
-		printWinners(listWinners);
-
-		if (listWinners.size() == 1) {
-			if (listWinners.get(0) == player1) {
-				JOptionPane.showMessageDialog(null, player2.getName() + " gets a score of " + player2.getScores()[0]
-						+ " points!\nIts most extensive property is " + player2.getScores()[1]
-						+ " !\nFinally he owns a total of " + player2.getScores()[2] + " Crowns!\n " + player3.getName()
-						+ " gets a score of " + player3.getScores()[0] + " points!\nIts most extensive property is "
-						+ player3.getScores()[1] + "  !\nFinally he owns a total of" + player3.getScores()[2]
-						+ " Crowns!\n " + player4.getName() + " gets a score of " + player4.getScores()[0]
-						+ " points!\nIts most extensive property is " + player4.getScores()[1]
-						+ " !\nFinally he owns a total of " + player4.getScores()[2]
-						+ " Crowns!\n ", "losing", JOptionPane.INFORMATION_MESSAGE);
-			}
+	private void showFinalResults() {
+		ArrayList<Player> listWinners = getPlayerListOrderedByScores();
+		showWinnerScores(listWinners);
+		for(int i=1; i<4; i++) {
+			Player player = listWinners.get(i);
+				JOptionPane.showMessageDialog(null, player.getName() + " gets a score of " + player.getScores()[0]
+						+ " points!\nIts most extensive property is " + player.getScores()[1]
+						+ " !\nFinally he owns a total of " + player.getScores()[2] + " Crowns!\n ", "losing", JOptionPane.INFORMATION_MESSAGE);
 		}
+	}
 
+	private ArrayList<Player> getPlayerListOrderedByScores() {
+		ArrayList<Player> list = new ArrayList<>();
+		list.add(player1);
+		list.add(player2);
+		list.add(player3);
+		list.add(player4);
+		Collections.sort(list);
+		return list;
 	}
 
 	private ArrayList<Tile> shuffle(ArrayList<Tile> list) {
@@ -375,7 +206,6 @@ public class MainGraphics {
 		return list;
 	}
 
-	@SuppressWarnings("unchecked")
 	private ArrayList<Tile> sortTile(ArrayList<Tile> list) {
 		if (numEmptyTile(list) > list.size() - 2) {
 			return list;
@@ -428,7 +258,7 @@ public class MainGraphics {
 	}
 
 	private void drawCrown(Graphics g, Player player, int i, int j) {
-		int numCrowns = player.getBoard().property[j][i].getCrown();
+		int numCrowns = player.getBoard().properties[j][i].getCrown();
 		g.setColor(Color.BLACK);
 		g.drawRect(400 + lengthCase * i, 30 + lengthCase * j, lengthCase, lengthCase);
 		if (numCrowns > 0) {
@@ -440,7 +270,7 @@ public class MainGraphics {
 	}
 
 	private void drawTerrian(Graphics g, Player player, int i, int j) {
-		char terrain = player.getBoard().property[j][i].getTile();
+		char terrain = player.getBoard().properties[j][i].getTile();
 		if (terrain == 'C') {
 			g.drawImage(player.getCastleImage(), 400 + lengthCase * i, 30 + lengthCase
 					* j, lengthCase, lengthCase, null);
@@ -451,33 +281,16 @@ public class MainGraphics {
 			g.fillRect(400 + lengthCase * i, 30 + lengthCase * j, lengthCase, lengthCase);
 			return;
 		}
-		g.drawImage(getImage(terrain), 400 + lengthCase * i, 30 + lengthCase * j, lengthCase, lengthCase, null);
+		g.drawImage(Tile.getImage(terrain), 400 + lengthCase * i, 30 + lengthCase
+				* j, lengthCase, lengthCase, null);
 	}
 
-	private Image getImage(char value) {
-		switch (value) {
-		case 'P':
-			return imageP;
-		case 'Q':
-			return imageQ;
-		case 'F':
-			return imageF;
-		case 'L':
-			return imageL;
-		case 'W':
-			return imageW;
-		case 'M':
-			return imageM;
-		}
-		return null;
-	}
-
-	public void displayDomino(Graphics g, ArrayList<Tile> list) {
+	private void displayDomino(Graphics g, ArrayList<Tile> list) {
 		for (int i = 0; i < list.size(); i++) {
 			Font font = new Font("Calibri", Font.BOLD, 20);
 			g.setFont(font);
 			g.setColor(Color.DARK_GRAY);
-			g.drawString(""+list.get(i).number, 50, 145+i*135);
+			g.drawString("" + list.get(i).number, 50, 145 + i * 135);
 			for (int j = 0; j < 2; j++) {
 				char terrain;
 				int numCrowns;
@@ -493,7 +306,7 @@ public class MainGraphics {
 					g.setColor(new Color(188, 181, 138));
 					g.fillRect(100 + j * 70, 100 + i * 140, 70, 70);
 				} else {
-					g.drawImage(getImage(terrain), 100 + j * 70, 100 + i * 140, obs);
+					g.drawImage(Tile.getImage(terrain), 100 + j * 70, 100 + i * 140, obs);
 				}
 				if (numCrowns > 0) {
 					g.setColor(Color.WHITE);
@@ -507,7 +320,7 @@ public class MainGraphics {
 		Tile tileEmpty = new Tile(0, 0, 0, '#', '#'); // number=0 is empty tile
 
 		if (player.getBoard().canPlay(tileList.get(chooseTile - 1))) {
-			play(player, tileList.get(chooseTile - 1));
+			handleSelectedTile(player, tileList.get(chooseTile - 1));
 			displayFrame(frame, player, sortTile(tileList)); // setVisible(true)
 			JOptionPane.showMessageDialog(null, "\n" + player.getName() + " you now have a score of "
 					+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);

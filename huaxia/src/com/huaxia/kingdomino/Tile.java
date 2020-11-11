@@ -1,6 +1,26 @@
 package com.huaxia.kingdomino;
 
-public class Tile implements Comparable{
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+public class Tile implements Comparable<Tile>{
+	static Image imageF, imageL, imageM, imageP, imageQ, imageW; // tile images
+	static {
+		try {
+			imageF = ImageIO.read(new File("Forest.jpg"));
+			imageL = ImageIO.read(new File("Field.jpg"));
+			imageM = ImageIO.read(new File("Mine.jpg"));
+			imageP = ImageIO.read(new File("Swamp.jpg"));
+			imageQ = ImageIO.read(new File("Mountain.jpg"));
+			imageW = ImageIO.read(new File("Water.jpg"));
+		} catch (IOException e) {
+			System.err.println(e);
+		}
+	}
+	enum Terrain {Forest,Field,Mine,Swamp,Mountain,Water};
 	int number, crown1, crown2;
 	char tile1, tile2;
 
@@ -53,10 +73,6 @@ public class Tile implements Comparable{
 	}
 
 	public void insertTile(Board board, int x1, int y1, int x2, int y2) {
-//		crown1 = this.getCrown1();
-//		crown2 = this.getCrown2();
-//		tile1 = this.getTile1();
-//		tile2 = this.getTile2();
 		Property case1 = new Property(x1, y1, crown1, tile1);
 		Property case2 = new Property(x2, y2, crown2, tile2);
 		board.setcase(case1);
@@ -110,6 +126,25 @@ public class Tile implements Comparable{
 		}
 		return Value;
 	}
+	
+	static public Image getImage(char value) {
+		switch (value) {
+		case 'P':
+			return imageP;
+		case 'Q':
+			return imageQ;
+		case 'F':
+			return imageF;
+		case 'L':
+			return imageL;
+		case 'W':
+			return imageW;
+		case 'M':
+			return imageM;
+		}
+		return null;
+	}
+
 
 	@Override
 	public String toString() {
@@ -117,10 +152,8 @@ public class Tile implements Comparable{
 	}
 
 	@Override
-	public int compareTo(Object o) {
-		if(o==null) return -1;
-		if(!(o instanceof Tile)) return -1;
-		Tile other = (Tile)o;
+	public int compareTo(Tile other) {
+		if(other==null) return -1;
 		if (number==other.number)
 			return 0;
 		if (number > other.number)

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
-public class Player {
+public class Player implements Comparable<Player> {
 	enum PlayerColor {
 		BluePlayer, GreenPlayer, YellowPlayer, RedPlayer
 	};
@@ -32,19 +32,12 @@ public class Player {
 	Image castleImage;
 	String message;
 
-<<<<<<< HEAD
 	public Player(PlayerColor color) {
 		setAttributes(color);
-//		name = JOptionPane.showInputDialog(null, message, "Players", JOptionPane.QUESTION_MESSAGE);
+		name = JOptionPane.showInputDialog(null, message, "Players", JOptionPane.QUESTION_MESSAGE);
 		if(name==null || name.length()==0) {
 			name=color.toString();
 		}
-=======
-	public Player(Image castleImage, String message) {
-		name = "Player 1";
-		name = JOptionPane.showInputDialog(null, message, "Players",
-				JOptionPane.QUESTION_MESSAGE);
->>>>>>> master
 		board = new Board(boardSize);
 		scores = new int[3];
 	}
@@ -252,10 +245,61 @@ public class Player {
 		return "Player [name=" + name + "]";
 	}
 
+	public void setScores(int[] scores) {
+		this.scores = scores;
+	}
+	
 	public void setNewScore() {
 		this.scores[0] = board.copy().score();
 		this.scores[1] = board.maxField();
 		this.scores[2] = board.numCrowns();
+	}
+
+	@Override
+	public int compareTo(Player other) {
+		if(scores[0]==other.scores[0]) {
+			if(scores[1]==other.scores[1]) {
+				if(scores[2]==other.scores[2]) {
+					return 0;
+				}
+				return scores[2]>other.scores[2]?-1:1;
+			}
+			return scores[1]>other.scores[1]?-1:1;
+		}
+		return scores[0]>other.scores[0]?-1:1;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Player other = (Player) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+
+	public boolean graphicPlayable(Tile tile, int x1, int y1, int x2, int y2) {
+		return board.graphicPlayable(tile, x1, y1, x2, y2);
+	}
+
+	public void insertTile(Tile tile, int x1, int y1, int x2, int y2) {
+		board.insertTile(tile, x1,y1,x2,y2);		
 	}
 
 }

@@ -82,7 +82,7 @@ public class MainFrame extends JFrame implements MouseListener {
 	}
 
 	private void drawCrown(Graphics g, Player player, int i, int j) {
-		int numCrowns = player.getBoard().property[j][i].getCrown();
+		int numCrowns = player.getBoard().properties[j][i].getCrown();
 		g.setColor(Color.BLACK);
 		g.drawRect(400 + lengthCase * i, 30 + lengthCase * j, lengthCase, lengthCase);
 		if (numCrowns > 0) {
@@ -94,7 +94,7 @@ public class MainFrame extends JFrame implements MouseListener {
 	}
 
 	private void drawTerrian(Graphics g, Player player, int i, int j) {
-		char terrain = player.getBoard().property[j][i].getTile();
+		char terrain = player.getBoard().properties[j][i].getTile();
 		if (terrain == 'C') {
 			g.drawImage(player.getCastleImage(), 400 + lengthCase * i, 30 + lengthCase
 					* j, lengthCase, lengthCase, null);

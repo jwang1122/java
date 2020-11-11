@@ -6,52 +6,38 @@ import javax.swing.JOptionPane;
 
 public class Board {
 	int size;
-	Property[][] property;
+	Property[][] properties;
 	int borders[];
-	 
 
 	public int getsize() {
 		return this.size;
 	}
 
-	public void setSize(int size) {
-		size = this.getsize();
-		property = this.getProperty();
-		Property property[][] = new Property[size][size];
-		for (int line = 0; line < size; line++) {
-			for (int column = 0; column < size; column++) {
-				Property tile = new Property(line, column, 0, '#');
-				property[line][column] = tile;
-			}
-		}
-		Property castle = new Property(size / 2, size / 2, 0, 'C');
-		this.setcase(castle);
+	public Property[][] getProperties() {
+		return this.properties;
 	}
 
-	public Property[][] getProperty() {
-		return this.property;
-	}
-
-	public void setProperty(Property[][] propertyArray) {
-		this.property = propertyArray;
-	}
-
+	/**
+	 * used by Tile class.
+	 * 
+	 * @param tile
+	 */
 	public void setcase(Property tile) {
-		property = this.getProperty();
+//		property = this.getProperty(); // junk code
 		int x = tile.getx();
 		int y = tile.gety();
-		property[x][y] = tile;
-		this.setProperty(property);
+		properties[x][y] = tile;
+//		this.setProperty(property); // junk code
 		this.borders = this.contours();
 	}
 
 	public Board(int size) {
 		this.size = size;
-		this.property = new Property[size][size];
+		this.properties = new Property[size][size];
 		for (int line = 0; line < size; line++) {
 			for (int column = 0; column < size; column++) {
 				Property tile = new Property(line, column, 0, '#');
-				property[line][column] = tile;
+				properties[line][column] = tile;
 			}
 		}
 		Property castle = new Property(size / 2, size / 2, 0, 'C');
@@ -59,155 +45,53 @@ public class Board {
 		this.borders = this.contours();
 	}
 
-	public void print() {
-		size = this.getsize();
-		property = this.getProperty();
-		for (int line = 0; line < size + 1; line++) {
-			for (int column = 0; column < size + 1; column++) {
-				if (line == 0 && column == 0) {
-					System.out.print("  ");
-				} else if (line == 0 && column < size) {
-					if (column - 1 >= 10) {
-						System.out.print((column - 1) + "  ");
-					} else {
-						System.out.print((column - 1) + "   ");
-					}
-				} else if (line == 0 && column == size) {
-					System.out.print((column - 1) + "\n");
-				} else if (column == 0) {
-					if (line - 1 >= 10) {
-						System.out.print(line - 1);
-					} else {
-						System.out.print(line - 1 + " ");
-					}
-				} else {
-					Property tile = property[line - 1][column - 1];
-					if (column == size) {
-						if (tile.getCrown() > 0) {
-							System.out.print(tile.getCrown());
-						}
-						System.out.print(tile.getTile() + "\n");
-					} else {
-						if (tile.getCrown() > 0) {
-							System.out.print(tile.getCrown());
-							System.out.print(tile.getTile() + "  ");
-						} else {
-							System.out.print(tile.getTile() + "   ");
-						}
-					}
-				}
-			}
-		}
-	}
-
-	public void viewplayable(Tile tile, int pos) {
-		size = this.getsize();
-		char play[][] = new char[size][size];
-		char ident = 'e';
-		int[] borders = this.borders;
-		if (pos == 1) {
-			ident =tile.getTile1();
-		}
-		if (pos == 2) {
-			ident =tile.getTile2();
-		}
-		int line = 0;
-		System.out.println(' ');
-		for (int column = 0; column < size; column++) {
-			boolean notprint = true;
-			if (property[line][column].getTile() == '#') {
-				notprint = true;
-				while (notprint) {
-					if (line - (size / 2 + 1) >= borders[0] || line + (size / 2 + 1) <= borders[1]
-							|| column - (size / 2 + 1) >= borders[2] || column + (size / 2 + 1) <= borders[3]) {
-						System.out.print(this.property[0][0].getTile());
-						System.out.print(' ');
-						break;
-					}
-					if (column > 0 && (property[line][column - 1].getTile() == ident
-							|| (property[line][column - 1].getTile() == 'C'))) {
-						System.out.print('O');
-						System.out.print(' ');
-						break;
-					}
-					if (column < size - 1 && (property[line][column + 1].getTile() == ident
-							|| (property[line][column + 1].getTile() == 'C'))) {
-						System.out.print('O');
-						System.out.print(' ');
-						break;
-					}
-					if (line < size - 1 && (property[line + 1][column].getTile() == ident
-							|| (property[line + 1][column].getTile() == 'C'))) {
-						System.out.print('O');
-						System.out.print(' ');
-						break;
-					}
-					if (line > 0 && ((property[line - 1][column].getTile() == ident)
-							|| (property[line - 1][column].getTile() == 'C'))) {
-						System.out.print('O');
-						System.out.print(' ');
-						break;
-					} else {
-						System.out.print('X');
-						System.out.print(' ');
-						break;
-					}
-				}
-			} else {
-				System.out.print('X');
-				System.out.print(' ');
-			}
-			if (column == size - 1 && line < size) {
-				line = line + 1;
-				column = -1;
-				if (line == size) {
-					break;
-				}
-				System.out.println(' ');
-			}
-		}
-	}
-
+	/**
+	 * Used by Player
+	 * 
+	 * @param tile
+	 * @param pos
+	 * @return
+	 */
 	public char[][] playable(Tile tile, int pos) {
 		size = this.getsize();
 		char play[][] = new char[size][size];
 		char ident = 'e';
 		int[] borders = this.borders;
 		if (pos == 1) {
-			ident =tile.getTile1();
+			ident = tile.getTile1();
 		}
 		if (pos == 2) {
-			ident =tile.getTile2();
+			ident = tile.getTile2();
 		}
 		int line = 0;
 		System.out.println(' ');
 		for (int column = 0; column < size; column++) {
 			boolean notread = true;
-			if (property[column][line].getTile() == '#') {
+			if (properties[column][line].getTile() == '#') {
 				notread = true;
 				while (notread) {
-					if (line - (size / 2 + 1) >= borders[0] || line + (size / 2 + 1) <= borders[1]
-							|| column - (size / 2 + 1) >= borders[2] || column + (size / 2 + 1) <= borders[3]) {
+					if (line - (size / 2 + 1) >= borders[0] || line + (size / 2 + 1) <= borders[1] || column - (size / 2
+							+ 1) >= borders[2] || column + (size / 2 + 1) <= borders[3]) {
 						play[line][column] = 'X';
 						break;
 					}
-					if (column > 0 && (property[line][column - 1].getTile() == ident
-							|| property[line][column - 1].getTile() == 'C')) {
+					if (column > 0 && (properties[line][column - 1].getTile() == ident || properties[line][column
+							- 1].getTile() == 'C')) {
 						play[line][column] = 'O';
 						break;
 					}
-					if (column < size - 1 && (property[line][column + 1].getTile() == ident
-							|| property[line][column + 1].getTile() == 'C')) {
+					if (column < size - 1 && (properties[line][column + 1].getTile() == ident || properties[line][column
+							+ 1].getTile() == 'C')) {
 						play[line][column] = 'O';
 						break;
 					}
-					if (line < size - 1 && (property[line + 1][column].getTile() == ident
-							|| property[line + 1][column].getTile() == 'C')) {
+					if (line < size - 1 && (properties[line + 1][column].getTile() == ident || properties[line
+							+ 1][column].getTile() == 'C')) {
 						play[line][column] = 'O';
 						break;
 					}
-					if (line > 0 && ((property[line - 1][column].getTile() == ident)
-							|| property[line - 1][column].getTile() == 'C')) {
+					if (line > 0 && ((properties[line - 1][column].getTile() == ident) || properties[line
+							- 1][column].getTile() == 'C')) {
 						play[line][column] = 'O';
 						break;
 					} else {
@@ -229,19 +113,23 @@ public class Board {
 		return play;
 	}
 
+	/**
+	 * used by MainGraphics class.
+	 * 
+	 * @param tile
+	 * @return
+	 */
 	public boolean canPlay(Tile tile) {
-		property = this.getProperty();
+		properties = this.getProperties();
 		ArrayList<Integer[]> fieldList = this.fieldList();
 		for (int i = 0; i < fieldList.size(); i++) {
 			ArrayList<Integer[]> frameList = frame(fieldList.get(i)[0], fieldList.get(i)[1]);
 			for (int j = 0; j < frameList.size(); j++) {
 				ArrayList<Integer[]> nextToCase = nextToCase(frameList.get(j)[0], frameList.get(j)[1]);
-				ArrayList<Integer[]> delNextToCase = delNextToCase(fieldList.get(i)[0], fieldList.get(i)[1],
-						nextToCase);
+				ArrayList<Integer[]> delNextToCase = delNextToCase(fieldList.get(i)[0], fieldList.get(i)[1], nextToCase);
 				if (delNextToCase.size() > 0) {
 					for (int elt = 0; elt < delNextToCase.size(); elt++) {
-						if (this.playable(tile, frameList.get(j)[0], frameList.get(j)[1], delNextToCase.get(elt)[0],
-								delNextToCase.get(elt)[1])) {
+						if (this.playable(tile, frameList.get(j)[0], frameList.get(j)[1], delNextToCase.get(elt)[0], delNextToCase.get(elt)[1])) {
 							return true;
 						}
 					}
@@ -251,17 +139,27 @@ public class Board {
 		return false;
 	}
 
+	/**
+	 * used by Player
+	 * 
+	 * @param tile
+	 * @param x1
+	 * @param y1
+	 * @param x2
+	 * @param y2
+	 * @return
+	 */
 	public boolean playable(Tile tile, int x1, int y1, int x2, int y2) {
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
-		if ((x1 < 0 || x1 > size - 1) || (y1 < 0 || y1 > size - 1) || (x2 < 0 || x2 > size - 1)
-				|| (y2 < 0 || y2 > size - 1)) {
+		if ((x1 < 0 || x1 > size - 1) || (y1 < 0 || y1 > size - 1) || (x2 < 0 || x2 > size - 1) || (y2 < 0 || y2 > size
+				- 1)) {
 			return false;
 		}
 		if (!placed(x1, y1, x2, y2)) {
 			return false;
 		}
-		if (property[x1][y1].getTile() != '#' || property[x2][y2].getTile() != '#') {
+		if (properties[x1][y1].getTile() != '#' || properties[x2][y2].getTile() != '#') {
 			return false;
 		}
 		if (!possible(tile, x1, y1, x2, y2)) {
@@ -271,11 +169,11 @@ public class Board {
 	}
 
 	public boolean printPlayable(Tile tile, int x1, int y1, int x2, int y2) {
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
-		if ((x1 < 0 || x1 > size - 1) || (y1 < 0 || y1 > size - 1) || (x2 < 0 || x2 > size - 1)
-				|| (y2 < 0 || y2 > size - 1)) {
-			System.out.println(String.format("size=%d, (%d, %d) (%d, %d)",size, x1,y1,x2,y2));
+		if ((x1 < 0 || x1 > size - 1) || (y1 < 0 || y1 > size - 1) || (x2 < 0 || x2 > size - 1) || (y2 < 0 || y2 > size
+				- 1)) {
+			System.out.println(String.format("size=%d, (%d, %d) (%d, %d)", size, x1, y1, x2, y2));
 			System.out.println("The input coordinates go beyond the  playing field!");
 			return false;
 		}
@@ -287,7 +185,7 @@ public class Board {
 			System.out.println("The entered coordinates correspond to boxes not pasted!");
 			return false;
 		}
-		if (property[x1][y1].getTile() != '#' || property[x2][y2].getTile() != '#') {
+		if (properties[x1][y1].getTile() != '#' || properties[x2][y2].getTile() != '#') {
 			System.out.println("The entered coordinates has already taken!");
 			return false;
 		}
@@ -298,28 +196,24 @@ public class Board {
 	}
 
 	public boolean graphicPlayable(Tile tile, int x1, int y1, int x2, int y2) {
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
-		if ((x1 < 0 || x1 > size - 1) || (y1 < 0 || y1 > size - 1) || (x2 < 0 || x2 > size - 1)
-				|| (y2 < 0 || y2 > size - 1)) {
-			System.out.println(String.format("size=%d, (%d, %d) (%d, %d)",size, x1,y1,x2,y2));
-			JOptionPane.showMessageDialog(null, "The input coordinates go beyond the playing field!",
-					"Error", JOptionPane.INFORMATION_MESSAGE);
+		if ((x1 < 0 || x1 > size - 1) || (y1 < 0 || y1 > size - 1) || (x2 < 0 || x2 > size - 1) || (y2 < 0 || y2 > size
+				- 1)) {
+			System.out.println(String.format("size=%d, (%d, %d) (%d, %d)", size, x1, y1, x2, y2));
+			JOptionPane.showMessageDialog(null, "The input coordinates go beyond the playing field!", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
 		if (x1 == x2 && y1 == y2) {
-			JOptionPane.showMessageDialog(null, "You cannot play on a single square!", "Error",
-					JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "You cannot play on a single square!", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
 		if (!placed(x1, y1, x2, y2)) {
-			JOptionPane.showMessageDialog(null, "The entered coordinates correspond to boxes not pasted!",
-					"Error", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "The entered coordinates correspond to boxes not pasted!", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
-		if (property[x1][y1].getTile() != '#' || property[x2][y2].getTile() != '#') {
-			JOptionPane.showMessageDialog(null, "The entered coordinate has already taken!",
-					"Error", JOptionPane.INFORMATION_MESSAGE);
+		if (properties[x1][y1].getTile() != '#' || properties[x2][y2].getTile() != '#') {
+			JOptionPane.showMessageDialog(null, "The entered coordinate has already taken!", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
 		if (!graphicPossible(tile, x1, y1, x2, y2)) {
@@ -376,9 +270,8 @@ public class Board {
 		if (fieldList.size() == 0) {
 			Tile tileEmpty = new Tile(tile.getNumber(), 0, 0, '#', '#');
 			tileEmpty.insertTile(this, x1, y1, x2, y2);
-			System.out.println(String.format("size=%d, (%d, %d) (%d, %d)",size, x1,y1,x2,y2));
-			JOptionPane.showMessageDialog(null, "The input coordinates go beyond the  framework!", "Error",
-					JOptionPane.INFORMATION_MESSAGE);
+			System.out.println(String.format("size=%d, (%d, %d) (%d, %d)", size, x1, y1, x2, y2));
+			JOptionPane.showMessageDialog(null, "The input coordinates go beyond the  framework!", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
 		ArrayList<Integer[]> nextToCase1 = deleteNextTo(nextToCastle(x1, y1), x2, y2);
@@ -386,8 +279,7 @@ public class Board {
 		if (nextToCase1.size() + nextToCase2.size() <= 0) {
 			Tile tileEmpty = new Tile(tile.getNumber(), 0, 0, '#', '#');
 			tileEmpty.insertTile(this, x1, y1, x2, y2);
-			JOptionPane.showMessageDialog(null, "Adjacent squares do not have  the same type!", "Error",
-					JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Adjacent squares do not have  the same type!", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
 		Tile tileEmpty = new Tile(tile.getNumber(), 0, 0, '#', '#');
@@ -430,7 +322,7 @@ public class Board {
 
 	public ArrayList<Integer[]> nextToCase(int line, int column) {
 		ArrayList<Integer[]> list = new ArrayList<Integer[]>();
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
 		if (line - 1 >= 0) {
 			Integer[] pos = { line - 1, column };
@@ -453,7 +345,7 @@ public class Board {
 
 	public int[] contours() {
 		int[] extreme = new int[4];
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
 		int linemax = size / 2;
 		int columnmax = size / 2;
@@ -461,28 +353,28 @@ public class Board {
 		int columnmin = size / 2;
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
-				if ((property[i][j].getTile() != '#') && (linemin >= i)) {
+				if ((properties[i][j].getTile() != '#') && (linemin >= i)) {
 					linemin = i;
 				}
 			}
 		}
 		for (int j = 0; j < size; j++) {
 			for (int i = 0; i < size; i++) {
-				if (property[i][j].getTile() != '#' && columnmin >= j) {
+				if (properties[i][j].getTile() != '#' && columnmin >= j) {
 					columnmin = j;
 				}
 			}
 		}
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
-				if (property[i][j].getTile() != '#' && linemax <= i) {
+				if (properties[i][j].getTile() != '#' && linemax <= i) {
 					linemax = i;
 				}
 			}
 		}
 		for (int j = 0; j < size; j++) {
 			for (int i = 0; i < size; i++) {
-				if (property[i][j].getTile() != '#' && columnmax <= j) {
+				if (properties[i][j].getTile() != '#' && columnmax <= j) {
 					columnmax = j;
 				}
 			}
@@ -496,20 +388,19 @@ public class Board {
 
 	public int score() {
 		Board board = this;
-		property = board.getProperty();
+		properties = board.getProperties();
 		int length = board.getsize();
 		int score = 0;
 		for (int line = 0; line < length; line++) {
 			for (int column = 0; column < length; column++) {
-				if (property[line][column].getTile() != '#') {
+				if (properties[line][column].getTile() != '#') {
 					int numCrowns = 0;
 					int nbCases = 0;
 					ArrayList<Integer[]> pack = board.paquet(line, column);
 					for (int compteur = 0; compteur < pack.size(); compteur++) {
 						nbCases += 1;
-						numCrowns += property[pack.get(compteur)[0]][pack.get(compteur)[1]].getCrown();
-						Property tile = new Property(pack.get(compteur)[0], pack.get(compteur)[1],
-								property[pack.get(compteur)[0]][pack.get(compteur)[1]].getCrown(), '#');
+						numCrowns += properties[pack.get(compteur)[0]][pack.get(compteur)[1]].getCrown();
+						Property tile = new Property(pack.get(compteur)[0], pack.get(compteur)[1], properties[pack.get(compteur)[0]][pack.get(compteur)[1]].getCrown(), '#');
 						board.setcase(tile);
 					}
 					score += nbCases * numCrowns;
@@ -520,12 +411,12 @@ public class Board {
 	}
 
 	public Board copy() {
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
 		Board terrain = new Board(size);
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
-				terrain.setcase(property[i][j]);
+				terrain.setcase(properties[i][j]);
 			}
 		}
 		return terrain;
@@ -533,25 +424,25 @@ public class Board {
 
 	public ArrayList<Integer[]> nextToCastle(int line, int column) {
 		ArrayList<Integer[]> list = new ArrayList<Integer[]>();
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
-		if ((line - 1 >= 0) && (property[line][column].getTile() == property[line - 1][column].getTile()
-				|| property[line - 1][column].getTile() == 'C')) {
+		if ((line - 1 >= 0) && (properties[line][column].getTile() == properties[line - 1][column].getTile()
+				|| properties[line - 1][column].getTile() == 'C')) {
 			Integer[] pos = { line - 1, column };
 			list.add(pos);
 		}
-		if ((column + 1 <= size - 1) && (property[line][column].getTile() == property[line][column + 1].getTile()
-				|| property[line][column + 1].getTile() == 'C')) {
+		if ((column + 1 <= size - 1) && (properties[line][column].getTile() == properties[line][column + 1].getTile()
+				|| properties[line][column + 1].getTile() == 'C')) {
 			Integer[] pos = { line, column + 1 };
 			list.add(pos);
 		}
-		if ((line + 1 <= size - 1) && (property[line][column].getTile() == property[line + 1][column].getTile()
-				|| property[line + 1][column].getTile() == 'C')) {
+		if ((line + 1 <= size - 1) && (properties[line][column].getTile() == properties[line + 1][column].getTile()
+				|| properties[line + 1][column].getTile() == 'C')) {
 			Integer[] pos = { line + 1, column };
 			list.add(pos);
 		}
-		if ((column - 1 >= 0) && (property[line][column].getTile() == property[line][column - 1].getTile()
-				|| property[line][column - 1].getTile() == 'C')) {
+		if ((column - 1 >= 0) && (properties[line][column].getTile() == properties[line][column - 1].getTile()
+				|| properties[line][column - 1].getTile() == 'C')) {
 			Integer[] pos = { line, column - 1 };
 			list.add(pos);
 		}
@@ -560,21 +451,21 @@ public class Board {
 
 	public ArrayList<Integer[]> nextTo(int line, int column) {
 		ArrayList<Integer[]> list = new ArrayList<Integer[]>();
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
-		if ((line - 1 >= 0) && (property[line][column].getTile() == property[line - 1][column].getTile())) {
+		if ((line - 1 >= 0) && (properties[line][column].getTile() == properties[line - 1][column].getTile())) {
 			Integer[] pos = { line - 1, column };
 			list.add(pos);
 		}
-		if ((column + 1 <= size - 1) && (property[line][column].getTile() == property[line][column + 1].getTile())) {
+		if ((column + 1 <= size - 1) && (properties[line][column].getTile() == properties[line][column + 1].getTile())) {
 			Integer[] pos = { line, column + 1 };
 			list.add(pos);
 		}
-		if ((line + 1 <= size - 1) && (property[line][column].getTile() == property[line + 1][column].getTile())) {
+		if ((line + 1 <= size - 1) && (properties[line][column].getTile() == properties[line + 1][column].getTile())) {
 			Integer[] pos = { line + 1, column };
 			list.add(pos);
 		}
-		if ((column - 1 >= 0) && (property[line][column].getTile() == property[line][column - 1].getTile())) {
+		if ((column - 1 >= 0) && (properties[line][column].getTile() == properties[line][column - 1].getTile())) {
 			Integer[] pos = { line, column - 1 };
 			list.add(pos);
 		}
@@ -608,16 +499,16 @@ public class Board {
 	}
 
 	public int maxField() {
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		for (int line = 0; line < size; line++) {
 			for (int column = 0; column < size; column++) {
-				if (property[line][column].getTile() != '#') {
+				if (properties[line][column].getTile() != '#') {
 					ArrayList<Integer[]> listPaquet = paquet(line, column);
 					list.add(listPaquet.size());
 					for (int compteur = 0; compteur < listPaquet.size(); compteur++) {
-						property[listPaquet.get(compteur)[0]][listPaquet.get(compteur)[1]].setTile('#');
+						properties[listPaquet.get(compteur)[0]][listPaquet.get(compteur)[1]].setTile('#');
 					}
 				}
 			}
@@ -636,27 +527,28 @@ public class Board {
 	}
 
 	public int numCrowns() {
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
 		int numCrowns = 0;
 		for (int line = 0; line < size; line++) {
 			for (int column = 0; column < size; column++) {
-				numCrowns += property[line][column].getCrown();
+				numCrowns += properties[line][column].getCrown();
 			}
 		}
 		return numCrowns;
 	}
-/*
-	public int scoreHarmonie() {
-		int harmonie = 0;
-		if (this.complet()) {
-			harmonie = 5;
+
+	/*
+		public int scoreHarmonie() {
+			int harmonie = 0;
+			if (this.complet()) {
+				harmonie = 5;
+			}
+			return this.copy().score() + harmonie;
 		}
-		return this.copy().score() + harmonie;
-	}
-*/
+	*/
 	public boolean complet() {
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
 		this.borders = this.contours();
 		int linemin = this.borders[0];
@@ -671,7 +563,7 @@ public class Board {
 		} else {
 			for (int pointerX = linemin; pointerX <= linemax; pointerX++) {
 				for (int pointerY = columnmin; pointerY <= columnmax; pointerY++) {
-					if (property[pointerX][pointerY].getTile() == '#') {
+					if (properties[pointerX][pointerY].getTile() == '#') {
 						return false;
 
 					}
@@ -690,20 +582,26 @@ public class Board {
 	}
 
 	public boolean estAuMilieu() {
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
 		ArrayList<Integer[]> fieldList = this.fieldList();
 		for (int compteur = 0; compteur < fieldList.size(); compteur++) {
-			if (property[fieldList.get(compteur)[0] + (size - 1) / 4][fieldList.get(compteur)[1] + (size - 1) / 4]
-					.getTile() == 'C') {
+			if (properties[fieldList.get(compteur)[0] + (size - 1) / 4][fieldList.get(compteur)[1] + (size - 1)
+					/ 4].getTile() == 'C') {
 				return true;
 			}
 		}
 		return false;
 	}
 
+	/**
+	 * FieldList is 5X5 terrain location which cannot exceed, 
+	 * the terrain can only be placed within this area. 
+	 * 
+	 * @return
+	 */
 	public ArrayList<Integer[]> fieldList() {
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
 		ArrayList<Integer[]> fieldList = new ArrayList<Integer[]>();
 		ArrayList<Integer[]> listPos = this.listPosition();
@@ -719,12 +617,12 @@ public class Board {
 	}
 
 	public ArrayList<Integer[]> listPosition() {
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
 		ArrayList<Integer[]> list = new ArrayList<Integer[]>();
 		for (int line = 0; line < size; line++) {
 			for (int column = 0; column < size; column++) {
-				if (property[line][column].getTile() != '#') {
+				if (properties[line][column].getTile() != '#') {
 					Integer[] pos = { line, column };
 					list.add(pos);
 				}
@@ -734,7 +632,7 @@ public class Board {
 	}
 
 	public boolean allIn(int line, int column, ArrayList<Integer[]> listPos) {
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
 		ArrayList<Integer[]> frameList = this.frame(line, column);
 		for (int compteur = 0; compteur < listPos.size(); compteur++) {
@@ -746,7 +644,7 @@ public class Board {
 	}
 
 	public ArrayList<Integer[]> frame(Integer borderline, Integer borderColonne) {
-		property = this.getProperty();
+		properties = this.getProperties();
 		size = this.getsize();
 		ArrayList<Integer[]> list = new ArrayList<Integer[]>();
 		for (int line = borderline; line < borderline + (size + 1) / 2; line++) {
@@ -757,5 +655,12 @@ public class Board {
 		}
 		return list;
 	}
-	
+
+	public void insertTile(Tile tile, int x1, int y1, int x2, int y2) {
+		Property case1 = new Property(x1, y1, tile.crown1, tile.tile1);
+		Property case2 = new Property(x2, y2, tile.crown2, tile.tile2);
+		setcase(case1);
+		setcase(case2);
+	}
+
 }

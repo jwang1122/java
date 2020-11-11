@@ -3,6 +3,7 @@ package com.huaxia.kingdomino;
 public class Property {
 	int crown, x, y;
 	char tile;
+	Tile.Terrain terrain;
 
 	public int getCrown() {
 		return this.crown;
