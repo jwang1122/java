@@ -44,10 +44,10 @@ public class MainGraphics {
 	static final int lengthBoard = 9;
 	static final int numDominos = 48;
 
-	Player player1 = new Player(imageblueC);;
-	Player player2 = new Player(imagegreenC);;
-	Player player3 = new Player(imageyellowC);;
-	Player player4 = new Player(imageredC);
+	Player player1 = new Player(imageblueC,"Blue player's name");;
+	Player player2 = new Player(imagegreenC, "Green player's name");;
+	Player player3 = new Player(imageyellowC, "Yellow player's name");;
+	Player player4 = new Player(imageredC, "Red player's name");
 	ArrayList<Player> fourPlayers = shufflePlayers();
 	ArrayList<Tile> deck = shuffle(list);
 	int chooseTile;

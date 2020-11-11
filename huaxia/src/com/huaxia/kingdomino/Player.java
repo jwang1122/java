@@ -12,9 +12,9 @@ public class Player {
 	Board board;
 	Image castleImage;
 
-	public Player(Image castleImage) {
+	public Player(Image castleImage, String message) {
 		name = "Player 1";
-		name = JOptionPane.showInputDialog(null, "Blue Player Name", "Players",
+		name = JOptionPane.showInputDialog(null, message, "Players",
 				JOptionPane.QUESTION_MESSAGE);
 		board = new Board(boardSize);
 		this.castleImage = castleImage;
