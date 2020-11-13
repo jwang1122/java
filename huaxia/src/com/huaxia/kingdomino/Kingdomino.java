@@ -43,14 +43,10 @@ public class Kingdomino {
 		fourPlayers = shufflePlayers();
 		while (deck.size() != 0) {
 			showPlayOrder(roundNum);
-			ArrayList<Tile> tileList = getNewTileList(deck);
+			ArrayList<Tile> tileList4 = getNewTileList(deck);
 			for (int i = 0; i < 4; i++) { // loop each player
-				boolean isSuccess = false;
-				do {
-					isSuccess = doGame(fourPlayers.get(i), tileList);
-				} while (!isSuccess);
+				doGame(fourPlayers.get(i), tileList4);
 			}
-
 			fourPlayers = shufflePlayers();
 			roundNum++;
 		}
@@ -64,14 +60,17 @@ public class Kingdomino {
 				+ fourPlayers.get(3).getName(), "Round", JOptionPane.INFORMATION_MESSAGE);
 	}
 
-	private boolean doGame(Player player, ArrayList<Tile> tileList) {
+	private void doGame(Player player, ArrayList<Tile> tileList4) {
 		frame = new JFrame();
-		displayFrame(frame, player, tileList); // setVisible(true)
-		frame.addMouseListener(new TilePositionListener(tileList));
-		wait4PlayerPickAndDropTile();
-		boolean isSuccess = playOnSelectGoodTile(player, tileList, frame);
+		displayFrame(frame, player, tileList4); // setVisible(true)
+		frame.addMouseListener(new TilePositionListener(tileList4));
+		boolean isSuccess = false;
+		do {
+			wait4PlayerPickAndDropTile();
+			isSuccess = playOnSelectGoodTile(player, tileList4, frame);
+			resetSelections();
+		} while (!isSuccess);
 		reset(frame);
-		return isSuccess;
 	}
 
 	private void reset(JFrame frame) {
@@ -80,12 +79,11 @@ public class Kingdomino {
 	}
 
 	private boolean playOnSelectGoodTile(Player player, ArrayList<Tile> tileList, JFrame frame) {
-		if (!isEmpty(tileList.get(chooseTile - 1))) {
-			play(player, tileList, frame);
-			return true;
+		if (isEmpty(tileList.get(chooseTile - 1))) {
+			JOptionPane.showMessageDialog(null, "You've choose empty tile! Please try again :", "Error", JOptionPane.INFORMATION_MESSAGE);
+			return false;
 		}
-		JOptionPane.showMessageDialog(null, "This tile cannot be taken ! Please try again :", "Error", JOptionPane.INFORMATION_MESSAGE);
-		return false;
+		return play(player, tileList, frame);
 	}
 
 	private void wait4PlayerPickAndDropTile() {
@@ -129,12 +127,9 @@ public class Kingdomino {
 		frame.setResizable(false);
 	}
 
-	private void handleSelectedTile(Player player, Tile tile) {
-		boolean success = false;
-		do {
-			checkForValidLocations();
-			success = dropTile(player, tile);
-		} while (!success);
+	private boolean handleSelectedTile(Player player, Tile tile) {
+		checkForValidLocations();
+		return dropTile(player, tile);
 	}
 
 	private void checkForValidLocations() {
@@ -220,8 +215,7 @@ public class Kingdomino {
 	}
 
 	private boolean isEmpty(Tile tile) {
-		return (tile.getNumber() == 0 && tile.getCrown1() == 0 && tile.getCrown2() == 0 && tile.getTerrain1() == '#'
-				&& tile.getTerrain2() == '#');
+		return (tile.getNumber() == 0);
 	}
 
 	public void PaintBoard(Graphics g, Player player) {
@@ -262,14 +256,10 @@ public class Kingdomino {
 
 	private void displayDomino(Graphics g, ArrayList<Tile> list) {
 		for (int i = 0; i < list.size(); i++) {
-			Font font = new Font("Calibri", Font.BOLD, 20);
-			g.setFont(font);
-			g.setColor(Color.DARK_GRAY);
-			g.drawString("" + list.get(i).number, 50, 145 + i * 135);
+			displayTileNumber(g, list, i);
 			for (int j = 0; j < 2; j++) {
 				char terrain;
 				int numCrowns;
-				ImageObserver obs = null;
 				if (j == 0) {
 					terrain = list.get(i).getTerrain1();
 					numCrowns = list.get(i).getCrown1();
@@ -281,7 +271,7 @@ public class Kingdomino {
 					g.setColor(new Color(188, 181, 138));
 					g.fillRect(100 + j * 70, 100 + i * 140, 70, 70);
 				} else {
-					g.drawImage(Tile.getImage(terrain), 100 + j * 70, 100 + i * 140, obs);
+					g.drawImage(Tile.getImage(terrain), 100 + j * 70, 100 + i * 140, null);
 				}
 				if (numCrowns > 0) {
 					g.setColor(Color.WHITE);
@@ -290,42 +280,54 @@ public class Kingdomino {
 			}
 		}
 	}
+	
+	private void displayTileNumber(Graphics g, ArrayList<Tile> list, int i) {
+		Font font = new Font("Calibri", Font.BOLD, 20);
+		g.setFont(font);
+		g.setColor(Color.DARK_GRAY);
+		g.drawString("" + list.get(i).number, 50, 145 + i * 135);		
+	}
+	
+	private void drawTerrain(Graphics g, char terrain, int crown, int j) {
+		
+	}
 
 	private boolean play(Player player, ArrayList<Tile> tileList, JFrame frame) {
 		Tile tileEmpty = new Tile(0, 0, 0, '#', '#'); // number=0 is empty tile
 
 		if (player.getBoard().canPlay(tileList.get(chooseTile - 1))) {
-			handleSelectedTile(player, tileList.get(chooseTile - 1));
-			displayFrame(frame, player, tileList); // setVisible(true)
-			JOptionPane.showMessageDialog(null, "\n" + player.getName() + " you now have a score of "
-					+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
+			if (handleSelectedTile(player, tileList.get(chooseTile - 1))) {
+				displayFrame(frame, player, tileList); // setVisible(true)
+				JOptionPane.showMessageDialog(null, "\n" + player.getName() + " you now have a score of "
+						+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
+				tileList.set(chooseTile - 1, tileEmpty);
+				return true;
+			}
 		} else {
 			JOptionPane.showMessageDialog(null, "The tile you have chosen cannot be placed! So you keep the score of "
 					+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
 		}
-		tileList.set(chooseTile - 1, tileEmpty);
-		return true;
+		return false;
 	}
 
 	class TilePositionListener implements MouseListener {
-		ArrayList<Tile> tileList;
+		ArrayList<Tile> tileList4;
 
-		public TilePositionListener(ArrayList<Tile> tileList) {
-			this.tileList = tileList;
+		public TilePositionListener(ArrayList<Tile> tileList4) {
+			this.tileList4 = tileList4;
 		}
 
 		public void mousePressed(MouseEvent e) {
-
 			int x = e.getX();
 			int y = e.getY();
 			if (x >= 100 && x <= 240) {
-				for (int i = 0; i < tileList.size(); i++) {
+				for (int i = 0; i < tileList4.size(); i++) {
 					if (y >= 130 + 140 * i && y <= 200 + 140 * i) {
 						chooseTile = i + 1;
 					}
 				}
 			}
-			if (chooseTile != 0) {
+			if (chooseTile != 0) { // find board row and column that player selected
 				for (int i = 0; i < lengthBoard; i++) {
 					for (int j = 0; j < lengthBoard; j++) {
 						if (x >= 400 + lengthCase * j && x <= 400 + lengthCase * (j + 1)) {
@@ -359,5 +361,4 @@ public class Kingdomino {
 		public void mouseClicked(MouseEvent e) {
 		}
 	}
-
 }
