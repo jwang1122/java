@@ -69,11 +69,11 @@ public class MainWindow extends JPanel {
 //		};
 		centerPanel.setLayout(new GridLayout(4, 2));
 		for (int i = 0; i < 4; i++) {
-			char imageName = tileList.get(i).tile1;
+			char imageName = tileList.get(i).terrain1;
 			ImageIcon icon = getImageIcon(imageName);
 			JButton jb1 = new JButton(icon);
 			centerPanel.add(jb1);
-			imageName = tileList.get(i).tile2;
+			imageName = tileList.get(i).terrain2;
 			icon = getImageIcon(imageName);
 			JButton jb2 = new JButton(icon);
 			jb2.setAlignmentX(0);
@@ -117,10 +117,10 @@ public class MainWindow extends JPanel {
 				int numCrowns;
 				ImageObserver obs = null;
 				if (j == 0) {
-					terrain = list.get(i).getTile1();
+					terrain = list.get(i).getTerrain1();
 					numCrowns = list.get(i).getCrown1();
 				} else {
-					terrain = list.get(i).getTile2();
+					terrain = list.get(i).getTerrain2();
 					numCrowns = list.get(i).getCrown2();
 				}
 				if (terrain == '#') {

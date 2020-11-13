@@ -18,10 +18,10 @@ class PlayerTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		player1 = new Player(Player.PlayerColor.BluePlayer);
-		player2 = new Player(Player.PlayerColor.GreenPlayer);
-		player3 = new Player(Player.PlayerColor.YellowPlayer);
-		player4 = new Player(Player.PlayerColor.RedPlayer);
+		player1 = new Player(Player.PlayerColor.BluePlayer,Player.PlayerColor.BluePlayer.toString());
+		player2 = new Player(Player.PlayerColor.GreenPlayer,Player.PlayerColor.GreenPlayer.toString());
+		player3 = new Player(Player.PlayerColor.YellowPlayer,Player.PlayerColor.YellowPlayer.toString());
+		player4 = new Player(Player.PlayerColor.RedPlayer,Player.PlayerColor.RedPlayer.toString());
 		list = new ArrayList<Player>();
 		list.add(player1);
 		list.add(player2);

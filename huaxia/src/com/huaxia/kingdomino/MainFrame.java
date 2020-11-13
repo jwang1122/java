@@ -40,12 +40,12 @@ public class MainFrame extends JFrame implements MouseListener {
 	}
 
 	ArrayList<Tile> tileList;
-	int lengthBoard = MainGraphics.lengthBoard;
-	int lengthCase = MainGraphics.lengthCase;
-	MainGraphics kingdomino;
+	int lengthBoard = Kingdomino.lengthBoard;
+	int lengthCase = Kingdomino.lengthCase;
+	Kingdomino kingdomino;
 	
 	@SuppressWarnings("unchecked")
-	public MainFrame(MainGraphics kingdomino, ArrayList<Tile> tileList){
+	public MainFrame(Kingdomino kingdomino, ArrayList<Tile> tileList){
 		this.kingdomino = kingdomino;
 		Collections.sort(tileList);
 		this.tileList = tileList;
@@ -94,7 +94,7 @@ public class MainFrame extends JFrame implements MouseListener {
 	}
 
 	private void drawTerrian(Graphics g, Player player, int i, int j) {
-		char terrain = player.getBoard().properties[j][i].getTile();
+		char terrain = player.getBoard().properties[j][i].getTerrain();
 		if (terrain == 'C') {
 			g.drawImage(player.getCastleImage(), 400 + lengthCase * i, 30 + lengthCase
 					* j, lengthCase, lengthCase, null);
@@ -133,10 +133,10 @@ public class MainFrame extends JFrame implements MouseListener {
 				int numCrowns;
 				ImageObserver obs = null;
 				if (j == 0) {
-					terrain = list.get(i).getTile1();
+					terrain = list.get(i).getTerrain1();
 					numCrowns = list.get(i).getCrown1();
 				} else {
-					terrain = list.get(i).getTile2();
+					terrain = list.get(i).getTerrain2();
 					numCrowns = list.get(i).getCrown2();
 				}
 				if (terrain == '#') {

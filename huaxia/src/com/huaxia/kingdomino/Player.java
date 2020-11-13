@@ -3,10 +3,8 @@ package com.huaxia.kingdomino;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
 
 public class Player implements Comparable<Player> {
 	enum PlayerColor {
@@ -32,11 +30,11 @@ public class Player implements Comparable<Player> {
 	Image castleImage;
 	String message;
 
-	public Player(PlayerColor color) {
+	public Player(PlayerColor color, String name) {
 		setAttributes(color);
-		name = JOptionPane.showInputDialog(null, message, "Players", JOptionPane.QUESTION_MESSAGE);
+		this.name = name;
 		if(name==null || name.length()==0) {
-			name=color.toString();
+			this.name=color.toString();
 		}
 		board = new Board(boardSize);
 		scores = new int[3];
@@ -103,141 +101,6 @@ public class Player implements Comparable<Player> {
 		this.name = name;
 		this.board = board;
 
-	}
-
-	public int choosetile(ArrayList<Tile> deck, int[] crowns) {
-		int choice = 0;
-		int value = 0;
-		for (int domino = 0; domino < deck.size(); domino++) {
-			if (value < deck.get(domino).evaluate(crowns)) {
-				value = deck.get(domino).evaluate(crowns);
-				choice = domino;
-			}
-		}
-		return choice;
-	}
-
-	public int[] choosemove(Tile tile) {
-		int[] choice = new int[4];
-		choice[0] = -1;
-		choice[3] = -1;
-		int score = -1;
-		char[][] totest = this.getBoard().copy().playable(tile, 1);
-		int size = totest.length;
-		int currentscore = -1;
-		for (int column = 0; column < size; column++) {
-			for (int line = 0; line < size; line++) {
-				if (totest[column][line] == 'O') {
-					if (this.getBoard().playable(tile, line, column, line + 1, column)) {
-						Board board = this.getBoard().copy();
-						tile.insertTile(board, line, column, line + 1, column);
-						currentscore = board.score();
-						if (currentscore >= score) {
-							score = currentscore;
-							choice[0] = line;
-							choice[1] = column;
-							choice[2] = line + 1;
-							choice[3] = column;
-						}
-					}
-					if (this.getBoard().playable(tile, line, column, line - 1, column)) {
-						Board board = this.getBoard().copy();
-						tile.insertTile(board, line, column, line - 1, column);
-						currentscore = board.score();
-						if (currentscore >= score) {
-							score = currentscore;
-							choice[0] = line;
-							choice[1] = column;
-							choice[2] = line - 1;
-							choice[3] = column;
-						}
-					}
-					if (this.getBoard().playable(tile, line, column, line, column + 1)) {
-						Board board = this.getBoard().copy();
-						tile.insertTile(board, line, column, line, column + 1);
-						currentscore = board.score();
-						if (currentscore >= score) {
-							score = currentscore;
-							choice[0] = line;
-							choice[1] = column;
-							choice[2] = line;
-							choice[3] = column + 1;
-						}
-					}
-					if (this.getBoard().playable(tile, line, column, line, column - 1)) {
-						Board board = this.getBoard().copy();
-						tile.insertTile(board, line, column, line, column - 1);
-						currentscore = board.score();
-						if (currentscore >= score) {
-							score = currentscore;
-							choice[0] = line;
-							choice[1] = column;
-							choice[2] = line;
-							choice[3] = column - 1;
-
-						}
-					}
-				}
-			}
-		}
-		totest = this.getBoard().copy().playable(tile, 2);
-		size = totest.length;
-		for (int column = 0; column < size; column++) {
-			for (int line = 0; line < size; line++) {
-				if (totest[column][line] == 'O') {
-					if (this.getBoard().playable(tile, line, column, line + 1, column)) {
-						Board board = this.getBoard().copy();
-						tile.insertTile(board, line, column, line + 1, column);
-						currentscore = board.score();
-						if (currentscore >= score) {
-							score = currentscore;
-							choice[0] = line;
-							choice[1] = column;
-							choice[2] = line + 1;
-							choice[3] = column;
-						}
-					}
-					if (this.getBoard().playable(tile, line, column, line - 1, column)) {
-						Board board = this.getBoard().copy();
-						tile.insertTile(board, line, column, line - 1, column);
-						currentscore = board.score();
-						if (currentscore >= score) {
-							score = currentscore;
-							choice[0] = line;
-							choice[1] = column;
-							choice[2] = line - 1;
-							choice[3] = column;
-						}
-					}
-					if (this.getBoard().playable(tile, line, column, line, column + 1)) {
-						Board board = this.getBoard().copy();
-						tile.insertTile(board, line, column, line, column + 1);
-						currentscore = board.score();
-						if (currentscore >= score) {
-							score = currentscore;
-							choice[0] = line;
-							choice[1] = column;
-							choice[2] = line;
-							choice[3] = column + 1;
-						}
-					}
-					if (this.getBoard().playable(tile, line, column, line, column - 1)) {
-						Board board = this.getBoard().copy();
-						tile.insertTile(board, line, column, line, column - 1);
-						currentscore = board.score();
-						if (currentscore >= score) {
-							score = currentscore;
-							choice[0] = line;
-							choice[1] = column;
-							choice[2] = line;
-							choice[3] = column - 1;
-
-						}
-					}
-				}
-			}
-		}
-		return choice;
 	}
 
 	@Override

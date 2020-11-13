@@ -22,26 +22,26 @@ public class Tile implements Comparable<Tile>{
 	}
 	enum Terrain {Forest,Field,Mine,Swamp,Mountain,Water};
 	int number, crown1, crown2;
-	char tile1, tile2;
+	char terrain1, terrain2;
 
 	public Tile(int number, int crown1, int crown2, char tile1, char tile2) {
 		this.number = number;
 		this.crown1 = crown1;
 		this.crown2 = crown2;
-		this.tile1 = tile1;
-		this.tile2 = tile2;
+		this.terrain1 = tile1;
+		this.terrain2 = tile2;
 	}
 
 	public int getNumber() {
 		return this.number;
 	}
 
-	public char getTile1() {
-		return this.tile1;
+	public char getTerrain1() {
+		return this.terrain1;
 	}
 
-	public char getTile2() {
-		return this.tile2;
+	public char getTerrain2() {
+		return this.terrain2;
 	}
 
 	public int getCrown1() {
@@ -56,77 +56,6 @@ public class Tile implements Comparable<Tile>{
 		this.number = number;
 	}
 
-	public void setTile1(char tile1) {
-		this.tile1 = tile1;
-	}
-
-	public void setTile2(char tile2) {
-		this.tile2 = tile2;
-	}
-
-	public void setCrown1(int crown1) {
-		this.crown1 = crown1;
-	}
-
-	public void setCrown2(int crown2) {
-		this.crown2 = crown2;
-	}
-
-	public void insertTile(Board board, int x1, int y1, int x2, int y2) {
-		Property case1 = new Property(x1, y1, crown1, tile1);
-		Property case2 = new Property(x2, y2, crown2, tile2);
-		board.setcase(case1);
-		board.setcase(case2);
-	}
-
-	public int evaluate(int[] crowns) {
-
-		int Value = 0;
-		if (this.tile1 == 'P') {
-			Value = crowns[0];
-		}
-		if (this.tile1 == 'W') {
-			Value = +crowns[1];
-		}
-		if (this.tile1 == 'F') {
-			Value = crowns[2];
-		}
-		if (this.tile1 == 'L') {
-			Value = crowns[3];
-		}
-		if (this.tile1 == 'Q') {
-			Value = crowns[4];
-		}
-		if (this.tile1 == 'M') {
-			Value = crowns[5];
-		}
-		if (this.tile1 == '#') {
-			Value = 0;
-		}
-		if (this.tile2 == 'P') {
-			Value = Value + crowns[0];
-		}
-		if (this.tile2 == 'W') {
-			Value = Value + crowns[1];
-		}
-		if (this.tile2 == 'F') {
-			Value = Value + crowns[2];
-		}
-		if (this.tile2 == 'L') {
-			Value = Value + crowns[3];
-		}
-		if (this.tile2 == 'Q') {
-			Value = Value + crowns[4];
-		}
-		if (this.tile2 == 'M') {
-			Value = Value + crowns[5];
-		}
-		if (this.tile1 == '#') {
-			Value = Value + 0;
-		}
-		return Value;
-	}
-	
 	static public Image getImage(char value) {
 		switch (value) {
 		case 'P':
@@ -168,8 +97,8 @@ public class Tile implements Comparable<Tile>{
 		result = prime * result + crown1;
 		result = prime * result + crown2;
 		result = prime * result + number;
-		result = prime * result + tile1;
-		result = prime * result + tile2;
+		result = prime * result + terrain1;
+		result = prime * result + terrain2;
 		return result;
 	}
 
@@ -188,12 +117,10 @@ public class Tile implements Comparable<Tile>{
 			return false;
 		if (number != other.number)
 			return false;
-		if (tile1 != other.tile1)
+		if (terrain1 != other.terrain1)
 			return false;
-		if (tile2 != other.tile2)
+		if (terrain2 != other.terrain2)
 			return false;
 		return true;
 	}
-	
-
 }

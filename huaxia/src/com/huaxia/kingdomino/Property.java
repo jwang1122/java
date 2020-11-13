@@ -1,47 +1,34 @@
 package com.huaxia.kingdomino;
 
 public class Property {
-	int crown, x, y;
-	char tile;
-	Tile.Terrain terrain;
+	int crown, row, column;
+	char terrain;
 
 	public int getCrown() {
 		return this.crown;
 	}
 
-	public int getx() {
-		return this.x;
+	public int getRow() {
+		return this.row;
 	}
 
-	public int gety() {
-		return this.y;
+	public int getColumn() {
+		return this.column;
 	}
 
-	public char getTile() {
-		return this.tile;
+	public char getTerrain() {
+		return this.terrain;
 	}
 
-	public void setCrown(int crown) {
+	public void setTerrain(char title) {
+		this.terrain = getTerrain();
+	}
+
+	public Property(int row, int column, int crown, char terrain) {
 		this.crown = crown;
-	}
-
-	public void setx(int x) {
-		this.x = x;
-	}
-
-	public void sety(int y) {
-		this.y = y;
-	}
-
-	public void setTile(char title) {
-		this.tile = getTile();
-	}
-
-	public Property(int x, int y, int crown, char tile) {
-		this.crown = crown;
-		this.tile = tile;
-		this.x = x;
-		this.y = y;
+		this.terrain = terrain;
+		this.row = row;
+		this.column = column;
 	}
 
 }
