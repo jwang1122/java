@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
@@ -111,13 +110,11 @@ public class Kingdomino {
 		frame.setSize(1080, 720);
 		JPanel p = new JPanel() {
 			private static final long serialVersionUID = 1L;
-
 			@Override
 			public void paintComponent(Graphics g) {
 				PaintBoard(g, player); // draw all images in the board
 				displayDomino(g, tiles); // draw tile list
 			}
-
 		};
 		frame.setBackground(fond);
 		frame.add(p);
@@ -257,39 +254,24 @@ public class Kingdomino {
 	private void displayDomino(Graphics g, ArrayList<Tile> list) {
 		for (int i = 0; i < list.size(); i++) {
 			displayTileNumber(g, list, i);
-			for (int j = 0; j < 2; j++) {
-				char terrain;
-				int numCrowns;
-				if (j == 0) {
-					terrain = list.get(i).getTerrain1();
-					numCrowns = list.get(i).getCrown1();
-				} else {
-					terrain = list.get(i).getTerrain2();
-					numCrowns = list.get(i).getCrown2();
-				}
-				if (terrain == '#') {
-					g.setColor(new Color(188, 181, 138));
-					g.fillRect(100 + j * 70, 100 + i * 140, 70, 70);
-				} else {
-					g.drawImage(Tile.getImage(terrain), 100 + j * 70, 100 + i * 140, null);
-				}
-				if (numCrowns > 0) {
-					g.setColor(Color.WHITE);
-					g.drawString(String.valueOf(numCrowns), 105 + j * 70, 120 + i * 140);
-				}
-			}
+			drawTerrain(g, list.get(i).getTerrain1(), list.get(i).getCrown1(), i, 0);
+			drawTerrain(g, list.get(i).getTerrain2(), list.get(i).getCrown2(), i, 1);
 		}
 	}
-	
+
 	private void displayTileNumber(Graphics g, ArrayList<Tile> list, int i) {
 		Font font = new Font("Calibri", Font.BOLD, 20);
 		g.setFont(font);
 		g.setColor(Color.DARK_GRAY);
-		g.drawString("" + list.get(i).number, 50, 145 + i * 135);		
+		g.drawString("" + list.get(i).number, 50, 145 + i * 135);
 	}
-	
-	private void drawTerrain(Graphics g, char terrain, int crown, int j) {
-		
+
+	private void drawTerrain(Graphics g, char terrain, int numCrowns, int i, int j) {
+		g.drawImage(Tile.getImage(terrain), 100 + j * 70, 100 + i * 140, null);
+		if (numCrowns > 0) {
+			g.setColor(Color.WHITE);
+			g.drawString(String.valueOf(numCrowns), 105 + j * 70, 120 + i * 140);
+		}
 	}
 
 	private boolean play(Player player, ArrayList<Tile> tileList, JFrame frame) {
