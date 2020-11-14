@@ -66,7 +66,7 @@ public class Player implements Comparable<Player> {
 	}
 
 	public void setScores() {
-		this.scores[0] = board.copy().score();
+		this.scores[0] = board.score();
 		this.scores[1] = board.maxField();
 		this.scores[2] = board.numCrowns();
 	}
@@ -112,12 +112,6 @@ public class Player implements Comparable<Player> {
 		this.scores = scores;
 	}
 	
-	public void setNewScore() {
-		this.scores[0] = board.copy().score();
-		this.scores[1] = board.maxField();
-		this.scores[2] = board.numCrowns();
-	}
-
 	@Override
 	public int compareTo(Player other) {
 		if(scores[0]==other.scores[0]) {

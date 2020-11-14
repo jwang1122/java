@@ -102,14 +102,14 @@ public class Kingdomino {
 			if (dropTile(player, tileList.get(chooseTile - 1))) {
 				displayFrame(frame, player, tileList); // setVisible(true)
 				JOptionPane.showMessageDialog(null, "\n" + player.getName() + " you now have a score of "
-						+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
+				+ player.getBoard().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
 				tileList.set(chooseTile - 1, tileEmpty);
 				return true;
 			}
 			return false;
 		}
 		JOptionPane.showMessageDialog(null, "The tile you have chosen cannot be placed! So you keep the score of "
-				+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
+		+ player.getBoard().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
 		tileList.set(chooseTile - 1, tileEmpty);
 		return true;
 	}

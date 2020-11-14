@@ -98,12 +98,6 @@ public class Board {
 	}
 
 	public boolean graphicPlayable(Tile tile, int x1, int y1, int x2, int y2) {
-//		if ((x1 < 0 || x1 > size - 1) || (y1 < 0 || y1 > size - 1) || (x2 < 0 || x2 > size - 1) || (y2 < 0 || y2 > size
-//				- 1)) {
-//			System.out.println(String.format("size=%d, (%d, %d) (%d, %d)", size, x1, y1, x2, y2));
-//			JOptionPane.showMessageDialog(null, "The input coordinates go beyond the playing field!", "Error", JOptionPane.INFORMATION_MESSAGE);
-//			return false;
-//		}
 		if (x1 == x2 && y1 == y2) {
 			JOptionPane.showMessageDialog(null, "You cannot play on a single square!", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
@@ -222,57 +216,27 @@ public class Board {
 		return list;
 	}
 
-//	/**
-//	 * look for 5X5 field border (occupiedLeft, occupiedRight, occupiedTop, occupiedBottom)
-//	 * 
-//	 * @return
-//	 */
-//	private void findOccupiedBounds() {
-//		occupiedLeft = size / 2;
-//		occupiedRight = size / 2;
-//		occupiedTop = size / 2;
-//		occupiedBottom = size / 2;
-//		for (int i = 0; i < size; i++) {
-//			for (int j = 0; j < size; j++) {
-//				if (isOccupied(properties[i][j])) {
-//					if (occupiedLeft >= i) {
-//						occupiedLeft = i;
-//					}
-//					if (occupiedRight <= i) {
-//						occupiedRight = i;
-//					}
-//					if (occupiedTop >= j) {
-//						occupiedTop = j;
-//					}
-//					if (occupiedBottom <= j) {
-//						occupiedBottom = j;
-//					}
-//				}
-//			}
-//		}
-//		System.out.println(String.format("rowMin:%d, rowMax:%d; columnMin:%d, columnMax:%d", occupiedLeft, occupiedRight, occupiedTop, occupiedBottom));
-//	}
-
 	private boolean isOccupied(Property property) {
 		return property.terrain != '#';
 	}
 
 	public int score() {
+		Property[][] myProperties = deepClone();
 		int score = 0;
 		for (int row = 0; row < size; row++) {
 			for (int column = 0; column < size; column++) {
-				if (!isEmpty(properties[row][column])) {
+				if (!isEmpty(myProperties[row][column])) {
 					int numCrowns = 0;
 					int nbCases = 0;
 					// find all linked terrain location
 					ArrayList<Position> pack = findLinkedTerrainPositions(new Position(row, column));
 					for (int compteur = 0; compteur < pack.size(); compteur++) {
 						nbCases += 1;
-						numCrowns += properties[pack.get(compteur).row][pack.get(compteur).column].getCrown();
+						numCrowns += myProperties[pack.get(compteur).row][pack.get(compteur).column].getCrown();
 						// get number of linked terrains, and total number of Crowns
 						// create empty property, and set all calculated terrain to be empty
-						Property tile = new Property(pack.get(compteur).row, pack.get(compteur).column, properties[pack.get(compteur).row][pack.get(compteur).column].getCrown(), '#');
-						setcase(tile);
+						Property tile = new Property(pack.get(compteur).row, pack.get(compteur).column, myProperties[pack.get(compteur).row][pack.get(compteur).column].getCrown(), '#');
+						myProperties[pack.get(compteur).row][pack.get(compteur).column] = tile;
 					}
 					score += nbCases * numCrowns;
 				}
@@ -283,19 +247,6 @@ public class Board {
 
 	private boolean isEmpty(Property property) {
 		return property.terrain == '#';
-	}
-
-	// Why doing this?!
-	public Board copy() {
-//		properties = getProperties(); //junk code
-//		size = getsize();
-		Board terrain = new Board(size);
-		for (int i = 0; i < size; i++) {
-			for (int j = 0; j < size; j++) {
-				terrain.setcase(properties[i][j]);
-			}
-		}
-		return terrain;
 	}
 
 	private ArrayList<Integer[]> nextToCastle(int line, int column) {
