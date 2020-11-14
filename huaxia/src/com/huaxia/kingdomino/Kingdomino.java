@@ -125,23 +125,6 @@ public class Kingdomino {
 		frame.setResizable(false);
 	}
 
-	private boolean handleSelectedTile(Player player, Tile tile) {
-		checkForValidLocations();
-		return dropTile(player, tile);
-	}
-
-	private void checkForValidLocations() {
-		boolean valid = false;
-		do {
-			if (x1 >= 0 && x1 < lengthBoard && y1 >= 0 && y1 < lengthBoard && x2 >= 0 && x2 < lengthBoard && y2 >= 0
-					&& y2 < lengthBoard) {
-				valid = true;
-			} else {
-				resetSelections();
-			}
-		} while (!valid);
-	}
-
 	private boolean dropTile(Player player, Tile tile) {
 		if (player.graphicPlayable(tile, x1, y1, x2, y2)) {
 			player.insertTile(tile, x1, y1, x2, y2);
@@ -279,7 +262,8 @@ public class Kingdomino {
 		Tile tileEmpty = new Tile(0, 0, 0, '#', '#'); // number=0 is empty tile
 
 		if (player.getBoard().canPlay(tileList.get(chooseTile - 1))) {
-			if (handleSelectedTile(player, tileList.get(chooseTile - 1))) {
+//			if (handleSelectedTile(player, tileList.get(chooseTile - 1))) {
+			if (dropTile(player, tileList.get(chooseTile - 1))) {
 				displayFrame(frame, player, tileList); // setVisible(true)
 				JOptionPane.showMessageDialog(null, "\n" + player.getName() + " you now have a score of "
 						+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
