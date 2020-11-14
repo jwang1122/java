@@ -1,7 +1,5 @@
 package com.huaxia.kingdomino;
 
-import java.awt.Graphics;
-
 public class Tile implements Comparable<Tile>{
 	static Tile emptyTile = new Tile(0, Terrain.emptyTerrain, Terrain.emptyTerrain);
 	int number;
@@ -14,10 +12,6 @@ public class Tile implements Comparable<Tile>{
 		this.terrain2 = terrain2;
 	}
 
-	public void draw(Graphics g) {
-		
-	}
-	
 	public int getNumber() {
 		return number;
 	}

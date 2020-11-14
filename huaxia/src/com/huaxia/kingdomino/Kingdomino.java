@@ -14,9 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Kingdomino {
-	static ArrayList<Tile> list = new Data().getDeck();
-	static final int lengthCase = 70;
-	static final int lengthBoard = 9;
+	static ArrayList<Tile> deck = new Data().getDeck();
 	static final int numDominos = 48;
 
 	Player player1;
@@ -24,7 +22,6 @@ public class Kingdomino {
 	Player player3;
 	Player player4;
 	ArrayList<Player> fourPlayers;
-	ArrayList<Tile> deck = shuffle(list);
 	int chooseTile = 0;
 	boolean case1Selected, case2Selected = false;
 	Position position1, position2; // tile1 and tile2 grid positions
@@ -257,10 +254,10 @@ public class Kingdomino {
 				}
 			}
 			if (chooseTile != 0) { // find board row and column that player selected
-				for (int i = 0; i < lengthBoard; i++) {
-					for (int j = 0; j < lengthBoard; j++) {
-						if (x >= 400 + lengthCase * j && x <= 400 + lengthCase * (j + 1)) {
-							if (y >= 60 + lengthCase * i && y <= 60 + lengthCase * (i + 1)) {
+				for (int i = 0; i < Board.lengthBoard; i++) {
+					for (int j = 0; j < Board.lengthBoard; j++) {
+						if (x >= 400 + Board.lengthCase * j && x <= 400 + Board.lengthCase * (j + 1)) {
+							if (y >= 60 + Board.lengthCase * i && y <= 60 + Board.lengthCase * (i + 1)) {
 								if (!case1Selected) {
 									position1 = new Position(i, j);
 									case1Selected = true;

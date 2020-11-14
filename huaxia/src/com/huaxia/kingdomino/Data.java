@@ -3,6 +3,7 @@ package com.huaxia.kingdomino;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 import com.huaxia.kingdomino.Terrain.TerrainImage;
@@ -79,7 +80,8 @@ public class Data {
 	}
 
 	public ArrayList<Tile> getDeck() {
-		return this.deck;
+		Collections.shuffle(deck);
+		return deck;
 	}
 
 }
