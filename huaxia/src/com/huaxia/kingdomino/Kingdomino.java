@@ -72,6 +72,16 @@ public class Kingdomino {
 		reset(frame);
 	}
 
+	private void wait4PlayerPickAndDropTile() {
+		while (chooseTile == 0 || !case1Selected || !case2Selected) {
+			try {
+				TimeUnit.MILLISECONDS.sleep(20);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 	private void reset(JFrame frame) {
 		resetSelections();
 		frame.dispose();
@@ -85,14 +95,32 @@ public class Kingdomino {
 		return play(player, tileList, frame);
 	}
 
-	private void wait4PlayerPickAndDropTile() {
-		while (chooseTile == 0 || !case1Selected || !case2Selected) {
-			try {
-				TimeUnit.MILLISECONDS.sleep(20);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+	private boolean play(Player player, ArrayList<Tile> tileList, JFrame frame) {
+		Tile tileEmpty = new Tile(0, 0, 0, '#', '#'); // number=0 is empty tile
+
+		if (player.getBoard().canPlay(tileList.get(chooseTile - 1))) {
+			if (dropTile(player, tileList.get(chooseTile - 1))) {
+				displayFrame(frame, player, tileList); // setVisible(true)
+				JOptionPane.showMessageDialog(null, "\n" + player.getName() + " you now have a score of "
+						+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
+				tileList.set(chooseTile - 1, tileEmpty);
+				return true;
 			}
+			return false;
 		}
+		JOptionPane.showMessageDialog(null, "The tile you have chosen cannot be placed! So you keep the score of "
+				+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
+		tileList.set(chooseTile - 1, tileEmpty);
+		return true;
+	}
+
+	private boolean dropTile(Player player, Tile tile) {
+		if (player.graphicPlayable(tile, x1, y1, x2, y2)) {
+			player.insertTile(tile, x1, y1, x2, y2);
+			return true;
+		}
+		resetSelections();
+		return false;
 	}
 
 	private void showGameResult() {
@@ -123,15 +151,6 @@ public class Kingdomino {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
-	}
-
-	private boolean dropTile(Player player, Tile tile) {
-		if (player.graphicPlayable(tile, x1, y1, x2, y2)) {
-			player.insertTile(tile, x1, y1, x2, y2);
-			return true;
-		}
-		resetSelections();
-		return false;
 	}
 
 	private void resetSelections() {
@@ -256,26 +275,6 @@ public class Kingdomino {
 			g.setColor(Color.WHITE);
 			g.drawString(String.valueOf(numCrowns), 105 + j * 70, 120 + i * 140);
 		}
-	}
-
-	private boolean play(Player player, ArrayList<Tile> tileList, JFrame frame) {
-		Tile tileEmpty = new Tile(0, 0, 0, '#', '#'); // number=0 is empty tile
-
-		if (player.getBoard().canPlay(tileList.get(chooseTile - 1))) {
-//			if (handleSelectedTile(player, tileList.get(chooseTile - 1))) {
-			if (dropTile(player, tileList.get(chooseTile - 1))) {
-				displayFrame(frame, player, tileList); // setVisible(true)
-				JOptionPane.showMessageDialog(null, "\n" + player.getName() + " you now have a score of "
-						+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
-				tileList.set(chooseTile - 1, tileEmpty);
-				return true;
-			}
-			return false;
-		}
-		JOptionPane.showMessageDialog(null, "The tile you have chosen cannot be placed! So you keep the score of "
-				+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
-		tileList.set(chooseTile - 1, tileEmpty);
-		return true;
 	}
 
 	class TilePositionListener implements MouseListener {
