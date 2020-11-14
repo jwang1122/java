@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 
 public class Terrain {
 	enum TerrainImage {
-		EMPTY, FOREST, FIELD, MINE, SWAMP, MOUNTAIN, WATER
+		EMPTY, FOREST, FIELD, MINE, SWAMP, MOUNTAIN, WATER, CASTLE
 	}
 	static final int lengthCase = 70;
 	static Color fond = new Color(238, 231, 188);
@@ -43,22 +43,22 @@ public class Terrain {
 	 * @param row
 	 * @param column
 	 */
-	public void draw(Graphics g, int row, int column) {
+	public void draw(Graphics g, Position position) {
 		if (image==TerrainImage.EMPTY) {
 			g.setColor(fond);
-			g.fillRect(400 + lengthCase * row, 30 + lengthCase * column, lengthCase, lengthCase);
+			g.fillRect(400 + lengthCase * position.row, 30 + lengthCase * position.column, lengthCase, lengthCase);
 			return;			
 		}
-		g.drawImage(getImage(image), 400 + lengthCase * row, 30 + lengthCase * column, lengthCase, lengthCase, null);
-		drawCrown(g, row, column);
+		g.drawImage(getImage(image), 400 + lengthCase * position.row, 30 + lengthCase * position.column, lengthCase, lengthCase, null);
+		drawCrown(g, position);
 	}
 	
-	private void drawCrown(Graphics g, int row, int column) {
+	private void drawCrown(Graphics g, Position position) {
 		if (numberOfCrowns > 0) {
 			Font font = new Font("Calibri", Font.PLAIN, 20);
 			g.setFont(font);
 			g.setColor(Color.WHITE);
-			g.drawString(String.valueOf(numberOfCrowns), 405 + lengthCase * row, 50 + lengthCase * column);
+			g.drawString(String.valueOf(numberOfCrowns), 405 + lengthCase * position.row, 50 + lengthCase * position.column);
 		}		
 	}
 	

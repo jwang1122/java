@@ -110,6 +110,7 @@ public class Kingdomino {
 		frame.setSize(1080, 720);
 		JPanel p = new JPanel() {
 			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void paintComponent(Graphics g) {
 				PaintBoard(g, player); // draw all images in the board
@@ -285,11 +286,12 @@ public class Kingdomino {
 				tileList.set(chooseTile - 1, tileEmpty);
 				return true;
 			}
-		} else {
-			JOptionPane.showMessageDialog(null, "The tile you have chosen cannot be placed! So you keep the score of "
-					+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
+			return false;
 		}
-		return false;
+		JOptionPane.showMessageDialog(null, "The tile you have chosen cannot be placed! So you keep the score of "
+				+ player.getBoard().copy().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
+		tileList.set(chooseTile - 1, tileEmpty);
+		return true;
 	}
 
 	class TilePositionListener implements MouseListener {
