@@ -11,6 +11,13 @@ public class Property {
 		this.column = column;
 	}
 
+	public Property(Position position, int crown, char terrain) {
+		this.crown =crown;
+		this.terrain = terrain;
+		this.row = position.row;
+		this.column = position.column;
+	}
+
 	public int getCrown() {
 		return this.crown;
 	}

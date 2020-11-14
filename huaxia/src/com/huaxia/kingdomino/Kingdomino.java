@@ -27,7 +27,7 @@ public class Kingdomino {
 	ArrayList<Tile> deck = shuffle(list);
 	int chooseTile = 0;
 	boolean case1Selected, case2Selected = false;
-	int x1, x2, y1, y2; // tile1 and tile2 grid positions
+	Position position1, position2; // tile1 and tile2 grid positions
 	Color fond = new Color(238, 231, 188);
 	int roundNum = 1;
 	JFrame frame;
@@ -115,8 +115,8 @@ public class Kingdomino {
 	}
 
 	private boolean dropTile(Player player, Tile tile) {
-		if (player.graphicPlayable(tile, x1, y1, x2, y2)) {
-			player.insertTile(tile, x1, y1, x2, y2);
+		if (player.graphicPlayable(tile, position1, position2)) {
+			player.insertTile(tile, position1, position2);
 			return true;
 		}
 		resetSelections();
@@ -300,12 +300,10 @@ public class Kingdomino {
 						if (x >= 400 + lengthCase * j && x <= 400 + lengthCase * (j + 1)) {
 							if (y >= 60 + lengthCase * i && y <= 60 + lengthCase * (i + 1)) {
 								if (!case1Selected) {
-									x1 = i;
-									y1 = j;
+									position1 = new Position(i, j);
 									case1Selected = true;
 								} else if (!case2Selected) {
-									x2 = i;
-									y2 = j;
+									position2 = new Position(i, j);
 									case2Selected = true;
 								}
 							}
