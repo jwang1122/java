@@ -184,11 +184,6 @@ public class Kingdomino {
 		return list;
 	}
 
-	private ArrayList<Tile> shuffle(ArrayList<Tile> list) {
-		Collections.shuffle(list);
-		return list;
-	}
-
 	private ArrayList<Player> shufflePlayers() {
 		ArrayList<Player> listPlayers = new ArrayList<Player>();
 		listPlayers.add(player1);
