@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class Board {
 	int size;
 	Property[][] properties;
-	
+
 	public Board(int size) {
 		this.size = size;
 		this.properties = new Property[size][size];
@@ -22,14 +22,14 @@ public class Board {
 		setcase(castle);
 	}
 
-	public Property[][] deepClone(){
+	public Property[][] deepClone() {
 		Property[][] result = new Property[properties.length][];
-		for(int i=0; i<properties.length; i++) {
+		for (int i = 0; i < properties.length; i++) {
 			result[i] = Arrays.copyOf(properties[i], properties.length);
 		}
 		return result;
 	}
-	
+
 	public int getsize() {
 		return this.size;
 	}
@@ -38,23 +38,12 @@ public class Board {
 		return this.properties;
 	}
 
-	/**
-	 * used by Tile class.
-	 * 
-	 * @param tile
-	 */
 	public void setcase(Property tile) {
 		int x = tile.getRow();
 		int y = tile.getColumn();
 		properties[x][y] = tile;
 	}
 
-	/**
-	 * used by MainGraphics class.
-	 * 
-	 * @param tile
-	 * @return
-	 */
 	public boolean canPlay(Tile tile) {
 		ArrayList<Position> fieldList = this.getFieldList();
 		for (int i = 0; i < fieldList.size(); i++) {
@@ -85,12 +74,6 @@ public class Board {
 		if (properties[x1][y1].getTerrain() != '#' || properties[x2][y2].getTerrain() != '#') {
 			return false;
 		}
-//		if(isOutOf5X5Field(tile, x1, y1, x2, y2)) {
-//			return false;
-//		}
-//		if(isAdjacentHaveNoSameTerrain(tile, x1, y1, x2, y2)) {
-//			return false;
-//		}
 		if (!possible(tile, x1, y1, x2, y2)) {
 			return false;
 		}
@@ -122,17 +105,11 @@ public class Board {
 	}
 
 	private boolean possible(Tile tile, int x1, int y1, int x2, int y2) {
-		insertTile(tile, x1, y1, x2, y2);
 		Tile tileEmpty = new Tile(0, 0, 0, '#', '#');
-		ArrayList<Position> fieldList = getFieldList();
-		if (fieldList.size() == 0) {
-			insertTile(tileEmpty, x1, y1, x2, y2);
+		if (isOutOf5X5Field(tile, x1, y1, x2, y2)) {
 			return false;
 		}
-		ArrayList<Integer[]> nextToCase1 = deleteNextTo(nextToCastle(x1, y1), x2, y2);
-		ArrayList<Integer[]> nextToCase2 = deleteNextTo(nextToCastle(x2, y2), x1, y1);
-		if (nextToCase1.size() + nextToCase2.size() <= 0) {
-			insertTile(tileEmpty, x1, y1, x2, y2);
+		if (isAdjacentHaveNoSameTerrain(tile, x1, y1, x2, y2)) {
 			return false;
 		}
 		insertTile(tileEmpty, x1, y1, x2, y2);
@@ -198,7 +175,7 @@ public class Board {
 	public ArrayList<Position> nextToCase(int row, int column) {
 		ArrayList<Position> list = new ArrayList<>();
 		if (row - 1 >= 0) {
-			Position pos = new Position (row - 1, column );
+			Position pos = new Position(row - 1, column);
 			list.add(pos);
 		}
 		if (column + 1 <= size - 1) {
@@ -210,7 +187,7 @@ public class Board {
 			list.add(pos);
 		}
 		if (column - 1 >= 0) {
-			Position pos = new Position( row, column - 1 );
+			Position pos = new Position(row, column - 1);
 			list.add(pos);
 		}
 		return list;
@@ -276,7 +253,6 @@ public class Board {
 		return list;
 	}
 
-	// for given position, find same terrain position around it.
 	private ArrayList<Position> findNearBySameTerrainPositions(Position position) {
 		ArrayList<Position> list = new ArrayList<>();
 		int row = position.row;
