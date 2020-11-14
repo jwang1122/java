@@ -1,51 +1,69 @@
 package com.huaxia.kingdomino;
 
+import java.awt.Graphics;
+import java.awt.Image;
+
+import com.huaxia.kingdomino.Terrain.TerrainImage;
+
 public class Property {
-	int crown, row, column;
-	char terrain;
+	Position position;
+	Terrain terrain;
 
-	public Property(int row, int column, int crown, char terrain) {
-		this.crown = crown;
+	public Property(Position position, Terrain terrain) {
 		this.terrain = terrain;
-		this.row = row;
-		this.column = column;
+		this.position = position;
 	}
 
-	public Property(Position position, int crown, char terrain) {
-		this.crown =crown;
-		this.terrain = terrain;
-		this.row = position.row;
-		this.column = position.column;
+	public Position getPosition() {
+		return position;
 	}
 
-	public int getCrown() {
-		return this.crown;
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+
+	public Terrain getTerrain() {
+		return terrain;
+	}
+
+	public void setTerrain(Terrain terrain) {
+		this.terrain = terrain;
 	}
 
 	public int getRow() {
-		return this.row;
+		return position.row;
 	}
-
+	
 	public int getColumn() {
-		return this.column;
+		return position.column;
+	}
+	
+	public int getNumOfCrowns() {
+		return terrain.numberOfCrowns;
+	}
+	
+	public boolean isOccupied() {
+		return !terrain.equals(Terrain.emptyTerrain);
+	}
+	
+	public boolean isCastle() {
+		return terrain.image == TerrainImage.CASTLE;
+	}
+	
+	public boolean isSameTerrain(Property other) {
+		return terrain.image == other.terrain.image;
 	}
 
-	public char getTerrain() {
-		return this.terrain;
+	public void draw(Graphics g, Image castleImage) {
+		terrain.draw(g, position, castleImage);
 	}
-
-	public void setTerrain(char title) {
-		this.terrain = getTerrain();
-	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + column;
-		result = prime * result + crown;
-		result = prime * result + row;
-		result = prime * result + terrain;
+		result = prime * result + ((position == null) ? 0 : position.hashCode());
+		result = prime * result + ((terrain == null) ? 0 : terrain.hashCode());
 		return result;
 	}
 
@@ -58,16 +76,17 @@ public class Property {
 		if (getClass() != obj.getClass())
 			return false;
 		Property other = (Property) obj;
-		if (column != other.column)
+		if (position == null) {
+			if (other.position != null)
+				return false;
+		} else if (!position.equals(other.position))
 			return false;
-		if (crown != other.crown)
-			return false;
-		if (row != other.row)
-			return false;
-		if (terrain != other.terrain)
+		if (terrain == null) {
+			if (other.terrain != null)
+				return false;
+		} else if (!terrain.equals(other.terrain))
 			return false;
 		return true;
 	}
-
 
 }

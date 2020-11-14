@@ -1,5 +1,6 @@
 package com.huaxia.kingdomino;
 
+import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -59,6 +60,10 @@ public class Player implements Comparable<Player> {
 			message = "Red player's name";
 			break;
 		}
+	}
+	
+	public void drawBoard(Graphics g) {
+		board.draw(g, castleImage);
 	}
 
 	public int[] getScores() {

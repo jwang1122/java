@@ -96,21 +96,19 @@ public class Kingdomino {
 	}
 
 	private boolean play(Player player, ArrayList<Tile> tileList, JFrame frame) {
-		Tile tileEmpty = new Tile(0, 0, 0, '#', '#'); // number=0 is empty tile
-
 		if (player.getBoard().canPlay(tileList.get(chooseTile - 1))) {
 			if (dropTile(player, tileList.get(chooseTile - 1))) {
 				displayFrame(frame, player, tileList); // setVisible(true)
 				JOptionPane.showMessageDialog(null, "\n" + player.getName() + " you now have a score of "
 				+ player.getBoard().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
-				tileList.set(chooseTile - 1, tileEmpty);
+				tileList.set(chooseTile - 1, Tile.emptyTile);
 				return true;
 			}
 			return false;
 		}
 		JOptionPane.showMessageDialog(null, "The tile you have chosen cannot be placed! So you keep the score of "
 		+ player.getBoard().score() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
-		tileList.set(chooseTile - 1, tileEmpty);
+		tileList.set(chooseTile - 1, Tile.emptyTile);
 		return true;
 	}
 
@@ -141,7 +139,7 @@ public class Kingdomino {
 
 			@Override
 			public void paintComponent(Graphics g) {
-				PaintBoard(g, player); // draw all images in the board
+				player.drawBoard(g);
 				displayDomino(g, tiles); // draw tile list
 			}
 		};
@@ -218,47 +216,11 @@ public class Kingdomino {
 		return (tile.getNumber() == 0);
 	}
 
-	public void PaintBoard(Graphics g, Player player) {
-		for (int i = 0; i < lengthBoard; i++) {
-			for (int j = 0; j < lengthBoard; j++) {
-				drawTerrian(g, player, i, j);
-				drawCrown(g, player, i, j);
-			}
-		}
-	}
-
-	private void drawCrown(Graphics g, Player player, int i, int j) {
-		int numCrowns = player.getBoard().properties[j][i].getCrown();
-		g.setColor(Color.BLACK);
-		g.drawRect(400 + lengthCase * i, 30 + lengthCase * j, lengthCase, lengthCase);
-		if (numCrowns > 0) {
-			Font font = new Font("Calibri", Font.PLAIN, 20);
-			g.setFont(font);
-			g.setColor(Color.WHITE);
-			g.drawString(String.valueOf(numCrowns), 405 + lengthCase * i, 50 + lengthCase * j);
-		}
-	}
-
-	private void drawTerrian(Graphics g, Player player, int i, int j) {
-		char terrain = player.getBoard().properties[j][i].getTerrain();
-		if (terrain == 'C') {
-			g.drawImage(player.getCastleImage(), 400 + lengthCase * i, 30 + lengthCase
-					* j, lengthCase, lengthCase, null);
-			return;
-		}
-		if (terrain == '#') {
-			g.setColor(fond);
-			g.fillRect(400 + lengthCase * i, 30 + lengthCase * j, lengthCase, lengthCase);
-			return;
-		}
-		g.drawImage(Tile.getImage(terrain), 400 + lengthCase * i, 30 + lengthCase * j, lengthCase, lengthCase, null);
-	}
-
 	private void displayDomino(Graphics g, ArrayList<Tile> list) {
 		for (int i = 0; i < list.size(); i++) {
 			displayTileNumber(g, list, i);
-			drawTerrain(g, list.get(i).getTerrain1(), list.get(i).getCrown1(), i, 0);
-			drawTerrain(g, list.get(i).getTerrain2(), list.get(i).getCrown2(), i, 1);
+			drawTerrain(g, list.get(i).getTerrain1(), i, 0);
+			drawTerrain(g, list.get(i).getTerrain2(), i, 1);
 		}
 	}
 
@@ -269,11 +231,11 @@ public class Kingdomino {
 		g.drawString("" + list.get(i).number, 50, 145 + i * 135);
 	}
 
-	private void drawTerrain(Graphics g, char terrain, int numCrowns, int i, int j) {
-		g.drawImage(Tile.getImage(terrain), 100 + j * 70, 100 + i * 140, null);
-		if (numCrowns > 0) {
+	private void drawTerrain(Graphics g, Terrain terrain, int i, int j) {
+		g.drawImage(Terrain.getImage(terrain.image), 100 + j * 70, 100 + i * 140, null);
+		if (terrain.numberOfCrowns > 0) {
 			g.setColor(Color.WHITE);
-			g.drawString(String.valueOf(numCrowns), 105 + j * 70, 120 + i * 140);
+			g.drawString(String.valueOf(terrain.numberOfCrowns), 105 + j * 70, 120 + i * 140);
 		}
 	}
 
