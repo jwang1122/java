@@ -64,7 +64,7 @@ public class Kingdomino {
 		do {
 			wait4PlayerPickAndDropTile();
 			isSuccess = playOnSelectGoodTile(player, tileList4, frame);
-			resetSelections();
+			resetSelectedCases();
 		} while (!isSuccess);
 		reset(frame);
 	}
@@ -80,7 +80,8 @@ public class Kingdomino {
 	}
 
 	private void reset(JFrame frame) {
-		resetSelections();
+		chooseTile = 0;	
+		resetSelectedCases();
 		frame.dispose();
 	}
 
@@ -114,7 +115,7 @@ public class Kingdomino {
 			player.insertTile(tile, position1, position2);
 			return true;
 		}
-		resetSelections();
+		resetSelectedCases();
 		return false;
 	}
 
@@ -148,8 +149,7 @@ public class Kingdomino {
 		frame.setResizable(false);
 	}
 
-	private void resetSelections() {
-		chooseTile = 0;
+	private void resetSelectedCases() {
 		case1Selected = false;
 		case2Selected = false;
 	}
