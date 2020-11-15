@@ -23,7 +23,6 @@ public class Board {
 		for (int line = 0; line < size; line++) {
 			for (int column = 0; column < size; column++) {
 				properties[line][column] = new Property(new Position(line, column), Terrain.emptyTerrain);
-				;
 			}
 		}
 		Property castle = new Property(new Position(size / 2, size / 2), new Terrain(TerrainImage.CASTLE, 0));
@@ -43,11 +42,11 @@ public class Board {
 	}
 
 	public boolean canPlay(Tile tile) {
-		ArrayList<Position> fieldList = this.getFieldList();
+		ArrayList<Position> fieldList = this.get5X5FieldList();
 		for (int i = 0; i < fieldList.size(); i++) {
 			ArrayList<Position> frameList = frame(fieldList.get(i));
 			for (int j = 0; j < frameList.size(); j++) {
-				ArrayList<Position> nextToCase = nextToCase(frameList.get(j).row, frameList.get(j).column);
+				ArrayList<Position> nextToCase = getNearbyPositionList(frameList.get(j).row, frameList.get(j).column);
 				ArrayList<Position> delNextToCase = delNextToCase(fieldList.get(i), nextToCase);
 				if (delNextToCase.size() > 0) {
 					for (int elt = 0; elt < delNextToCase.size(); elt++) {
@@ -62,7 +61,7 @@ public class Board {
 	}
 
 	private boolean playable(Tile tile, Position position1, Position position2) {
-		if (!placed(position1, position2)) {
+		if (!isNotDiagonal(position1, position2)) {
 			return false;
 		}
 		if (properties[position1.row][position1.column].isOccupied()
@@ -80,7 +79,7 @@ public class Board {
 			JOptionPane.showMessageDialog(null, "You cannot play on a single square!", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
-		if (!placed(position1, position2)) {
+		if (!isNotDiagonal(position1, position2)) {
 			JOptionPane.showMessageDialog(null, "The entered coordinates correspond to boxes not pasted!", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
@@ -113,7 +112,7 @@ public class Board {
 
 	private boolean isOutOf5X5Field(Tile tile, Position position1, Position position2) {
 		insertTile(tile, position1, position2); // try put the tile in the location first
-		ArrayList<Position> fieldList = getFieldList();
+		ArrayList<Position> fieldList = get5X5FieldList();
 		if (fieldList.size() == 0) {
 			insertTile(Tile.emptyTile, position1, position2);
 			return true;
@@ -123,8 +122,8 @@ public class Board {
 
 	private boolean isAdjacentHaveNoSameTerrain(Tile tile, Position position1, Position position2) {
 		insertTile(tile, position1, position2); // try put the tile in the location first
-		ArrayList<Position> nextToCase1 = deleteNextTo(nextToCastle(position1), position2);
-		ArrayList<Position> nextToCase2 = deleteNextTo(nextToCastle(position2), position1);
+		ArrayList<Position> nextToCase1 = deleteNextTo(getAjacentPositionList(position1), position2);
+		ArrayList<Position> nextToCase2 = deleteNextTo(getAjacentPositionList(position2), position1);
 		if (nextToCase1.size() + nextToCase2.size() <= 0) {
 			insertTile(Tile.emptyTile, position1, position2);
 			return true;
@@ -152,7 +151,7 @@ public class Board {
 		return nextTo;
 	}
 
-	public boolean placed(Position position1, Position position2) {
+	private boolean isNotDiagonal(Position position1, Position position2) {
 		if (position1.row == position2.row) {
 			if (position1.column == position2.column - 1 || position1.column == position2.column + 1) {
 				return true;
@@ -165,21 +164,21 @@ public class Board {
 		return false;
 	}
 
-	public ArrayList<Position> nextToCase(int row, int column) {
+	private	ArrayList<Position> getNearbyPositionList(int row, int column) {
 		ArrayList<Position> list = new ArrayList<>();
-		if (row - 1 >= 0) {
+		if (row  > 0) {
 			Position pos = new Position(row - 1, column);
 			list.add(pos);
 		}
-		if (column + 1 <= size - 1) {
+		if (column  < size - 1) {
 			Position pos = new Position(row, column + 1);
 			list.add(pos);
 		}
-		if (row + 1 <= size - 1) {
+		if (row  < size - 1) {
 			Position pos = new Position(row + 1, column);
 			list.add(pos);
 		}
-		if (column - 1 >= 0) {
+		if (column > 0) {
 			Position pos = new Position(row, column - 1);
 			list.add(pos);
 		}
@@ -217,26 +216,26 @@ public class Board {
 		return score;
 	}
 
-	private ArrayList<Position> nextToCastle(Position position) {
+	private ArrayList<Position> getAjacentPositionList(Position position) {
 		int row = position.row;
 		int column = position.column;
 		ArrayList<Position> list = new ArrayList<>();
-		if ((row - 1 >= 0) && (properties[row][column].isSameTerrain(properties[row - 1][column]) || properties[row
+		if ((row > 0) && (properties[row][column].isSameTerrain(properties[row - 1][column]) || properties[row
 				- 1][column].isCastle())) {
 			Position pos = new Position(row - 1, column);
 			list.add(pos);
 		}
-		if ((column + 1 <= size - 1) && (properties[row][column].isSameTerrain(properties[row][column + 1])
+		if ((column  < size - 1) && (properties[row][column].isSameTerrain(properties[row][column + 1])
 				|| properties[row][column + 1].isCastle())) {
 			Position pos = new Position(row, column + 1);
 			list.add(pos);
 		}
-		if ((row + 1 <= size - 1) && (properties[row][column].isSameTerrain(properties[row + 1][column])
+		if ((row  < size - 1) && (properties[row][column].isSameTerrain(properties[row + 1][column])
 				|| properties[row + 1][column].isCastle())) {
 			Position pos = new Position(row + 1, column);
 			list.add(pos);
 		}
-		if ((column - 1 >= 0) && (properties[row][column].isSameTerrain(properties[row][column - 1])
+		if ((column > 0) && (properties[row][column].isSameTerrain(properties[row][column - 1])
 				|| properties[row][column - 1].isCastle())) {
 			Position pos = new Position(row, column - 1);
 			list.add(pos);
@@ -248,19 +247,19 @@ public class Board {
 		ArrayList<Position> list = new ArrayList<>();
 		int row = position.row;
 		int column = position.column;
-		if ((position.row - 1 >= 0) && (properties[row][column].isSameTerrain(properties[row - 1][column]))) {
+		if ((row > 0) && (properties[row][column].isSameTerrain(properties[row - 1][column]))) {
 			Position pos = new Position(row - 1, column);
 			list.add(pos);
 		}
-		if ((column + 1 <= size - 1) && (properties[row][column].isSameTerrain(properties[row][column + 1]))) {
+		if ((column < size - 1) && (properties[row][column].isSameTerrain(properties[row][column + 1]))) {
 			Position pos = new Position(row, column + 1);
 			list.add(pos);
 		}
-		if ((row + 1 <= size - 1) && (properties[row][column].isSameTerrain(properties[row + 1][column]))) {
+		if ((row  < size - 1) && (properties[row][column].isSameTerrain(properties[row + 1][column]))) {
 			Position pos = new Position(row + 1, column);
 			list.add(pos);
 		}
-		if ((column - 1 >= 0) && (properties[row][column].isSameTerrain(properties[row][column - 1]))) {
+		if ((column  > 0) && (properties[row][column].isSameTerrain(properties[row][column - 1]))) {
 			Position pos = new Position(row, column - 1);
 			list.add(pos);
 		}
@@ -283,15 +282,9 @@ public class Board {
 		return list;
 	}
 
-	/**
-	 * FieldList is 5X5 terrain location which cannot exceed, 
-	 * the terrain can only be placed within this area. 
-	 * 
-	 * @return
-	 */
-	private ArrayList<Position> getFieldList() {
+	private ArrayList<Position> get5X5FieldList() {
 		ArrayList<Position> fieldList = new ArrayList<>();
-		ArrayList<Position> listPos = this.getOccupaidPositionList();
+		ArrayList<Position> listPos = this.getOccupiedPositionList();
 		for (int row = 0; row < (size / 2 + 1); row++) {
 			for (int column = 0; column < (size / 2 + 1); column++) {
 				Position pos = new Position(row, column);
@@ -303,7 +296,7 @@ public class Board {
 		return fieldList;
 	}
 
-	private ArrayList<Position> getOccupaidPositionList() {
+	private ArrayList<Position> getOccupiedPositionList() {
 		ArrayList<Position> list = new ArrayList<>();
 		for (int line = 0; line < size; line++) {
 			for (int column = 0; column < size; column++) {

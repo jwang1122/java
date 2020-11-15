@@ -37,13 +37,6 @@ public class Terrain {
 		this.numberOfCrowns = numberOfCrowns;
 	}
 
-	/**
-	 * draw itself on give position (row, column) in the Board.
-	 * 
-	 * @param g
-	 * @param row
-	 * @param column
-	 */
 	public void draw(Graphics g, Position position, Image castleImage) {
 		g.setColor(Color.BLACK);
 		g.drawRect(400 + lengthCase * position.row, 30 + lengthCase * position.column, lengthCase, lengthCase);
