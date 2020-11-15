@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Kingdomino {
-	static ArrayList<Tile> deck = new Data().getDeck();
+	static ArrayList<Tile> deck = new Deck().getDeck();
 	static final int numDominos = 48;
 
 	Player player1;
