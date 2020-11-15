@@ -25,11 +25,12 @@ public class Player implements Comparable<Player> {
 		}
 	}
 
-	int[] scores = new int[3];
+	int score;
+	int maxField;
+	int crowns;
 	String name;
 	Board board;
 	Image castleImage;
-	String message;
 
 	public Player(PlayerColor color, String name) {
 		setAttributes(color);
@@ -44,19 +45,15 @@ public class Player implements Comparable<Player> {
 		switch (color) {
 		case BluePlayer:
 			castleImage = imageblueC;
-			message = "Blue player's name";
 			break;
 		case GreenPlayer:
 			castleImage = imagegreenC;
-			message = "Green player's name";
 			break;
 		case YellowPlayer:
 			castleImage = imageyellowC;
-			message = "Yellow player's name";
 			break;
 		case RedPlayer:
 			castleImage = imageredC;
-			message = "Red player's name";
 			break;
 		}
 	}
@@ -65,14 +62,10 @@ public class Player implements Comparable<Player> {
 		board.draw(g, castleImage);
 	}
 
-	public int[] getScores() {
-		return this.scores;
-	}
-
 	public void setScores() {
-		this.scores[0] = board.calculateScore();
-		this.scores[2] = board.totalCrowns;
-		this.scores[1] = board.maxLinkedTerrains;
+		score = board.calculateScore();
+		crowns = board.totalCrowns;
+		maxField = board.maxLinkedTerrains;
 	}
 
 	public String getName() {
@@ -100,8 +93,6 @@ public class Player implements Comparable<Player> {
 	}
 
 	public Player(String name, Board board) {
-		int[] scores = { 0, 0, 0 };
-		this.scores = scores;
 		this.name = name;
 		this.board = board;
 
@@ -112,22 +103,18 @@ public class Player implements Comparable<Player> {
 		return "Player [name=" + name + "]";
 	}
 
-	public void setScores(int[] scores) {
-		this.scores = scores;
-	}
-	
 	@Override
 	public int compareTo(Player other) {
-		if(scores[0]==other.scores[0]) {
-			if(scores[1]==other.scores[1]) {
-				if(scores[2]==other.scores[2]) {
+		if(score==other.score) {
+			if(maxField==other.maxField) {
+				if(crowns==other.crowns) {
 					return 0;
 				}
-				return scores[2]>other.scores[2]?-1:1;
+				return score>other.score?-1:1;
 			}
-			return scores[1]>other.scores[1]?-1:1;
+			return maxField>other.maxField?-1:1;
 		}
-		return scores[0]>other.scores[0]?-1:1;
+		return score>other.score?-1:1;
 	}
 
 	@Override

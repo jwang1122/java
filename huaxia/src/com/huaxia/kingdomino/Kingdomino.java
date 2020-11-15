@@ -157,8 +157,8 @@ public class Kingdomino {
 	private void showWinnerScores(ArrayList<Player> listWinners) {
 		Player player1 = listWinners.get(0);
 		JOptionPane.showMessageDialog(null, "The big winner is " + player1.getName() + "!\nHe gets a score of "
-				+ player1.getScores()[0] + " points!\nIts most extensive property is " + player1.getScores()[1]
-				+ "  !\nFinally he owns a total of " + player1.getScores()[2]
+				+ player1.score + " points!\nIts most extensive property is " + player1.maxField
+				+ "  !\nFinally he owns a total of " + player1.crowns
 				+ " crowns!\n ", "Winner", JOptionPane.INFORMATION_MESSAGE);
 	}
 
@@ -167,9 +167,9 @@ public class Kingdomino {
 		showWinnerScores(listWinners);
 		for (int i = 1; i < 4; i++) {
 			Player player = listWinners.get(i);
-			JOptionPane.showMessageDialog(null, player.getName() + " gets a score of " + player.getScores()[0]
-					+ " points!\nIts most extensive property is " + player.getScores()[1]
-					+ " !\nFinally he owns a total of " + player.getScores()[2]
+			JOptionPane.showMessageDialog(null, player.getName() + " gets a score of " + player.score
+					+ " points!\nIts most extensive property is " + player.maxField
+					+ " !\nFinally he owns a total of " + player.crowns
 					+ " Crowns!\n ", "losing", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
