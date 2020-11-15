@@ -184,7 +184,7 @@ public class Board {
 		return list;
 	}
 
-	public int score() {
+	public int calculateScore() {
 		Property[][] myProperties = deepClone();
 		int score = 0;
 		for (int row = 0; row < size; row++) {
