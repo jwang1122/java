@@ -72,8 +72,8 @@ public class Player implements Comparable<Player> {
 
 	public void setScores() {
 		this.scores[0] = board.calculateScore();
-		this.scores[1] = board.maxField();
 		this.scores[2] = board.numCrowns();
+		this.scores[1] = board.maxField();
 	}
 
 	public String getName() {

@@ -14,7 +14,7 @@ public class Board {
 	static final int lengthBoard = 9;
 	int size;
 	Property[][] properties;
-
+	
 	public Board(int size) {
 		this.size = size;
 		this.properties = new Property[size][size];
@@ -185,24 +185,24 @@ public class Board {
 	}
 
 	public int calculateScore() {
-		Property[][] myProperties = deepClone();
+		Property[][] workingProperties = deepClone(); // will be damaged while calculating.
 		int score = 0;
 		for (int row = 0; row < size; row++) {
 			for (int column = 0; column < size; column++) {
-				if (myProperties[row][column].isOccupied()) {
+				if (workingProperties[row][column].isOccupied()) {
 					int numCrowns = 0;
-					int nbCases = 0;
-					// find all linked terrain location
+					// find all linked terrain locations
 					ArrayList<Position> pack = findLinkedTerrainPositions(new Position(row, column));
-					for (int compteur = 0; compteur < pack.size(); compteur++) {
-						nbCases += 1;
-						numCrowns += myProperties[pack.get(compteur).row][pack.get(compteur).column].getNumOfCrowns();
+					for (int i = 0; i < pack.size(); i++) {
+						Position pos = pack.get(i);
 						// get number of linked terrains, and total number of Crowns
+						numCrowns += workingProperties[pos.row][pos.column].getNumOfCrowns();
 						// create empty property, and set all calculated terrain to be empty
-						Property property = new Property(pack.get(compteur), Terrain.emptyTerrain);
-						myProperties[pack.get(compteur).row][pack.get(compteur).column] = property;
+						// must create new property, cannot set the property's terrain, otherwise the original properties will be damaged.
+						Property property = new Property(pos, Terrain.emptyTerrain);
+						workingProperties[pos.row][pos.column] = property;
 					}
-					score += nbCases * numCrowns;
+					score += pack.size() * numCrowns;
 				}
 			}
 		}
@@ -258,16 +258,16 @@ public class Board {
 		}
 		return list;
 	}
-
+	// smart way to find all linked terrains position
 	private ArrayList<Position> findLinkedTerrainPositions(Position position) {
 		ArrayList<Position> list = new ArrayList<>();
 		list.add(position);
 		int nbCases = 0;
 		while (nbCases != list.size()) {
 			ArrayList<Position> next = findNearBySameTerrainPositions(list.get(nbCases));
-			for (int compteur = 0; compteur < next.size(); compteur++) {
-				if (!list.contains(next.get(compteur))) {
-					list.add(next.get(compteur));
+			for (int i = 0; i < next.size(); i++) {
+				if (!list.contains(next.get(i))) {
+					list.add(next.get(i));
 				}
 			}
 			nbCases += 1;
