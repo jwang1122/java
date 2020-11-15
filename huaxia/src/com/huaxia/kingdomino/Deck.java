@@ -21,11 +21,18 @@ public class Deck {
 			TerrainImage image2 = TerrainImage.EMPTY;
 			while (sc.hasNextLine()) {
 				String[] line = sc.nextLine().split(",");
+
+				int crown1 = Integer.parseInt(line[0]);
 				image1 = getImage(line[1]);
+				Terrain terrain1 = new Terrain(image1, crown1);
+
+				int crown2 = Integer.parseInt(line[2]);
 				image2 = getImage(line[3]);
-				Terrain terrain1 = new Terrain(image1, Integer.parseInt(line[0]));
-				Terrain terrain2 = new Terrain(image2, Integer.parseInt(line[2]));
-				Tile tile = new Tile(Integer.parseInt(line[4]), terrain1, terrain2);
+				Terrain terrain2 = new Terrain(image2, crown2);
+
+				int number = Integer.parseInt(line[4]);
+				Tile tile = new Tile(number, terrain1, terrain2);
+				
 				this.deck.add(tile);
 			}
 			sc.close();
@@ -56,5 +63,4 @@ public class Deck {
 		Collections.shuffle(deck);
 		return deck;
 	}
-
 }
