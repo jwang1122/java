@@ -14,6 +14,8 @@ public class Board {
 	static final int lengthBoard = 9;
 	int size;
 	Property[][] properties;
+	int maxLinkedTerrains = 0;
+	int totalCrowns = 0;
 	
 	public Board(int size) {
 		this.size = size;
@@ -186,6 +188,8 @@ public class Board {
 
 	public int calculateScore() {
 		Property[][] workingProperties = deepClone(); // will be damaged while calculating.
+		maxLinkedTerrains= 0;
+		totalCrowns = 0;
 		int score = 0;
 		for (int row = 0; row < size; row++) {
 			for (int column = 0; column < size; column++) {
@@ -193,6 +197,9 @@ public class Board {
 					int numCrowns = 0;
 					// find all linked terrain locations
 					ArrayList<Position> pack = findLinkedTerrainPositions(new Position(row, column));
+					if(pack.size() > maxLinkedTerrains) {
+						maxLinkedTerrains = pack.size();
+					}
 					for (int i = 0; i < pack.size(); i++) {
 						Position pos = pack.get(i);
 						// get number of linked terrains, and total number of Crowns
@@ -203,6 +210,7 @@ public class Board {
 						workingProperties[pos.row][pos.column] = property;
 					}
 					score += pack.size() * numCrowns;
+					totalCrowns += numCrowns;
 				}
 			}
 		}
@@ -273,42 +281,6 @@ public class Board {
 			nbCases += 1;
 		}
 		return list;
-	}
-
-	public int maxField() {
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		for (int row = 0; row < size; row++) {
-			for (int column = 0; column < size; column++) {
-				if (properties[row][column].isOccupied()) {
-					ArrayList<Position> listPaquet = findLinkedTerrainPositions(new Position(row, column));
-					list.add(listPaquet.size());
-					for (int compteur = 0; compteur < listPaquet.size(); compteur++) {
-						properties[listPaquet.get(compteur).row][listPaquet.get(compteur).column].setTerrain(Terrain.emptyTerrain);
-					}
-				}
-			}
-		}
-		return max(list);
-	}
-
-	private int max(ArrayList<Integer> list) {
-		int max = list.get(0);
-		for (int compteur = 0; compteur < list.size(); compteur++) {
-			if (list.get(compteur) > max) {
-				max = list.get(compteur);
-			}
-		}
-		return max;
-	}
-
-	public int numCrowns() {
-		int numCrowns = 0;
-		for (int line = 0; line < size; line++) {
-			for (int column = 0; column < size; column++) {
-				numCrowns += properties[line][column].getNumOfCrowns();
-			}
-		}
-		return numCrowns;
 	}
 
 	/**

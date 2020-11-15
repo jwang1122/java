@@ -1,6 +1,9 @@
 package com.huaxia.kingdomino;
 
 import javax.swing.*;
+
+import com.huaxia.kingdomino.Player.PlayerColor;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,21 +31,21 @@ public class Configure extends JDialog {
 	private void configKingdomino() {
 		kingdomino = new Kingdomino();
 		String name = JOptionPane.showInputDialog(null, "Blue Player's name", "Players", JOptionPane.QUESTION_MESSAGE);
-		kingdomino.player1 = new Player(Player.PlayerColor.BluePlayer, name);
+		kingdomino.player1 = new Player(PlayerColor.BluePlayer, name);
 		name = JOptionPane.showInputDialog(null, "Green Player's name", "Players", JOptionPane.QUESTION_MESSAGE);
-		kingdomino.player2 = new Player(Player.PlayerColor.GreenPlayer, name);
+		kingdomino.player2 = new Player(PlayerColor.GreenPlayer, name);
 		name = JOptionPane.showInputDialog(null, "Yellow Player's name", "Players", JOptionPane.QUESTION_MESSAGE);
-		kingdomino.player3 = new Player(Player.PlayerColor.YellowPlayer, name);
+		kingdomino.player3 = new Player(PlayerColor.YellowPlayer, name);
 		name = JOptionPane.showInputDialog(null, "Blue Player's name", "Players", JOptionPane.QUESTION_MESSAGE);
-		kingdomino.player4 = new Player(Player.PlayerColor.RedPlayer, name);
+		kingdomino.player4 = new Player(PlayerColor.RedPlayer, name);
 //		JOptionPane.showMessageDialog(null, "Start of the game :\n", "Start", JOptionPane.INFORMATION_MESSAGE);
 	}
 	private void defaultKingdomino() {
 		kingdomino = new Kingdomino();
-		kingdomino.player1 = new Player(Player.PlayerColor.BluePlayer, null);
-		kingdomino.player2 = new Player(Player.PlayerColor.GreenPlayer, null);
-		kingdomino.player3 = new Player(Player.PlayerColor.YellowPlayer, null);
-		kingdomino.player4 = new Player(Player.PlayerColor.RedPlayer, null);
+		kingdomino.player1 = new Player(PlayerColor.BluePlayer, null);
+		kingdomino.player2 = new Player(PlayerColor.GreenPlayer, null);
+		kingdomino.player3 = new Player(PlayerColor.YellowPlayer, null);
+		kingdomino.player4 = new Player(PlayerColor.RedPlayer, null);
 //		JOptionPane.showMessageDialog(null, "Start of the game :\n", "Start", JOptionPane.INFORMATION_MESSAGE);
 	}
 

@@ -38,7 +38,6 @@ public class Player implements Comparable<Player> {
 			this.name=color.toString();
 		}
 		board = new Board(boardSize);
-		scores = new int[3];
 	}
 
 	private void setAttributes(PlayerColor color) {
@@ -72,8 +71,8 @@ public class Player implements Comparable<Player> {
 
 	public void setScores() {
 		this.scores[0] = board.calculateScore();
-		this.scores[2] = board.numCrowns();
-		this.scores[1] = board.maxField();
+		this.scores[2] = board.totalCrowns;
+		this.scores[1] = board.maxLinkedTerrains;
 	}
 
 	public String getName() {
