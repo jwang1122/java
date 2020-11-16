@@ -155,7 +155,7 @@ public class Board {
 		return nextTo;
 	}
 
-	private boolean isDiagonal(Position position1, Position position2) {
+	boolean isDiagonal(Position position1, Position position2) {
 		if (position1.row == position2.row) {
 			if (position1.column == position2.column - 1 || position1.column == position2.column + 1) {
 				return false;
@@ -381,6 +381,10 @@ public class Board {
 			bottom = pos2.column;
 		}
 		return right - left + 1 > 5 || bottom - top + 1 > 5;
+	}
+
+	boolean isOccupied(Position pos1, Position pos2) {
+		return properties[pos1.row][pos1.column].isOccupied() || properties[pos2.row][pos2.column].isOccupied();
 	}
 
 	public void draw(Graphics g, Image castleImage) {

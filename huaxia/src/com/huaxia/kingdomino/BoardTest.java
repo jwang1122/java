@@ -19,6 +19,23 @@ class BoardTest {
 	}
 
 	@Test
+	void testIsDiagonal() {
+		Position pos1 = new Position(3,3);
+		Position pos2 = new Position(3,4); // one row
+		assertFalse(board.isDiagonal(pos1, pos2));
+		
+		pos1 = new Position(2,4);
+		pos2 = new Position(3,4); // one column
+		assertFalse(board.isDiagonal(pos1, pos2));
+		
+		pos1 = new Position(2,4);
+		pos2 = new Position(3,5); // diagonal
+		assertTrue(board.isDiagonal(pos1, pos2));
+		
+		// how about if two positions not connected?
+	}
+	
+	@Test
 	void testIsOutOf5X5Frame() {
 		board.leftColumn = 2;
 		board.rightColumn = 6;
@@ -47,7 +64,22 @@ class BoardTest {
 		assertTrue(board.rightColumn == 6);
 		assertTrue(board.topRow == 3);
 		assertTrue(board.bottomRow == 7);
-}
+	}
+	
+	@Test
+	void testIsOccupied() {
+		Position pos1 = new Position(3, 5); 
+		Position pos2 = new Position(3, 6);
+		board.insertDomino(tile, pos1, pos2); // insert the domino
+		assertTrue(board.isOccupied(pos1, pos2));
+		
+		pos2 = new Position(3,4); //one position empty
+		assertTrue(board.isOccupied(pos1, pos2));
+
+		pos1 = new Position(3,3); // both position available
+		assertFalse(board.isOccupied(pos1, pos2));
+		
+	}
 
 //
 //	@Test
