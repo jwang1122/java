@@ -138,7 +138,7 @@ public class Kingdomino {
 			@Override
 			public void paintComponent(Graphics g) {
 				player.drawBoard(g);
-				displayDomino(g, tiles); // draw tile list
+				displayTileList(g, tiles); // draw tile list
 			}
 		};
 		frame.setBackground(fond);
@@ -208,7 +208,7 @@ public class Kingdomino {
 		return (tile.getNumber() == 0);
 	}
 
-	private void displayDomino(Graphics g, ArrayList<Tile> list) {
+	private void displayTileList(Graphics g, ArrayList<Tile> list) {
 		for (int i = 0; i < list.size(); i++) {
 			displayTileNumber(g, list, i);
 			drawTerrain(g, list.get(i).getTerrain1(), i, 0);

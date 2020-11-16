@@ -16,7 +16,11 @@ public class Board {
 	Property[][] properties;
 	int maxLinkedTerrains = 0;
 	int totalCrowns = 0;
-	
+	int leftColumn = 4;
+	int rightColumn = 4;
+	int topRow = 4;
+	int bottomRow = 4;
+
 	public Board(int size) {
 		this.size = size;
 		this.properties = new Property[size][size];
@@ -61,7 +65,7 @@ public class Board {
 	}
 
 	private boolean playable(Tile tile, Position position1, Position position2) {
-		if (!isNotDiagonal(position1, position2)) {
+		if (isDiagonal(position1, position2)) {
 			return false;
 		}
 		if (properties[position1.row][position1.column].isOccupied()
@@ -79,7 +83,7 @@ public class Board {
 			JOptionPane.showMessageDialog(null, "You cannot play on a single square!", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
-		if (!isNotDiagonal(position1, position2)) {
+		if (isDiagonal(position1, position2)) {
 			JOptionPane.showMessageDialog(null, "The entered coordinates correspond to boxes not pasted!", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
@@ -106,26 +110,26 @@ public class Board {
 		if (isAdjacentHaveNoSameTerrain(tile, position1, position2)) {
 			return false;
 		}
-		insertTile(Tile.emptyTile, position1, position2);
+		removeDomino(position1, position2);
 		return true;
 	}
 
 	private boolean isOutOf5X5Field(Tile tile, Position position1, Position position2) {
-		insertTile(tile, position1, position2); // try put the tile in the location first
+		insertDomino(tile, position1, position2); // try put the tile in the location first
 		ArrayList<Position> fieldList = get5X5FieldList();
 		if (fieldList.size() == 0) {
-			insertTile(Tile.emptyTile, position1, position2);
+			removeDomino(position1, position2);
 			return true;
 		}
 		return false;
 	}
 
 	private boolean isAdjacentHaveNoSameTerrain(Tile tile, Position position1, Position position2) {
-		insertTile(tile, position1, position2); // try put the tile in the location first
+		insertDomino(tile, position1, position2); // try put the tile in the location first
 		ArrayList<Position> nextToCase1 = deleteNextTo(getAjacentPositionList(position1), position2);
 		ArrayList<Position> nextToCase2 = deleteNextTo(getAjacentPositionList(position2), position1);
 		if (nextToCase1.size() + nextToCase2.size() <= 0) {
-			insertTile(Tile.emptyTile, position1, position2);
+			removeDomino(position1, position2);
 			return true;
 		}
 		return false;
@@ -151,30 +155,30 @@ public class Board {
 		return nextTo;
 	}
 
-	private boolean isNotDiagonal(Position position1, Position position2) {
+	private boolean isDiagonal(Position position1, Position position2) {
 		if (position1.row == position2.row) {
 			if (position1.column == position2.column - 1 || position1.column == position2.column + 1) {
-				return true;
+				return false;
 			}
 		} else if (position1.column == position2.column) {
 			if (position1.row == position2.row - 1 || position1.row == position2.row + 1) {
-				return true;
+				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 
-	private	ArrayList<Position> getNearbyPositionList(int row, int column) {
+	private ArrayList<Position> getNearbyPositionList(int row, int column) {
 		ArrayList<Position> list = new ArrayList<>();
-		if (row  > 0) {
+		if (row > 0) {
 			Position pos = new Position(row - 1, column);
 			list.add(pos);
 		}
-		if (column  < size - 1) {
+		if (column < size - 1) {
 			Position pos = new Position(row, column + 1);
 			list.add(pos);
 		}
-		if (row  < size - 1) {
+		if (row < size - 1) {
 			Position pos = new Position(row + 1, column);
 			list.add(pos);
 		}
@@ -187,7 +191,7 @@ public class Board {
 
 	public int calculateScore() {
 		Property[][] workingProperties = deepClone(); // will be damaged while calculating.
-		maxLinkedTerrains= 0;
+		maxLinkedTerrains = 0;
 		totalCrowns = 0;
 		int score = 0;
 		for (int row = 0; row < size; row++) {
@@ -196,7 +200,7 @@ public class Board {
 					int numCrowns = 0;
 					// find all linked terrain locations
 					ArrayList<Position> pack = findLinkedTerrainPositions(new Position(row, column));
-					if(pack.size() > maxLinkedTerrains) {
+					if (pack.size() > maxLinkedTerrains) {
 						maxLinkedTerrains = pack.size();
 					}
 					for (int i = 0; i < pack.size(); i++) {
@@ -204,7 +208,8 @@ public class Board {
 						// get number of linked terrains, and total number of Crowns
 						numCrowns += workingProperties[pos.row][pos.column].getNumOfCrowns();
 						// create empty property, and set all calculated terrain to be empty
-						// must create new property, cannot set the property's terrain, otherwise the original properties will be damaged.
+						// must create new property, cannot set the property's terrain, otherwise the original
+						// properties will be damaged.
 						Property property = new Property(pos, Terrain.emptyTerrain);
 						workingProperties[pos.row][pos.column] = property;
 					}
@@ -225,13 +230,13 @@ public class Board {
 			Position pos = new Position(row - 1, column);
 			list.add(pos);
 		}
-		if ((column  < size - 1) && (properties[row][column].isSameTerrain(properties[row][column + 1])
+		if ((column < size - 1) && (properties[row][column].isSameTerrain(properties[row][column + 1])
 				|| properties[row][column + 1].isCastle())) {
 			Position pos = new Position(row, column + 1);
 			list.add(pos);
 		}
-		if ((row  < size - 1) && (properties[row][column].isSameTerrain(properties[row + 1][column])
-				|| properties[row + 1][column].isCastle())) {
+		if ((row < size - 1) && (properties[row][column].isSameTerrain(properties[row + 1][column]) || properties[row
+				+ 1][column].isCastle())) {
 			Position pos = new Position(row + 1, column);
 			list.add(pos);
 		}
@@ -255,16 +260,17 @@ public class Board {
 			Position pos = new Position(row, column + 1);
 			list.add(pos);
 		}
-		if ((row  < size - 1) && (properties[row][column].isSameTerrain(properties[row + 1][column]))) {
+		if ((row < size - 1) && (properties[row][column].isSameTerrain(properties[row + 1][column]))) {
 			Position pos = new Position(row + 1, column);
 			list.add(pos);
 		}
-		if ((column  > 0) && (properties[row][column].isSameTerrain(properties[row][column - 1]))) {
+		if ((column > 0) && (properties[row][column].isSameTerrain(properties[row][column - 1]))) {
 			Position pos = new Position(row, column - 1);
 			list.add(pos);
 		}
 		return list;
 	}
+
 	// smart way to find all linked terrains position
 	private ArrayList<Position> findLinkedTerrainPositions(Position position) {
 		ArrayList<Position> list = new ArrayList<>();
@@ -331,11 +337,50 @@ public class Board {
 		return list;
 	}
 
-	public void insertTile(Tile tile, Position position1, Position position2) {
+	public void insertDomino(Tile tile, Position position1, Position position2) {
 		Property case1 = new Property(position1, tile.terrain1);
 		Property case2 = new Property(position2, tile.terrain2);
 		setcase(case1);
 		setcase(case2);
+	}
+
+	public void removeDomino(Position position1, Position position2) {
+		Property case1 = new Property(position1, Terrain.emptyTerrain);
+		Property case2 = new Property(position2, Terrain.emptyTerrain);
+		setcase(case1);
+		setcase(case2);
+	}
+
+	boolean isOutOf5X5Frame(Position pos1, Position pos2) {
+		int left = leftColumn;
+		int right = rightColumn;
+		int top = topRow;
+		int bottom = bottomRow;
+		if (left > pos1.column) {
+			left = pos1.column;
+		}
+		if (left > pos2.column) {
+			left = pos2.column;
+		}
+		if (right < pos1.column) {
+			right = pos1.column;
+		}
+		if (right < pos2.column) {
+			right = pos2.column;
+		}
+		if (top > pos1.row) {
+			top = pos1.column;
+		}
+		if (top > pos2.column) {
+			top = pos2.column;
+		}
+		if (bottom < pos1.column) {
+			bottom = pos1.column;
+		}
+		if (bottom < pos2.column) {
+			bottom = pos2.column;
+		}
+		return right - left + 1 > 5 || bottom - top + 1 > 5;
 	}
 
 	public void draw(Graphics g, Image castleImage) {

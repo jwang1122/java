@@ -147,7 +147,7 @@ public class Player implements Comparable<Player> {
 	}
 
 	public void insertTile(Tile tile, Position position1, Position position2) {
-		board.insertTile(tile, position1, position2);		
+		board.insertDomino(tile, position1, position2);		
 	}
 
 }
