@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Kingdomino {
-	static ArrayList<Tile> deck = new Deck().getDeck();
+	static ArrayList<Domino> deck = new Deck().getDeck();
 	static final int numDominos = 48;
 
 	Player player1;
@@ -24,7 +24,7 @@ public class Kingdomino {
 	ArrayList<Player> fourPlayers;
 	int chooseTile = 0;
 	boolean case1Selected, case2Selected = false;
-	Position position1, position2; // tile1 and tile2 grid positions
+	Position position1, position2; // terrain1 and terrain2 grid positions
 	Color fond = new Color(238, 231, 188);
 	int roundNum = 1;
 	JFrame frame;
@@ -39,7 +39,7 @@ public class Kingdomino {
 		fourPlayers = shufflePlayers();
 		while (deck.size() != 0) {
 			showPlayOrder(roundNum);
-			ArrayList<Tile> tileList4 = getNewTileList(deck);
+			ArrayList<Domino> tileList4 = getNewDominoListFromDeck();
 			for (int i = 0; i < 4; i++) { // loop each player
 				doGame(fourPlayers.get(i), tileList4);
 			}
@@ -56,7 +56,7 @@ public class Kingdomino {
 				+ fourPlayers.get(3).getName(), "Round", JOptionPane.INFORMATION_MESSAGE);
 	}
 
-	private void doGame(Player player, ArrayList<Tile> tileList4) {
+	private void doGame(Player player, ArrayList<Domino> tileList4) {
 		frame = new JFrame();
 		displayFrame(frame, player, tileList4); // setVisible(true)
 		frame.addMouseListener(new TilePositionListener(tileList4));
@@ -85,7 +85,7 @@ public class Kingdomino {
 		frame.dispose();
 	}
 
-	private boolean playOnSelectGoodTile(Player player, ArrayList<Tile> tileList, JFrame frame) {
+	private boolean playOnSelectGoodTile(Player player, ArrayList<Domino> tileList, JFrame frame) {
 		if (isEmpty(tileList.get(chooseTile - 1))) {
 			JOptionPane.showMessageDialog(null, "You've choose empty tile! Please try again :", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
@@ -93,26 +93,26 @@ public class Kingdomino {
 		return play(player, tileList, frame);
 	}
 
-	private boolean play(Player player, ArrayList<Tile> tileList, JFrame frame) {
+	private boolean play(Player player, ArrayList<Domino> tileList, JFrame frame) {
 		if (player.getBoard().canPlay(tileList.get(chooseTile - 1))) {
 			if (dropTile(player, tileList.get(chooseTile - 1))) {
 				displayFrame(frame, player, tileList); // setVisible(true)
 				JOptionPane.showMessageDialog(null, "\n" + player.getName() + " you now have a score of "
 				+ player.getBoard().calculateScore() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
-				tileList.set(chooseTile - 1, Tile.emptyTile);
+				tileList.set(chooseTile - 1, Domino.emptyDomino);
 				return true;
 			}
 			return false;
 		}
 		JOptionPane.showMessageDialog(null, "The tile you have chosen cannot be placed! So you keep the score of "
 		+ player.getBoard().calculateScore() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
-		tileList.set(chooseTile - 1, Tile.emptyTile);
+		tileList.set(chooseTile - 1, Domino.emptyDomino);
 		return true;
 	}
 
-	private boolean dropTile(Player player, Tile tile) {
-		if (player.graphicPlayable(tile, position1, position2)) {
-			player.insertTile(tile, position1, position2);
+	private boolean dropTile(Player player, Domino domino) {
+		if (player.graphicPlayable(domino, position1, position2)) {
+			player.insertTile(domino, position1, position2);
 			return true;
 		}
 		resetSelectedCases();
@@ -129,7 +129,7 @@ public class Kingdomino {
 		System.exit(0);
 	}
 
-	private void displayFrame(JFrame frame, Player player, ArrayList<Tile> tiles) {
+	private void displayFrame(JFrame frame, Player player, ArrayList<Domino> tiles) {
 		frame.setTitle(player.getName());
 		frame.setSize(1080, 720);
 		JPanel p = new JPanel() {
@@ -138,7 +138,7 @@ public class Kingdomino {
 			@Override
 			public void paintComponent(Graphics g) {
 				player.drawBoard(g);
-				displayTileList(g, tiles); // draw tile list
+				displayDominoList(g, tiles); // draw tile list
 			}
 		};
 		frame.setBackground(fond);
@@ -194,29 +194,29 @@ public class Kingdomino {
 		return listPlayers;
 	}
 
-	private ArrayList<Tile> getNewTileList(ArrayList<Tile> list) {
-		ArrayList<Tile> listDominos = new ArrayList<Tile>();
+	private ArrayList<Domino> getNewDominoListFromDeck() {
+		ArrayList<Domino> listDominos = new ArrayList<Domino>();
 		for (int i = 0; i < 4; i++) {
-			listDominos.add(list.get(0));
-			list.remove(0);
+			listDominos.add(deck.get(0));
+			deck.remove(0);
 		}
 		Collections.sort(listDominos);
 		return listDominos;
 	}
 
-	private boolean isEmpty(Tile tile) {
+	private boolean isEmpty(Domino tile) {
 		return (tile.getNumber() == 0);
 	}
 
-	private void displayTileList(Graphics g, ArrayList<Tile> list) {
+	private void displayDominoList(Graphics g, ArrayList<Domino> list) {
 		for (int i = 0; i < list.size(); i++) {
-			displayTileNumber(g, list, i);
+			displayDominoNumber(g, list, i);
 			drawTerrain(g, list.get(i).getTerrain1(), i, 0);
 			drawTerrain(g, list.get(i).getTerrain2(), i, 1);
 		}
 	}
 
-	private void displayTileNumber(Graphics g, ArrayList<Tile> list, int i) {
+	private void displayDominoNumber(Graphics g, ArrayList<Domino> list, int i) {
 		Font font = new Font("Calibri", Font.BOLD, 20);
 		g.setFont(font);
 		g.setColor(Color.DARK_GRAY);
@@ -232,9 +232,9 @@ public class Kingdomino {
 	}
 
 	class TilePositionListener implements MouseListener {
-		ArrayList<Tile> tileList4;
+		ArrayList<Domino> tileList4;
 
-		public TilePositionListener(ArrayList<Tile> tileList4) {
+		public TilePositionListener(ArrayList<Domino> tileList4) {
 			this.tileList4 = tileList4;
 		}
 

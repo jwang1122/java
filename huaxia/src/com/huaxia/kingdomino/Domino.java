@@ -1,11 +1,11 @@
 package com.huaxia.kingdomino;
 
-public class Tile implements Comparable<Tile>{
-	static Tile emptyTile = new Tile(0, Terrain.emptyTerrain, Terrain.emptyTerrain);
+public class Domino implements Comparable<Domino>{
+	static Domino emptyDomino = new Domino(0, Terrain.emptyTerrain, Terrain.emptyTerrain);
 	int number;
 	Terrain terrain1, terrain2;
 
-	public Tile(int number, Terrain terrain1, Terrain terrain2) {
+	public Domino(int number, Terrain terrain1, Terrain terrain2) {
 		super();
 		this.number = number;
 		this.terrain1 = terrain1;
@@ -42,7 +42,7 @@ public class Tile implements Comparable<Tile>{
 	}
 
 	@Override
-	public int compareTo(Tile other) {
+	public int compareTo(Domino other) {
 		if(other==null) return -1;
 		if (number==other.number)
 			return 0;
@@ -71,7 +71,7 @@ public class Tile implements Comparable<Tile>{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Tile other = (Tile) obj;
+		Domino other = (Domino) obj;
 		if (number != other.number)
 			return false;
 		if (terrain1 != other.terrain1)

@@ -11,7 +11,7 @@ class BoardTest {
 	Board board = new Board(9);
 	Terrain terrain1 = new Terrain(TerrainImage.FOREST, 2);
 	Terrain terrain2 = new Terrain(TerrainImage.FIELD, 0);
-	Tile tile = new Tile(1, terrain1, terrain2);
+	Domino tile = new Domino(1, terrain1, terrain2);
 	Terrain forest = new Terrain(TerrainImage.FOREST, 1);
 	Terrain mine = new Terrain(TerrainImage.MINE,0);
 	Terrain mountain = new Terrain(TerrainImage.MOUNTAIN,2);
@@ -25,10 +25,10 @@ class BoardTest {
 	void setUp() throws Exception {
 		board.topRow = 2;
 		board.bottomRow = 6;
-		board.leftColumn = 2;
-		board.rightColumn = 6;
+		board.leftColumn = 3;
+		board.rightColumn = 7;
 		
-		tile = new Tile(1, terrain1, terrain2);
+		tile = new Domino(1, terrain1, terrain2);
 
 		pos1 = new Position(3, 4);
 		board.properties[2][4]=new Property(new Position(2,4), forest);
@@ -86,7 +86,15 @@ class BoardTest {
 		assertTrue(board.rightColumn == 6);
 		assertTrue(board.topRow == 3);
 		assertTrue(board.bottomRow == 7);
-	}
+
+		pos1 = new Position(1, 5); // within frame
+		pos2 = new Position(1, 6);
+		assertTrue(board.isOutOf5X5Frame(pos1, pos2)); // it is out bound
+		assertTrue(board.leftColumn == 2); // the frame bound no changes
+		assertTrue(board.rightColumn == 6);
+		assertTrue(board.topRow == 3);
+		assertTrue(board.bottomRow == 7);
+}
 	
 	@Test
 	void testIsOccupied() {

@@ -45,7 +45,7 @@ public class Board {
 		properties[property.getRow()][property.getColumn()] = property;
 	}
 
-	public boolean canPlay(Tile tile) {
+	public boolean canPlay(Domino tile) {
 		ArrayList<Position> fieldList = this.get5X5FieldList();
 		for (int i = 0; i < fieldList.size(); i++) {
 			ArrayList<Position> frameList = frame(fieldList.get(i));
@@ -64,7 +64,7 @@ public class Board {
 		return false;
 	}
 
-	private boolean playable(Tile tile, Position position1, Position position2) {
+	private boolean playable(Domino tile, Position position1, Position position2) {
 		if (isDiagonal(position1, position2)) {
 			return false;
 		}
@@ -78,7 +78,7 @@ public class Board {
 		return true;
 	}
 
-	public boolean graphicPlayable(Tile tile, Position position1, Position position2) {
+	public boolean graphicPlayable(Domino tile, Position position1, Position position2) {
 		if (position1.equals(position2)) {
 			JOptionPane.showMessageDialog(null, "You cannot play on a single square!", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
@@ -103,7 +103,7 @@ public class Board {
 		return true;
 	}
 
-	private boolean possible(Tile tile, Position position1, Position position2) {
+	private boolean possible(Domino tile, Position position1, Position position2) {
 		if (isOutOf5X5Field(tile, position1, position2)) {
 			return false;
 		}
@@ -114,7 +114,7 @@ public class Board {
 		return true;
 	}
 
-	private boolean isOutOf5X5Field(Tile tile, Position position1, Position position2) {
+	private boolean isOutOf5X5Field(Domino tile, Position position1, Position position2) {
 		insertDomino(tile, position1, position2); // try put the tile in the location first
 		ArrayList<Position> fieldList = get5X5FieldList();
 		if (fieldList.size() == 0) {
@@ -124,7 +124,7 @@ public class Board {
 		return false;
 	}
 
-	private boolean isAdjacentHaveNoSameTerrain(Tile tile, Position position1, Position position2) {
+	private boolean isAdjacentHaveNoSameTerrain(Domino tile, Position position1, Position position2) {
 		insertDomino(tile, position1, position2); // try put the tile in the location first
 		ArrayList<Position> nextToCase1 = deleteNextTo(getAjacentPositionList(position1), position2);
 		ArrayList<Position> nextToCase2 = deleteNextTo(getAjacentPositionList(position2), position1);
@@ -324,7 +324,7 @@ public class Board {
 		return list;
 	}
 
-	public void insertDomino(Tile tile, Position position1, Position position2) {
+	public void insertDomino(Domino tile, Position position1, Position position2) {
 		Property case1 = new Property(position1, tile.terrain1);
 		Property case2 = new Property(position2, tile.terrain2);
 		setcase(case1);
@@ -373,21 +373,21 @@ public class Board {
 			right = pos2.column;
 		}
 		if (top > pos1.row) {
-			top = pos1.column;
+			top = pos1.row;
 		}
-		if (top > pos2.column) {
-			top = pos2.column;
+		if (top > pos2.row) {
+			top = pos2.row;
 		}
-		if (bottom < pos1.column) {
-			bottom = pos1.column;
+		if (bottom < pos1.row) {
+			bottom = pos1.row;
 		}
-		if (bottom < pos2.column) {
-			bottom = pos2.column;
+		if (bottom < pos2.row) {
+			bottom = pos2.row;
 		}
 		return right - left + 1 > 5 || bottom - top + 1 > 5;
 	}
 
-	boolean hasSameTerrainAround(Tile tile, Position pos1, Position pos2) {
+	boolean hasSameTerrainAround(Domino tile, Position pos1, Position pos2) {
 		TerrainImage image1 = tile.terrain1.image;
 		TerrainImage image2 = tile.terrain2.image;
 		if (pos1.row == pos2.row) {

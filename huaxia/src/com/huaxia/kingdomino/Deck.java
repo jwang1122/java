@@ -9,7 +9,7 @@ import java.util.Scanner;
 import com.huaxia.kingdomino.Terrain.TerrainImage;
 
 public class Deck {
-	ArrayList<Tile> deck = new ArrayList<Tile>();
+	ArrayList<Domino> deck = new ArrayList<Domino>();
 
 	public Deck() {
 		File file = new File("dominos.csv");
@@ -31,7 +31,7 @@ public class Deck {
 				Terrain terrain2 = new Terrain(image2, crown2);
 
 				int number = Integer.parseInt(line[4]);
-				Tile tile = new Tile(number, terrain1, terrain2);
+				Domino tile = new Domino(number, terrain1, terrain2);
 				
 				this.deck.add(tile);
 			}
@@ -59,7 +59,7 @@ public class Deck {
 		return TerrainImage.EMPTY;
 	}
 
-	public ArrayList<Tile> getDeck() {
+	public ArrayList<Domino> getDeck() {
 		Collections.shuffle(deck);
 		return deck;
 	}

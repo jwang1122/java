@@ -142,11 +142,11 @@ public class Player implements Comparable<Player> {
 		return true;
 	}
 
-	public boolean graphicPlayable(Tile tile, Position position1, Position position2) {
+	public boolean graphicPlayable(Domino tile, Position position1, Position position2) {
 		return board.graphicPlayable(tile, position1, position2);
 	}
 
-	public void insertTile(Tile tile, Position position1, Position position2) {
+	public void insertTile(Domino tile, Position position1, Position position2) {
 		board.insertDomino(tile, position1, position2);		
 	}
 
