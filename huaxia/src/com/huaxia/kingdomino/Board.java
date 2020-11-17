@@ -155,19 +155,6 @@ public class Board {
 		return nextTo;
 	}
 
-	boolean isDiagonal(Position position1, Position position2) {
-		if (position1.row == position2.row) {
-			if (position1.column == position2.column - 1 || position1.column == position2.column + 1) {
-				return false;
-			}
-		} else if (position1.column == position2.column) {
-			if (position1.row == position2.row - 1 || position1.row == position2.row + 1) {
-				return false;
-			}
-		}
-		return true;
-	}
-
 	private ArrayList<Position> getNearbyPositionList(int row, int column) {
 		ArrayList<Position> list = new ArrayList<>();
 		if (row > 0) {
@@ -351,6 +338,23 @@ public class Board {
 		setcase(case2);
 	}
 
+	boolean isDiagonal(Position position1, Position position2) {
+		if (position1.row == position2.row) {
+			if (position1.column == position2.column - 1 || position1.column == position2.column + 1) {
+				return false;
+			}
+		} else if (position1.column == position2.column) {
+			if (position1.row == position2.row - 1 || position1.row == position2.row + 1) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	boolean isOccupied(Position pos1, Position pos2) {
+		return properties[pos1.row][pos1.column].isOccupied() || properties[pos2.row][pos2.column].isOccupied();
+	}
+
 	boolean isOutOf5X5Frame(Position pos1, Position pos2) {
 		int left = leftColumn;
 		int right = rightColumn;
@@ -383,8 +387,46 @@ public class Board {
 		return right - left + 1 > 5 || bottom - top + 1 > 5;
 	}
 
-	boolean isOccupied(Position pos1, Position pos2) {
-		return properties[pos1.row][pos1.column].isOccupied() || properties[pos2.row][pos2.column].isOccupied();
+	boolean hasSameTerrainAround(Tile tile, Position pos1, Position pos2) {
+		TerrainImage image1 = tile.terrain1.image;
+		TerrainImage image2 = tile.terrain2.image;
+		if (pos1.row == pos2.row) {
+			if (pos1.row != topRow) { // compare image above pos1
+				TerrainImage above = properties[pos1.row - 1][pos1.column].terrain.image;
+				if (above == image1 || above == TerrainImage.CASTLE)
+					return true;
+			}
+			if (pos1.column != leftColumn) { // compare image on left of pos1
+				TerrainImage left = properties[pos1.row][pos1.column - 1].terrain.image;
+				if (left == image1 || left == TerrainImage.CASTLE)
+					return true;
+			}
+			if(pos1.row != bottomRow) {
+				TerrainImage bellow = properties[pos1.row+1][pos1.column].terrain.image;
+				if (bellow == image1 || bellow == TerrainImage.CASTLE)
+					return true;				
+			}
+			if (pos2.row != topRow) { // compare image above pos2
+				TerrainImage above = properties[pos2.row - 1][pos2.column].terrain.image;
+				if (above == image2 || above == TerrainImage.CASTLE)
+					return true;
+			}
+			if (pos2.column != rightColumn) { // compare image on right of pos2
+				TerrainImage right = properties[pos2.row][pos1.column - 1].terrain.image;
+				if (right == image1 || right == TerrainImage.CASTLE)
+					return true;
+			}
+			if(pos2.row != bottomRow) {
+				TerrainImage bellow = properties[pos2.row+1][pos2.column].terrain.image;
+				if (bellow == image2 || bellow == TerrainImage.CASTLE)
+					return true;				
+			}
+		}
+		if (pos1.column == pos2.column) {
+
+		}
+
+		return false;
 	}
 
 	public void draw(Graphics g, Image castleImage) {

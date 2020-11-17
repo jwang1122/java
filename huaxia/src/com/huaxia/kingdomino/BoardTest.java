@@ -12,10 +12,32 @@ class BoardTest {
 	Terrain terrain1 = new Terrain(TerrainImage.FOREST, 2);
 	Terrain terrain2 = new Terrain(TerrainImage.FIELD, 0);
 	Tile tile = new Tile(1, terrain1, terrain2);
-
+	Terrain forest = new Terrain(TerrainImage.FOREST, 1);
+	Terrain mine = new Terrain(TerrainImage.MINE,0);
+	Terrain mountain = new Terrain(TerrainImage.MOUNTAIN,2);
+	Terrain swamp = new Terrain(TerrainImage.SWAMP, 0);
+	Terrain water = new Terrain(TerrainImage.WATER, 1);
+	Terrain field = new Terrain(TerrainImage.FIELD, 1);
+	Terrain castle = new Terrain(TerrainImage.CASTLE, 0);
+	Position pos1, pos2;
+	
 	@BeforeEach
 	void setUp() throws Exception {
+		board.topRow = 2;
+		board.bottomRow = 6;
+		board.leftColumn = 2;
+		board.rightColumn = 6;
+		
+		tile = new Tile(1, terrain1, terrain2);
 
+		pos1 = new Position(3, 4);
+		board.properties[2][4]=new Property(new Position(2,4), forest);
+		board.properties[3][3]=new Property(new Position(2,4), mine);
+		board.properties[4][4]=new Property(new Position(4,4), castle);
+		pos2 = new Position(3, 5);
+		board.properties[2][5]=new Property(new Position(2,4), forest);
+		board.properties[3][6]=new Property(new Position(2,4), swamp);
+		board.properties[4][5]=new Property(new Position(2,4), forest);
 	}
 
 	@Test
@@ -76,11 +98,22 @@ class BoardTest {
 		pos2 = new Position(3,4); //one position empty
 		assertTrue(board.isOccupied(pos1, pos2));
 
-		pos1 = new Position(3,3); // both position available
+		pos1 = new Position(2,3); // both position available
+		pos2 = new Position(1,3);
 		assertFalse(board.isOccupied(pos1, pos2));
 		
 	}
 
+	@Test
+	void testHasSameTerrainAround() {
+		assertTrue(board.hasSameTerrainAround(tile, pos1, pos2));
+		tile.terrain1 = water;
+		tile.terrain2 = water;
+		assertTrue(board.hasSameTerrainAround(tile, pos1, pos2)); // due to castle
+		pos1 = new Position(4,6);
+		pos2 = new Position(4,7);
+		assertFalse(board.hasSameTerrainAround(tile, pos1, pos2)); // due to castle
+	}
 //
 //	@Test
 //	void testInserTile() {
