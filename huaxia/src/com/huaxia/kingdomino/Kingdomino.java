@@ -99,7 +99,7 @@ public class Kingdomino {
 		Domino domino = dominoList.get(choosenDomino - 1);
 		Message msg = player.insertDomino(domino, position1, position2);
 		if (msg.type == MsgType.DIAGONAL || msg.type == MsgType.OCCUPIED) {
-			JOptionPane.showMessageDialog(null, msg.msg, "Score", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, msg.msg, "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
 		boolean giveUp = false;
