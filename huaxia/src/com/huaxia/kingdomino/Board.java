@@ -5,8 +5,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import javax.swing.JOptionPane;
-
+import com.huaxia.kingdomino.Message.MsgType;
 import com.huaxia.kingdomino.Terrain.TerrainImage;
 
 public class Board {
@@ -20,8 +19,10 @@ public class Board {
 	int rightColumn = 4;
 	int topRow = 4;
 	int bottomRow = 4;
+	Player player;
 
-	public Board(int size) {
+	public Board(Player player, int size) {
+		this.player = player;
 		this.size = size;
 		this.properties = new Property[size][size];
 		for (int line = 0; line < size; line++) {
@@ -30,7 +31,7 @@ public class Board {
 			}
 		}
 		Property castle = new Property(new Position(size / 2, size / 2), new Terrain(TerrainImage.CASTLE, 0));
-		setcase(castle, this.properties);
+		setcase(castle);
 	}
 
 	public Property[][] deepClone() {
@@ -41,139 +42,8 @@ public class Board {
 		return result;
 	}
 
-	public void setcase(Property property, Property[][] properties) {
+	public void setcase(Property property) {
 		properties[property.getRow()][property.getColumn()] = property;
-	}
-
-	public boolean canPlay(Domino tile) {
-		ArrayList<Position> fieldList = this.get5X5FieldList();
-		for (int i = 0; i < fieldList.size(); i++) {
-			ArrayList<Position> frameList = frame(fieldList.get(i));
-			for (int j = 0; j < frameList.size(); j++) {
-				ArrayList<Position> nextToCase = getNearbyPositionList(frameList.get(j).row, frameList.get(j).column);
-				ArrayList<Position> delNextToCase = delNextToCase(fieldList.get(i), nextToCase);
-				if (delNextToCase.size() > 0) {
-					for (int elt = 0; elt < delNextToCase.size(); elt++) {
-						if (this.playable(tile, frameList.get(j), delNextToCase.get(elt))) {
-							return true;
-						}
-					}
-				}
-			}
-		}
-		return false;
-	}
-
-	private boolean playable(Domino tile, Position position1, Position position2) {
-		if (isDiagonal(position1, position2)) {
-			return false;
-		}
-		if (properties[position1.row][position1.column].isOccupied()
-				|| properties[position2.row][position2.column].isOccupied()) {
-			return false;
-		}
-		if (!possible(tile, position1, position2)) {
-			return false;
-		}
-		return true;
-	}
-
-	public boolean graphicPlayable(Domino tile, Position position1, Position position2) {
-		if (position1.equals(position2)) {
-			JOptionPane.showMessageDialog(null, "You cannot play on a single square!", "Error", JOptionPane.INFORMATION_MESSAGE);
-			return false;
-		}
-		if (isDiagonal(position1, position2)) {
-			JOptionPane.showMessageDialog(null, "The entered coordinates correspond to boxes not pasted!", "Error", JOptionPane.INFORMATION_MESSAGE);
-			return false;
-		}
-		if ((properties[position1.row][position1.column].isOccupied())
-				|| (properties[position2.row][position2.column].isOccupied())) {
-			JOptionPane.showMessageDialog(null, "The entered coordinate has already taken!", "Error", JOptionPane.INFORMATION_MESSAGE);
-			return false;
-		}
-		if (isOutOf5X5Field(tile, position1, position2)) {
-			JOptionPane.showMessageDialog(null, "The input coordinates go beyond the  framework!", "Error", JOptionPane.INFORMATION_MESSAGE);
-			return false;
-		}
-		if (isAdjacentHaveNoSameTerrain(tile, position1, position2)) {
-			JOptionPane.showMessageDialog(null, "Adjacent squares do not have  the same type!", "Error", JOptionPane.INFORMATION_MESSAGE);
-			return false;
-		}
-		return true;
-	}
-
-	private boolean possible(Domino tile, Position position1, Position position2) {
-		if (isOutOf5X5Field(tile, position1, position2)) {
-			return false;
-		}
-		if (isAdjacentHaveNoSameTerrain(tile, position1, position2)) {
-			return false;
-		}
-		removeDomino(position1, position2);
-		return true;
-	}
-
-	private boolean isOutOf5X5Field(Domino tile, Position position1, Position position2) {
-		insertDomino(tile, position1, position2, this.properties); // try put the tile in the location first
-		ArrayList<Position> fieldList = get5X5FieldList();
-		if (fieldList.size() == 0) {
-			removeDomino(position1, position2);
-			return true;
-		}
-		return false;
-	}
-
-	private boolean isAdjacentHaveNoSameTerrain(Domino tile, Position position1, Position position2) {
-		insertDomino(tile, position1, position2, this.properties); // try put the tile in the location first
-		ArrayList<Position> nextToCase1 = deleteNextTo(getAjacentPositionList(position1, this.properties), position2);
-		ArrayList<Position> nextToCase2 = deleteNextTo(getAjacentPositionList(position2, this.properties), position1);
-		if (nextToCase1.size() + nextToCase2.size() <= 0) {
-			removeDomino(position1, position2);
-			return true;
-		}
-		return false;
-	}
-
-	public ArrayList<Position> delNextToCase(Position position, ArrayList<Position> nextToCase) {
-		ArrayList<Position> frame = frame(position);
-		for (int i = 0; i < nextToCase.size(); i++) {
-			Position pos = new Position(nextToCase.get(i).row, nextToCase.get(i).column);
-			if (!frame.contains(pos)) {
-				nextToCase.remove(i);
-			}
-		}
-		return nextToCase;
-	}
-
-	public ArrayList<Position> deleteNextTo(ArrayList<Position> nextTo, Position position) {
-		for (int i = 0; i < nextTo.size(); i++) {
-			if (position.equals(nextTo.get(i))) {
-				nextTo.remove(i);
-			}
-		}
-		return nextTo;
-	}
-
-	private ArrayList<Position> getNearbyPositionList(int row, int column) {
-		ArrayList<Position> list = new ArrayList<>();
-		if (row > 0) {
-			Position pos = new Position(row - 1, column);
-			list.add(pos);
-		}
-		if (column < size - 1) {
-			Position pos = new Position(row, column + 1);
-			list.add(pos);
-		}
-		if (row < size - 1) {
-			Position pos = new Position(row + 1, column);
-			list.add(pos);
-		}
-		if (column > 0) {
-			Position pos = new Position(row, column - 1);
-			list.add(pos);
-		}
-		return list;
 	}
 
 	public int calculateScore() {
@@ -207,7 +77,7 @@ public class Board {
 		}
 		return score;
 	}
-
+	// find out whether if there has same terrain include castle around give position
 	private ArrayList<Position> getAjacentPositionList(Position position, Property[][] properties) {
 		int row = position.row;
 		int column = position.column;
@@ -234,7 +104,7 @@ public class Board {
 		}
 		return list;
 	}
-
+	// for calculate score
 	private ArrayList<Position> findNearBySameTerrainPositions(Position position) {
 		ArrayList<Position> list = new ArrayList<>();
 		int row = position.row;
@@ -258,7 +128,7 @@ public class Board {
 		return list;
 	}
 
-	// smart way to find all linked terrains position
+	// smart way to find all linked terrains position for calculate score
 	private ArrayList<Position> findLinkedTerrainPositions(Position position) {
 		ArrayList<Position> list = new ArrayList<>();
 		list.add(position);
@@ -275,67 +145,56 @@ public class Board {
 		return list;
 	}
 
-	private ArrayList<Position> get5X5FieldList() {
-		ArrayList<Position> fieldList = new ArrayList<>();
-		ArrayList<Position> listPos = this.getOccupiedPositionList();
-		for (int row = 0; row < (size / 2 + 1); row++) {
-			for (int column = 0; column < (size / 2 + 1); column++) {
-				Position pos = new Position(row, column);
-				if (allIn(pos, listPos)) {
-					fieldList.add(pos);
-				}
-			}
+	public Message insertDomino(Player player, Domino domino, Position pos1, Position pos2) {
+		Message msg = null;
+		if(isDiagonal(pos1, pos2)) {
+			msg = new Message(player, MsgType.DIAGONAL, calculateScore());
+			return msg;
 		}
-		return fieldList;
-	}
-
-	private ArrayList<Position> getOccupiedPositionList() {
-		ArrayList<Position> list = new ArrayList<>();
-		for (int line = 0; line < size; line++) {
-			for (int column = 0; column < size; column++) {
-				if (properties[line][column].isOccupied()) {
-					Position pos = new Position(line, column);
-					list.add(pos);
-				}
-			}
+		if(isOccupied(pos1, pos2)) {
+			msg = new Message(player, MsgType.OCCUPIED, calculateScore());
+			return msg;
 		}
-		return list;
-	}
-
-	private boolean allIn(Position position, ArrayList<Position> listPos) {
-		ArrayList<Position> frameList = this.frame(position);
-		for (int compteur = 0; compteur < listPos.size(); compteur++) {
-			if (!frameList.contains(listPos.get(compteur))) {
-				return false;
-			}
+		if(isOutOf5X5Frame(pos1, pos2)) {
+			msg = new Message(player, MsgType.OUTSIDE_FRAME, calculateScore());
+			return msg;
 		}
-		return true;
-	}
-
-	// return all positions within the frame by given left-top position
-	private ArrayList<Position> frame(Position topLeft) {
-		ArrayList<Position> list = new ArrayList<>();
-		for (int row = topLeft.row; row < topLeft.row + (size + 1) / 2; row++) {
-			for (int column = topLeft.column; column < topLeft.column + (size + 1) / 2; column++) {
-				Position pos = new Position(row, column);
-				list.add(pos);
-			}
+		if(!hasSameTerrainAround(domino, pos1, pos2)) {
+			msg = new Message(player, MsgType.NO_SAME_TERRAIN, calculateScore());
+			return msg;
 		}
-		return list;
+		setcase(new Property(pos1, domino.terrain1));
+		setcase(new Property(pos2, domino.terrain2));
+		msg = new Message(player, MsgType.SUCCESS, calculateScore());
+		adjustFrameBound(pos1, pos2);
+		return msg;
 	}
 
-	public void insertDomino(Domino tile, Position position1, Position position2, Property[][] workingProperties) {
-		Property case1 = new Property(position1, tile.terrain1);
-		Property case2 = new Property(position2, tile.terrain2);
-		setcase(case1, workingProperties);
-		setcase(case2, workingProperties);
-	}
-
-	public void removeDomino(Position position1, Position position2) {
-		Property case1 = new Property(position1, Terrain.emptyTerrain);
-		Property case2 = new Property(position2, Terrain.emptyTerrain);
-		setcase(case1, this.properties);
-		setcase(case2, this.properties);
+	private void adjustFrameBound(Position pos1, Position pos2) {
+		if(topRow > pos1.row) {
+			topRow = pos1.row;
+		}
+		if(topRow > pos2.row) {
+			topRow = pos2.row;
+		}
+		if(bottomRow < pos1.row) {
+			bottomRow = pos1.row;
+		}
+		if(bottomRow < pos2.row) {
+			bottomRow = pos2.row;
+		}
+		if(leftColumn > pos1.column) {
+			leftColumn = pos1.column;
+		}
+		if(leftColumn > pos2.column) {
+			leftColumn = pos2.column;
+		}
+		if(rightColumn < pos1.column) {
+			rightColumn = pos1.column;
+		}
+		if(rightColumn < pos2.column) {
+			rightColumn = pos2.column;
+		}
 	}
 
 	boolean isDiagonal(Position position1, Position position2) {
@@ -389,7 +248,10 @@ public class Board {
 
 	boolean hasSameTerrainAround(Domino domino, Position pos1, Position pos2) {
 		Property[][] workingProperties = deepClone();
-		insertDomino(domino, pos1, pos2, workingProperties);
+		Property property1 = new Property(pos1, domino.terrain1);
+		Property property2 = new Property(pos2, domino.terrain2);
+		workingProperties[pos1.row][pos1.column] = property1;
+		workingProperties[pos2.row][pos2.column] = property2;
 		ArrayList<Position> list = getAjacentPositionList(pos1, workingProperties);
 		list.remove(pos2);
 		if(list.size()>0) {

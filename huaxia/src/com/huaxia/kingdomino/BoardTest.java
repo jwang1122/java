@@ -5,10 +5,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.huaxia.kingdomino.Player.PlayerColor;
 import com.huaxia.kingdomino.Terrain.TerrainImage;
 
 class BoardTest {
-	Board board = new Board(9);
+	Player player = new Player(PlayerColor.BluePlayer, null);
+	Board board = new Board(player, 9);
 	Terrain terrain1 = new Terrain(TerrainImage.FOREST, 2);
 	Terrain terrain2 = new Terrain(TerrainImage.FIELD, 0);
 	Domino tile = new Domino(1, terrain1, terrain2);
@@ -100,7 +102,7 @@ class BoardTest {
 	void testIsOccupied() {
 		Position pos1 = new Position(3, 5); 
 		Position pos2 = new Position(3, 6);
-		board.insertDomino(tile, pos1, pos2, board.properties); // insert the domino
+		board.insertDomino(player, tile, pos1, pos2); // insert the domino
 		assertTrue(board.isOccupied(pos1, pos2));
 		
 		pos2 = new Position(3,4); //one position empty

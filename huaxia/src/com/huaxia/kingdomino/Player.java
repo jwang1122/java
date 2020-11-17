@@ -38,7 +38,7 @@ public class Player implements Comparable<Player> {
 		if(name==null || name.length()==0) {
 			this.name=color.toString();
 		}
-		board = new Board(boardSize);
+		board = new Board(this, boardSize);
 	}
 
 	private void setAttributes(PlayerColor color) {
@@ -142,12 +142,8 @@ public class Player implements Comparable<Player> {
 		return true;
 	}
 
-	public boolean graphicPlayable(Domino tile, Position position1, Position position2) {
-		return board.graphicPlayable(tile, position1, position2);
-	}
-
-	public void insertTile(Domino tile, Position position1, Position position2) {
-		board.insertDomino(tile, position1, position2, board.properties);		
+	public Message insertDomino(Domino tile, Position position1, Position position2) {
+		return board.insertDomino(this, tile, position1, position2);		
 	}
 
 }

@@ -87,36 +87,21 @@ public class Kingdomino {
 
 	private boolean playOnSelectGoodTile(Player player, ArrayList<Domino> tileList, JFrame frame) {
 		if (isEmpty(tileList.get(chooseTile - 1))) {
-			JOptionPane.showMessageDialog(null, "You've choose empty tile! Please try again :", "Error", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "You've choosen empty tile! Please try again :", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
 		return play(player, tileList, frame);
 	}
-
-	private boolean play(Player player, ArrayList<Domino> tileList, JFrame frame) {
-		if (player.getBoard().canPlay(tileList.get(chooseTile - 1))) {
-			if (dropTile(player, tileList.get(chooseTile - 1))) {
-				displayFrame(frame, player, tileList); // setVisible(true)
-				JOptionPane.showMessageDialog(null, "\n" + player.getName() + " you now have a score of "
-				+ player.getBoard().calculateScore() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
-				tileList.set(chooseTile - 1, Domino.emptyDomino);
-				return true;
-			}
-			return false;
+	
+	private boolean play(Player player, ArrayList<Domino> dominoList, JFrame frame) {
+		Domino domino = dominoList.get(chooseTile-1) ;
+		Message msg = player.insertDomino(domino, position1, position2);
+		if(msg.success) {
+			dominoList.set(chooseTile-1, Domino.emptyDomino);
+			displayFrame(frame, player, dominoList);
 		}
-		JOptionPane.showMessageDialog(null, "The tile you have chosen cannot be placed! So you keep the score of "
-		+ player.getBoard().calculateScore() + " points!\n", "Score", JOptionPane.INFORMATION_MESSAGE);
-		tileList.set(chooseTile - 1, Domino.emptyDomino);
-		return true;
-	}
-
-	private boolean dropTile(Player player, Domino domino) {
-		if (player.graphicPlayable(domino, position1, position2)) {
-			player.insertTile(domino, position1, position2);
-			return true;
-		}
-		resetSelectedCases();
-		return false;
+		JOptionPane.showMessageDialog(null, msg.msg, "Score", JOptionPane.INFORMATION_MESSAGE);
+		return msg.success;
 	}
 
 	private void showGameResult() {
