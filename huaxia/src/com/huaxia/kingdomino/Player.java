@@ -142,8 +142,8 @@ public class Player implements Comparable<Player> {
 		return true;
 	}
 
-	public Message insertDomino(Domino tile, Position position1, Position position2) {
-		return board.insertDomino(this, tile, position1, position2);		
+	public Message insertDomino(Domino domino, Position position1, Position position2) {
+		return board.insertDomino(this, domino, position1, position2);		
 	}
 
 }

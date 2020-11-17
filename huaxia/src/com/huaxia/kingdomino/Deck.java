@@ -31,9 +31,9 @@ public class Deck {
 				Terrain terrain2 = new Terrain(image2, crown2);
 
 				int number = Integer.parseInt(line[4]);
-				Domino tile = new Domino(number, terrain1, terrain2);
+				Domino domino = new Domino(number, terrain1, terrain2);
 				
-				this.deck.add(tile);
+				this.deck.add(domino);
 			}
 			sc.close();
 		} catch (FileNotFoundException e) {

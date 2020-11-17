@@ -13,7 +13,7 @@ class BoardTest {
 	Board board = new Board(player, 9);
 	Terrain terrain1 = new Terrain(TerrainImage.FOREST, 2);
 	Terrain terrain2 = new Terrain(TerrainImage.FIELD, 0);
-	Domino tile = new Domino(1, terrain1, terrain2);
+	Domino domino = new Domino(1, terrain1, terrain2);
 	Terrain forest = new Terrain(TerrainImage.FOREST, 1);
 	Terrain mine = new Terrain(TerrainImage.MINE,0);
 	Terrain mountain = new Terrain(TerrainImage.MOUNTAIN,2);
@@ -30,7 +30,7 @@ class BoardTest {
 		board.leftColumn = 3;
 		board.rightColumn = 7;
 		
-		tile = new Domino(1, terrain1, terrain2);
+		domino = new Domino(1, terrain1, terrain2);
 
 		pos1 = new Position(3, 4);
 		board.properties[2][4]=new Property(new Position(2,4), forest);
@@ -102,7 +102,7 @@ class BoardTest {
 	void testIsOccupied() {
 		Position pos1 = new Position(3, 5); 
 		Position pos2 = new Position(3, 6);
-		board.insertDomino(player, tile, pos1, pos2); // insert the domino
+		board.insertDomino(player, domino, pos1, pos2); // insert the domino
 		assertTrue(board.isOccupied(pos1, pos2));
 		
 		pos2 = new Position(3,4); //one position empty
@@ -116,69 +116,12 @@ class BoardTest {
 
 	@Test
 	void testHasSameTerrainAround() {
-		assertTrue(board.hasSameTerrainAround(tile, pos1, pos2));
-		tile.terrain1 = water;
-		tile.terrain2 = water;
-		assertTrue(board.hasSameTerrainAround(tile, pos1, pos2)); // due to castle
+		assertTrue(board.hasSameTerrainAround(domino, pos1, pos2));
+		domino.terrain1 = water;
+		domino.terrain2 = water;
+		assertTrue(board.hasSameTerrainAround(domino, pos1, pos2)); // due to castle
 		pos1 = new Position(4,6);
 		pos2 = new Position(4,7);
-		assertFalse(board.hasSameTerrainAround(tile, pos1, pos2)); 
+		assertFalse(board.hasSameTerrainAround(domino, pos1, pos2)); 
 	}
-//
-//	@Test
-//	void testInserTile() {
-//		board.leftColumn = 2;
-//		board.rightColumn = 5;
-//		board.topRow = 3;
-//		board.bottomRow = 7;
-//		board.insertTile(tile, new Position(4,5), new Position(4,6));
-//		assertTrue(board.leftColumn == 2);
-//		assertTrue(board.rightColumn==6); // adjust the rightColumn
-//		assertTrue(board.topRow == 3);
-//		assertTrue(	board.bottomRow == 7);
-//		assertTrue(board.properties[4][5].terrain.equals(terrain1));
-//		assertTrue(board.properties[4][6].terrain.equals(terrain2));
-//	}
-//	
-//	@Test
-//	void testRemoveTile() {
-//		board.leftColumn = 2;
-//		board.rightColumn = 6;//rightColumn out of bound
-//		board.topRow = 3;
-//		board.bottomRow = 7;
-//		board.insertTile(tile, new Position(4,6), new Position(4,7));
-//		assertTrue(board.rightColumn==7);
-//		assertTrue(board.properties[4][7].terrain.equals(terrain2));
-//		
-//		board.removeTile(new Position(4,6), new Position(4,7));
-//		assertTrue(board.rightColumn==6); // bring rightColumn back to 6 due to remove
-//		assertTrue(board.properties[4][7].terrain.equals(Terrain.emptyTerrain));
-//		
-//		board.leftColumn = 2;
-//		board.rightColumn = 7;//rightColumn out of bound
-//		board.topRow = 2; // out of bound
-//		board.bottomRow = 7;
-//		board.removeTile(new Position(2,6), new Position(2,7));
-//		assertTrue(board.rightColumn==6); // bring rightColumn back to 6 due to remove
-//		assertTrue(board.topRow==3); // bring topRow back to 3
-//
-//		board.leftColumn = 2;
-//		board.rightColumn = 7;//rightColumn out of bound
-//		board.topRow = 2; // out of bound
-//		board.bottomRow = 7;
-//		board.removeTile(new Position(7,6), new Position(7,7));
-//		assertTrue(board.rightColumn==6); // bring rightColumn back to 6 due to remove
-//		assertTrue(board.bottomRow==6); // bring topRow back to 6
-//
-//		board.leftColumn = 2;
-//		board.rightColumn = 8; // out of bound by 2
-//		board.topRow = 2; 
-//		board.bottomRow = 6;
-//		board.removeTile(new Position(3,7), new Position(3,8)); // both position out bound
-//		assertTrue(board.leftColumn == 2);
-//		assertTrue(board.rightColumn==6); // adjust the rightColumn
-//		assertTrue(board.topRow == 2);
-//		assertTrue(	board.bottomRow == 6);
-//		
-//	}
 }

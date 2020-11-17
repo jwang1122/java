@@ -75,6 +75,14 @@ private void wait4PlayerPickAndDropTile() {
 
 ![Game Logic](logic.png)
 
+* Insert Domino Logic
+
+![Insert Domino](insertDomino.png)
+
+* Calculate Score Logic
+
+![Calculate Score](scoreLogic.png)
+
 ```java
 imageF = ImageIO.read(new File("Forest.jpg"));
 ```

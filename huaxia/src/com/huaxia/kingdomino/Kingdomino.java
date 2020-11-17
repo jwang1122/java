@@ -22,7 +22,7 @@ public class Kingdomino {
 	Player player3;
 	Player player4;
 	ArrayList<Player> fourPlayers;
-	int chooseTile = 0;
+	int choosenDomino = 0;
 	boolean case1Selected, case2Selected = false;
 	Position position1, position2; // terrain1 and terrain2 grid positions
 	Color fond = new Color(238, 231, 188);
@@ -39,9 +39,9 @@ public class Kingdomino {
 		fourPlayers = shufflePlayers();
 		while (deck.size() != 0) {
 			showPlayOrder(roundNum);
-			ArrayList<Domino> tileList4 = getNewDominoListFromDeck();
+			ArrayList<Domino> dominoList4 = getNewDominoListFromDeck();
 			for (int i = 0; i < 4; i++) { // loop each player
-				doGame(fourPlayers.get(i), tileList4);
+				doGame(fourPlayers.get(i), dominoList4);
 			}
 			fourPlayers = shufflePlayers();
 			roundNum++;
@@ -56,21 +56,21 @@ public class Kingdomino {
 				+ fourPlayers.get(3).getName(), "Round", JOptionPane.INFORMATION_MESSAGE);
 	}
 
-	private void doGame(Player player, ArrayList<Domino> tileList4) {
+	private void doGame(Player player, ArrayList<Domino> dominoList4) {
 		frame = new JFrame();
-		displayFrame(frame, player, tileList4); // setVisible(true)
-		frame.addMouseListener(new TilePositionListener(tileList4));
+		displayFrame(frame, player, dominoList4); // setVisible(true)
+		frame.addMouseListener(new DominoPositionListener(dominoList4));
 		boolean isSuccess = false;
 		do {
-			wait4PlayerPickAndDropTile();
-			isSuccess = playOnSelectGoodTile(player, tileList4, frame);
+			wait4PlayerPickAndDropDomino();
+			isSuccess = playOnSelectGoodDomino(player, dominoList4, frame);
 			resetSelectedCases();
 		} while (!isSuccess);
 		reset(frame);
 	}
 
-	private void wait4PlayerPickAndDropTile() {
-		while (chooseTile == 0 || !case1Selected || !case2Selected) {
+	private void wait4PlayerPickAndDropDomino() {
+		while (choosenDomino == 0 || !case1Selected || !case2Selected) {
 			try {
 				TimeUnit.MILLISECONDS.sleep(20);
 			} catch (InterruptedException e) {
@@ -80,24 +80,24 @@ public class Kingdomino {
 	}
 
 	private void reset(JFrame frame) {
-		chooseTile = 0;	
+		choosenDomino = 0;	
 		resetSelectedCases();
 		frame.dispose();
 	}
 
-	private boolean playOnSelectGoodTile(Player player, ArrayList<Domino> tileList, JFrame frame) {
-		if (isEmpty(tileList.get(chooseTile - 1))) {
-			JOptionPane.showMessageDialog(null, "You've choosen empty tile! Please try again :", "Error", JOptionPane.INFORMATION_MESSAGE);
+	private boolean playOnSelectGoodDomino(Player player, ArrayList<Domino> dominoList4, JFrame frame) {
+		if (isEmpty(dominoList4.get(choosenDomino - 1))) {
+			JOptionPane.showMessageDialog(null, "You've choosen empty domino! Please try again :", "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
-		return play(player, tileList, frame);
+		return play(player, dominoList4, frame);
 	}
 	
 	private boolean play(Player player, ArrayList<Domino> dominoList, JFrame frame) {
-		Domino domino = dominoList.get(chooseTile-1) ;
+		Domino domino = dominoList.get(choosenDomino-1) ;
 		Message msg = player.insertDomino(domino, position1, position2);
 		if(msg.success) {
-			dominoList.set(chooseTile-1, Domino.emptyDomino);
+			dominoList.set(choosenDomino-1, Domino.emptyDomino);
 			displayFrame(frame, player, dominoList);
 		}
 		JOptionPane.showMessageDialog(null, msg.msg, "Score", JOptionPane.INFORMATION_MESSAGE);
@@ -114,7 +114,7 @@ public class Kingdomino {
 		System.exit(0);
 	}
 
-	private void displayFrame(JFrame frame, Player player, ArrayList<Domino> tiles) {
+	private void displayFrame(JFrame frame, Player player, ArrayList<Domino> dominoList4) {
 		frame.setTitle(player.getName());
 		frame.setSize(1080, 720);
 		JPanel p = new JPanel() {
@@ -123,7 +123,7 @@ public class Kingdomino {
 			@Override
 			public void paintComponent(Graphics g) {
 				player.drawBoard(g);
-				displayDominoList(g, tiles); // draw tile list
+				displayDominoList(g, dominoList4); // draw domino list
 			}
 		};
 		frame.setBackground(fond);
@@ -189,8 +189,8 @@ public class Kingdomino {
 		return listDominos;
 	}
 
-	private boolean isEmpty(Domino tile) {
-		return (tile.getNumber() == 0);
+	private boolean isEmpty(Domino domino) {
+		return (domino.getNumber() == 0);
 	}
 
 	private void displayDominoList(Graphics g, ArrayList<Domino> list) {
@@ -216,24 +216,24 @@ public class Kingdomino {
 		}
 	}
 
-	class TilePositionListener implements MouseListener {
-		ArrayList<Domino> tileList4;
+	class DominoPositionListener implements MouseListener {
+		ArrayList<Domino> dominoList4;
 
-		public TilePositionListener(ArrayList<Domino> tileList4) {
-			this.tileList4 = tileList4;
+		public DominoPositionListener(ArrayList<Domino> dominoList4) {
+			this.dominoList4 = dominoList4;
 		}
 
 		public void mousePressed(MouseEvent e) {
 			int x = e.getX();
 			int y = e.getY();
 			if (x >= 100 && x <= 240) {
-				for (int i = 0; i < tileList4.size(); i++) {
+				for (int i = 0; i < dominoList4.size(); i++) {
 					if (y >= 130 + 140 * i && y <= 200 + 140 * i) {
-						chooseTile = i + 1;
+						choosenDomino = i + 1;
 					}
 				}
 			}
-			if (chooseTile != 0) { // find board row and column that player selected
+			if (choosenDomino != 0) { // find board row and column that player selected
 				for (int i = 0; i < Board.lengthBoard; i++) {
 					for (int j = 0; j < Board.lengthBoard; j++) {
 						if (x >= 400 + Board.lengthCase * j && x <= 400 + Board.lengthCase * (j + 1)) {
