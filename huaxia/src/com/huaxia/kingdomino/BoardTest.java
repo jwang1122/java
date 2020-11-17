@@ -100,7 +100,7 @@ class BoardTest {
 	void testIsOccupied() {
 		Position pos1 = new Position(3, 5); 
 		Position pos2 = new Position(3, 6);
-		board.insertDomino(tile, pos1, pos2); // insert the domino
+		board.insertDomino(tile, pos1, pos2, board.properties); // insert the domino
 		assertTrue(board.isOccupied(pos1, pos2));
 		
 		pos2 = new Position(3,4); //one position empty
@@ -120,7 +120,7 @@ class BoardTest {
 		assertTrue(board.hasSameTerrainAround(tile, pos1, pos2)); // due to castle
 		pos1 = new Position(4,6);
 		pos2 = new Position(4,7);
-		assertFalse(board.hasSameTerrainAround(tile, pos1, pos2)); // due to castle
+		assertFalse(board.hasSameTerrainAround(tile, pos1, pos2)); 
 	}
 //
 //	@Test

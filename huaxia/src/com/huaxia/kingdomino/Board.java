@@ -30,7 +30,7 @@ public class Board {
 			}
 		}
 		Property castle = new Property(new Position(size / 2, size / 2), new Terrain(TerrainImage.CASTLE, 0));
-		setcase(castle);
+		setcase(castle, this.properties);
 	}
 
 	public Property[][] deepClone() {
@@ -41,7 +41,7 @@ public class Board {
 		return result;
 	}
 
-	public void setcase(Property property) {
+	public void setcase(Property property, Property[][] properties) {
 		properties[property.getRow()][property.getColumn()] = property;
 	}
 
@@ -115,7 +115,7 @@ public class Board {
 	}
 
 	private boolean isOutOf5X5Field(Domino tile, Position position1, Position position2) {
-		insertDomino(tile, position1, position2); // try put the tile in the location first
+		insertDomino(tile, position1, position2, this.properties); // try put the tile in the location first
 		ArrayList<Position> fieldList = get5X5FieldList();
 		if (fieldList.size() == 0) {
 			removeDomino(position1, position2);
@@ -125,9 +125,9 @@ public class Board {
 	}
 
 	private boolean isAdjacentHaveNoSameTerrain(Domino tile, Position position1, Position position2) {
-		insertDomino(tile, position1, position2); // try put the tile in the location first
-		ArrayList<Position> nextToCase1 = deleteNextTo(getAjacentPositionList(position1), position2);
-		ArrayList<Position> nextToCase2 = deleteNextTo(getAjacentPositionList(position2), position1);
+		insertDomino(tile, position1, position2, this.properties); // try put the tile in the location first
+		ArrayList<Position> nextToCase1 = deleteNextTo(getAjacentPositionList(position1, this.properties), position2);
+		ArrayList<Position> nextToCase2 = deleteNextTo(getAjacentPositionList(position2, this.properties), position1);
 		if (nextToCase1.size() + nextToCase2.size() <= 0) {
 			removeDomino(position1, position2);
 			return true;
@@ -208,7 +208,7 @@ public class Board {
 		return score;
 	}
 
-	private ArrayList<Position> getAjacentPositionList(Position position) {
+	private ArrayList<Position> getAjacentPositionList(Position position, Property[][] properties) {
 		int row = position.row;
 		int column = position.column;
 		ArrayList<Position> list = new ArrayList<>();
@@ -324,18 +324,18 @@ public class Board {
 		return list;
 	}
 
-	public void insertDomino(Domino tile, Position position1, Position position2) {
+	public void insertDomino(Domino tile, Position position1, Position position2, Property[][] workingProperties) {
 		Property case1 = new Property(position1, tile.terrain1);
 		Property case2 = new Property(position2, tile.terrain2);
-		setcase(case1);
-		setcase(case2);
+		setcase(case1, workingProperties);
+		setcase(case2, workingProperties);
 	}
 
 	public void removeDomino(Position position1, Position position2) {
 		Property case1 = new Property(position1, Terrain.emptyTerrain);
 		Property case2 = new Property(position2, Terrain.emptyTerrain);
-		setcase(case1);
-		setcase(case2);
+		setcase(case1, this.properties);
+		setcase(case2, this.properties);
 	}
 
 	boolean isDiagonal(Position position1, Position position2) {
@@ -387,45 +387,19 @@ public class Board {
 		return right - left + 1 > 5 || bottom - top + 1 > 5;
 	}
 
-	boolean hasSameTerrainAround(Domino tile, Position pos1, Position pos2) {
-		TerrainImage image1 = tile.terrain1.image;
-		TerrainImage image2 = tile.terrain2.image;
-		if (pos1.row == pos2.row) {
-			if (pos1.row != topRow) { // compare image above pos1
-				TerrainImage above = properties[pos1.row - 1][pos1.column].terrain.image;
-				if (above == image1 || above == TerrainImage.CASTLE)
-					return true;
-			}
-			if (pos1.column != leftColumn) { // compare image on left of pos1
-				TerrainImage left = properties[pos1.row][pos1.column - 1].terrain.image;
-				if (left == image1 || left == TerrainImage.CASTLE)
-					return true;
-			}
-			if(pos1.row != bottomRow) {
-				TerrainImage bellow = properties[pos1.row+1][pos1.column].terrain.image;
-				if (bellow == image1 || bellow == TerrainImage.CASTLE)
-					return true;				
-			}
-			if (pos2.row != topRow) { // compare image above pos2
-				TerrainImage above = properties[pos2.row - 1][pos2.column].terrain.image;
-				if (above == image2 || above == TerrainImage.CASTLE)
-					return true;
-			}
-			if (pos2.column != rightColumn) { // compare image on right of pos2
-				TerrainImage right = properties[pos2.row][pos1.column - 1].terrain.image;
-				if (right == image1 || right == TerrainImage.CASTLE)
-					return true;
-			}
-			if(pos2.row != bottomRow) {
-				TerrainImage bellow = properties[pos2.row+1][pos2.column].terrain.image;
-				if (bellow == image2 || bellow == TerrainImage.CASTLE)
-					return true;				
-			}
+	boolean hasSameTerrainAround(Domino domino, Position pos1, Position pos2) {
+		Property[][] workingProperties = deepClone();
+		insertDomino(domino, pos1, pos2, workingProperties);
+		ArrayList<Position> list = getAjacentPositionList(pos1, workingProperties);
+		list.remove(pos2);
+		if(list.size()>0) {
+			return true;
 		}
-		if (pos1.column == pos2.column) {
-
-		}
-
+		list = getAjacentPositionList(pos2, workingProperties);
+		list.remove(pos1);
+		if(!list.contains(pos1) && list.size()>0) {
+			return true;
+		}		
 		return false;
 	}
 
