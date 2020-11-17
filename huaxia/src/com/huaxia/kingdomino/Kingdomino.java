@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import com.huaxia.kingdomino.Message.MsgType;
+
 public class Kingdomino {
 	static ArrayList<Domino> deck = new Deck().getDeck();
 	static final int numDominos = 48;
@@ -80,7 +82,7 @@ public class Kingdomino {
 	}
 
 	private void reset(JFrame frame) {
-		choosenDomino = 0;	
+		choosenDomino = 0;
 		resetSelectedCases();
 		frame.dispose();
 	}
@@ -92,15 +94,26 @@ public class Kingdomino {
 		}
 		return play(player, dominoList4, frame);
 	}
-	
+
 	private boolean play(Player player, ArrayList<Domino> dominoList, JFrame frame) {
-		Domino domino = dominoList.get(choosenDomino-1) ;
+		Domino domino = dominoList.get(choosenDomino - 1);
 		Message msg = player.insertDomino(domino, position1, position2);
-		if(msg.success) {
-			dominoList.set(choosenDomino-1, Domino.emptyDomino);
-			displayFrame(frame, player, dominoList);
+		if (msg.type == MsgType.DIAGONAL || msg.type == MsgType.OCCUPIED) {
+			JOptionPane.showMessageDialog(null, msg.msg, "Score", JOptionPane.INFORMATION_MESSAGE);
+			return false;
 		}
-		JOptionPane.showMessageDialog(null, msg.msg, "Score", JOptionPane.INFORMATION_MESSAGE);
+		boolean giveUp = false;
+		if (msg.type == MsgType.OUTSIDE_FRAME || msg.type == MsgType.NO_SAME_TERRAIN) {
+			int option = JOptionPane.showInternalConfirmDialog(null, msg.msg, "Error", JOptionPane.YES_NO_OPTION);
+			giveUp = option == 1;
+		}
+		if (msg.success || giveUp) {
+			dominoList.set(choosenDomino - 1, Domino.emptyDomino);
+			displayFrame(frame, player, dominoList);
+			if (msg.success)
+				JOptionPane.showMessageDialog(null, msg.msg, "Score", JOptionPane.INFORMATION_MESSAGE);
+			return true;
+		}
 		return msg.success;
 	}
 
@@ -153,9 +166,8 @@ public class Kingdomino {
 		for (int i = 1; i < 4; i++) {
 			Player player = listWinners.get(i);
 			JOptionPane.showMessageDialog(null, player.getName() + " gets a score of " + player.score
-					+ " points!\nIts most extensive property is " + player.maxField
-					+ " !\nFinally he owns a total of " + player.crowns
-					+ " Crowns!\n ", "losing", JOptionPane.INFORMATION_MESSAGE);
+					+ " points!\nIts most extensive property is " + player.maxField + " !\nFinally he owns a total of "
+					+ player.crowns + " Crowns!\n ", "losing", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
