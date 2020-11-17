@@ -44,6 +44,7 @@
 ```
 
 ## Description
+[YouTube](https://www.youtube.com/watch?v=smbwBPmP4Ms)
 > 设定为4人玩的游戏，试图占领最大的连续地形图案和最大的得分。每个地形图案有数字表示分数，如果连续的图案都没有分数，得分为零。如果连续的图案至少一个有分数，总得分为所有分数加起来乘以连续图案的个数。每一组连续图案称为一个property。首先从Deck中随机获得四个tile，每个tile由两个图案组成，玩家将所选择的tile搁置在自己的board中，或者靠近Castle，或者至少有一个图案和邻近的图案相同，否则不能放置。如果待选图案中找不到在board中可以放置的位置，则这枚tile将被弃除。当所有48个tile使用完，游戏结束。最终计算总得分，得分高者为赢家。另外在放置tile时，包括Castle在内，不得超过5X5的范围（framework）。
 
 ## Design Idea
