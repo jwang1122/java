@@ -77,6 +77,7 @@ public class Board {
 		}
 		return score;
 	}
+
 	// find out whether if there has same terrain include castle around give position
 	private ArrayList<Position> getAjacentPositionList(Position position, Property[][] properties) {
 		int row = position.row;
@@ -104,6 +105,7 @@ public class Board {
 		}
 		return list;
 	}
+
 	// for calculate score
 	private ArrayList<Position> findNearBySameTerrainPositions(Position position) {
 		ArrayList<Position> list = new ArrayList<>();
@@ -147,19 +149,19 @@ public class Board {
 
 	public Message insertDomino(Player player, Domino domino, Position pos1, Position pos2) {
 		Message msg = null;
-		if(isDiagonal(pos1, pos2)) {
+		if (isDiagonal(pos1, pos2)) {
 			msg = new Message(player, MsgType.DIAGONAL, calculateScore());
 			return msg;
 		}
-		if(isOccupied(pos1, pos2)) {
+		if (isOccupied(pos1, pos2)) {
 			msg = new Message(player, MsgType.OCCUPIED, calculateScore());
 			return msg;
 		}
-		if(isOutOf5X5Frame(pos1, pos2)) {
+		if (isOutOf5X5Frame(pos1, pos2)) {
 			msg = new Message(player, MsgType.OUTSIDE_FRAME, calculateScore());
 			return msg;
 		}
-		if(!hasSameTerrainAround(domino, pos1, pos2)) {
+		if (!hasSameTerrainAround(domino, pos1, pos2)) {
 			msg = new Message(player, MsgType.NO_SAME_TERRAIN, calculateScore());
 			return msg;
 		}
@@ -171,28 +173,28 @@ public class Board {
 	}
 
 	private void adjustFrameBound(Position pos1, Position pos2) {
-		if(topRow > pos1.row) {
+		if (topRow > pos1.row) {
 			topRow = pos1.row;
 		}
-		if(topRow > pos2.row) {
+		if (topRow > pos2.row) {
 			topRow = pos2.row;
 		}
-		if(bottomRow < pos1.row) {
+		if (bottomRow < pos1.row) {
 			bottomRow = pos1.row;
 		}
-		if(bottomRow < pos2.row) {
+		if (bottomRow < pos2.row) {
 			bottomRow = pos2.row;
 		}
-		if(leftColumn > pos1.column) {
+		if (leftColumn > pos1.column) {
 			leftColumn = pos1.column;
 		}
-		if(leftColumn > pos2.column) {
+		if (leftColumn > pos2.column) {
 			leftColumn = pos2.column;
 		}
-		if(rightColumn < pos1.column) {
+		if (rightColumn < pos1.column) {
 			rightColumn = pos1.column;
 		}
-		if(rightColumn < pos2.column) {
+		if (rightColumn < pos2.column) {
 			rightColumn = pos2.column;
 		}
 	}
@@ -254,14 +256,14 @@ public class Board {
 		workingProperties[pos2.row][pos2.column] = property2;
 		ArrayList<Position> list = getAjacentPositionList(pos1, workingProperties);
 		list.remove(pos2);
-		if(list.size()>0) {
+		if (list.size() > 0) {
 			return true;
 		}
 		list = getAjacentPositionList(pos2, workingProperties);
 		list.remove(pos1);
-		if(!list.contains(pos1) && list.size()>0) {
+		if (!list.contains(pos1) && list.size() > 0) {
 			return true;
-		}		
+		}
 		return false;
 	}
 
