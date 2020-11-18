@@ -49,6 +49,8 @@ public class Player implements Comparable<Player> {
 	boolean case1Selected, case2Selected = false;
 	Position position1, position2; // terrain1 and terrain2 grid positions
 	JPanel previous;
+	JPanel mainPanel;
+	ArrayList<Domino> dominoList4;
 
 	public Player(PlayerColor color, String name) {
 		setAttributes(color);
@@ -62,6 +64,17 @@ public class Player implements Comparable<Player> {
 
 	private void buildFrame() {
 		frame = new JFrame();
+		mainPanel = new JPanel() {
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void paintComponent(Graphics g) {
+				drawBoard(g);
+				displayDominoList(g);
+			}
+		};
+		frame.setBackground(fond);
+		frame.add(mainPanel);
 		frame.addMouseListener(new DominoPositionListener());
 		frame.setTitle(name);
 		frame.setSize(1080, 720);
@@ -79,7 +92,8 @@ public class Player implements Comparable<Player> {
 	}
 	
 	void doGame(ArrayList<Domino> dominoList4) {
-		displayFrame(dominoList4); // setVisible(true)
+		this.dominoList4 = dominoList4;
+		displayFrame(); // setVisible(true)
 		boolean isSuccess = false;
 		do {
 			wait4PlayerPickAndDropDomino();
@@ -108,7 +122,7 @@ public class Player implements Comparable<Player> {
 		}
 		if (msg.success || giveUp) {
 			dominoList.set(choosenDomino - 1, Domino.emptyDomino);
-			displayFrame(dominoList);
+			displayFrame();
 			if (msg.success)
 				JOptionPane.showMessageDialog(null, msg.msg, "Score", JOptionPane.INFORMATION_MESSAGE);
 			return true;
@@ -131,29 +145,17 @@ public class Player implements Comparable<Player> {
 		case2Selected = false;
 	}
 
-	void displayFrame(ArrayList<Domino> dominoList4) {
-		if(previous!=null) frame.remove(previous);
-		JPanel p = new JPanel() {
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void paintComponent(Graphics g) {
-				drawBoard(g);
-				displayDominoList(g, dominoList4); // draw domino list
-			}
-		};
-		previous = p;
-		frame.setBackground(fond);
-		frame.add(p);
-		
+	void displayFrame() {
+		mainPanel.repaint();
 		frame.setVisible(true);
 	}
 
-	private void displayDominoList(Graphics g, ArrayList<Domino> list) {
-		for (int i = 0; i < list.size(); i++) {
-			displayDominoNumber(g, list, i);
-			drawTerrain(g, list.get(i).getTerrain1(), i, 0);
-			drawTerrain(g, list.get(i).getTerrain2(), i, 1);
+	private void displayDominoList(Graphics g) {
+		if(dominoList4==null) return;
+		for (int i = 0; i < dominoList4.size(); i++) {
+			displayDominoNumber(g, dominoList4, i);
+			drawTerrain(g, dominoList4.get(i).getTerrain1(), i, 0);
+			drawTerrain(g, dominoList4.get(i).getTerrain2(), i, 1);
 		}
 	}
 
@@ -327,5 +329,4 @@ public class Player implements Comparable<Player> {
 		case2Selected = false;
 		frame.setVisible(false);
 	}
-
 }
