@@ -79,26 +79,26 @@ public class Board {
 	}
 
 	// find out whether if there has same terrain include castle around give position
-	private ArrayList<Position> getAjacentPositionList(Position position, Property[][] properties) {
-		int row = position.row;
-		int column = position.column;
+	private ArrayList<Position> getAjacentPositionList(Property property) {
+		int row = property.getRow();
+		int column = property.getColumn();
 		ArrayList<Position> list = new ArrayList<>();
-		if ((row > 0) && (properties[row][column].isSameTerrain(properties[row - 1][column]) || properties[row
+		if ((row > 0) && (property.isSameTerrain(properties[row - 1][column]) || properties[row
 				- 1][column].isCastle())) {
 			Position pos = new Position(row - 1, column);
 			list.add(pos);
 		}
-		if ((column < size - 1) && (properties[row][column].isSameTerrain(properties[row][column + 1])
+		if ((column < size - 1) && (property.isSameTerrain(properties[row][column + 1])
 				|| properties[row][column + 1].isCastle())) {
 			Position pos = new Position(row, column + 1);
 			list.add(pos);
 		}
-		if ((row < size - 1) && (properties[row][column].isSameTerrain(properties[row + 1][column]) || properties[row
+		if ((row < size - 1) && (property.isSameTerrain(properties[row + 1][column]) || properties[row
 				+ 1][column].isCastle())) {
 			Position pos = new Position(row + 1, column);
 			list.add(pos);
 		}
-		if ((column > 0) && (properties[row][column].isSameTerrain(properties[row][column - 1])
+		if ((column > 0) && (property.isSameTerrain(properties[row][column - 1])
 				|| properties[row][column - 1].isCastle())) {
 			Position pos = new Position(row, column - 1);
 			list.add(pos);
@@ -249,18 +249,13 @@ public class Board {
 	}
 
 	boolean hasSameTerrainAround(Domino domino, Position pos1, Position pos2) {
-		Property[][] workingProperties = deepClone();
 		Property property1 = new Property(pos1, domino.terrain1);
 		Property property2 = new Property(pos2, domino.terrain2);
-		workingProperties[pos1.row][pos1.column] = property1;
-		workingProperties[pos2.row][pos2.column] = property2;
-		ArrayList<Position> list = getAjacentPositionList(pos1, workingProperties);
-		list.remove(pos2);
+		ArrayList<Position> list = getAjacentPositionList(property1);
 		if (list.size() > 0) {
 			return true;
 		}
-		list = getAjacentPositionList(pos2, workingProperties);
-		list.remove(pos1);
+		list = getAjacentPositionList(property2);
 		if (!list.contains(pos1) && list.size() > 0) {
 			return true;
 		}

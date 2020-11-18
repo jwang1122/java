@@ -37,7 +37,6 @@ public class Player implements Comparable<Player> {
 	}
 	Color fond = new Color(238, 231, 188);
 
-
 	int score;
 	int maxField;
 	int crowns;
@@ -55,8 +54,8 @@ public class Player implements Comparable<Player> {
 	public Player(PlayerColor color, String name) {
 		setAttributes(color);
 		this.name = name;
-		if(name==null || name.length()==0) {
-			this.name=color.toString();
+		if (name == null || name.length() == 0) {
+			this.name = color.toString();
 		}
 		board = new Board(this, boardSize);
 		buildFrame();
@@ -90,7 +89,7 @@ public class Player implements Comparable<Player> {
 		}
 		return play(dominoList4, frame);
 	}
-	
+
 	void doGame(ArrayList<Domino> dominoList4) {
 		this.dominoList4 = dominoList4;
 		displayFrame(); // setVisible(true)
@@ -106,7 +105,6 @@ public class Player implements Comparable<Player> {
 	private boolean isEmpty(Domino domino) {
 		return (domino.getNumber() == 0);
 	}
-
 
 	private boolean play(ArrayList<Domino> dominoList, JFrame frame) {
 		Domino domino = dominoList.get(choosenDomino - 1);
@@ -151,7 +149,8 @@ public class Player implements Comparable<Player> {
 	}
 
 	private void displayDominoList(Graphics g) {
-		if(dominoList4==null) return;
+		if (dominoList4 == null)
+			return;
 		for (int i = 0; i < dominoList4.size(); i++) {
 			displayDominoNumber(g, dominoList4, i);
 			drawTerrain(g, dominoList4.get(i).getTerrain1(), i, 0);
@@ -163,7 +162,9 @@ public class Player implements Comparable<Player> {
 		Font font = new Font("Calibri", Font.BOLD, 20);
 		g.setFont(font);
 		g.setColor(Color.DARK_GRAY);
-		g.drawString("" + list.get(i).number, 50, 145 + i * 135);
+		int number = list.get(i).number;
+		if (number != 0)
+			g.drawString("" + number, 50, 145 + i * 135);
 	}
 
 	private void drawTerrain(Graphics g, Terrain terrain, int i, int j) {
@@ -190,7 +191,7 @@ public class Player implements Comparable<Player> {
 			break;
 		}
 	}
-	
+
 	public void drawBoard(Graphics g) {
 		board.draw(g, castleImage);
 	}
@@ -238,16 +239,16 @@ public class Player implements Comparable<Player> {
 
 	@Override
 	public int compareTo(Player other) {
-		if(score==other.score) {
-			if(maxField==other.maxField) {
-				if(crowns==other.crowns) {
+		if (score == other.score) {
+			if (maxField == other.maxField) {
+				if (crowns == other.crowns) {
 					return 0;
 				}
-				return score>other.score?-1:1;
+				return score > other.score ? -1 : 1;
 			}
-			return maxField>other.maxField?-1:1;
+			return maxField > other.maxField ? -1 : 1;
 		}
-		return score>other.score?-1:1;
+		return score > other.score ? -1 : 1;
 	}
 
 	@Override
@@ -276,9 +277,9 @@ public class Player implements Comparable<Player> {
 	}
 
 	public Message insertDomino(Domino domino, Position position1, Position position2) {
-		return board.insertDomino(this, domino, position1, position2);		
+		return board.insertDomino(this, domino, position1, position2);
 	}
-	
+
 	class DominoPositionListener implements MouseListener {
 
 		public void mousePressed(MouseEvent e) {
@@ -329,4 +330,5 @@ public class Player implements Comparable<Player> {
 		case2Selected = false;
 		frame.setVisible(false);
 	}
+
 }
