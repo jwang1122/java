@@ -3,7 +3,7 @@ package com.huaxia.java2;
 import java.util.*;
 
 class TreeMapDemo {
-	// Method for sorting the TreeMap based on values
+	// Generic Method for sorting the TreeMap based on values
 	public static <K, V extends Comparable<V>> Map<K, V> sortByValues(final Map<K, V> map) {
 		Comparator<K> valueComparator = new Comparator<K>() {
 			public int compare(K k1, K k2) {

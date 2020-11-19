@@ -73,11 +73,15 @@ public class Kingdomino {
 	}
 
 	private ArrayList<Player> getPlayerListOrderedByScores() {
-		ArrayList<Player> list = new ArrayList<>();
-		list.add(player1);
-		list.add(player2);
-		list.add(player3);
-		list.add(player4);
+		@SuppressWarnings("serial")
+		ArrayList<Player> list = new ArrayList<Player>() {
+			{
+				add(player1);
+				add(player2);
+				add(player3);
+				add(player4);
+			}
+		};
 		Collections.sort(list);
 		return list;
 	}

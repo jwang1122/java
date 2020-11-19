@@ -229,7 +229,18 @@ public class Player implements Comparable<Player> {
 	public Player(String name, Board board) {
 		this.name = name;
 		this.board = board;
+	}
 
+	public int getScore() {
+		return score;
+	}
+
+	public int getMaxField() {
+		return maxField;
+	}
+
+	public int getCrowns() {
+		return crowns;
 	}
 
 	@Override
