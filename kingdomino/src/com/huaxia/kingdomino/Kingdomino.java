@@ -106,7 +106,7 @@ public class Kingdomino extends JFrame implements ActionListener {
 	private void setStatus() {
 		for (int i = 0; i < playerList.size(); i++) {
 			if (currentPlayer.equals(playerList.get(i))) {
-				currentPlayer.setStatus("Round: " + round + " - " +currentPlayer.name + "'s turn.");
+				currentPlayer.setStatus("Round: " + round + " - " + currentPlayer.name + "'s turn.");
 			} else {
 				playerList.get(i).setStatus("Wait for your turn.");
 			}
@@ -197,7 +197,6 @@ public class Kingdomino extends JFrame implements ActionListener {
 			if (currentPane == null)
 				currentPane = player2.buildMainPane(dominoList);
 			this.add(currentPane);
-//			this.repaint();
 			this.setVisible(true);
 		}
 		if (e.getSource() == displayPlayer3) {
