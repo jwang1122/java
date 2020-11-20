@@ -1,7 +1,6 @@
 package com.huaxia.kingdomino;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
@@ -15,6 +14,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 
 import com.huaxia.kingdomino.Message.MsgType;
 
@@ -35,7 +35,7 @@ public class Player implements Comparable<Player> {
 			System.err.println(e);
 		}
 	}
-	Color fond = new Color(238, 231, 188);
+	Color bgColor = new Color(238, 231, 188);
 
 	int score;
 	int maxField;
@@ -43,63 +43,63 @@ public class Player implements Comparable<Player> {
 	String name;
 	Board board;
 	Image castleImage;
-	JFrame frame;
+	PlayerBoardPanel playerPanel;
+	JSplitPane mainPane;
+	DominoPanel dominoPanel = new DominoPanel();
 	int choosenDomino = 0;
 	boolean case1Selected, case2Selected = false;
 	Position position1, position2; // terrain1 and terrain2 grid positions
 	JPanel previous;
-	JPanel mainPanel;
 	ArrayList<Domino> dominoList4;
+	Kingdomino kingdomino;
+	Player player;
 
-	public Player(PlayerColor color, String name) {
+	public Player(PlayerColor color) {
 		setAttributes(color);
-		this.name = name;
-		if (name == null || name.length() == 0) {
-			this.name = color.toString();
-		}
+		name = color.toString();
 		board = new Board(this, boardSize);
-		buildFrame();
+		playerPanel = new PlayerBoardPanel(this);
+		player = this;
 	}
 
-	private void buildFrame() {
-		frame = new JFrame();
-		mainPanel = new JPanel() {
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void paintComponent(Graphics g) {
-				drawBoard(g);
-				displayDominoList(g);
-			}
-		};
-		frame.setBackground(fond);
-		frame.add(mainPanel);
-		frame.addMouseListener(new DominoPositionListener());
-		frame.setTitle(name);
-		frame.setSize(1080, 720);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
-		frame.setResizable(false);
+	void doGame(Kingdomino kingdomino, ArrayList<Domino> dominoList4) {
+		this.kingdomino = kingdomino;
+		this.dominoList4 = dominoList4;
+		displayPanel(kingdomino);
+		boolean isSuccess = false;
+		do {
+			wait4PlayerPickAndDropDomino();
+			isSuccess = playOnSelectGoodDomino(dominoList4);
+			resetSelectedCases();
+		} while (!isSuccess);
+		reset();
 	}
 
-	private boolean playOnSelectGoodDomino(ArrayList<Domino> dominoList4, JFrame frame) {
+	private boolean playOnSelectGoodDomino(ArrayList<Domino> dominoList4) {
 		if (isEmpty(dominoList4.get(choosenDomino - 1))) {
-			JOptionPane.showMessageDialog(null, "You've choosen empty domino! Please try again :", "Error", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "You've choosen empty domino! Please try again :", "Error",
+					JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
 		return play(dominoList4);
 	}
 
-	void doGame(ArrayList<Domino> dominoList4) {
-		this.dominoList4 = dominoList4;
-		displayFrame(); // setVisible(true)
-		boolean isSuccess = false;
-		do {
-			wait4PlayerPickAndDropDomino();
-			isSuccess = playOnSelectGoodDomino(dominoList4, frame);
-			resetSelectedCases();
-		} while (!isSuccess);
-		reset();
+	JSplitPane buildMainPane(ArrayList<Domino> dominoList) {
+		this.dominoList4 = dominoList;
+		dominoPanel.setBackground(bgColor);
+		dominoPanel.setDominoList(dominoList4);
+		mainPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, dominoPanel, playerPanel);
+		mainPane.setSize(Kingdomino.frameSize);
+		mainPane.setDividerLocation(Kingdomino.dividerLocation);
+		mainPane.setBackground(bgColor);
+		mainPane.addMouseListener(new DominoPositionListener());
+		return mainPane;
+	}
+
+	public void displayPanel(Kingdomino kingdomino) {
+		kingdomino.setVisible(false);
+		kingdomino.add(mainPane);
+		kingdomino.setVisible(true);
 	}
 
 	private boolean isEmpty(Domino domino) {
@@ -110,7 +110,7 @@ public class Player implements Comparable<Player> {
 		Domino domino = dominoList.get(choosenDomino - 1);
 		Message msg = insertDomino(domino, position1, position2);
 		if (msg.type == MsgType.DIAGONAL || msg.type == MsgType.OCCUPIED) {
-			JOptionPane.showMessageDialog(null, msg.msg, "Error", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, msg.msg, "Error", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
 		boolean giveUp = false;
@@ -144,36 +144,8 @@ public class Player implements Comparable<Player> {
 	}
 
 	void displayFrame() {
-		mainPanel.repaint();
-//		buildFrame();
-		frame.setVisible(true);
-	}
-
-	private void displayDominoList(Graphics g) {
-		if (dominoList4 == null)
-			return;
-		for (int i = 0; i < dominoList4.size(); i++) {
-			displayDominoNumber(g, dominoList4, i);
-			drawTerrain(g, dominoList4.get(i).getTerrain1(), i, 0);
-			drawTerrain(g, dominoList4.get(i).getTerrain2(), i, 1);
-		}
-	}
-
-	private void displayDominoNumber(Graphics g, ArrayList<Domino> list, int i) {
-		Font font = new Font("Calibri", Font.BOLD, 20);
-		g.setFont(font);
-		g.setColor(Color.DARK_GRAY);
-		int number = list.get(i).number;
-		if (number != 0)
-			g.drawString("" + number, 50, 145 + i * 135);
-	}
-
-	private void drawTerrain(Graphics g, Terrain terrain, int i, int j) {
-		g.drawImage(Terrain.getImage(terrain.image), 100 + j * 70, 100 + i * 140, null);
-		if (terrain.numberOfCrowns > 0) {
-			g.setColor(Color.WHITE);
-			g.drawString(String.valueOf(terrain.numberOfCrowns), 105 + j * 70, 120 + i * 140);
-		}
+		mainPane.repaint();
+//		frame.setVisible(true);
 	}
 
 	private void setAttributes(PlayerColor color) {
@@ -227,11 +199,6 @@ public class Player implements Comparable<Player> {
 		this.castleImage = castleImage;
 	}
 
-	public Player(String name, Board board) {
-		this.name = name;
-		this.board = board;
-	}
-
 	public int getScore() {
 		return score;
 	}
@@ -242,6 +209,14 @@ public class Player implements Comparable<Player> {
 
 	public int getCrowns() {
 		return crowns;
+	}
+
+	public PlayerBoardPanel getPlayerPanel() {
+		return playerPanel;
+	}
+
+	public JSplitPane getMainPane() {
+		return mainPane;
 	}
 
 	@Override
@@ -293,27 +268,41 @@ public class Player implements Comparable<Player> {
 	}
 
 	class DominoPositionListener implements MouseListener {
+		int listLeftSpacing = DominoPanel.leftSpacing;
+		int terrainWidth = DominoPanel.terrainWidth;
+		int listTopSpacing = DominoPanel.topSpacing;
+		int listRowSpacing = DominoPanel.rowSpacing;
+		int boardLeftSpacing = (int) (PlayerBoardPanel.leftSpacing + 1080 * 0.3);
+		int boardTopSpacing = PlayerBoardPanel.topSpacing;
 
 		public void mousePressed(MouseEvent e) {
+			if (kingdomino==null || !kingdomino.currentPlayer.equals(player)) {
+				JOptionPane.showMessageDialog(null, "Please wait for your turn.");
+				return;
+			}
 			int x = e.getX();
 			int y = e.getY();
-			if (x >= 100 && x <= 240) {
-				for (int i = 0; i < 4; i++) {
-					if (y >= 130 + 140 * i && y <= 200 + 140 * i) {
-						choosenDomino = i + 1;
+			if (x >= listLeftSpacing && x <= listLeftSpacing + 2 * terrainWidth) {
+				for (int row = 0; row < 4; row++) {
+					if (y >= DominoPanel.topSpacing + listRowSpacing * row
+							&& y <= listTopSpacing + listRowSpacing * row + terrainWidth) {
+						choosenDomino = row + 1;
+						break;
 					}
 				}
 			}
-			if (choosenDomino != 0) { // find board row and column that player selected
-				for (int i = 0; i < Board.lengthBoard; i++) {
-					for (int j = 0; j < Board.lengthBoard; j++) {
-						if (x >= 400 + Board.lengthCase * j && x <= 400 + Board.lengthCase * (j + 1)) {
-							if (y >= 60 + Board.lengthCase * i && y <= 60 + Board.lengthCase * (i + 1)) {
+			if (choosenDomino != 0 && x > boardLeftSpacing) { // find board row and column that player selected
+				for (int row = 0; row < Board.lengthBoard; row++) {
+					for (int column = 0; column < Board.lengthBoard; column++) {
+						if (x >= boardLeftSpacing + terrainWidth * column
+								&& x <= boardLeftSpacing + terrainWidth * (column + 1)) {
+							if (y >= boardTopSpacing + terrainWidth * row
+									&& y <= boardTopSpacing + terrainWidth * (row + 1)) {
 								if (!case1Selected) {
-									position1 = new Position(i, j);
+									position1 = new Position(row, column);
 									case1Selected = true;
 								} else if (!case2Selected) {
-									position2 = new Position(i, j);
+									position2 = new Position(row, column);
 									case2Selected = true;
 								}
 							}
@@ -335,12 +324,16 @@ public class Player implements Comparable<Player> {
 
 		public void mouseClicked(MouseEvent e) {
 		}
+
 	}
 
 	public void reset() {
 		case1Selected = false;
 		case2Selected = false;
-		frame.dispose();
+	}
+
+	public void setStatus(String status) {
+		dominoPanel.setStatus(status);	
 	}
 
 }

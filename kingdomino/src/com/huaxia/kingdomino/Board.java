@@ -78,7 +78,7 @@ public class Board {
 		return score;
 	}
 
-	// find out whether if there has same terrain include castle around given property
+	// find out whether if there has same terrain include castle around give position
 	private ArrayList<Position> getAjacentPositionList(Property property) {
 		int row = property.getRow();
 		int column = property.getColumn();
@@ -106,20 +106,40 @@ public class Board {
 		return list;
 	}
 
+	// for calculate score
+	private ArrayList<Position> findNearBySameTerrainPositions(Position position) {
+		ArrayList<Position> list = new ArrayList<>();
+		int row = position.row;
+		int column = position.column;
+		if ((row > 0) && (properties[row][column].isSameTerrain(properties[row - 1][column]))) {
+			Position pos = new Position(row - 1, column);
+			list.add(pos);
+		}
+		if ((column < size - 1) && (properties[row][column].isSameTerrain(properties[row][column + 1]))) {
+			Position pos = new Position(row, column + 1);
+			list.add(pos);
+		}
+		if ((row < size - 1) && (properties[row][column].isSameTerrain(properties[row + 1][column]))) {
+			Position pos = new Position(row + 1, column);
+			list.add(pos);
+		}
+		if ((column > 0) && (properties[row][column].isSameTerrain(properties[row][column - 1]))) {
+			Position pos = new Position(row, column - 1);
+			list.add(pos);
+		}
+		return list;
+	}
+
 	// smart way to find all linked terrains position for calculate score
 	private ArrayList<Position> findLinkedTerrainPositions(Position position) {
 		ArrayList<Position> list = new ArrayList<>();
-		Position castlePosition = new Position(4,4);
 		list.add(position);
 		int nbCases = 0;
 		while (nbCases != list.size()) {
-			Position pos = list.get(nbCases);
-			Property property = properties[pos.row][pos.column];
-			ArrayList<Position> linkedPositions = getAjacentPositionList(property);
-			for (int i = 0; i < linkedPositions.size(); i++) {
-				pos = linkedPositions.get(i);
-				if (!pos.equals(castlePosition) && !list.contains(pos)) {
-					list.add(linkedPositions.get(i));
+			ArrayList<Position> next = findNearBySameTerrainPositions(list.get(nbCases));
+			for (int i = 0; i < next.size(); i++) {
+				if (!list.contains(next.get(i))) {
+					list.add(next.get(i));
 				}
 			}
 			nbCases += 1;

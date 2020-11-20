@@ -23,14 +23,13 @@ public class Kingdomino {
 	}
 
 	private void startPlay() {
-		fourPlayers = shufflePlayers();
 		while (deck.size() != 0) {
+			fourPlayers = shufflePlayers();
 			showPlayOrder(roundNum);
 			ArrayList<Domino> dominoList4 = getNewDominoListFromDeck();
 			for (int i = 0; i < 4; i++) { // loop each player
 				fourPlayers.get(i).doGame(dominoList4);
-			}
-			fourPlayers = shufflePlayers();
+			}		
 			roundNum++;
 		}
 		showGameResult();
