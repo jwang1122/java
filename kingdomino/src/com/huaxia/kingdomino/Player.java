@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
@@ -47,7 +46,7 @@ public class Player implements Comparable<Player> {
 	JSplitPane mainPane;
 	DominoPanel dominoPanel = new DominoPanel();
 	int choosenDomino = 0;
-	boolean case1Selected, case2Selected = false;
+	boolean position1Selected, position2Selected = false;
 	Position position1, position2; // terrain1 and terrain2 grid positions
 	JPanel previous;
 	ArrayList<Domino> dominoList4;
@@ -100,6 +99,7 @@ public class Player implements Comparable<Player> {
 		kingdomino.setVisible(false);
 		kingdomino.add(mainPane);
 		kingdomino.setVisible(true);
+//		mainPane.repaint();
 	}
 
 	private boolean isEmpty(Domino domino) {
@@ -129,7 +129,7 @@ public class Player implements Comparable<Player> {
 	}
 
 	private void wait4PlayerPickAndDropDomino() {
-		while (choosenDomino == 0 || !case1Selected || !case2Selected) {
+		while (choosenDomino == 0 || !position1Selected || !position2Selected) {
 			try {
 				TimeUnit.MILLISECONDS.sleep(20);
 			} catch (InterruptedException e) {
@@ -139,8 +139,8 @@ public class Player implements Comparable<Player> {
 	}
 
 	private void resetSelectedCases() {
-		case1Selected = false;
-		case2Selected = false;
+		position1Selected = false;
+		position2Selected = false;
 	}
 
 	void displayFrame() {
@@ -272,7 +272,7 @@ public class Player implements Comparable<Player> {
 		int terrainWidth = DominoPanel.terrainWidth;
 		int listTopSpacing = DominoPanel.topSpacing;
 		int listRowSpacing = DominoPanel.rowSpacing;
-		int boardLeftSpacing = (int) (PlayerBoardPanel.leftSpacing + 1080 * 0.3);
+		int boardLeftSpacing = (int) (PlayerBoardPanel.leftSpacing + Kingdomino.frameWidth * Kingdomino.dividerLocation);
 		int boardTopSpacing = PlayerBoardPanel.topSpacing;
 
 		public void mousePressed(MouseEvent e) {
@@ -298,12 +298,12 @@ public class Player implements Comparable<Player> {
 								&& x <= boardLeftSpacing + terrainWidth * (column + 1)) {
 							if (y >= boardTopSpacing + terrainWidth * row
 									&& y <= boardTopSpacing + terrainWidth * (row + 1)) {
-								if (!case1Selected) {
+								if (!position1Selected) {
 									position1 = new Position(row, column);
-									case1Selected = true;
-								} else if (!case2Selected) {
+									position1Selected = true;
+								} else if (!position2Selected) {
 									position2 = new Position(row, column);
-									case2Selected = true;
+									position2Selected = true;
 								}
 							}
 						}
@@ -328,8 +328,8 @@ public class Player implements Comparable<Player> {
 	}
 
 	public void reset() {
-		case1Selected = false;
-		case2Selected = false;
+		position1Selected = false;
+		position2Selected = false;
 	}
 
 	public void setStatus(String status) {

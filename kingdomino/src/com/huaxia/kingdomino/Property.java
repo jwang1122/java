@@ -42,6 +42,10 @@ public class Property {
 		return terrain.numberOfCrowns;
 	}
 	
+	public Image getImage() {
+		return Terrain.getImage(terrain.image);
+	}
+	
 	public boolean isOccupied() {
 		return !terrain.equals(Terrain.emptyTerrain);
 	}

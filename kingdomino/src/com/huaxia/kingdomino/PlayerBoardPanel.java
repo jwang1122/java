@@ -13,27 +13,28 @@ public class PlayerBoardPanel extends JPanel {
 	static int topSpacing = 10;
 	boolean initialDrawing = true;
 	Player player;
-	
+	Property[][] properties;
+
 	PlayerBoardPanel(Player player) {
 		this.player = player;
+		properties = player.board.properties;
 		setLayout(null);
 	}
 
 	@Override
 	public void paintComponent(Graphics g) {
-//		if (initialDrawing) {
-			for (int i = 0; i < boradLength; i++) {
-				for (int j = 0; j < boradLength; j++) {
-					g.setColor(Color.BLACK);
-					g.drawRect(leftSpacing + terrainLength * i, topSpacing + terrainLength * j, terrainLength, terrainLength);
-					if(j==4 && i==4) {
-						g.drawImage(player.castleImage, leftSpacing + terrainLength * i, topSpacing + terrainLength * j, terrainLength, terrainLength, null);
-					}
-				}
+		for (int row = 0; row < boradLength; row++) {
+			for (int column = 0; column < boradLength; column++) {
+				g.setColor(Color.BLACK);
+				g.drawRect(leftSpacing + terrainLength * row, topSpacing + terrainLength * column, terrainLength,
+						terrainLength);
+				properties[row][column].draw(g, player.castleImage);
 			}
-//			initialDrawing = false;
-//		}
+		}
+	}
 
+	public void setProperties(Property[][] properties) {
+		this.properties = properties;
 	}
 
 }

@@ -24,6 +24,8 @@ public class DominoPanel extends JPanel {
 	DominoPanel(){
 		setLayout(new BorderLayout());
 		listPanel = new JPanel() {
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			protected void paintComponent(Graphics g) {
 				paintDominoList(g);

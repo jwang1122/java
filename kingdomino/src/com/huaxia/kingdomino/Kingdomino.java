@@ -19,9 +19,11 @@ import com.huaxia.kingdomino.Player.PlayerColor;
 public class Kingdomino extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
-	static Color bgColor = new Color(238, 231, 188);
-	static Dimension frameSize = new Dimension(1080, 720);
-	static double dividerLocation = 0.30;
+	static final Color bgColor = new Color(238, 231, 188);
+	static final int frameWidth = 1080;
+	static final int frameHeight = 720;
+	static final Dimension frameSize = new Dimension(frameWidth, frameHeight);
+	static final double dividerLocation = 0.30;
 
 	boolean position1Selected = false;
 	boolean position2Selected = false;
@@ -32,7 +34,7 @@ public class Kingdomino extends JFrame implements ActionListener {
 	Player player4 = new Player(PlayerColor.RedPlayer);
 	Deck deck = new Deck();
 	ArrayList<Player> playerList = new ArrayList<Player>();
-	JMenuItem displayPlayer1, displayPlayer2, displayPlayer3, displayPlayer4;
+	JMenuItem current, displayPlayer1, displayPlayer2, displayPlayer3, displayPlayer4;
 	int round = 1;
 	JSplitPane currentPane;
 	ArrayList<Domino> dominoList;
@@ -45,16 +47,53 @@ public class Kingdomino extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
+		init();
+	}
+
+	public static void main(String[] args) {
+		Kingdomino kingdomino = new Kingdomino();
+		kingdomino.play();
+	}
+
+	void play() {
+		while (deck.getDeckSize() > 0) {
+			dominoList = deck.getNextDominoSet();
+			buildPlayerList();
+			for (int i = 0; i < 4; i++) {
+				Player player = playerList.get(i);
+				currentPlayer = player;
+				switchToCurrentPlayer();
+				player.doGame(this, dominoList);
+			}
+			round++;
+		}
+		showGameResult();
+	}
+
+	private void switchToCurrentPlayer() {
+		setVisible(false);
+		if (currentPane != null) {
+			remove(currentPane);
+		}
+		currentPane = currentPlayer.buildMainPane(dominoList);
+		setStatus();
+		setVisible(true);
+	}
+
+	private void init() {
 		displayPlayer1 = new JMenuItem(player1.name);
 		displayPlayer2 = new JMenuItem(player2.name);
 		displayPlayer3 = new JMenuItem(player3.name);
 		displayPlayer4 = new JMenuItem(player4.name);
+		current = new JMenuItem("current");
 		displayPlayer1.addActionListener(this);
 		displayPlayer2.addActionListener(this);
 		displayPlayer3.addActionListener(this);
 		displayPlayer4.addActionListener(this);
+		current.addActionListener(this);
 		JMenuBar mb = new JMenuBar();
 		JMenu select = new JMenu("Select player");
+		select.add(current);
 		select.add(displayPlayer1);
 		select.add(displayPlayer2);
 		select.add(displayPlayer3);
@@ -64,31 +103,10 @@ public class Kingdomino extends JFrame implements ActionListener {
 		setJMenuBar(mb);
 	}
 
-	public static void main(String[] args) {
-		Kingdomino kingdomino = new Kingdomino();
-		kingdomino.play();
-	}
-
-	void play() {
-		while (deck.deck.size() > 0) {
-			dominoList = deck.getNextDominoSet();
-			buildPlayerList();
-			for (int i = 0; i < 4; i++) {
-				Player player = playerList.get(i);
-				currentPane = player.buildMainPane(dominoList);
-				currentPlayer = player;
-				setStatus();
-				player.doGame(this, dominoList);
-			}
-			round++;
-		}
-		showGameResult();
-	}
-
 	private void setStatus() {
 		for (int i = 0; i < playerList.size(); i++) {
 			if (currentPlayer.equals(playerList.get(i))) {
-				currentPlayer.setStatus(currentPlayer.name + "'s turn.");
+				currentPlayer.setStatus("Round: " + round + " - " +currentPlayer.name + "'s turn.");
 			} else {
 				playerList.get(i).setStatus("Wait for your turn.");
 			}
@@ -97,6 +115,7 @@ public class Kingdomino extends JFrame implements ActionListener {
 	}
 
 	void buildPlayerList() {
+		playerList.clear();
 		playerList.add(player1);
 		playerList.add(player2);
 		playerList.add(player3);
@@ -151,6 +170,15 @@ public class Kingdomino extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == current) {
+			if (currentPane != null)
+				this.remove(currentPane);
+			currentPane = currentPlayer.getMainPane();
+			if (currentPane == null)
+				currentPane = currentPlayer.buildMainPane(dominoList);
+			this.add(currentPane);
+			this.repaint();
+		}
 		if (e.getSource() == displayPlayer1) {
 			this.setVisible(false);
 			if (currentPane != null)
@@ -169,6 +197,7 @@ public class Kingdomino extends JFrame implements ActionListener {
 			if (currentPane == null)
 				currentPane = player2.buildMainPane(dominoList);
 			this.add(currentPane);
+//			this.repaint();
 			this.setVisible(true);
 		}
 		if (e.getSource() == displayPlayer3) {
@@ -192,6 +221,16 @@ public class Kingdomino extends JFrame implements ActionListener {
 			this.setVisible(true);
 		}
 
+	}
+
+	void refreshPane(Player player) {
+		if (currentPane != null)
+			this.remove(currentPane);
+		currentPane = player.getMainPane();
+		if (currentPane == null)
+			currentPane = player.buildMainPane(dominoList);
+		this.add(currentPane);
+		currentPane.repaint();
 	}
 
 }

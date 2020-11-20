@@ -28,7 +28,10 @@ public class Terrain {
 		}
 	}
 	static public Terrain emptyTerrain = new Terrain(TerrainImage.EMPTY, 0);
-	static final int leftSpacing = 400;
+	static int boradLength = 9;
+	static int terrainLength = 70;
+	static int leftSpacing = 30;
+	static int topSpacing = 10;
 
 	TerrainImage image;
 	int numberOfCrowns;
@@ -42,10 +45,11 @@ public class Terrain {
 //		g.setColor(Color.BLACK);
 //		g.drawRect(400 + lengthCase * position.row, 30 + lengthCase * position.column, lengthCase, lengthCase);
 		if(image==TerrainImage.CASTLE) {
-			g.drawImage(castleImage, 400 + lengthCase * position.column, 30 + lengthCase * position.row, lengthCase, lengthCase, null);
+			g.drawImage(castleImage, leftSpacing + terrainLength * position.column, topSpacing + terrainLength * position.row, terrainLength, terrainLength, null);
 			return;
 		}
-		g.drawImage(getImage(image), 400 + lengthCase * position.column, 30 + lengthCase * position.row, lengthCase, lengthCase, null);
+		g.drawImage(getImage(image), leftSpacing + terrainLength * position.column, topSpacing + terrainLength * position.row,
+				terrainLength, terrainLength, null);
 		drawCrown(g, position);
 	}
 	
@@ -54,7 +58,7 @@ public class Terrain {
 			Font font = new Font("Calibri", Font.PLAIN, 20);
 			g.setFont(font);
 			g.setColor(Color.WHITE);
-			g.drawString(String.valueOf(numberOfCrowns), 405 + lengthCase * position.column, 50 + lengthCase * position.row);
+			g.drawString(String.valueOf(numberOfCrowns), leftSpacing+5 + terrainLength * position.column, 50 + lengthCase * position.row);
 		}		
 	}
 	

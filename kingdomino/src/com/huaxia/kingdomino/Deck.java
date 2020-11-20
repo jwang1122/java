@@ -62,13 +62,18 @@ public class Deck {
 	
 	public ArrayList<Domino> getNextDominoSet(){
 		ArrayList<Domino> dominoSet = new ArrayList<>();
+		System.out.println("deck size: " + deck.size());
 		for(int i=0; i<4; i++) {
-			dominoSet.add(deck.get(i));
+			dominoSet.add(deck.get(0));
 			deck.remove(0);
 		}
 		return dominoSet;
 	}
 
+	public int getDeckSize() {
+		return deck.size();
+	}
+	
 	public ArrayList<Domino> getDeck() {
 		Collections.shuffle(deck);
 		return deck;
