@@ -55,7 +55,7 @@ public class DominoPanel extends JPanel {
 	private void drawTerrain(Graphics g, Terrain terrain, int row, int column) {
 		g.drawImage(Terrain.getImage(terrain.image), leftSpacing + column * terrainWidth, topSpacing + row * rowSpacing, null);
 		if (terrain.numberOfCrowns > 0) {
-			g.setColor(Color.WHITE);
+			g.setColor(Color.RED);
 			g.drawString(String.valueOf(terrain.numberOfCrowns), leftSpacing+5 + column * terrainWidth, topSpacing+20 + row * rowSpacing);
 		}
 	}

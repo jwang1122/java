@@ -35,7 +35,7 @@ public class Terrain {
 	}
 	static public Terrain emptyTerrain = new Terrain(TerrainImage.EMPTY, 0);
 	static int boradLength = 9;
-	static int terrainLength = 70;
+	static int terrainWidth = 70;
 	static int leftSpacing = 30;
 	static int topSpacing = 10;
 
@@ -48,23 +48,21 @@ public class Terrain {
 	}
 
 	public void draw(Graphics g, Position position, Image castleImage) {
-//		g.setColor(Color.BLACK);
-//		g.drawRect(400 + lengthCase * position.row, 30 + lengthCase * position.column, lengthCase, lengthCase);
 		if(image==TerrainImage.CASTLE) {
-			g.drawImage(castleImage, leftSpacing + terrainLength * position.column, topSpacing + terrainLength * position.row, terrainLength, terrainLength, null);
+			g.drawImage(castleImage, leftSpacing + terrainWidth * position.column, topSpacing + terrainWidth * position.row, terrainWidth, terrainWidth, null);
 			return;
 		}
-		g.drawImage(getImage(image), leftSpacing + terrainLength * position.column, topSpacing + terrainLength * position.row,
-				terrainLength, terrainLength, null);
+		g.drawImage(getImage(image), leftSpacing + terrainWidth * position.column, topSpacing + terrainWidth * position.row,
+				terrainWidth, terrainWidth, null);
 		drawCrown(g, position);
 	}
 	
 	private void drawCrown(Graphics g, Position position) {
 		if (numberOfCrowns > 0) {
-			Font font = new Font("Calibri", Font.PLAIN, 20);
+			Font font = new Font("Calibri", Font.BOLD, 20);
 			g.setFont(font);
-			g.setColor(Color.WHITE);
-			g.drawString(String.valueOf(numberOfCrowns), leftSpacing+5 + terrainLength * position.column, 50 + lengthCase * position.row);
+			g.setColor(Color.RED);
+			g.drawString(String.valueOf(numberOfCrowns), leftSpacing+5 + terrainWidth * position.column, 30 + lengthCase * position.row);
 		}		
 	}
 	
