@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
+import java.io.InputStream;
+
 import javax.imageio.ImageIO;
 
 public class Terrain {
@@ -17,13 +17,19 @@ public class Terrain {
 	static Image imageF, imageL, imageM, imageP, imageQ, imageW; // tile images
 	static {
 		try {
-			imageF = ImageIO.read(new File("Forest.jpg"));
-			imageL = ImageIO.read(new File("Field.jpg"));
-			imageM = ImageIO.read(new File("Mine.jpg"));
-			imageP = ImageIO.read(new File("Swamp.jpg"));
-			imageQ = ImageIO.read(new File("Mountain.jpg"));
-			imageW = ImageIO.read(new File("Water.jpg"));
-		} catch (IOException e) {
+			InputStream is = Terrain.class.getResourceAsStream("Forest.jpg");
+			imageF = ImageIO.read(is);
+			is = Terrain.class.getResourceAsStream("Field.jpg");
+			imageL = ImageIO.read(is);
+			is = Terrain.class.getResourceAsStream("Mine.jpg");
+			imageM = ImageIO.read(is);
+			is = Terrain.class.getResourceAsStream("Swamp.jpg");
+			imageP = ImageIO.read(is);
+			is = Terrain.class.getResourceAsStream("Mountain.jpg");
+			imageQ = ImageIO.read(is);
+			is = Terrain.class.getResourceAsStream("Water.jpg");
+			imageW = ImageIO.read(is);
+		} catch (Exception e) {
 			System.err.println(e);
 		}
 	}

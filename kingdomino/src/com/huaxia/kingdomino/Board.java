@@ -106,40 +106,20 @@ public class Board {
 		return list;
 	}
 
-	// for calculate score
-	private ArrayList<Position> findNearBySameTerrainPositions(Position position) {
-		ArrayList<Position> list = new ArrayList<>();
-		int row = position.row;
-		int column = position.column;
-		if ((row > 0) && (properties[row][column].isSameTerrain(properties[row - 1][column]))) {
-			Position pos = new Position(row - 1, column);
-			list.add(pos);
-		}
-		if ((column < size - 1) && (properties[row][column].isSameTerrain(properties[row][column + 1]))) {
-			Position pos = new Position(row, column + 1);
-			list.add(pos);
-		}
-		if ((row < size - 1) && (properties[row][column].isSameTerrain(properties[row + 1][column]))) {
-			Position pos = new Position(row + 1, column);
-			list.add(pos);
-		}
-		if ((column > 0) && (properties[row][column].isSameTerrain(properties[row][column - 1]))) {
-			Position pos = new Position(row, column - 1);
-			list.add(pos);
-		}
-		return list;
-	}
-
 	// smart way to find all linked terrains position for calculate score
 	private ArrayList<Position> findLinkedTerrainPositions(Position position) {
+		Position castlePosition = new Position(4,4);
 		ArrayList<Position> list = new ArrayList<>();
 		list.add(position);
 		int nbCases = 0;
 		while (nbCases != list.size()) {
-			ArrayList<Position> next = findNearBySameTerrainPositions(list.get(nbCases));
-			for (int i = 0; i < next.size(); i++) {
-				if (!list.contains(next.get(i))) {
-					list.add(next.get(i));
+			Position pos = list.get(nbCases);
+			Property property = properties[pos.row][pos.column];
+			ArrayList<Position> linkedPosition = getAjacentPositionList(property);
+			for (int i = 0; i < linkedPosition.size(); i++) {
+				Position p = linkedPosition.get(i);
+				if (!p.equals(castlePosition) && !list.contains(p)) {
+					list.add(p);
 				}
 			}
 			nbCases += 1;

@@ -1,27 +1,39 @@
 package com.huaxia.kingdomino;
 
-import javax.swing.*;
-
-import com.huaxia.kingdomino.Player.PlayerColor;
-
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.InputStream;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import com.huaxia.kingdomino.Player.PlayerColor;
 
 public class Configure extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private JLabel image;
-	private JComboBox<String> numPlayers, gameModel;
 	Kingdomino kingdomino;
 
 	public Configure(JFrame parent, String title, boolean modal) {
 		super(parent, title, modal);
-		this.setSize(816, 700);
+		this.setSize(600, 650);
 		this.setLocationRelativeTo(null);
 		this.setResizable(true);
 		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		this.initComponent();
-		setVisible(true);
+		this.setBackground(Color.CYAN);
+		this.setVisible(true);
 	}
 
 	public Kingdomino getKingdomino() {
@@ -59,13 +71,20 @@ public class Configure extends JDialog {
 	}
 
 	private void initComponent() {
-		image = new JLabel(new ImageIcon("Kingdomino.png"));
+		try {
+			InputStream is = Configure.class.getResourceAsStream("kingdomino.jpg");
+			image = new JLabel(new ImageIcon(ImageIO.read(is)));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		JPanel panIcon = new JPanel();
-		panIcon.setBackground(Color.white);
+		panIcon.setBackground(Color.yellow);
 		panIcon.setLayout(new BorderLayout());
 		panIcon.add(image);
 
 		JPanel welcomePanel = new JPanel() {
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void paintComponent(Graphics g) {
 				Font font = new Font("Calibri", Font.BOLD, 30);

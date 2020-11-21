@@ -5,8 +5,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
-import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -26,11 +25,15 @@ public class Player implements Comparable<Player> {
 	static Image imageredC, imageblueC, imagegreenC, imageyellowC; // castle images
 	static {
 		try {
-			imageredC = ImageIO.read(new File("redC.png"));
-			imageblueC = ImageIO.read(new File("blueC.png"));
-			imagegreenC = ImageIO.read(new File("greenC.png"));
-			imageyellowC = ImageIO.read(new File("yellowC.png"));
-		} catch (IOException e) {
+			InputStream is = Player.class.getResourceAsStream("redC.png");
+			imageredC = ImageIO.read(is);
+			is = Player.class.getResourceAsStream("blueC.png");
+			imageblueC = ImageIO.read(is);
+			is = Player.class.getResourceAsStream("greenC.png");
+			imagegreenC = ImageIO.read(is);
+			is = Player.class.getResourceAsStream("yellowC.png");
+			imageyellowC = ImageIO.read(is);
+		} catch (Exception e) {
 			System.err.println(e);
 		}
 	}
