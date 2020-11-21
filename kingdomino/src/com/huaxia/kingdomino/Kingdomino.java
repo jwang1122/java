@@ -217,5 +217,4 @@ public class Kingdomino extends JFrame implements ActionListener {
 		this.add(currentPane);
 		this.setVisible(true);
 	}
-
 }
