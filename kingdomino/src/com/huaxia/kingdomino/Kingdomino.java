@@ -51,7 +51,8 @@ public class Kingdomino extends JFrame implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-		Kingdomino kingdomino = new Kingdomino();
+		Configure config = new Configure(null, "Kingdomino Greeting", true);
+		Kingdomino kingdomino = config.getKingdomino();
 		kingdomino.play();
 	}
 
@@ -59,6 +60,7 @@ public class Kingdomino extends JFrame implements ActionListener {
 		while (deck.getDeckSize() > 0) {
 			dominoList = deck.getNextDominoSet();
 			buildPlayerList();
+			showPlayOrder();
 			for (int i = 0; i < 4; i++) {
 				Player player = playerList.get(i);
 				currentPlayer = player;
@@ -68,6 +70,13 @@ public class Kingdomino extends JFrame implements ActionListener {
 			round++;
 		}
 		showGameResult();
+	}
+
+	private void showPlayOrder() {
+		JOptionPane.showMessageDialog(null, "Round " + round + ":\nPlayers will start in this order :\n"
+				+ playerList.get(0).getName() + ", " + playerList.get(1).getName() + ", "
+				+ playerList.get(2).getName() + ", "
+				+ playerList.get(3).getName(), "Round", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	private void switchToCurrentPlayer() {
@@ -130,7 +139,11 @@ public class Kingdomino extends JFrame implements ActionListener {
 		player4.setScores();
 		showFinalResults();
 		JOptionPane.showMessageDialog(null, "Game Over!", "Over", JOptionPane.INFORMATION_MESSAGE);
-		System.exit(0);
+		for (int i = 0; i < playerList.size(); i++) {
+			Player player = playerList.get(i);
+			player.setStatus(player.getName() + ", Game Over!!!");
+		}		
+		//		System.exit(0);
 	}
 
 	private void showFinalResults() {
@@ -180,56 +193,29 @@ public class Kingdomino extends JFrame implements ActionListener {
 			this.repaint();
 		}
 		if (e.getSource() == displayPlayer1) {
-			this.setVisible(false);
-			if (currentPane != null)
-				this.remove(currentPane);
-			currentPane = player1.getMainPane();
-			if (currentPane == null)
-				currentPane = player1.buildMainPane(dominoList);
-			this.add(currentPane);
-			this.setVisible(true);
+			refreshPane(player1);
 		}
 		if (e.getSource() == displayPlayer2) {
-			this.setVisible(false);
-			if (currentPane != null)
-				this.remove(currentPane);
-			currentPane = player2.getMainPane();
-			if (currentPane == null)
-				currentPane = player2.buildMainPane(dominoList);
-			this.add(currentPane);
-			this.setVisible(true);
+			refreshPane(player2);
 		}
 		if (e.getSource() == displayPlayer3) {
-			this.setVisible(false);
-			if (currentPane != null)
-				this.remove(currentPane);
-			currentPane = player3.getMainPane();
-			if (currentPane == null)
-				currentPane = player3.buildMainPane(dominoList);
-			this.add(currentPane);
-			this.setVisible(true);
+			refreshPane(player3);
 		}
 		if (e.getSource() == displayPlayer4) {
-			this.setVisible(false);
-			if (currentPane != null)
-				this.remove(currentPane);
-			currentPane = player4.getMainPane();
-			if (currentPane == null)
-				currentPane = player4.buildMainPane(dominoList);
-			this.add(currentPane);
-			this.setVisible(true);
+			refreshPane(player4);
 		}
 
 	}
 
 	void refreshPane(Player player) {
+		this.setVisible(false);
 		if (currentPane != null)
 			this.remove(currentPane);
 		currentPane = player.getMainPane();
 		if (currentPane == null)
 			currentPane = player.buildMainPane(dominoList);
 		this.add(currentPane);
-		currentPane.repaint();
+		this.setVisible(true);
 	}
 
 }

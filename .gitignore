@@ -2,7 +2,7 @@ bin/
 RemoteSystemsTempFiles/
 .metadata/
 /.recommenders/
-
+*.zip
 lib/
 build/
 lib/

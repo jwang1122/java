@@ -173,30 +173,24 @@ public class Board {
 	}
 
 	private void adjustFrameBound(Position pos1, Position pos2) {
-		if (topRow > pos1.row) {
-			topRow = pos1.row;
+		adjustFrameBoundByPosition(pos1);
+		adjustFrameBoundByPosition(pos2);
+	}
+
+	private void adjustFrameBoundByPosition(Position pos) {
+		if (topRow > pos.row) {
+			topRow = pos.row;
 		}
-		if (topRow > pos2.row) {
-			topRow = pos2.row;
+		if (bottomRow < pos.row) {
+			bottomRow = pos.row;
 		}
-		if (bottomRow < pos1.row) {
-			bottomRow = pos1.row;
+		if (leftColumn > pos.column) {
+			leftColumn = pos.column;
 		}
-		if (bottomRow < pos2.row) {
-			bottomRow = pos2.row;
+		if (rightColumn < pos.column) {
+			rightColumn = pos.column;
 		}
-		if (leftColumn > pos1.column) {
-			leftColumn = pos1.column;
-		}
-		if (leftColumn > pos2.column) {
-			leftColumn = pos2.column;
-		}
-		if (rightColumn < pos1.column) {
-			rightColumn = pos1.column;
-		}
-		if (rightColumn < pos2.column) {
-			rightColumn = pos2.column;
-		}
+		
 	}
 
 	boolean isDiagonal(Position position1, Position position2) {
@@ -204,7 +198,8 @@ public class Board {
 			if (position1.column == position2.column - 1 || position1.column == position2.column + 1) {
 				return false;
 			}
-		} else if (position1.column == position2.column) {
+		}
+		if (position1.column == position2.column) {
 			if (position1.row == position2.row - 1 || position1.row == position2.row + 1) {
 				return false;
 			}
@@ -217,35 +212,51 @@ public class Board {
 	}
 
 	boolean isOutOf5X5Frame(Position pos1, Position pos2) {
-		int left = leftColumn;
-		int right = rightColumn;
-		int top = topRow;
-		int bottom = bottomRow;
-		if (left > pos1.column) {
-			left = pos1.column;
-		}
-		if (left > pos2.column) {
-			left = pos2.column;
-		}
-		if (right < pos1.column) {
-			right = pos1.column;
-		}
-		if (right < pos2.column) {
-			right = pos2.column;
-		}
-		if (top > pos1.row) {
-			top = pos1.row;
-		}
-		if (top > pos2.row) {
-			top = pos2.row;
-		}
+		int left = adjustLeft(leftColumn, pos1, pos2);
+		int right = adjustRight(rightColumn, pos1, pos2);
+		int top = adjustTop(topRow, pos1, pos2);
+		int bottom = adjustBottom(bottomRow, pos1, pos2);
+		return right - left + 1 > 5 || bottom - top + 1 > 5;
+	}
+
+	private int adjustBottom(int bottom, Position pos1, Position pos2) {
 		if (bottom < pos1.row) {
 			bottom = pos1.row;
 		}
 		if (bottom < pos2.row) {
 			bottom = pos2.row;
 		}
-		return right - left + 1 > 5 || bottom - top + 1 > 5;
+		return bottom;
+	}
+
+	private int adjustTop(int top, Position pos1, Position pos2) {
+		if (top > pos1.row) {
+			top = pos1.row;
+		}
+		if (top > pos2.row) {
+			top = pos2.row;
+		}
+		return top;
+	}
+
+	private int adjustRight(int right, Position pos1, Position pos2) {
+		if (right < pos1.column) {
+			right = pos1.column;
+		}
+		if (right < pos2.column) {
+			right = pos2.column;
+		}
+		return right;
+	}
+
+	private int adjustLeft(int left, Position pos1, Position pos2) {
+		if (left > pos1.column) {
+			left = pos1.column;
+		}
+		if (left > pos2.column) {
+			left = pos2.column;
+		}
+		return left;
 	}
 
 	boolean hasSameTerrainAround(Domino domino, Position pos1, Position pos2) {
@@ -256,10 +267,7 @@ public class Board {
 			return true;
 		}
 		list = getAjacentPositionList(property2);
-		if (!list.contains(pos1) && list.size() > 0) {
-			return true;
-		}
-		return false;
+		return list.size() > 0;
 	}
 
 	public void draw(Graphics g, Image castleImage) {
