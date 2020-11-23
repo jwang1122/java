@@ -339,4 +339,12 @@ public class Player implements Comparable<Player> {
 		dominoPanel.setStatus(status);	
 	}
 
+	public Message buildMessage() {
+		return new Message(this, MsgType.PLAYER_RESULT, score, maxField, crowns);
+	}
+	
+	public Message buildWinnerMessage() {
+		return new Message(this, MsgType.WINNER_RESULT, score, maxField, crowns);
+	}
+
 }

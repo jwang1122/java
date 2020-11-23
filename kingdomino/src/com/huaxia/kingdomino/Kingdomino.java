@@ -14,6 +14,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 
+import com.huaxia.kingdomino.Message.MsgType;
 import com.huaxia.kingdomino.Player.PlayerColor;
 
 public class Kingdomino extends JFrame implements ActionListener {
@@ -53,7 +54,7 @@ public class Kingdomino extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		Configure config = new Configure(null, "Kingdomino Greeting", true);
 		Kingdomino kingdomino = config.getKingdomino();
-		kingdomino.play();
+		if(kingdomino!=null) kingdomino.play();
 	}
 
 	void play() {
@@ -138,10 +139,10 @@ public class Kingdomino extends JFrame implements ActionListener {
 		player3.setScores();
 		player4.setScores();
 		showFinalResults();
-		JOptionPane.showMessageDialog(null, "Game Over!", "Over", JOptionPane.INFORMATION_MESSAGE);
+		displayMessage(new Message(MsgType.GAME_OVER), "Game Over");
 		for (int i = 0; i < playerList.size(); i++) {
 			Player player = playerList.get(i);
-			player.setStatus(player.getName() + ", Game Over!!!");
+			player.setStatus(player.getName() + " made " + player.score + ", Game Over!!!");
 		}		
 		//		System.exit(0);
 	}
@@ -151,20 +152,17 @@ public class Kingdomino extends JFrame implements ActionListener {
 		showWinnerScores(winnerList);
 		for (int i = 1; i < 4; i++) {
 			Player player = winnerList.get(i);
-			JOptionPane.showMessageDialog(null,
-					player.getName() + " gets a score of " + player.score + " points!\nIts most extensive property is "
-							+ player.maxField + " !\nFinally he owns a total of " + player.crowns + " Crowns!\n ",
-					"losing", JOptionPane.INFORMATION_MESSAGE);
+			displayMessage(player.buildMessage(), "Losing");
 		}
+	}
+	
+	private void displayMessage(Message msg, String title) {
+		JOptionPane.showMessageDialog(null, msg.msg, title, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	private void showWinnerScores(ArrayList<Player> listWinners) {
-		Player player1 = listWinners.get(0);
-		JOptionPane.showMessageDialog(null,
-				"The big winner is " + player1.getName() + "!\nHe gets a score of " + player1.score
-						+ " points!\nIts most extensive property is " + player1.maxField
-						+ "  !\nFinally he owns a total of " + player1.crowns + " crowns!\n ",
-				"Winner", JOptionPane.INFORMATION_MESSAGE);
+		Player player = listWinners.get(0);
+		displayMessage(player.buildWinnerMessage(), "Winner");
 	}
 
 	private ArrayList<Player> getPlayerListOrderedByScores() {
