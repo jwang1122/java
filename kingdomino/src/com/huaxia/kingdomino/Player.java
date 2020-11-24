@@ -126,6 +126,7 @@ public class Player implements Comparable<Player> {
 			displayFrame();
 			if (msg.success)
 				JOptionPane.showMessageDialog(null, msg.msg, "Score", JOptionPane.INFORMATION_MESSAGE);
+			kingdomino.setPlayer(this, choosenDomino-1);
 			return true;
 		}
 		return msg.success;

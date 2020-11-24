@@ -35,6 +35,7 @@ public class Kingdomino extends JFrame implements ActionListener {
 	Player player4 = new Player(PlayerColor.RedPlayer);
 	Deck deck = new Deck();
 	ArrayList<Player> playerList = new ArrayList<Player>();
+	ArrayList<Player> playerOrderList = new ArrayList<Player>();	
 	JMenuItem current, displayPlayer1, displayPlayer2, displayPlayer3, displayPlayer4;
 	int round = 1;
 	JSplitPane currentPane;
@@ -58,9 +59,9 @@ public class Kingdomino extends JFrame implements ActionListener {
 	}
 
 	void play() {
+		shufflePlayerList();
 		while (deck.getDeckSize() > 0) {
 			dominoList = deck.getNextDominoSet();
-			buildPlayerList();
 			showPlayOrder();
 			for (int i = 0; i < 4; i++) {
 				Player player = playerList.get(i);
@@ -69,6 +70,7 @@ public class Kingdomino extends JFrame implements ActionListener {
 				player.doGame(this, dominoList);
 			}
 			round++;
+			this.setPlayerOrder();
 		}
 		showGameResult();
 	}
@@ -124,13 +126,23 @@ public class Kingdomino extends JFrame implements ActionListener {
 
 	}
 
-	void buildPlayerList() {
+	void shufflePlayerList() {
 		playerList.clear();
 		playerList.add(player1);
 		playerList.add(player2);
 		playerList.add(player3);
 		playerList.add(player4);
+		playerOrderList.add(player1);
+		playerOrderList.add(player2);
+		playerOrderList.add(player3);
+		playerOrderList.add(player4);		
 		Collections.shuffle(playerList);
+	}
+	
+	void setPlayerOrder() {
+		for(int i = 0; i<4; i++) {
+			playerList.set(i, playerOrderList.get(i));
+		}
 	}
 
 	private void showGameResult() {
@@ -214,5 +226,9 @@ public class Kingdomino extends JFrame implements ActionListener {
 			currentPane = player.buildMainPane(dominoList);
 		this.add(currentPane);
 		this.setVisible(true);
+	}
+
+	public void setPlayer(Player player, int i) {
+		playerOrderList.set(i, player);		
 	}
 }

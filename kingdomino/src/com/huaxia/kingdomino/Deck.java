@@ -62,6 +62,7 @@ public class Deck {
 			dominoSet.add(deck.get(0));
 			deck.remove(0);
 		}
+		Collections.sort(dominoSet);
 		return dominoSet;
 	}
 
