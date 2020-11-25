@@ -54,9 +54,9 @@ Layout Manager
 1. √ RandomMovineImage.java & MyPanel3.java
 1. √ KeyboardControl.java & MyPanel2.java
 1. √ CheckBoxExample.java & CheckBoxExample1.java; (with icon)
-1. RadioButtonExample.java; 2 ways to add an ActionListener for jButton
-1. TextAreaExample.java; copy large file to see some text been hidden.
-1. ScrolledPaneExample.java; add JScrollPane around the TextArea
+1. √ RadioButtonExample.java; 2 ways to add an ActionListener for jButton
+1. √ TextAreaExample.java; copy large file to see some text been hidden.
+1. √ ScrolledPaneExample.java; add JScroll√ Pane around the TextArea
 1. ListExample.java; without layout(FlowLayout), use GridLayout(), use BorderLayout() 
 1. ListExample2.java; with scroll
 1. listExample1.java; select birthday
@@ -70,10 +70,11 @@ Layout Manager
 1. TabbedPaneExmple.java;
 1. DesktopPaneExample.java;
 1. EditorPaneExample.java;
+1. EditorPaneExample1.java;
 
 
 ## Applications
-1. Calculator.java; Default layout=FlowLayout, JFrame, JPanel, JTextField, JButton 
+1. √ Calculator.java; Default layout=FlowLayout, JFrame, JPanel, JTextField, JButton 
 1. Tic Tac Toe; com.huaxia.tictactoe; layout=null, resizable=false; getClass().getResource() refer to MyPanel.java; CheckBox, JOptionPane,
 ```java
     Toolkit t = Toolkit.getDefaultToolkit();

@@ -1,4 +1,4 @@
-<project name="TicTacToe" default="dist" basedir=".">
+<project name="John" default="distTicTacToe" basedir=".">
 	<!-- set global properties for this build -->
 	<property name="src" location="src" />
 	<property name="build" location="build" />
@@ -26,7 +26,7 @@
 		</copy>
 	</target>
 
-	<target name="dist" depends="compile" description="generate the distribution">
+	<target name="distCalculator" depends="compile" description="generate the distribution">
 		<!-- Create the distribution directory -->
 		<mkdir dir="${dist}/lib" />
 
@@ -35,6 +35,18 @@
 			<manifest>
 				<attribute name="Built-By" value="John Wang" />
 				<attribute name="Main-Class" value="com.huaxia.calculator.Calculator" />
+			</manifest>
+		</jar>
+	</target>
+	<target name="distTicTacToe" depends="compile" description="generate the distribution">
+		<!-- Create the distribution directory -->
+		<mkdir dir="${dist}/lib" />
+
+		<!-- Put everything in ${build} into the snake.jar file -->
+		<jar jarfile="${dist}/lib/tictactoe.jar" basedir="${build}" includes="com/huaxia/**">
+			<manifest>
+				<attribute name="Built-By" value="John Wang" />
+				<attribute name="Main-Class" value="com.huaxia.tictactoe.TTT1" />
 			</manifest>
 		</jar>
 	</target>
