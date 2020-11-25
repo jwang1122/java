@@ -2,12 +2,12 @@ bin/
 RemoteSystemsTempFiles/
 .metadata/
 /.recommenders/
-
+*.zip
 lib/
 build/
 lib/
 *.class
 .classpath
 .project
-
+*.mp4
 .DS_Store

@@ -46,9 +46,8 @@ class Demo extends JFrame {
 		jButton.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+			public void actionPerformed(ActionEvent e) {				
+				buttonGroup.clearSelection();
 			}
 			
 		});
@@ -62,7 +61,8 @@ class Demo extends JFrame {
 		// setText(...) function is used to set text of radio button. 
 		// Setting text of "jRadioButton2". 
 		jRadioButton1.setText("Under-Graduate"); 
-
+		jRadioButton1.setSelected(true);
+		
 		// Setting text of "jRadioButton4". 
 		jRadioButton2.setText("Graduate"); 
 

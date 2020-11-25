@@ -1,46 +1,92 @@
 package com.huaxia.kingdomino;
 
+import java.awt.Graphics;
+import java.awt.Image;
+
+import com.huaxia.kingdomino.Terrain.TerrainImage;
+
 public class Property {
-	int crown, x, y;
-	char tile;
+	Position position;
+	Terrain terrain;
 
-	public int getCrown() {
-		return this.crown;
+	public Property(Position position, Terrain terrain) {
+		this.terrain = terrain;
+		this.position = position;
 	}
 
-	public int getx() {
-		return this.x;
+	public Position getPosition() {
+		return position;
 	}
 
-	public int gety() {
-		return this.y;
+	public void setPosition(Position position) {
+		this.position = position;
 	}
 
-	public char getTile() {
-		return this.tile;
+	public Terrain getTerrain() {
+		return terrain;
 	}
 
-	public void setCrown(int crown) {
-		this.crown = crown;
+	public void setTerrain(Terrain terrain) {
+		this.terrain = terrain;
 	}
 
-	public void setx(int x) {
-		this.x = x;
+	public int getRow() {
+		return position.row;
+	}
+	
+	public int getColumn() {
+		return position.column;
+	}
+	
+	public int getNumOfCrowns() {
+		return terrain.numberOfCrowns;
+	}
+	
+	public boolean isOccupied() {
+		return !terrain.equals(Terrain.emptyTerrain);
+	}
+	
+	public boolean isCastle() {
+		return terrain.image == TerrainImage.CASTLE;
+	}
+	
+	public boolean isSameTerrain(Property other) {
+		return terrain.image == other.terrain.image;
 	}
 
-	public void sety(int y) {
-		this.y = y;
+	public void draw(Graphics g, Image castleImage) {
+		terrain.draw(g, position, castleImage);
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((position == null) ? 0 : position.hashCode());
+		result = prime * result + ((terrain == null) ? 0 : terrain.hashCode());
+		return result;
 	}
 
-	public void setTile(char title) {
-		this.tile = getTile();
-	}
-
-	public Property(int x, int y, int crown, char tile) {
-		this.crown = crown;
-		this.tile = tile;
-		this.x = x;
-		this.y = y;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Property other = (Property) obj;
+		if (position == null) {
+			if (other.position != null)
+				return false;
+		} else if (!position.equals(other.position))
+			return false;
+		if (terrain == null) {
+			if (other.terrain != null)
+				return false;
+		} else if (!terrain.equals(other.terrain))
+			return false;
+		return true;
 	}
 
 }
