@@ -22,7 +22,7 @@ public class Player implements Comparable<Player> {
 	};
 
 	static final int boardSize = 9;
-	static Image imageredC, imageblueC, imagegreenC, imageyellowC; // castle images
+	static Image imageredC, imageblueC, imagegreenC, imageyellowC, goldMedal; // castle images
 	static {
 		try {
 			InputStream is = Player.class.getResourceAsStream("redC.png");
@@ -33,6 +33,8 @@ public class Player implements Comparable<Player> {
 			imagegreenC = ImageIO.read(is);
 			is = Player.class.getResourceAsStream("yellowC.png");
 			imageyellowC = ImageIO.read(is);
+			is = Player.class.getResourceAsStream("goldmedal.jpg");
+			goldMedal = ImageIO.read(is);
 		} catch (Exception e) {
 			System.err.println(e);
 		}
@@ -346,6 +348,14 @@ public class Player implements Comparable<Player> {
 	
 	public Message buildWinnerMessage() {
 		return new Message(this, MsgType.WINNER_RESULT, score, maxField, crowns);
+	}
+
+	public void showWinner() {
+		dominoPanel.showWinner(this);
+	}
+
+	public void showScore() {
+		dominoPanel.showScore(this);		
 	}
 
 }

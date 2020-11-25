@@ -33,7 +33,7 @@ public class Kingdomino extends JFrame implements ActionListener {
 	Player player2 = new Player(PlayerColor.GreenPlayer);
 	Player player3 = new Player(PlayerColor.YellowPlayer);
 	Player player4 = new Player(PlayerColor.RedPlayer);
-	Deck deck = new Deck();
+	Deck deck = new Deck().shuffle();
 	ArrayList<Player> playerList = new ArrayList<Player>();
 	ArrayList<Player> playerOrderList = new ArrayList<Player>();	
 	JMenuItem current, displayPlayer1, displayPlayer2, displayPlayer3, displayPlayer4;
@@ -150,32 +150,39 @@ public class Kingdomino extends JFrame implements ActionListener {
 		player2.setScores();
 		player3.setScores();
 		player4.setScores();
-		showFinalResults();
-		displayMessage(new Message(MsgType.GAME_OVER), "Game Over");
+		Player winner = showFinalResults();
+		currentPlayer = winner;
+		winner.showWinner();
+		displayMessage(new Message(MsgType.GAME_OVER, winner), "Game Over");
 		for (int i = 0; i < playerList.size(); i++) {
 			Player player = playerList.get(i);
 			player.setStatus(player.getName() + " made " + player.score + ", Game Over!!!");
-		}		
+			if(!player.equals(winner)) {
+				player.showScore();
+			}
+		}	
+		actionPerformed(null);
 		//		System.exit(0);
 	}
 
-	private void showFinalResults() {
+	private Player showFinalResults() {
 		ArrayList<Player> winnerList = getPlayerListOrderedByScores();
-		showWinnerScores(winnerList);
-		for (int i = 1; i < 4; i++) {
-			Player player = winnerList.get(i);
-			displayMessage(player.buildMessage(), "Losing");
-		}
+//		showWinnerScores(winnerList);
+//		for (int i = 1; i < 4; i++) {
+//			Player player = winnerList.get(i);
+//			displayMessage(player.buildMessage(), "Losing");
+//		}
+		return winnerList.get(0);
 	}
 	
 	private void displayMessage(Message msg, String title) {
 		JOptionPane.showMessageDialog(null, msg.msg, title, JOptionPane.INFORMATION_MESSAGE);
 	}
 
-	private void showWinnerScores(ArrayList<Player> listWinners) {
-		Player player = listWinners.get(0);
-		displayMessage(player.buildWinnerMessage(), "Winner");
-	}
+//	private void showWinnerScores(ArrayList<Player> listWinners) {
+//		Player player = listWinners.get(0);
+//		displayMessage(player.buildWinnerMessage(), "Winner");
+//	}
 
 	private ArrayList<Player> getPlayerListOrderedByScores() {
 		@SuppressWarnings("serial")
@@ -193,14 +200,9 @@ public class Kingdomino extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == current) {
-			if (currentPane != null)
-				this.remove(currentPane);
-			currentPane = currentPlayer.getMainPane();
-			if (currentPane == null)
-				currentPane = currentPlayer.buildMainPane(dominoList);
-			this.add(currentPane);
-			this.repaint();
+		if (e==null || e.getSource() == current) {
+			refreshPane(currentPlayer);
+			return;
 		}
 		if (e.getSource() == displayPlayer1) {
 			refreshPane(player1);

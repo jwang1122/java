@@ -38,7 +38,7 @@ public class Domino implements Comparable<Domino>{
 
 	@Override
 	public String toString() {
-		return "Tile [number=" + number + "]";
+		return "Domino [" + number + "]";
 	}
 
 	@Override

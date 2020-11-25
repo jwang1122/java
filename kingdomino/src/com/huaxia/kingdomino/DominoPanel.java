@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 public class DominoPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -84,6 +85,47 @@ public class DominoPanel extends JPanel {
 
 	public void setDominoList(ArrayList<Domino> dominoList) {
 		this.dominoList = dominoList;
+	}
+
+	public void showWinner(Player player) {
+		this.remove(listPanel);
+		JPanel resultPanel = new JPanel() {
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			protected void paintComponent(Graphics g) {
+				paintResult(g);
+			}
+
+			private void paintResult(Graphics g) {
+				Font font = new Font("Calibri", Font.BOLD, 20);
+				g.setFont(font);
+				g.setColor(Color.BLACK);
+				g.drawString("The Big Winner: ", 50, 50);
+				g.setColor(Color.RED);
+				g.drawString(player.name, 150, 70);
+				g.drawImage(Player.goldMedal, 50, 100, null);
+				g.setColor(Color.BLACK);
+				g.drawString("Score: " + player.score, 50, 470);
+				g.drawString("Max Linked Fields: " + player.maxField, 50, 490);
+				g.drawString("Crowns: " + player.crowns, 50, 510);
+			}
+			
+		};
+		add(resultPanel);
+		repaint();
+		
+	}
+	
+	public void showScore(Player player) {
+		remove(listPanel);
+		JPanel resultPanel = new JPanel(); 
+		resultPanel.setLayout(new BorderLayout());
+		JTextArea scoreTxt = new JTextArea();
+		scoreTxt.setText(String.format("Player %s\n\nScore: %d\nMax Linked Field: %d\nCrowns: %d", player.getName(), player.score, player.maxField, player.crowns));
+		resultPanel.add(scoreTxt, BorderLayout.CENTER);
+		add(resultPanel);
+		repaint();
 	}
 	
 }

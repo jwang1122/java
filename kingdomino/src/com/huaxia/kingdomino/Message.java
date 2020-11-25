@@ -8,7 +8,7 @@ public class Message {
 	static final String NO_SAME_TERRAIN = "\n%s, the domino you have choosen cannot be placed due to no same terrain found! \nSo you keep the score of %d points.\n\nTry again?";
 	static final String PLAYER_RESULT = "\n%s gets a score of %d points!\n\nIts most extensive property is %d!\nFinally he owns a total of %d Crowns!";
 	static final String WINNER_RESULT = "The big winner is %s!\n\nHe gets a score of %d points!\nIts most extensive property is %d!\nFinally he owns a total of %d crowns!";
-	static final String GAME_OVER = "Game Over!!!";
+	static final String GAME_OVER = "Game Over!!! Big Winner is %s.";
 	
 	enum MsgType {SUCCESS, DIAGONAL, OCCUPIED, OUTSIDE_FRAME, NO_SAME_TERRAIN, PLAYER_RESULT, WINNER_RESULT, GAME_OVER};
 	
@@ -16,9 +16,9 @@ public class Message {
 	String msg;
 	MsgType type;
 	
-	Message(MsgType type){
+	Message(MsgType type, Player winner){
 		this.type = type;
-		msg = String.format(getMessageFormat(type));
+		msg = String.format(getMessageFormat(type), winner.getName());
 	}
 	
 	Message(Player player, MsgType type, int points){
@@ -49,6 +49,8 @@ public class Message {
 			return PLAYER_RESULT;
 		case WINNER_RESULT:
 			return WINNER_RESULT;
+		case GAME_OVER:
+			return GAME_OVER;
 		}
 		return "";
 	}

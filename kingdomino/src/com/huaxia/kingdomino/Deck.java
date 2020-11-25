@@ -8,7 +8,7 @@ import java.util.Scanner;
 import com.huaxia.kingdomino.Terrain.TerrainImage;
 
 public class Deck {
-	ArrayList<Domino> deck = new ArrayList<Domino>();
+	ArrayList<Domino> dominoList = new ArrayList<Domino>();
 
 	public Deck() {
 		InputStream is = Deck.class.getResourceAsStream("dominos.csv");
@@ -21,6 +21,8 @@ public class Deck {
 		while (sc.hasNextLine()) {
 			String[] line = sc.nextLine().split(",");
 
+			int number = Integer.parseInt(line[4]);
+
 			int crown1 = Integer.parseInt(line[0]);
 			image1 = getImage(line[1]);
 			Terrain terrain1 = new Terrain(image1, crown1);
@@ -29,28 +31,26 @@ public class Deck {
 			image2 = getImage(line[3]);
 			Terrain terrain2 = new Terrain(image2, crown2);
 
-			int number = Integer.parseInt(line[4]);
 			Domino domino = new Domino(number, terrain1, terrain2);
 
-			deck.add(domino);
+			dominoList.add(domino);
 		}
 		sc.close();
-		Collections.shuffle(deck);
 	}
 
 	private TerrainImage getImage(String type) {
 		switch (type) {
-		case "Champs":
+		case "Swamp":
 			return TerrainImage.SWAMP;
-		case "Mer":
+		case "Water":
 			return TerrainImage.WATER;
-		case "Foret":
+		case "Forest":
 			return TerrainImage.FOREST;
-		case "Prairie":
+		case "Field":
 			return TerrainImage.FIELD;
-		case "Mine":
+		case "Mountain":
 			return TerrainImage.MOUNTAIN;
-		case "Montagne":
+		case "Mine":
 			return TerrainImage.MINE;
 		}
 		return TerrainImage.EMPTY;
@@ -59,19 +59,19 @@ public class Deck {
 	public ArrayList<Domino> getNextDominoSet() {
 		ArrayList<Domino> dominoSet = new ArrayList<>();
 		for (int i = 0; i < 4; i++) {
-			dominoSet.add(deck.get(0));
-			deck.remove(0);
+			dominoSet.add(dominoList.get(0));
+			dominoList.remove(0);
 		}
 		Collections.sort(dominoSet);
 		return dominoSet;
 	}
 
 	public int getDeckSize() {
-		return deck.size();
+		return dominoList.size();
 	}
 
-	public ArrayList<Domino> getDeck() {
-		Collections.shuffle(deck);
-		return deck;
+	public Deck shuffle() {
+		Collections.shuffle(dominoList);
+		return this;
 	}
 }
