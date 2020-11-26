@@ -6,7 +6,6 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -14,13 +13,13 @@ public class DominoPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	static final int leftSpacing = 100;
 	static final int terrainWidth = 70;
-	static final int topSpacing = 100;
+	static final int topSpacing = 50;
 	static final int rowSpacing = 140;
 	
 	ArrayList<Domino> dominoList;
 	JPanel listPanel;
 	String status;
-	JLabel statusLbl;
+	JTextArea statusTxt;
 	
 	DominoPanel(){
 		setLayout(new BorderLayout());
@@ -36,10 +35,11 @@ public class DominoPanel extends JPanel {
 		add(listPanel, BorderLayout.CENTER);
 		JPanel statusPanel = new JPanel();
 		add(statusPanel, BorderLayout.SOUTH);
-		statusLbl = new JLabel("Status:");
-		statusLbl.setSize(100, 30);
-		statusLbl.setAlignmentX(LEFT_ALIGNMENT);
-		statusPanel.add(statusLbl);
+		statusTxt = new JTextArea(3, 28);
+		statusTxt.setLineWrap(true);
+		statusTxt.setSize(100, 30);
+		statusTxt.setAlignmentX(LEFT_ALIGNMENT);
+		statusPanel.add(statusTxt);
 	}
 
 	private void paintDominoList(Graphics g) {
@@ -67,7 +67,7 @@ public class DominoPanel extends JPanel {
 		g.setColor(Color.DARK_GRAY);
 		int number = list.get(i).number;
 		if (number != 0)
-			g.drawString("" + number, 50, 145 + i * 135);
+			g.drawString("" + number, 50, topSpacing + 35 + i * rowSpacing);
 	}
 
 	public String getStatus() {
@@ -76,7 +76,7 @@ public class DominoPanel extends JPanel {
 
 	public void setStatus(String status) {
 		this.status = status;
-		statusLbl.setText(status);
+		statusTxt.setText(status);
 	}
 
 	public ArrayList<Domino> getDominoList() {

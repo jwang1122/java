@@ -116,11 +116,16 @@ public class Kingdomino extends JFrame implements ActionListener {
 	}
 
 	private void setStatus() {
+		String status = "Round: ".concat(""+round).concat("\n");
+		for(int i=0; i<playerList.size(); i++) {
+			status = status.concat(playerList.get(i).name).concat(" > ");
+		}
 		for (int i = 0; i < playerList.size(); i++) {
 			if (currentPlayer.equals(playerList.get(i))) {
-				currentPlayer.setStatus("Round: " + round + " - " + currentPlayer.name + "'s turn.");
+				status = status.concat("\n\n").concat(currentPlayer.name).concat("'s turn.");
+				currentPlayer.setStatus(status);
 			} else {
-				playerList.get(i).setStatus("Wait for your turn.");
+				playerList.get(i).setStatus(status.concat("\n\nWait for your turn."));
 			}
 		}
 
