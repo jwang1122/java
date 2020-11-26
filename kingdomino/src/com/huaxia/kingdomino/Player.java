@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
@@ -57,6 +58,7 @@ public class Player implements Comparable<Player> {
 	ArrayList<Domino> dominoList4;
 	Kingdomino kingdomino;
 	Player player;
+	JFrame frame;
 
 	public Player(PlayerColor color) {
 		setAttributes(color);
