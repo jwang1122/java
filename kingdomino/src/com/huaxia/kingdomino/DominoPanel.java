@@ -104,11 +104,11 @@ public class DominoPanel extends JPanel {
 				g.drawString("The Big Winner: ", 50, 50);
 				g.setColor(Color.RED);
 				g.drawString(player.name, 150, 70);
-				g.drawImage(Player.goldMedal, 50, 100, null);
+				g.drawImage(Player.goldMedal, 0, 20, null);
 				g.setColor(Color.BLACK);
-				g.drawString("Score: " + player.score, 50, 470);
-				g.drawString("Max Linked Fields: " + player.maxField, 50, 490);
-				g.drawString("Crowns: " + player.crowns, 50, 510);
+				g.drawString("Score: " + player.score, 50, 510);
+				g.drawString("Max Linked Fields: " + player.maxField, 50, 530);
+				g.drawString("Crowns: " + player.crowns, 50, 550);
 			}
 			
 		};

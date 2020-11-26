@@ -35,8 +35,8 @@ public class Kingdomino extends JFrame implements ActionListener {
 	Player player4 = new Player(PlayerColor.RedPlayer);
 	Deck deck = new Deck().shuffle();
 	ArrayList<Player> playerList = new ArrayList<Player>();
-	ArrayList<Player> playerOrderList = new ArrayList<Player>();	
-	JMenuItem current, displayPlayer1, displayPlayer2, displayPlayer3, displayPlayer4;
+	ArrayList<Player> playerOrderList = new ArrayList<Player>();
+	JMenuItem current, displayPlayer1, displayPlayer2, displayPlayer3, displayPlayer4,exitGame;
 	int round = 1;
 	JSplitPane currentPane;
 	ArrayList<Domino> dominoList;
@@ -55,14 +55,15 @@ public class Kingdomino extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		Configure config = new Configure(null, "Kingdomino Greeting", true);
 		Kingdomino kingdomino = config.getKingdomino();
-		if(kingdomino!=null) kingdomino.play();
+		if (kingdomino != null)
+			kingdomino.play();
 	}
 
 	void play() {
 		shufflePlayerList();
 		while (deck.getDeckSize() > 0) {
 			dominoList = deck.getNextDominoSet();
-			showPlayOrder();
+//			showPlayOrder();
 			for (int i = 0; i < 4; i++) {
 				Player player = playerList.get(i);
 				currentPlayer = player;
@@ -73,13 +74,6 @@ public class Kingdomino extends JFrame implements ActionListener {
 			this.setPlayerOrder();
 		}
 		showGameResult();
-	}
-
-	private void showPlayOrder() {
-		JOptionPane.showMessageDialog(null, "Round " + round + ":\nPlayers will start in this order :\n"
-				+ playerList.get(0).getName() + ", " + playerList.get(1).getName() + ", "
-				+ playerList.get(2).getName() + ", "
-				+ playerList.get(3).getName(), "Round", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	private void switchToCurrentPlayer() {
@@ -98,11 +92,13 @@ public class Kingdomino extends JFrame implements ActionListener {
 		displayPlayer3 = new JMenuItem(player3.name);
 		displayPlayer4 = new JMenuItem(player4.name);
 		current = new JMenuItem("current");
+		exitGame = new JMenuItem("Exit");
 		displayPlayer1.addActionListener(this);
 		displayPlayer2.addActionListener(this);
 		displayPlayer3.addActionListener(this);
 		displayPlayer4.addActionListener(this);
 		current.addActionListener(this);
+		exitGame.addActionListener(this);
 		JMenuBar mb = new JMenuBar();
 		JMenu select = new JMenu("Select player");
 		select.add(current);
@@ -110,14 +106,16 @@ public class Kingdomino extends JFrame implements ActionListener {
 		select.add(displayPlayer2);
 		select.add(displayPlayer3);
 		select.add(displayPlayer4);
+		select.addSeparator();
+		select.add(exitGame);
 		mb.add(select);
 		add(mb);
 		setJMenuBar(mb);
 	}
 
 	private void setStatus() {
-		String status = "Round: ".concat(""+round).concat("\n");
-		for(int i=0; i<playerList.size(); i++) {
+		String status = "Round: ".concat("" + round).concat("\n");
+		for (int i = 0; i < playerList.size(); i++) {
 			status = status.concat(playerList.get(i).name).concat(" > ");
 		}
 		for (int i = 0; i < playerList.size(); i++) {
@@ -140,12 +138,12 @@ public class Kingdomino extends JFrame implements ActionListener {
 		playerOrderList.add(player1);
 		playerOrderList.add(player2);
 		playerOrderList.add(player3);
-		playerOrderList.add(player4);		
+		playerOrderList.add(player4);
 		Collections.shuffle(playerList);
 	}
-	
+
 	void setPlayerOrder() {
-		for(int i = 0; i<4; i++) {
+		for (int i = 0; i < 4; i++) {
 			playerList.set(i, playerOrderList.get(i));
 		}
 	}
@@ -162,12 +160,12 @@ public class Kingdomino extends JFrame implements ActionListener {
 		for (int i = 0; i < playerList.size(); i++) {
 			Player player = playerList.get(i);
 			player.setStatus(player.getName() + " made " + player.score + ", Game Over!!!");
-			if(!player.equals(winner)) {
+			if (!player.equals(winner)) {
 				player.showScore();
 			}
-		}	
+		}
 		actionPerformed(null);
-		//		System.exit(0);
+		// System.exit(0);
 	}
 
 	private Player showFinalResults() {
@@ -179,7 +177,7 @@ public class Kingdomino extends JFrame implements ActionListener {
 //		}
 		return winnerList.get(0);
 	}
-	
+
 	private void displayMessage(Message msg, String title) {
 		JOptionPane.showMessageDialog(null, msg.msg, title, JOptionPane.INFORMATION_MESSAGE);
 	}
@@ -205,7 +203,7 @@ public class Kingdomino extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e==null || e.getSource() == current) {
+		if (e == null || e.getSource() == current) {
 			refreshPane(currentPlayer);
 			return;
 		}
@@ -220,6 +218,9 @@ public class Kingdomino extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == displayPlayer4) {
 			refreshPane(player4);
+		}
+		if(e.getSource()==exitGame) {
+			System.exit(1);
 		}
 
 	}
@@ -236,6 +237,6 @@ public class Kingdomino extends JFrame implements ActionListener {
 	}
 
 	public void setPlayer(Player player, int i) {
-		playerOrderList.set(i, player);		
+		playerOrderList.set(i, player);
 	}
 }

@@ -11,12 +11,17 @@
 * ~~switch to current player's screen automatically;~~
 * reduce the screen blink;
 * ~~build jar file~~
+* ~~add play order in status~~
+* ~~add game result to domino list panel~~
+* build frame for each player
+* add exit in menu
+* 
 
 ## Idea
 * Create only one JFrame for this game;
 * when data (properties and dominoList) changes, ~~repaint panel~~, replace panel;
 * Add menu so that player can choose to see other's screen;
-* ~~Use TabbedPane for each player;~~
+* ~~Use TabbedPane for each player;~~ since the tabbed pane cannot fill the frame.
 
 
 ## Issues
@@ -35,6 +40,13 @@
 ```java
 
 ```
+* Config Eclipse Java Compiler
+
+![Windows>Preferences>Java>Compiler](javaCompiler.png)
+
+* Config Eclipse Installed JRE
+
+![Windows>Preferences>Java>Installed JRE](installedJRE.png)
 
 ## Questions
 * how to trigger panel repaint without call frame.setVisible(false) > swicth panel > setVisible(true)?

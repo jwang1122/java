@@ -33,7 +33,7 @@ public class Player implements Comparable<Player> {
 			imagegreenC = ImageIO.read(is);
 			is = Player.class.getResourceAsStream("yellowC.png");
 			imageyellowC = ImageIO.read(is);
-			is = Player.class.getResourceAsStream("goldmedal.jpg");
+			is = Player.class.getResourceAsStream("Gold-Medal.png");
 			goldMedal = ImageIO.read(is);
 		} catch (Exception e) {
 			System.err.println(e);
@@ -128,7 +128,7 @@ public class Player implements Comparable<Player> {
 			displayFrame();
 			if (msg.success)
 				JOptionPane.showMessageDialog(null, msg.msg, "Score", JOptionPane.INFORMATION_MESSAGE);
-			kingdomino.setPlayer(this, choosenDomino-1);
+			kingdomino.setPlayer(this, choosenDomino - 1);
 			return true;
 		}
 		return msg.success;
@@ -186,7 +186,9 @@ public class Player implements Comparable<Player> {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		if (name != null && name.trim().length() > 0) {
+			this.name = name;
+		}
 	}
 
 	public Board getBoard() {
@@ -278,11 +280,12 @@ public class Player implements Comparable<Player> {
 		int terrainWidth = DominoPanel.terrainWidth;
 		int listTopSpacing = DominoPanel.topSpacing;
 		int listRowSpacing = DominoPanel.rowSpacing;
-		int boardLeftSpacing = (int) (PlayerBoardPanel.leftSpacing + Kingdomino.frameWidth * Kingdomino.dividerLocation);
+		int boardLeftSpacing = (int) (PlayerBoardPanel.leftSpacing
+				+ Kingdomino.frameWidth * Kingdomino.dividerLocation);
 		int boardTopSpacing = PlayerBoardPanel.topSpacing;
 
 		public void mousePressed(MouseEvent e) {
-			if (kingdomino==null || !kingdomino.currentPlayer.equals(player)) {
+			if (kingdomino == null || !kingdomino.currentPlayer.equals(player)) {
 				JOptionPane.showMessageDialog(null, "Please wait for your turn.");
 				return;
 			}
@@ -339,13 +342,13 @@ public class Player implements Comparable<Player> {
 	}
 
 	public void setStatus(String status) {
-		dominoPanel.setStatus(status);	
+		dominoPanel.setStatus(status);
 	}
 
 	public Message buildMessage() {
 		return new Message(this, MsgType.PLAYER_RESULT, score, maxField, crowns);
 	}
-	
+
 	public Message buildWinnerMessage() {
 		return new Message(this, MsgType.WINNER_RESULT, score, maxField, crowns);
 	}
@@ -355,7 +358,7 @@ public class Player implements Comparable<Player> {
 	}
 
 	public void showScore() {
-		dominoPanel.showScore(this);		
+		dominoPanel.showScore(this);
 	}
 
 }

@@ -44,21 +44,16 @@ public class Configure extends JDialog {
 		kingdomino = new Kingdomino();
 		String name = JOptionPane.showInputDialog(null, "Blue Player's name", "Players", JOptionPane.QUESTION_MESSAGE);
 		kingdomino.player1 = new Player(PlayerColor.BluePlayer);
-		if (name != null && name.length() > 0)
-			kingdomino.player1.setName(name);
+		kingdomino.player1.setName(name);
 		name = JOptionPane.showInputDialog(null, "Green Player's name", "Players", JOptionPane.QUESTION_MESSAGE);
 		kingdomino.player2 = new Player(PlayerColor.GreenPlayer);
-		if (name != null && name.length() > 0)
-			kingdomino.player2.setName(name);
+		kingdomino.player2.setName(name);
 		name = JOptionPane.showInputDialog(null, "Yellow Player's name", "Players", JOptionPane.QUESTION_MESSAGE);
 		kingdomino.player3 = new Player(PlayerColor.YellowPlayer);
-		if (name != null && name.length() > 0)
-			kingdomino.player3.setName(name);
+		kingdomino.player3.setName(name);
 		name = JOptionPane.showInputDialog(null, "Red Player's name", "Players", JOptionPane.QUESTION_MESSAGE);
 		kingdomino.player4 = new Player(PlayerColor.RedPlayer);
-		if (name != null && name.length() > 0)
-			kingdomino.player4.setName(name);
-//		JOptionPane.showMessageDialog(null, "Start of the game :\n", "Start", JOptionPane.INFORMATION_MESSAGE);
+		kingdomino.player4.setName(name);
 	}
 
 	private void defaultKingdomino() {

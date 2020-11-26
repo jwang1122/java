@@ -18,7 +18,7 @@ public class DoubleList {
 		}
 		boolean found = findSameWord(word);
 		if (!found) {
-			adjustLinkedList(newNode);
+			appendToBack(newNode);
 		}
 	}
 
@@ -41,7 +41,7 @@ public class DoubleList {
 		return found;
 	}
 
-	private void adjustLinkedList(DoubleNode newNode) {
+	private void appendToBack(DoubleNode newNode) {
 		newNode.setPrev(back);
 		back.setNext(newNode);
 		back = newNode;
