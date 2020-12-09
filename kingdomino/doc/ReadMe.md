@@ -1,5 +1,7 @@
 # Kingdomino Game Development Notes
 
+[how to play kingdomino](https://www.youtube.com/watch?v=smbwBPmP4Ms&t=33s)
+
 ## Development Status
 * ~~Create Kingdomino main class;~~
 * ~~Add menu bar to the Kingdomino frame;~~

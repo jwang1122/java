@@ -26,3 +26,6 @@
 * Send email
 * Applet Basics
 * Spring-Boot basic
+
+## SOLID Principles Java
+[SOLID](https://www.javatpoint.com/solid-principles-java)

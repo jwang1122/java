@@ -5,15 +5,23 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class MessageTest {
+import com.huaxia.kingdomino.Message.MsgType;
+import com.huaxia.kingdomino.Player.PlayerColor;
 
+class MessageTest {
+	Message msg;
+	Player player;
+	
 	@BeforeEach
 	void setUp() throws Exception {
+		player = new Player(PlayerColor.BluePlayer);
+		msg = new Message(MsgType.OCCUPIED, player);
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testGetMessageFormat() {
+		String result = msg.getMessageFormat(MsgType.OCCUPIED);
+		assertEquals(result, Message.OCCUPIED);
 	}
 
 }

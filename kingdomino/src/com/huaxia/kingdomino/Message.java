@@ -31,7 +31,7 @@ public class Message {
 		msg = String.format(getMessageFormat(playerResult), player.name, score, maxField, crowns);
 	}
 
-	private String getMessageFormat(MsgType type) {
+	String getMessageFormat(MsgType type) {
 		success = false;
 		switch(type) {
 		case SUCCESS:

@@ -1,0 +1,1 @@
+[Blackjack Rules](https://casinorange.com/how-to/how-to-play-blackjack#)
