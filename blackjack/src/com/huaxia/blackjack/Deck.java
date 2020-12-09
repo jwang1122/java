@@ -36,4 +36,8 @@ public class Deck {
 	public void shuffle(){
 		Collections.shuffle(deck);
 	}
+
+	public Card getCard(int i) {
+		return deck.get(i);
+	}
 }
