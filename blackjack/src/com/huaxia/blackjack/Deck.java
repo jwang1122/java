@@ -30,7 +30,7 @@ public class Deck {
 	public static final int NUMSUITS = 4;
 	public static final int NUMCARDS = 52;
 
-	private int topCardIndex;
+	int topCardIndex;
 	private ArrayList<Card> stackOfCards;
 
 	
@@ -44,7 +44,7 @@ public class Deck {
 		// add in a new card
 
 		for (int i = 0; i < Card.SUITS.length; i++)
-			for (int j = 1; j <= Card.FACES.length; j++)
+			for (int j = 0; j < Card.FACES.length; j++)
 				stackOfCards.add(new BlackJackCard(Card.FACES[j], Card.SUITS[i]));
 	}
 
@@ -53,7 +53,7 @@ public class Deck {
 	}
 
 	public Card getCard(int i) {
-		return deck.get(i);
+		return stackOfCards.get(i);
 	}
 
 	// modifiers
@@ -70,7 +70,6 @@ public class Deck {
 		// reset variables as needed
 		Collections.shuffle(stackOfCards);
 		topCardIndex = 51;
-
 	}
 
 	public int getCard() {

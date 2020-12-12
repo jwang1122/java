@@ -12,12 +12,12 @@ class DeckTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		deck = new Deck();
-		spadeA = new Card("A", "SPADE");
+		spadeA = new BlackJackCard("A", "SPADE");
 	}
 
 	@Test
 	void testGetDeck() {
-		assertTrue(deck.getDeck().size()==52);
+		assertTrue(deck.getstackOfCards().size()==52);
 	}
 
 	@Test
@@ -26,6 +26,7 @@ class DeckTest {
 		assertEquals(card, spadeA);
 		deck.shuffle();
 		card = deck.getCard(0);
-		assertNotEquals(card, spadeA);		
+		assertNotEquals(card, spadeA);	
+		assertTrue(deck.topCardIndex==51);
 	}
 }

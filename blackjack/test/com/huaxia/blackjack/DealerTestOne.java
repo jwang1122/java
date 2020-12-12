@@ -5,7 +5,7 @@ import static java.lang.System.out;
 public class DealerTestOne {
 	public static void main(String args[]) { // Code to test the Dealer
 		Dealer dealer = new Dealer();
-		Player player = new Player();
+		Player player = new Player("John");
 		dealer.shuffle();
 		player.addCardToHand(dealer.deal());
 		dealer.addCardToHand(dealer.deal());

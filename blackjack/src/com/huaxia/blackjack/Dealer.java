@@ -13,6 +13,7 @@ public class Dealer extends Player {
 		handTotal = 0;
 		aDeck = new Deck();
 		aDeck.shuffle();
+		name="Dealer";
 	}
 
 	public int getTotal() {

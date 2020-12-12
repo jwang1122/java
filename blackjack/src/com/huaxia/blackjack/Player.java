@@ -5,6 +5,15 @@ import java.util.*;
 public class Player {
 	private int winCount = 0;
 	private ArrayList<Card> hand = new ArrayList<Card>();
+	String name;
+
+	Player() {
+
+	}
+
+	Player(String name) {
+		this.name = name;
+	}
 
 	public void addCardToHand(Card temp) {
 		hand.add(temp);
@@ -21,11 +30,11 @@ public class Player {
 			return false;
 		if (value <= 10)
 			return true;
-        System.out.print("Do you want to hit?(y or n)");
-        @SuppressWarnings("resource")
+		System.out.print("Do you want to hit?(y or n)");
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        return input.equals("y");
+		String input = scanner.nextLine();
+		return input.equals("y");
 	}
 
 	public void setWinCount(int numWins) {
@@ -42,10 +51,16 @@ public class Player {
 
 	public int getHandValue() {
 		int totalValue = 0;
+		boolean containA = false;
 		for (Card aCard : this.hand) {
+			if(aCard.face=="A") {
+				containA = true;
+			}
 			totalValue += aCard.getValue();
 		}
-
+		if(totalValue>21 && containA) {
+			totalValue -= 10;
+		}
 		return totalValue;
 	}
 
