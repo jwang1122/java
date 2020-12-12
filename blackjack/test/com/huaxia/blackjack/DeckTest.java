@@ -5,14 +5,17 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.huaxia.blackjack.Card.Face;
+import com.huaxia.blackjack.Card.Suit;
+
 class DeckTest {
 	Deck deck;
-	Card spadeA;
+	BlackJackCard spadeA;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		deck = new Deck();
-		spadeA = new BlackJackCard("A", "SPADE");
+		spadeA = new BlackJackCard(Face.ACE, Suit.SPADE);
 	}
 
 	@Test
@@ -22,7 +25,7 @@ class DeckTest {
 
 	@Test
 	void testShuffle() {
-		Card card = deck.getCard(0);
+		BlackJackCard card = deck.getCard(0);
 		assertEquals(card, spadeA);
 		deck.shuffle();
 		card = deck.getCard(0);

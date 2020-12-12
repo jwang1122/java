@@ -6,44 +6,42 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 
 public class Card {
-	enum Faces {ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING};
-	enum Suits {SPADE, CLUB, DIAMOND, HEART};
+	enum Face {ACE(1), TWO(2), THREE(3), FOUR(4), FIVE(5), SIX(6), SEVEN(7), EIGHT(8), NINE(9), TEN(10), JACK(11), QUEEN(12), KING(13);
+		int value;
+		Face(int value) {
+			this.value = value;
+		}
+	};
+	enum Suit {SPADE, CLUB, DIAMOND, HEART};
 	static final String[] FACES = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
 	static final String[] SUITS = { "SPADE", "CLUB", "DIAMOND", "HEART" };
 	
 	Image image;
-	String face;
-	String suit;
+	Face face;
+	Suit suit;
 	String imageFile;
 	
-	Card(String face, String suit) {
-		this.face = face;
-		this.suit = suit;
-	}
+//	Card(String face, String suit) {
+//		this.face = face;
+//		this.suit = suit;
+//	}
 	
-	public Card(String face, String suit, String imageFile) {
+	public Card(Face face, Suit suit, String imageFile) {
 		this.face = face;
 		this.suit = suit;
 		this.imageFile = imageFile;
 	}
 
+	public Card(Face face, Suit suit) {
+		this.face = face;
+		this.suit = suit;
+	}
 	public Card() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public int getValue() {
-		switch(face) {
-		case "A":
-			return 1;
-		case "J":
-			return 11;
-		case "Q":
-			return 12;
-		case "K":
-			return 13;
-		default:
-			return Integer.parseInt(face);
-		}
+		return this.face.value;
 	}
 	
 	public Image getImage() {
@@ -62,20 +60,12 @@ public class Card {
 		this.image = image;
 	}
 	
-	public String getFace() {
+	public Face getFace() {
 		return face;
 	}
 
-	public void setFace(String face) {
-		this.face = face;
-	}
-
-	public String getSuit() {
+	public Suit getSuit() {
 		return suit;
-	}
-
-	public void setSuit(String suit) {
-		this.suit = suit;
 	}
 
 	@Override
@@ -115,7 +105,7 @@ public class Card {
 	}
 
 	public static void main(String[] args) {
-		Card diamondA = new Card(FACES[0], SUITS[2]);
+		Card diamondA = new Card(Face.ACE, Suit.DIAMOND);
 		System.out.println(diamondA);
 	}
 

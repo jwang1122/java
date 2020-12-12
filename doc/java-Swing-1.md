@@ -1,9 +1,32 @@
-# Java Swing Class
+# Java Swing Class Level-I
 
+[Applications & build.xml](#Applications-&-build.xml)
+
+[Swing JComponent](#Swing-JComponent)
+
+[Swing Layout](#Swing-Layout)
+
+[Create a window frame](#Create-a-window-frame)
+
+[Commonly used Methods of Component class](#Commonly-used-Methods-of-Component-class)
+
+[Add components to frame](#Add-components-to-frame)
+
+[Anonymous Class](#Anonymous-Class)
+
+[Menu](#Menu)
+
+[References](#References)
+
+## References
 [Tutorial website](https://www.javatpoint.com/java-swing)
+
 [javax.swing api](https://docs.oracle.com/javase/7/docs/api/javax/swing/package-summary.html)
+
 [Java API](https://docs.oracle.com/javase/8/docs/api/)
+
 [Image download website](http://www.pngmart.com/image/)
+
 [Official Java Tutorial](https://docs.oracle.com/javase/tutorial/tutorialLearningPaths.html)
 
 ## Applications & build.xml
@@ -58,9 +81,7 @@ Layout Manager
 1. √ CheckBoxExample.java & CheckBoxExample1.java; (with icon)
 1. √ RadioButtonExample.java; 2 ways to add an ActionListener for jButton
 1. √ TextAreaExample.java; copy large file to see some text been hidden.
-1. √ 
-ScrolledPaneExample.java; add JScroll√ 
-Pane around the TextArea
+1. √ ScrolledPaneExample.java; add JScroll Pane around the TextArea
 1. ListExample.java; without layout(FlowLayout), use GridLayout(), use BorderLayout() 
 1. ListExample2.java; with scroll
 1. listExample1.java; select birthday
@@ -84,9 +105,10 @@ Pane around the TextArea
     Toolkit t = Toolkit.getDefaultToolkit();
     URL iconUrl = this.getClass().getResource("resources/tiger.jpeg");
     apple = t.getImage(iconUrl);
-
 ```
-1. 
+1. Snake
+1. Kingdomino
+
 ## Anonymous Class
 1. √ GetInfo.java; interface
 1. √ Student.java; implements GetInfo
@@ -103,7 +125,6 @@ public void setLayout(LayoutManager m)	|sets the layout manager for the componen
 public void setVisible(boolean b)	|sets the visibility of the component. It is by default false.
 
 ## Create a window frame
-
 * OpenWindow.java
 * Frame2.java
 

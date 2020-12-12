@@ -24,6 +24,7 @@
 * Date & Time
 * Regular Expression
 * Collections
+
 ## Java Method
 * Define Method
 * Method parameters
@@ -33,7 +34,9 @@
 * Java comments & Javadoc
 * File Read and Write
 * Exceptions try-catch & throw
+
 ## Game
 * Black Jack Card Game
 * Snake-Apple
 * Tic-Tac-Toe
+* Kingdomino

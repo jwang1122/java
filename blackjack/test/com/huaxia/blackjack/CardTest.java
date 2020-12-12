@@ -5,10 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.huaxia.blackjack.Card.Face;
+import com.huaxia.blackjack.Card.Suit;
+
 class CardTest {
-	Card heartA = new Card("A", "HEART");
-	Card club9 = new Card("9", "CLUB");
-	Card clubQ = new Card("Q", "CLUB");
+	Card heartA = new Card(Face.ACE, Suit.HEART);
+	Card club9 = new Card(Face.NINE, Suit.CLUB);
+	Card clubQ = new Card(Face.QUEEN, Suit.CLUB);
 	
 	@BeforeEach
 	void setUp() throws Exception {

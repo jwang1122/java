@@ -6,10 +6,13 @@ import java.util.Collections;
 import java.util.Hashtable;
 import java.util.Scanner;
 
+import com.huaxia.blackjack.Card.Face;
+import com.huaxia.blackjack.Card.Suit;
+
 public class Deck {
 	static final String filename = "cards.csv";
-	
-	static ArrayList<Card> deck = new ArrayList<>();
+
+	static ArrayList<BlackJackCard> deck = new ArrayList<>();
 	static Hashtable<Card, Card> cardTable = new Hashtable<>();
 	static {
 		InputStream is = Deck.class.getResourceAsStream(filename);
@@ -18,42 +21,81 @@ public class Deck {
 		input.nextLine(); // get rid of header line
 		while (input.hasNextLine()) {
 			String[] line = input.nextLine().split(",");
-			Card card = new Card(line[0], line[1], line[2]);
+			BlackJackCard card = new BlackJackCard(getFace(line[0]), getSuit(line[1]), line[2]);
 			deck.add(card);
 			cardTable.put(card, card);
 		}
 		input.close();
-		
+
 	}
-	
+
 	public static final int NUMFACES = 13;
 	public static final int NUMSUITS = 4;
 	public static final int NUMCARDS = 52;
 
-	int topCardIndex;
-	private ArrayList<Card> stackOfCards;
-
-	
-	Deck(){
-		// initialize data - stackOfCards - topCardIndex
-		topCardIndex = 51;
-
-		stackOfCards = new ArrayList<Card>();
-		// loop through suits
-		// loop through faces
-		// add in a new card
-
-		for (int i = 0; i < Card.SUITS.length; i++)
-			for (int j = 0; j < Card.FACES.length; j++)
-				stackOfCards.add(new BlackJackCard(Card.FACES[j], Card.SUITS[i]));
+	static Face getFace(String face) {
+		switch (face) {
+		case "A":
+			return Face.ACE;
+		case "2":
+			return Face.TWO;
+		case "3":
+			return Face.THREE;
+		case "4":
+			return Face.FOUR;
+		case "5":
+			return Face.FIVE;
+		case "6":
+			return Face.SIX;
+		case "7":
+			return Face.SEVEN;
+		case "8":
+			return Face.EIGHT;
+		case "9":
+			return Face.NINE;
+		case "10":
+			return Face.TEN;
+		case "J":
+			return Face.JACK;
+		case "Q":
+			return Face.QUEEN;
+		case "K":
+			return Face.KING;
+		default:
+			break;
+		}
+		return null;
 	}
 
-	public ArrayList<Card> getDeck() {
+	static Suit getSuit(String suit) {
+		switch (suit) {
+		case "SPADE":
+			return Suit.SPADE;
+		case "CLUB":
+			return Suit.CLUB;
+		case "DIAMOND":
+			return Suit.DIAMOND;
+		case "HEART":
+			return Suit.HEART;
+		default:
+			break;
+		}
+		return null;
+	}
+
+	int topCardIndex;
+
+	Deck() {
+		// initialize data - stackOfCards - topCardIndex
+		topCardIndex = 51;
+	}
+
+	public ArrayList<BlackJackCard> getDeck() {
 		return deck;
 	}
 
-	public Card getCard(int i) {
-		return stackOfCards.get(i);
+	public BlackJackCard getCard(int i) {
+		return deck.get(i);
 	}
 
 	// modifiers
@@ -61,14 +103,14 @@ public class Deck {
 		topCardIndex = n;
 	}
 
-	public void setstackOfCards(ArrayList<Card> d) {
-		stackOfCards = d;
+	public void setstackOfCards(ArrayList<BlackJackCard> d) {
+		deck = d;
 	}
 
 	public void shuffle() {
 		// shuffle the deck
 		// reset variables as needed
-		Collections.shuffle(stackOfCards);
+		Collections.shuffle(deck);
 		topCardIndex = 51;
 	}
 
@@ -76,8 +118,8 @@ public class Deck {
 		return topCardIndex;
 	}
 
-	public ArrayList<Card> getstackOfCards() {
-		return stackOfCards;
+	public ArrayList<BlackJackCard> getstackOfCards() {
+		return deck;
 	}
 
 	public int size() {
@@ -89,10 +131,10 @@ public class Deck {
 	}
 
 	public Card nextCard() {
-		return stackOfCards.get(topCardIndex--);
+		return deck.get(topCardIndex--);
 	}
 
 	public String toString() {
-		return stackOfCards + "   topCardIndex = " + topCardIndex;
+		return deck + "   topCardIndex = " + topCardIndex;
 	}
 }

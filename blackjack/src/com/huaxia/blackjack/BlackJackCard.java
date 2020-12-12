@@ -6,17 +6,21 @@ public class BlackJackCard extends Card {
 		super();
 	}
 
-	public BlackJackCard(String face, String suit) {
+	public BlackJackCard(Face face, Suit suit) {
 		super(face, suit);
 	}
 
+	public BlackJackCard(Face face, Suit suit, String imageFile) {
+		super(face, suit, imageFile);
+	}
+
 	public int getValue() {
-		String face = getFace();
-		if (isNumeric(face)) {
-			return Integer.parseInt(face);
-		}
-		if (face == "A")
+		Face face = getFace();
+		if (face == Face.ACE)
 			return 11;
+		if (face.value<11) {
+			return face.value;
+		}
 		return 10;
 	}
 

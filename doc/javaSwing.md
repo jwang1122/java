@@ -10,15 +10,6 @@
 * √ Snake-Game; Ant build.xml
 * √ Tic Tac Toe, TT1.java; build jar; load image by using classpath
 
-## Menu
-1. MenuExample.java; build simple menu and sub menu
-1. MenuExample1.java; add Edit menu for cut, copy, paste, selectAll
-1. MenuExample2.java; surround JTextArea with JScrollPane.
-1. PopupMenuExample.java; build simple popup menu, no action
-1. PopupMenuExample1.java; anonymous class for ActionListener
-1. PopupMenuExample.java; implements ActionListener.
-1. SeparatorExample.java; add separator line between menu item.
-
 ## Swing Layout
 [Swing Layout](https://www.tutorialspoint.com/swing/swing_layouts.htm)
 
