@@ -1,7 +1,6 @@
-package com.wang.blackjack;
+package com.huaxia.blackjack;
 
-import static java.lang.System.*;
-import java.util.*;
+import static java.lang.System.out;
 
 public class DeckTestOne {
 	public static void main(String args[]) {

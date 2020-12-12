@@ -1,4 +1,4 @@
-package com.wang.blackjack;
+package com.huaxia.blackjack;
 
 import java.util.*;
 
@@ -6,10 +6,9 @@ public class Dealer extends Player {
 	private Deck aDeck;
 	private ArrayList<Card> hand;
 	private int handTotal;
-	private int currentIndex = 0;
+//	private int currentIndex = 0;
 
 	public Dealer() {
-
 		hand = new ArrayList<Card>();
 		handTotal = 0;
 		aDeck = new Deck();

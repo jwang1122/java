@@ -1,4 +1,4 @@
-package com.wang.blackjack;
+package com.huaxia.blackjack;
 
 import java.util.*;
 

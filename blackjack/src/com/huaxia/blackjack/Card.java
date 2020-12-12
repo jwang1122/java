@@ -6,6 +6,8 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 
 public class Card {
+	enum Faces {ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING};
+	enum Suits {SPADE, CLUB, DIAMOND, HEART};
 	static final String[] FACES = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
 	static final String[] SUITS = { "SPADE", "CLUB", "DIAMOND", "HEART" };
 	
@@ -25,6 +27,25 @@ public class Card {
 		this.imageFile = imageFile;
 	}
 
+	public Card() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getValue() {
+		switch(face) {
+		case "A":
+			return 1;
+		case "J":
+			return 11;
+		case "Q":
+			return 12;
+		case "K":
+			return 13;
+		default:
+			return Integer.parseInt(face);
+		}
+	}
+	
 	public Image getImage() {
 		if(image==null) {
 			try {
@@ -41,6 +62,22 @@ public class Card {
 		this.image = image;
 	}
 	
+	public String getFace() {
+		return face;
+	}
+
+	public void setFace(String face) {
+		this.face = face;
+	}
+
+	public String getSuit() {
+		return suit;
+	}
+
+	public void setSuit(String suit) {
+		this.suit = suit;
+	}
+
 	@Override
 	public String toString() {
 		return "Card [" + face + ", " + suit + "]";

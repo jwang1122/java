@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Blackjack extends JFrame implements ActionListener {
+public class BlackjackFrame extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	static final Color bgColor = new Color(238, 231, 188);
 	static final int frameWidth = 1080;
@@ -17,7 +17,7 @@ public class Blackjack extends JFrame implements ActionListener {
 	static final Dimension frameSize = new Dimension(frameWidth, frameHeight);
 
 	
-	public Blackjack() throws HeadlessException {
+	public BlackjackFrame() throws HeadlessException {
 		super();
 		setTitle("BlackJack");
 		setSize(frameSize);
@@ -34,7 +34,7 @@ public class Blackjack extends JFrame implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-		Blackjack game = new Blackjack();
+		BlackjackFrame game = new BlackjackFrame();
 		game.setVisible(true);
 	}
 	
