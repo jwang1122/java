@@ -23,6 +23,7 @@
 * Java ArrayList
 * Date & Time
 * Regular Expression
+* Collections
 ## Java Method
 * Define Method
 * Method parameters
@@ -35,3 +36,4 @@
 ## Game
 * Black Jack Card Game
 * Snake-Apple
+* Tic-Tac-Toe

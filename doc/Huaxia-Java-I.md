@@ -25,6 +25,7 @@
 * GuessNumber.java (while loop, if-else, scanner)
 * Switch (SwitchTet.java)
 * Card.java
+* CollectionsTest.java
 
 ## 2020-06-25 讲义
 * Review 
