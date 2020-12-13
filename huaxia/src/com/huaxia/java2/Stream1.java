@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** * Java Program to demonstrate how to do map reduce in Java. Map, reduce also * known as fold is common operation while dealing with Collection in Java. * @author Javin Paul */
-public class StreamTest {
+public class Stream1 {
 	public static void main(String args[]) {
 		List<Employee1> peoples = new ArrayList<>();
 		peoples.add(new Employee1(101, "Victor", 23));
