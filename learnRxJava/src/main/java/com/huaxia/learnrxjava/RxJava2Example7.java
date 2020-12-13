@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class RxJava2Exmple7 {
+public class RxJava2Example7 {
 
 	public static void main(String[] args) {
 		List<Integer> evens = Arrays.asList(2, 4, 6);
