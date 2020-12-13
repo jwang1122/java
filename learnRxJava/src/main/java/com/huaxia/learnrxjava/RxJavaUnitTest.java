@@ -27,7 +27,7 @@ public class RxJavaUnitTest {
 				}
 			}
 		});
-		DisposableObserver<Todo> disposableObserver = todoObservable.subscribeWith(new  DisposableObserver<Todo>() {
+		todoObservable.subscribeWith(new  DisposableObserver<Todo>() {
 
 		    @Override
 		    public void onNext(Todo t) {

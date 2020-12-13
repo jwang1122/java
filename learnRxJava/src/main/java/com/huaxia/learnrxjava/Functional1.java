@@ -1,7 +1,6 @@
 package com.huaxia.learnrxjava;
 
 import io.reactivex.Observable;
-import io.reactivex.functions.Function;
 
 //https://www.programcreek.com/java-api-examples/?api=io.reactivex.functions.Function
 public class Functional1 {

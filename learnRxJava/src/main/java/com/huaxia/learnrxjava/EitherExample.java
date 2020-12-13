@@ -11,7 +11,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 public class EitherExample{
 
   public static void main(String[] args){
-    final String url = "https://twitter.com/search?q=scala";
+    final String url = "http://localhost:5000/books";
     final Either<Exception,String> str = get(url);
     if(str.isRight()){
       final Either<Exception,JsonNode> json = parse(str.right().value());
@@ -41,7 +41,7 @@ public class EitherExample{
       String line;
       final StringBuilder sb = new StringBuilder();
       while ((line = bf.readLine()) != null){
-        sb.append(line);
+        sb.append(line + "\n");
       }
       return Either.right(sb.toString());
     }catch(Exception e){
