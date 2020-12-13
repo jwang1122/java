@@ -13,6 +13,7 @@ class ObservableTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
+		result="";
 	}
 
 	@Test
