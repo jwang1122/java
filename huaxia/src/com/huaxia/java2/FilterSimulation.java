@@ -14,7 +14,9 @@ public class FilterSimulation {
         orgCriteriaMap.put("org3", 40);
  
         Stream<Employee> myEmpListStream = new ArrayList<Employee>() {
-            {
+			private static final long serialVersionUID = 1L;
+
+			{
                 add(new Employee("org1", "1", "Tom", 25));
                 add(new Employee("org1", "2", "Peter", 32));
                 add(new Employee("org1", "3", "Steve", 35));

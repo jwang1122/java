@@ -11,7 +11,7 @@ public class JsonExample1 {
 		String json = "{\"id\":\"11223344\", \"firstName\": \"John\", \"lastName\":\"Wang\", \"score\":98}";
 
 		Student student = jsonConverter(json);
-//		prettyPrint(student);
+		prettyPrint(student);
 //		excludeField(student);
 	}
 

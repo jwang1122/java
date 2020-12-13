@@ -2,6 +2,7 @@ bin/
 RemoteSystemsTempFiles/
 .metadata/
 /.recommenders/
+huaxia/doc/
 *.zip
 lib/
 build/

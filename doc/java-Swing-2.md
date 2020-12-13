@@ -40,6 +40,15 @@ public String toString(){
     ...    
 }
 ```
+* ClassPreamble.java
+
+![Sample Javadoc with @ClassPreamble](annotation.png)
+* JsonSerializable.java; define class level annotation
+* JsonElement.java; define element level annotation
+* Init.java; define method level annotation
+* Person.java; annotate class, attribute and method
+* ObjectToJsonConverter.java; convert Person object to Json String.
+
 
 ## Menu
 1. MenuExample.java; build simple menu and sub menu
@@ -121,3 +130,4 @@ public String toString(){
 ```
 1. Snake
 1. Kingdomino
+1. notepad
