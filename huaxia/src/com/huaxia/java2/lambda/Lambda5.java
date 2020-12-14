@@ -1,4 +1,4 @@
-package com.huaxia.java2;
+package com.huaxia.java2.lambda;
 
 import java.util.Arrays;
 import java.util.List;
