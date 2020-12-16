@@ -14,13 +14,20 @@
 
 [enum](#enum)
 
-[](#)
+[Gson](#Gson)
+
 
 [](#)
 
 [](#)
 
 [Applications](#Applications)
+
+## Gson
+[Gson Tutorial](https://mkyong.com/java/how-to-parse-json-with-gson/)
+* GsonExample1.java
+* GsonExample2.java
+* GsonExample3.java; read json file, return ArrayList<Book>
 
 ## Understand Kingdomino Game
 * BoarderTest.java; Unittest
@@ -33,6 +40,8 @@
 * practice: simaple math: add(), sub(), mul(), div()
 
 ## enum
+* DividedByZero.java; Traditional programming, NullPointException
+* EitherExample.java; 
 
 ## Functional Programming
 
@@ -65,3 +74,5 @@
 
 ## References
 [Java Class Type](https://www.javatpoint.com/types-of-classes-in-java)
+
+[Gson Tutorial](https://mkyong.com/java/how-to-parse-json-with-gson/)

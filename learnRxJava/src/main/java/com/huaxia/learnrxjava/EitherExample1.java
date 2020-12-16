@@ -8,7 +8,7 @@ import java.net.URL;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 
-public class EitherExample{
+public class EitherExample1{
 
   public static void main(String[] args){
     final String url = "http://localhost:5000/books";

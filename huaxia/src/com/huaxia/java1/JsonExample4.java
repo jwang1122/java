@@ -2,6 +2,9 @@ package com.huaxia.java1;
 
 import com.google.gson.Gson;
 
+/*
+ * Build Student class object from Json String.
+ */
 public class JsonExample4 {
 
 	public static void main(String[] args) {

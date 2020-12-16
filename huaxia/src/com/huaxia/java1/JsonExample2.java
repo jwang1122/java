@@ -2,7 +2,9 @@ package com.huaxia.java1;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
+/*
+ * from object to Json String.
+ */
 public class JsonExample2 {
 
 	public static void main(String[] args) {
