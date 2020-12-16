@@ -1,11 +1,12 @@
 # 华夏中文学校 Java level-I
 
-[Java api document](https://docs.oracle.com/javase/8/docs/api/)
-[Tutorial point](https://www.tutorialspoint.com/java/java_exceptions.htm)
-[Java Tutorial](https://www.w3schools.com/java/java_methods.asp)
-[Breakout room](https://www.businessinsider.com/how-to-do-breakout-rooms-in-zoom)
+[References](#References)
 
-## Monday-Thursday 9:00-11:00AM
+[Exception](#Exception)
+
+[All Topics](#All-topics)
+
+## All topics
 * Hello World! (HelloWorld.java)
 * OOP concept > Abstraction (Cup.java; Computer.java)
 * System print() (LearnForLoop.java right-angle triangle)
@@ -32,6 +33,7 @@
 	- pull from github
 	- Math1.java > div(10,0)
 	- printf() > 10 + 20 = 30
+## ArrayList
 * ArrayListTest.java
 	- review create string array
 	- createIntegerArrayList (difference between array and ArrayList)
@@ -41,6 +43,7 @@
 	- practice
 		- create float ArrayList display under certain condition
 		- create a student list, write it to a file use forEach loop
+## Loop
 * WhileLoopTest.java
 	- whileTest
 	- doWhileTest
@@ -48,11 +51,13 @@
 	- continueOnCondition
 	- dice (probability)
 	- infiniteLoop
+## Switch	
 * SwitchTest.java
 	- weekdayConverter
 	- day2word
 	- number2Weekday
-* Data Structure
+
+## Data Structure
 	- QueueTest.java
 	- StackTest.java
 	- binary search
@@ -60,8 +65,8 @@
 	- sort (sortTest.java)
 
 ---
-## 2020-06-24 讲义
-* Exception
+
+## Exception
 	- uncheckedArrayUsage
 	- tryCatchTest() > add try-catch
 	- area(1.0f)
@@ -78,8 +83,8 @@
 	- create a Math class, define simple math functions
 
 ---
-## 2020-06-22 讲义
-* Github turn in homework (volentier)
+
+## File Access
 * FileTest.java
 	- readFileTest (create class, read a file, print content to console)
 	- writeFileTest
@@ -99,7 +104,7 @@
 ---
 ## 2020-06-22 讲义
 * Check homework
-* Demo how to do the homework
+## Demo how to do the homework
 * Review
 	- ~~create HelloWorld.java~~
 	- ~~Use scanner ask user name, and then say hello to him~~
@@ -623,7 +628,7 @@ try to change the format
 try to remove ;
 try to create variable without data type
 
-### Markdown md文件的制作，制作课堂笔记
+## Markdown md文件的制作，制作课堂笔记
 ![好记性不如烂笔头儿](烂笔头儿.png)
 * 显示标题，子标题 #, ##
 * 显示 tablet *，1
@@ -640,6 +645,14 @@ Enter(Return)
 ```
 
 ---
+
+## References
+[Java api document](https://docs.oracle.com/javase/8/docs/api/)
+[Tutorial point](https://www.tutorialspoint.com/java/java_exceptions.htm)
+[Java Tutorial](https://www.w3schools.com/java/java_methods.asp)
+[Breakout room](https://www.businessinsider.com/how-to-do-breakout-rooms-in-zoom)
+[Java class type](https://www.javatpoint.com/types-of-classes-in-java)
+
 
 
 Homework 1-1
