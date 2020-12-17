@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-12-17T16:12:02.958799100Z</date>
+  <millis>1608221522958</millis>
+  <nanos>799100</nanos>
+  <sequence>0</sequence>
+  <logger>MyLogger</logger>
+  <level>FINE</level>
+  <class>com.huaxia.java2.LoggerExample3</class>
+  <method>createBook</method>
+  <thread>1</thread>
+  <message>Creating a Book...</message>
+</record>
+<record>
+  <date>2020-12-17T16:12:02.979741400Z</date>
+  <millis>1608221522979</millis>
+  <nanos>741400</nanos>
+  <sequence>1</sequence>
+  <logger>MyLogger</logger>
+  <level>INFO</level>
+  <class>com.huaxia.java2.LoggerExample3</class>
+  <method>createBook</method>
+  <thread>1</thread>
+  <message>{}Book [_id=12345, title=Introduction to Python, price=12.99]</message>
+</record>
+<record>
+  <date>2020-12-17T16:12:03.040578900Z</date>
+  <millis>1608221523040</millis>
+  <nanos>578900</nanos>
+  <sequence>2</sequence>
+  <logger>MyLogger</logger>
+  <level>FINE</level>
+  <class>com.huaxia.java2.LoggerExample3</class>
+  <method>createBook</method>
+  <thread>1</thread>
+  <message>Creating a Book...</message>
+</record>
+<record>
+  <date>2020-12-17T16:12:03.041576700Z</date>
+  <millis>1608221523041</millis>
+  <nanos>576700</nanos>
+  <sequence>3</sequence>
+  <logger>MyLogger</logger>
+  <level>SEVERE</level>
+  <class>com.huaxia.java2.LoggerExample3</class>
+  <method>createBook</method>
+  <thread>1</thread>
+  <message>java.lang.NullPointerException</message>
+</record>
+</log>

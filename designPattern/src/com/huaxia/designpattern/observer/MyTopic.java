@@ -44,7 +44,7 @@ public class MyTopic implements Subject {
 		for (Observer obj : observersLocal) {
 			obj.update();
 		}
-
+		this.message = null;
 	}
 
 	@Override

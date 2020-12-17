@@ -1,5 +1,13 @@
 # 华夏中文学校 Java level-II
 
+Java 编写应用软件的几大要素
+1. logging ([Java Logging](#Logging))
+2. Unit test ([Unit Test](#JUnittest))
+3. Document ([Java Doc](#Java-Doc))
+4. Database ([Sqlite](#Sqlite))
+5. Version Control ([Git](#Git))
+
+
 [Understand Kingdomino Game](#Understand-Kingdomino-Game)
 
 [enum](#enum)
@@ -12,19 +20,67 @@
 
 [build Blackjack Card Game](#build-Blackjack-Card-Game)
 
+[JUnittest](#JUnittest)
 
 [Gson](#Gson)
 
+[Java Doc](#Java-Doc)
 
 [Design Pattern](#Design-Pattern)
 
-[](#)
+[Sqlite](#Sqlite)
 
 [Applications](#Applications)
+
+## JUnittest
+* Create JUnittest test case
+* Test Driving Development (TDD)
+    - SimpleMath.java
+    - SimpleMathTest.java
+
+## Java Doc
+* Project > Generate Javadoc...
+
+    ![Java Doc](./images/javadoc.png)
+
+## Sqlite
+add sqlite-jdbc-3.34.0.jar in classpath
+* Sqlite1.java; create connection
+* Sqlite2.java; Create table
+* Sqlite3.java; CRUD: Create record
+* Sqlite4.java; CRUD: Retrieve record
+* Sqlite5.java; CRUD: Update a record
+* Sqlite6.java; CRUD: Delete a record
+
+## Git
+* Create a git repository folder
+
+```
+git init
+```
+
+* .gitignore
+* Check in
+```
+git add *
+git commit -m "must add some message when commit"
+```
+
+* git Branch
+```
+git branch
+git branch dev
+```
+* Check Status
+```
+git status
+git log --oneline
+```
 
 ## Design Pattern
 * Observer
 
+    ObserverPatternTest.java
 * Singleton
 * Factory
 * Builder
@@ -102,6 +158,21 @@ java.util.logging.FileHandler.formatter = java.util.logging.XMLFormatter
 java.util.logging.ConsoleHandler.level = INFO
 java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
 ```
+* if you don't setup output file name, the default file will be saved in user's home folder with format java0.log
+
+    LoggerExample1.java
+* Create your own log file
+
+    LoggerExample2.java
+* Configure you own logging properties and output file: ./conf/logging.properties
+
+    LoggerExample3.java
+
+```java
+String path = LoggerExample1.class.getClassLoader().getResource("logging.properties").getFile();
+System.setProperty("java.util.logging.config.file",path);
+
+```
 
 ## Applications
 * Calculator
@@ -117,3 +188,7 @@ java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
 [Gson Tutorial](https://mkyong.com/java/how-to-parse-json-with-gson/)
 
 [Design Patter Tutorial](https://www.journaldev.com/1827/java-design-patterns-example-tutorial)
+
+[Java Logging](http://tutorials.jenkov.com/java-logging/logger.html)
+
+[Sqlite](https://www.tutorialspoint.com/sqlite/sqlite_java.htm)

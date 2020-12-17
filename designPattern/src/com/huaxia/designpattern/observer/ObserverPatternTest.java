@@ -6,25 +6,28 @@ public class ObserverPatternTest {
 		MyTopic topic = new MyTopic();
 
 		// create observers
-		Observer obj1 = new MyTopicSubscriber("Obj1");
-		Observer obj2 = new MyTopicSubscriber("Obj2");
-		Observer obj3 = new MyTopicSubscriber("Obj3");
+		Observer observer1 = new MyTopicSubscriber("observer1");
+		Observer observer2 = new MyTopicSubscriber("observer2");
+		Observer observer3 = new MyTopicSubscriber("observer3");
 
 		// register observers to the subject
-		topic.register(obj1);
-		topic.register(obj2);
-		topic.register(obj3);
+		topic.register(observer1);
+		topic.register(observer2);
+		topic.register(observer3);
 
 		// attach observer to subject
-		obj1.setSubject(topic);
-		obj2.setSubject(topic);
-		obj3.setSubject(topic);
+		observer1.setSubject(topic);
+		observer2.setSubject(topic);
+		observer3.setSubject(topic);
 
 		// check if any update is available
-		obj1.update();
+		observer1.update();
 
 		// now send message to subject
-		topic.postMessage("New Message");
+		topic.postMessage("New Message is comming...");
+		
+		observer1.update();
+
 	}
 
 }
