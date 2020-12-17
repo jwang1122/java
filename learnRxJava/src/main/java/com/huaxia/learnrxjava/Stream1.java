@@ -1,4 +1,4 @@
-package com.huaxia.java2;
+package com.huaxia.learnrxjava;
 
 import java.util.ArrayList;
 import java.util.List;

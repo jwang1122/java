@@ -106,6 +106,14 @@ public String toString(){
 ![Calculate Score](scoreLogic.png)
 
 
+## Design Pattern
+* Creational Design Pattern
+    - Singleton Pattern
+    - Factory Pattern
+    - Abstract Factory Pattern
+    - Builder Pattern
+    - Prototype Pattern
+* Structural Design Pattern
 
 
 ## Build Blackjack from scratch

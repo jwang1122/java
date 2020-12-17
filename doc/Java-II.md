@@ -12,16 +12,28 @@
 
 [build Blackjack Card Game](#build-Blackjack-Card-Game)
 
-[enum](#enum)
 
 [Gson](#Gson)
 
 
-[](#)
+[Design Pattern](#Design-Pattern)
 
 [](#)
 
 [Applications](#Applications)
+
+## Design Pattern
+* Observer
+
+* Singleton
+* Factory
+* Builder
+* Decorator
+* Strategy
+* Command
+* Bridge
+* Facade
+* Prototype
 
 ## Gson
 [Gson Tutorial](https://mkyong.com/java/how-to-parse-json-with-gson/)
@@ -47,6 +59,16 @@
 
 ## Reactive x in Java
 
+![Reactive Action](./images/ReactiveAction.gif)
+* DividedByZero.java; normal way to handle exception
+* OptionExample1.java; DividedByZero, Option way
+* EitherExample2.java; use Either for / by zero
+* EitherExample1.java; Use Gson convert json file to book list
+* Employee.java; use filter
+* MultipleReturn1.java; use Hashmap for function return multiple values.
+* Operation.java; abstract class
+* OptionExample1.java; 
+
 ## class
 * Static Class; StaticClassExample.java
 * Final Class; FinalClassExample.java > final class cannot be inheriated.
@@ -64,6 +86,22 @@
 
 ## build Blackjack Card Game
 
+## Logging
+    - Log all the things. Log as much as we possibly can, to always have relevant, contextual logs that don’t add overhead.
+    - Work smarter, not harder. Consolidate and aggregate all of our logging to a central location, available to all devs, and easy to distil. Also, to find new ways for our logging and exception data to help us proactively improve our product.
+* C:\Program Files\Java\jdk-14.0.2\conf\logging.properties
+```
+handlers= java.util.logging.ConsoleHandler
+.level= INFO
+java.util.logging.FileHandler.pattern = %h/java%u.log
+java.util.logging.FileHandler.limit = 50000
+java.util.logging.FileHandler.count = 1
+java.util.logging.FileHandler.maxLocks = 100
+java.util.logging.FileHandler.formatter = java.util.logging.XMLFormatter
+java.util.logging.ConsoleHandler.level = INFO
+java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
+
+```
 ## Applications
 * Calculator
 * Notepade
@@ -76,3 +114,5 @@
 [Java Class Type](https://www.javatpoint.com/types-of-classes-in-java)
 
 [Gson Tutorial](https://mkyong.com/java/how-to-parse-json-with-gson/)
+
+[Design Patter Tutorial](https://www.journaldev.com/1827/java-design-patterns-example-tutorial)

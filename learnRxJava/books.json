@@ -1,6 +1,6 @@
 [
     {
-        "id": "11111",
+        "_id": "11111",
         "title": "On the Road",
         "author": "Jack Kerouac",
         "read": true,
@@ -8,7 +8,7 @@
         "rating":3
     },
     {
-        "id": "22222",
+        "_id": "22222",
         "title": "Harry Potter and the Philosopher's Stone",
         "author": "J. K. Rowling",
         "read": false,
@@ -16,7 +16,7 @@
         "rating":5      
     },
     {
-        "id": "33333",
+        "_id": "33333",
         "title": "Green Eggs and Ham",
         "author": "Dr. Seuss",
         "read": true,

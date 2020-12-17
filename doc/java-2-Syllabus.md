@@ -13,6 +13,12 @@
 * Interface, Abstract Class, and Class
 * Enums
 * inner classes
+
+## Functional Programming
+
+## Reactive X
+
+
 ## Data Structure
 * LinkedList
 * HashMap

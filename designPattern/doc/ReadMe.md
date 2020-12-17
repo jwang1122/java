@@ -8,3 +8,6 @@
 * LazyInitializedSingleton.java
 * StaticBlockSingleton.java
 * ThreadSafeSingleton.java
+
+## Factory
+* 
