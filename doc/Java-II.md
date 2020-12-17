@@ -90,9 +90,10 @@
     - Log all the things. Log as much as we possibly can, to always have relevant, contextual logs that don’t add overhead.
     - Work smarter, not harder. Consolidate and aggregate all of our logging to a central location, available to all devs, and easy to distil. Also, to find new ways for our logging and exception data to help us proactively improve our product.
 * C:\Program Files\Java\jdk-14.0.2\conf\logging.properties
+make change on this file will make FileHandler on level FINE, and ConsoleHandler on INFO
 ```
-handlers= java.util.logging.ConsoleHandler
-.level= INFO
+handlers= java.util.logging.FileHandler, java.util.logging.ConsoleHandler
+.level= FINE
 java.util.logging.FileHandler.pattern = %h/java%u.log
 java.util.logging.FileHandler.limit = 50000
 java.util.logging.FileHandler.count = 1
@@ -100,8 +101,8 @@ java.util.logging.FileHandler.maxLocks = 100
 java.util.logging.FileHandler.formatter = java.util.logging.XMLFormatter
 java.util.logging.ConsoleHandler.level = INFO
 java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
-
 ```
+
 ## Applications
 * Calculator
 * Notepade

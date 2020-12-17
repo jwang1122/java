@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-12-17T15:52:01.542816Z</date>
+  <millis>1608220321542</millis>
+  <nanos>816000</nanos>
+  <sequence>1</sequence>
+  <logger>MyLogger</logger>
+  <level>INFO</level>
+  <class>com.huaxia.java2.LoggerExample2</class>
+  <method>createBook</method>
+  <thread>1</thread>
+  <message>{}Book [_id=12345, title=Introduction to Python, price=12.99]</message>
+</record>
+<record>
+  <date>2020-12-17T15:52:01.608638800Z</date>
+  <millis>1608220321608</millis>
+  <nanos>638800</nanos>
+  <sequence>3</sequence>
+  <logger>MyLogger</logger>
+  <level>SEVERE</level>
+  <class>com.huaxia.java2.LoggerExample2</class>
+  <method>createBook</method>
+  <thread>1</thread>
+  <message>java.lang.NullPointerException</message>
+</record>
+</log>

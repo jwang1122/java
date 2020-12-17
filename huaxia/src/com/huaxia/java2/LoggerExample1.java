@@ -1,34 +1,17 @@
 package com.huaxia.java2;
-
-import java.util.logging.Level;
+/*
+ * Use  C:\Program Files\Java\jdk-14.0.2\conf\logging.properties
+ */
 import java.util.logging.Logger;
 
 public class LoggerExample1 {
-    private static Logger log = Logger.getLogger("MyLogger");
-    
-    public static Book createBook(String id, String title, Double price) {
-   	 
-   	 log.log(Level.INFO, "Creating a Book");
-   	 
-   	 try {
-   		 Book book = new Book(id, title, price);
-
-   		 log.log(Level.INFO, "{}"+ book);
-   		 
-   		 return book;
-   		 
-   	 } catch (Exception e) {
-   		 log.log(Level.SEVERE, e.getMessage());
-   	 }
-   	 
-   	 return null;
-    }
+	private static Logger LOGGER = Logger.getLogger(LoggerExample1.class.getName());
 
 	public static void main(String[] args) {
-		Book book = createBook("12345", "Introduction to Python", 12.99);
-		System.out.println(book);
-		book = createBook("12345", "Introduction to Python", null);
-		System.out.println(book);
+		System.out.println("-- main method starts --");
+		LOGGER.fine("a fine msg");
+		LOGGER.info("an info msg");
+		LOGGER.warning("a warning msg");
+		LOGGER.severe("a severe msg");
 	}
-
 }
