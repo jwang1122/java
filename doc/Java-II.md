@@ -77,6 +77,9 @@ git status
 git log --oneline
 ```
 
+* Git process locked
+    solution: remove .git/index.lock file.
+
 ## Design Pattern
 * Observer
 
