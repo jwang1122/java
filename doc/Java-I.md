@@ -7,12 +7,13 @@
 1. [Loop](#Loop)
 1. [Print String](#Print-String)
 1. [if-else](#If-Else)
+1. [Switch](#Switch)
 1. [Array](Array)
 1. [Array List](#Array-List)
 1. [Simple Math](#Simple-Math)
 1. [Exception](#Exception)
+1. [OOP](#OOP)
 1. [File Access](#File-Access)
-1. [Switch](#Switch)
 1. [Data Structure](Data-Structure)
 1. [References](#References)
 1. [All Topics](#All-topics)
@@ -190,16 +191,35 @@ git --version
 	- create a Math class, define simple math functions
 
 ---
+## OOP
+* Object Oriented Programming concept
+* Abstraction
+* Inheritance
+* Encapsulation
+* Polymophism
+* Interface (variable, method signature)
+* Abstract class (abstract method, concrete method)
+* Class
+* Constructor
+* Getter/Setter
+* Method overloading
+* Method overriding
+* Super class/sub class (protected vs. package default)
+* toString() method
+* Card.java; basic card class
+
+![Card](./images/card.png)
+* BlackjackCard.java; sub card class
 
 ## File Access
 * FileTest.java
 	- readFileTest (create class, read a file, print content to console)
 	- writeFileTest
 	- appendToFileTest (api doc > FileWriter) (write "Hello world" to a file)
-* Read_CSV_File.java
 * Write_CSV_File.java
-* ReadJsonFile.java
-* WriteJsonFile.java
+* Read_CSV_File.java
+* GsonExample1.java; write Staff object to json file staff.json
+* GsonExample2.java; read staff.json to build Staff object
 
 * Review
 	- search Scanner, Break, Continue
