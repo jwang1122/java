@@ -9,10 +9,10 @@ import java.util.Scanner;
  * }
  *
  */
-public class WhileLoopTester {
+public class WhileLoop1 {
 
 	public static void main(String[] args) {
-		WhileLoopTester test = new WhileLoopTester();
+		WhileLoop1 test = new WhileLoop1();
 		int i = 0; // change to i=6
 		test.whileTest(i);
 //		test.doWhileTest(i);

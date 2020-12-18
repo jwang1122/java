@@ -1,10 +1,120 @@
 # 华夏中文学校 Java level-I
 
-[References](#References)
+1. [Getting Started](#Getting-Started)
+1. [Using Markdown](#Using-Markdown)
+1. [Syntax basic](#Syntax-Basic)
+1. [Data type](#Data-type)
+1. [Loop](#Loop)
+1. [Print String](#Print-String)
+1. [if-else](#If-Else)
+1. [Array](Array)
+1. [Array List](#Array-List)
+1. [Exception](#Exception)
+1. [Simple Math](#Simple-Math)
+1. [File Access](#File-Access)
+1. [Switch](#Switch)
+1. [Data Structure](Data-Structure)
+1. [References](#References)
+1. [All Topics](#All-topics)
 
-[Exception](#Exception)
 
-[All Topics](#All-topics)
+## Getting Started
+* Install JDK
+	>Google search: jdk 8 download
+	Search result: Java SE Development Kit 8 - Downloads - Oracle
+	[Java Compiler Download](https://www.oracle.com/java/technologies/javase-downloads.html)
+
+	![Java Download page](./images/DownloadJava.png)
+	>File: jdk-14.0.1_osx-x64_bin.dmg
+* Install Eclipse
+	>Google search: eclipse for java
+	Search result: Eclipse Downloads | The Eclipse Foundation
+
+	[Eclipse Download](https://www.eclipse.org/downloads/)
+	![Eclipse Download page](./images/DownloadEclipse.png)
+	>File: eclipse-inst-mac64.dmg
+
+* Install Git
+	>Google search: git downloads
+	Search result: Git - Downloads 
+	[Git Download](https://git-scm.com/downloads)
+	![Git Download Page](./images/GitDownload.png)
+	>File: Git-2.29.2.3-64-bit.exe
+
+For MacOS:
+```
+brew install git
+ls -la /usr/local 
+sudo chown -R wangqianjiang:wheel /usr/local
+brew link git
+```
+
+* installation check
+```sh
+java -version
+git --version
+```
+* Turn in homework to GitHub
+
+* Get formilar with your key board.
+
+	![keyboard-windows](./images/keyboard-windows.jpg)
+
+	![keyboard-apple](./images/keyboard-apple.jpg)
+
+## Using Markdown 
+* √ Markdown md文件的制作，制作课堂笔记
+![好记性不如烂笔头儿](./images/烂笔头儿.png)
+    - add Markdown Extension
+    - 显示标题，子标题 #, ##
+    - 显示 tablet *，1
+    - 显示命令行
+    - 显示图形
+    - 显示链接
+
+![磨刀不误砍柴工](./images/磨刀.jpeg)
+* [Markdown Cheat Sheet](markdown-cheat-sheet.md)
+
+## Syntax basic
+![class abstract](./images/classAbstraction.png)
+
+![捡了芝麻丢了西瓜](./images/watermeolen.png)
+
+* Hello.java; create Java code from new class
+* OOP concept > Abstraction (Cup.java; Computer.java)
+* System print() (LearnForLoop.java right-angle triangle)
+* main method (MainMethodTest.java)
+
+## Print String
+* print.java; Simple math (Homework: )
+* print1.java; print String
+
+## Loop
+* ForLoop1.java; simple for loop
+* ForLoop2.java; step by 2
+* ForLoop3.java; neigative step
+* ForLoop4.java; forEach
+* ForLoop12.java; nested for loop, print right triangle
+
+[Print Homework](printHW.md)
+
+* WhileLoop1.java; 
+	- whileTest
+	- doWhileTest
+	- breakOnCondition
+	- continueOnCondition
+	- dice (probability)
+	- infiniteLoop
+* GuessNumber.java;
+
+## Simple Math
+* SimpleMath.java; add(), sub(), mul(), div(). method overloading
+* MathTest.java; built in Math functions
+* LCM.java; Least Common Multiple
+* GCF.java; Greatest Common Factor
+* Prime.java; 
+* PerfactNumber.java
+*
 
 ## All topics
 * Hello World! (HelloWorld.java)
@@ -33,7 +143,7 @@
 	- pull from github
 	- Math1.java > div(10,0)
 	- printf() > 10 + 20 = 30
-## ArrayList
+## Array List
 * ArrayListTest.java
 	- review create string array
 	- createIntegerArrayList (difference between array and ArrayList)
@@ -43,14 +153,7 @@
 	- practice
 		- create float ArrayList display under certain condition
 		- create a student list, write it to a file use forEach loop
-## Loop
-* WhileLoopTest.java
-	- whileTest
-	- doWhileTest
-	- breakOnCondition
-	- continueOnCondition
-	- dice (probability)
-	- infiniteLoop
+
 ## Switch	
 * SwitchTest.java
 	- weekdayConverter
@@ -89,6 +192,11 @@
 	- readFileTest (create class, read a file, print content to console)
 	- writeFileTest
 	- appendToFileTest (api doc > FileWriter) (write "Hello world" to a file)
+* Read_CSV_File.java
+* Write_CSV_File.java
+* ReadJsonFile.java
+* WriteJsonFile.java
+
 * Review
 	- search Scanner, Break, Continue
 	- read content from a file, parse each line to a world, display on console
@@ -149,6 +257,7 @@
 	- continueOnCondition
 	- prime
 	- findPrimeNumbersBetween(40,50)
+	- perfactNumber.java
 	- findGCD
 	- rollDices
 	- infiniteLoop
@@ -233,7 +342,7 @@ change folder to ~/workspace/java/huaxia/bin
 ```
 $ java com.huaxia.test.MainMethodTest arg1 arg2 arg3 arg4
 ```
-### Data type
+## Data type
 Change variable name for windows: Alt+shift+R; 
 Primitive Data Types
 ```
@@ -516,34 +625,6 @@ javac -version
 ```
 
 ### 软件下载安装
->Google search: eclipse for java
-Search result: Eclipse Downloads | The Eclipse Foundation
-
-1. [Eclipse Download](https://www.eclipse.org/downloads/)
-![Eclipse Download page](DownloadEclipse.png)
->File: eclipse-inst-mac64.dmg
-
->Google search: jdk 8 download
-Search result: Java SE Development Kit 8 - Downloads - Oracle
-2. [Java Compiler Download](https://www.oracle.com/java/technologies/javase-downloads.html)
-![Java Download page](DownloadJava.png)
->File: jdk-14.0.1_osx-x64_bin.dmg
-
->Google search: git downloads
-Search result: Git - Downloads 
-3. [Git Download](https://git-scm.com/downloads)
-```
-brew install git
-ls -la /usr/local 
-sudo chown -R wangqianjiang:wheel /usr/local
-brew link git
-```
-
-### installation check
-```sh
-java -version
-git --version
-```
 ### use text editor to write java program
 ```sh
 (base) Johns-MacBook-Pro:java wangqianjiang$ javac Test.java

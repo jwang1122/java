@@ -1,5 +1,7 @@
 package com.huaxia.java1;
-
+/*
+ * LCM: Least Common Multiple
+ */
 public class LCM {
 	public static int lcm(int n1, int n2) {
 		int lcm = 1;
@@ -16,5 +18,8 @@ public class LCM {
             ++lcm;
         }		
 		return lcm;
+	}
+	public static void main(String[] args) {
+		System.out.println(lcm(15,6));
 	}
 }

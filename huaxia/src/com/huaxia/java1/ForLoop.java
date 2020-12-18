@@ -15,10 +15,10 @@ import java.util.ArrayList;
  * @author wang, qianjiang
  *
  */
-public class ForLoopTester {
+public class ForLoop {
 
 	public static void main(String[] args) {
-		ForLoopTester test = new ForLoopTester();
+		ForLoop test = new ForLoop();
 //		test.simpleFor();
 //		test.stepBy2();
 //		test.stepByNeigative2();

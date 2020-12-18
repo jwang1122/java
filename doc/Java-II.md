@@ -4,8 +4,8 @@ Java 编写应用软件的几大要素
 1. logging ([Java Logging](#Logging))
 2. Unit test ([Unit Test](#JUnittest))
 3. Document ([Java Doc](#Java-Doc))
-4. Database ([Sqlite](#Sqlite))
-5. Version Control ([Git](#Git))
+4. Database Access ([Sqlite](#Sqlite))
+5. Source Version Control ([Git](#Git))
 
 
 [Understand Kingdomino Game](#Understand-Kingdomino-Game)
@@ -42,6 +42,8 @@ Java 编写应用软件的几大要素
 * Project > Generate Javadoc...
 
     ![Java Doc](./images/javadoc.png)
+* Markdown document
+    [Markdown cheet sheet](markdown-cheat-sheet.md)
 
 ## Sqlite
 add sqlite-jdbc-3.34.0.jar in classpath
@@ -53,6 +55,7 @@ add sqlite-jdbc-3.34.0.jar in classpath
 * Sqlite6.java; CRUD: Delete a record
 
 ## Git
+[Git cheat sheet](Git-CheatSheet.pdf)
 * Create a git repository folder
 
 ```
@@ -62,7 +65,7 @@ git init
 * .gitignore
 * Check in
 ```
-git add *
+git add .
 git commit -m "must add some message when commit"
 ```
 
