@@ -9,8 +9,8 @@
 1. [if-else](#If-Else)
 1. [Array](Array)
 1. [Array List](#Array-List)
-1. [Exception](#Exception)
 1. [Simple Math](#Simple-Math)
+1. [Exception](#Exception)
 1. [File Access](#File-Access)
 1. [Switch](#Switch)
 1. [Data Structure](Data-Structure)
@@ -112,9 +112,11 @@ git --version
 * MathTest.java; built in Math functions
 * LCM.java; Least Common Multiple
 * GCF.java; Greatest Common Factor
-* Prime.java; 
-* PerfactNumber.java
-*
+* GCD1.java; Greatest Common Divisor
+* GCD1.java; find GCD by while loop
+* Prime.java; find prime number by definition
+* PerfactNumber.java; find perfact number
+* 
 
 ## All topics
 * Hello World! (HelloWorld.java)
@@ -161,15 +163,17 @@ git --version
 	- number2Weekday
 
 ## Data Structure
-	- QueueTest.java
-	- StackTest.java
-	- binary search
+* QueueTest.java
+* StackTest.java
+* binary search
+
 	![Binary Search](./images/Binary-Search.png)
-	- sort (sortTest.java)
+* sort (sortTest.java)
 
 ---
 
 ## Exception
+* Understand Exception Hierarchy
 	- uncheckedArrayUsage
 	- tryCatchTest() > add try-catch
 	- area(1.0f)
