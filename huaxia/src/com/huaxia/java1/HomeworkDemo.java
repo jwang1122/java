@@ -1,5 +1,7 @@
 package com.huaxia.java1;
 
+import com.huaxia.java1.math.LCM;
+
 public class HomeworkDemo {
 
 	public static void main(String[] args) {

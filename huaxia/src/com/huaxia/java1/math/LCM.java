@@ -1,4 +1,4 @@
-package com.huaxia.java1;
+package com.huaxia.java1.math;
 /*
  * LCM: Least Common Multiple
  */

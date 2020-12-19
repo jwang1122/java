@@ -4,6 +4,7 @@
 1. [Using Markdown](#Using-Markdown)
 1. [Syntax basic](#Syntax-Basic)
 1. [Data type](#Data-type)
+1. [Operator](#Operator)
 1. [Loop](#Loop)
 1. [Print String](#Print-String)
 1. [if-else](#If-Else)
@@ -87,9 +88,14 @@ git --version
 * main method (MainMethodTest.java)
 
 ## Print String
-* print.java; Simple math (Homework: )
-* print1.java; print String
+* Print.java; Simple math (Homework: )
+* Print1.java; print String
+* Print2.java; String.format() > java.util.Formatter
+* PrintTriangle.java; After learn Loop, print Triangle, Diamonds
 
+[String format document](https://docs.oracle.com/javase/8/docs/api/) > String > format(String format, Object... args) > Parameters: format > java.util.Formatter
+
+![StringBuilder vs. StringBuffer](./images/StringBuilderVsBuffer.jpg)
 ## Loop
 * ForLoop1.java; simple for loop
 * ForLoop2.java; step by 2
@@ -99,6 +105,19 @@ git --version
 * ForLoop6.java; continue on condition
 * ForLoop7.java; infinite loop, Scanner
 * ForLoop12.java; nested for loop, print right triangle
+* ForLoopTester.java
+	- simpleFor
+	- stepBy2
+	- stepByNeigative2
+	- forEach
+	- breakOnCondition
+	- continueOnCondition
+	- prime
+	- findPrimeNumbersBetween(40,50)
+	- perfactNumber.java
+	- findGCD
+	- rollDices
+	- infiniteLoop
 
 [Print Homework](printHW.md)
 
@@ -289,19 +308,6 @@ git --version
 * check homework
 * review last learn
 
-* ForLoopTester.java
-	- simpleFor
-	- stepBy2
-	- stepByNeigative2
-	- forEach
-	- breakOnCondition
-	- continueOnCondition
-	- prime
-	- findPrimeNumbersBetween(40,50)
-	- perfactNumber.java
-	- findGCD
-	- rollDices
-	- infiniteLoop
 
 
 ## 2020-06-16 讲义
@@ -399,7 +405,9 @@ Refer to: ArrayTest.java
 Right-click [project name]:properties > Java Code Style:Formatter > Configure Workspace Settings> Active profile: jwang > [Edit] > comments >
 ![Comments Setup](./images/EclipseCommets.png)
 
-### For Loop
+## Operator
+* OperatorTest.java
+
 ```
 Refer to: ForLoopTest.java
 ```

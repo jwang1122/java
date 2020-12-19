@@ -1,7 +1,8 @@
-package com.huaxia.java1;
+package com.huaxia.java1.json;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.huaxia.java1.Staff;
 
 import java.io.FileWriter;
 import java.io.IOException;

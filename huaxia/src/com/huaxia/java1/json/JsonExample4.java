@@ -1,6 +1,7 @@
-package com.huaxia.java1;
+package com.huaxia.java1.json;
 
 import com.google.gson.Gson;
+import com.huaxia.java1.Student;
 
 /*
  * Build Student class object from Json String.

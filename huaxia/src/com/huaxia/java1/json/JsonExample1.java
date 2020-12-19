@@ -1,9 +1,10 @@
-package com.huaxia.java1;
+package com.huaxia.java1.json;
 
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.huaxia.java1.Student;
 
 public class JsonExample1 {
 

@@ -3,10 +3,10 @@ package com.huaxia.java1;
 /*
  * print patterns
  */
-public class Print3 {
+public class PrintTriangle {
 
 	public static void main(String[] args) {
-		Print3 test = new Print3();
+		PrintTriangle test = new PrintTriangle();
 
 //		test.equilateralTriangle();
 //		test.upsideDownTriangle();

@@ -1,4 +1,4 @@
-package com.huaxia.java1;
+package com.huaxia.java1.loop;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -9,10 +9,10 @@ import java.util.Scanner;
  * }
  *
  */
-public class WhileLoop1 {
+public class WhileLoop {
 
 	public static void main(String[] args) {
-		WhileLoop1 test = new WhileLoop1();
+		WhileLoop test = new WhileLoop();
 		int i = 0; // change to i=6
 		test.whileTest(i);
 //		test.doWhileTest(i);

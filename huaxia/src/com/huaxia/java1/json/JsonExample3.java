@@ -1,4 +1,4 @@
-package com.huaxia.java1;
+package com.huaxia.java1.json;
 
 import java.util.HashMap;
 import java.util.Map;

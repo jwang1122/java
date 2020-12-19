@@ -1,4 +1,4 @@
-package com.huaxia.java1;
+package com.huaxia.java1.loop;
 
 import java.util.Random;
 import java.util.Scanner;

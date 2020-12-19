@@ -9,8 +9,8 @@ public class Print1 {
 
 	void basicPrint() {
 		String name = "John";
-		String sf1 = String.format("name is %s.", name);
-		String sf2 = String.format("value is %f.", 3.1415926);
+		String sf1 = String.format("My name is %s.", name);
+		String sf2 = String.format("value is %f.", Math.PI);
 		String sf3 = String.format("value is %5.3f.", 3.1415926);
 		System.out.println(sf1);
 		System.out.println(sf2);
