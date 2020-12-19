@@ -1,4 +1,4 @@
-package com.huaxia.java1;
+package com.huaxia.java1.math;
 /*
  * ask students to make better print out on console window.
  */

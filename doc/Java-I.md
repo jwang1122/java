@@ -1,12 +1,13 @@
 # 华夏中文学校 Java level-I
 
+1. [Familiar with your keyboard](#Familiar-with-your-keyboard)
 1. [Getting Started](#Getting-Started)
 1. [Using Markdown](#Using-Markdown)
+1. [Print String](#Print-String)
 1. [Syntax basic](#Syntax-Basic)
 1. [Data type](#Data-type)
 1. [Operator](#Operator)
 1. [Loop](#Loop)
-1. [Print String](#Print-String)
 1. [if-else](#If-Else)
 1. [Switch](#Switch)
 1. [Array](Array)
@@ -19,6 +20,26 @@
 1. [References](#References)
 1. [All Topics](#All-topics)
 
+## Familiar with your keyboard
+![windows keyboard](./images/keyboard-windows.jpg)
+![Apple keyboard](./images/keyboard-apple.jpg)
+```
+space
+:
+ctrl+c
+Ctrl+v
+ctrl+/
+shift+downarrow
+tab
+shift+tab
+Enter(Return)
+"
+`
+upArrow: bring previous command back
+downArrow: bring next command back
+leftArrow: move cursor to left in DOS window
+rightArrow: move cursor to right in DOS window
+```
 
 ## Getting Started
 * Install JDK
@@ -82,20 +103,47 @@ git --version
 
 ![捡了芝麻丢了西瓜](./images/watermeolen.png)
 
-* Hello.java; create Java code from new class
+* Hello.java; create Java code from new class (key words, modifier, (), {})
+
+![Java Key-words](./images/javaKeywords.png)
+
+Modifier     | Description
+|---         |---|
+public       | access modifier, accessible for all classes
+protected    | access modifier, accessible in same package and subclasses
+private      | access modifier, accessible only in the declared class
+[default]    | no modifier, accessible in the same package
+final        | on class to make the class cannot be inherited by other class
+final        | on attribute and method so then cannot be override or make change
+static       | make attribute and method belong to the class, can be accessed directly by using class name.
+abstract     | abstract class or abstract method
+transient    | attributes and methods are skipped when serializing the object
+synchronized | Method can only be accessed by one thread at a time
+volatile     | value of an attribute is not cached thrad-locally, and is always read from the "main memory"
+
+
+
 * OOP concept > Abstraction (Cup.java; Computer.java)
 * System print() (LearnForLoop.java right-angle triangle)
-* main method (MainMethodTest.java)
+* main method (MainMethodTest.java); String[] args; 
+
+	Run > Run Configurations... > Arguments
+
+![Add args to Java application](./images/mainArgs.png)
 
 ## Print String
+* Hello.java; 
 * Print.java; Simple math (Homework: )
 * Print1.java; print String
 * Print2.java; String.format() > java.util.Formatter
+* Print3.java; StringBuilder vs. StringBuffer
+
+![StringBuilder vs. StringBuffer](./images/StringBuilderVsBuffer.jpg)
 * PrintTriangle.java; After learn Loop, print Triangle, Diamonds
 
 [String format document](https://docs.oracle.com/javase/8/docs/api/) > String > format(String format, Object... args) > Parameters: format > java.util.Formatter
+* StringTest.java; Understand String operations
 
-![StringBuilder vs. StringBuffer](./images/StringBuilderVsBuffer.jpg)
 ## Loop
 * ForLoop1.java; simple for loop
 * ForLoop2.java; step by 2
@@ -129,6 +177,9 @@ git --version
 	- dice (probability)
 	- infiniteLoop
 * GuessNumber.java;
+* RollDice.java; Math.random()
+* RollDice2.java; static method
+
 
 ## Simple Math
 * SimpleMath.java; add(), sub(), mul(), div(). method overloading

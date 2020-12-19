@@ -1,4 +1,4 @@
-package com.huaxia.java1;
+package com.huaxia.java1.math;
 
 import java.util.ArrayList;
 import java.util.List;
