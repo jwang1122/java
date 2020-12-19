@@ -1,5 +1,8 @@
 package com.huaxia.java1;
 
+/*
+ * forEach
+ */
 public class ForLoop4 {
 	/**
 	 * for (type variableName : arrayName) {

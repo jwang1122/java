@@ -17,6 +17,22 @@ public class Card {
 		this.suit = suit;
 	}
 
+	public int getValue() {
+		switch(face) {
+		case "A":
+			return 1;
+		case "J":
+			return 11;
+		case "Q":
+			return 12;
+		case "K":
+			return 13;
+		default:
+			break;
+		}
+		return Integer.parseInt(face);
+	}
+	
 	public String toString() {
 		return "(" + face + ", " + suit + ")";
 	}

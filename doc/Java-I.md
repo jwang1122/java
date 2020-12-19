@@ -95,6 +95,9 @@ git --version
 * ForLoop2.java; step by 2
 * ForLoop3.java; neigative step
 * ForLoop4.java; forEach
+* ForLoop5.java; break loop on condition
+* ForLoop6.java; continue on condition
+* ForLoop7.java; infinite loop, Scanner
 * ForLoop12.java; nested for loop, print right triangle
 
 [Print Homework](printHW.md)
@@ -117,7 +120,9 @@ git --version
 * GCD1.java; find GCD by while loop
 * Prime.java; find prime number by definition
 * PerfactNumber.java; find perfact number
-* 
+* Fraction.java; Fraction math: add, sub, multiply and divide
+
+![Perfact Number](./images/perfactNumber.png)
 
 ## All topics
 * Hello World! (HelloWorld.java)
@@ -193,10 +198,22 @@ git --version
 ---
 ## OOP
 * Object Oriented Programming concept
+
+	![Java OOP](images/oop.png)
+	![Abstraction](images/classDefine.png)
+
 * Abstraction
+	Cup.java
 * Inheritance
+	SuperClass1.java
+	SubClass1.java
 * Encapsulation
 * Polymophism
+	what's your name?
+	Student
+	Teacher
+	Employee
+	Manager
 * Interface (variable, method signature)
 * Abstract class (abstract method, concrete method)
 * Class
@@ -516,39 +533,11 @@ menu: Project > Generate Javadoc
 ```
 Homework: do math
 
-### for loop
-```java
-	/**
-	 * Use the for loop to print the following pattern
-	 * 1
-	 * 2 2
-	 * 3 3 3
-	 * 4 4 4 4
-	 * 
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		System.out.println("Hello world.");
-		for (int i=1; i<5; i++) {
-			for (int j=0; j<i; j++) {
-				System.out.print(i);
-				System.out.print(" ");
-			}
-			System.out.println();
-		}
 
-	}
-
-```
 ---
 
 ## 20200605 讲义
-![Java OOP](images/oop.png)
-![Abstraction](images/classDefine.png)
 
-Cup.java
-SuperClass1.java
-SubClass1.java
 
 ## 20200604 讲义
 
