@@ -4,14 +4,14 @@ public class OperatorTest {
 
 	public static void main(String[] args) {
 		OperatorTest test = new OperatorTest();
-//		test.mathOperator();
+		test.mathOperator();
 //		test.doubleOperator();
 //		test.comparisionOperator();
-		test.logicOperator();
-		test.ternaryOperator(12);
+//		test.logicOperator();
+//		test.ternaryOperator(12);
 	}
 
-	private void ternaryOperator(int x) {
+	void ternaryOperator(int x) {
 		String result = (x % 2 == 0) ? String.format("%d is enven number.",x) : String.format("%d is odd number.", x);
 		System.out.println(result);
 	}
