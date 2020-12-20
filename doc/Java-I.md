@@ -1,16 +1,20 @@
 # 华夏中文学校 Java level-I
 
+## Table of Contents
 1. [Familiar with your keyboard](#Familiar-with-your-keyboard)
 1. [Getting Started](#Getting-Started)
 1. [Using Markdown](#Using-Markdown)
+1. [Basic Git Command](#Basic-Git-Command)
+1. [How to turn in the homework](#How-to-turn-in-the-homework)
+1. [open Eclipse](#open-Eclipse)
 1. [Print String](#Print-String)
 1. [Syntax basic](#Syntax-Basic)
 1. [Data type](#Data-type)
 1. [Operator](#Operator)
 1. [Loop](#Loop)
-1. [if-else](#If-Else)
+1. [if-else](#if-else)
 1. [Switch](#Switch)
-1. [Array](Array)
+1. [Array](#Array)
 1. [Array List](#Array-List)
 1. [Simple Math](#Simple-Math)
 1. [Exception](#Exception)
@@ -19,6 +23,7 @@
 1. [Data Structure](Data-Structure)
 1. [References](#References)
 1. [All Topics](#All-topics)
+1. [Review](#Review)
 
 ## Familiar with your keyboard
 ![windows keyboard](./images/keyboard-windows.jpg)
@@ -40,6 +45,8 @@ downArrow: bring next command back
 leftArrow: move cursor to left in DOS window
 rightArrow: move cursor to right in DOS window
 ```
+---
+[Table of Contents](#Table-of-Contents)
 
 ## Getting Started
 * Install JDK
@@ -77,13 +84,8 @@ brew link git
 java -version
 git --version
 ```
-* Turn in homework to GitHub
-
-* Get formilar with your key board.
-
-	![keyboard-windows](./images/keyboard-windows.jpg)
-
-	![keyboard-apple](./images/keyboard-apple.jpg)
+---
+[Table of Contents](#Table-of-Contents)
 
 ## Using Markdown 
 * √ Markdown md文件的制作，制作课堂笔记
@@ -95,9 +97,53 @@ git --version
     - 显示图形
     - 显示链接
 
+**Shapen your knife will not slowdown your work!** 
+
 ![磨刀不误砍柴工](./images/磨刀.jpeg)
 * [Markdown Cheat Sheet](markdown-cheat-sheet.md)
+---
+[Table of Contents](#Table-of-Contents)
 
+## Basic Git Command
+![Application 5 Parts](./images/Application.png)
+* Check Git Installation
+```
+git --version
+```
+* intruduce git repository basic
+```
+git init
+git --version
+git config user.name "<username>"
+git config user.email "<useremail>"
+git status
+git add .
+git log --oneline
+git branch
+git commit -m "initial commit"
+git push
+```
+![Understand Git Process](./images/gitProcess.png)
+test some code change
+
+* install EGit (Git for Eclipse)
+[EGit website](https://www.eclipse.org/egit/download/)
+>help > install new software > 
+
+* Create a GitHub account, try upload some file
+[GitHub Website](https://github.com/)
+
+## How to turn in the homework
+	[Java-I Homework](https://github.com/jwang1122/java1homework)
+* homework demo
+	- HomeworkDemo.java
+* make git pull for java repository
+	- rename /workspace/java > /workspace/myjava
+	- git clone https://github.com/jwang1122/java.git
+	- help > Eclipse Marketplace > Find:git > Git integration
+---
+[Table of Contents](#Table-of-Contents)
+	
 ## Syntax basic
 ![class abstract](./images/classAbstraction.png)
 
@@ -108,7 +154,7 @@ git --version
 ![Java Key-words](./images/javaKeywords.png)
 
 Modifier     | Description
-|---         |---|
+|---         |---          |
 public       | access modifier, accessible for all classes
 protected    | access modifier, accessible in same package and subclasses
 private      | access modifier, accessible only in the declared class
@@ -122,7 +168,6 @@ synchronized | Method can only be accessed by one thread at a time
 volatile     | value of an attribute is not cached thrad-locally, and is always read from the "main memory"
 
 
-
 * OOP concept > Abstraction (Cup.java; Computer.java)
 * System print() (LearnForLoop.java right-angle triangle)
 * main method (MainMethodTest.java); String[] args; 
@@ -130,6 +175,14 @@ volatile     | value of an attribute is not cached thrad-locally, and is always 
 	Run > Run Configurations... > Arguments
 
 ![Add args to Java application](./images/mainArgs.png)
+
+command line 
+
+```
+$ java com.huaxia.test.MainMethodTest arg1 arg2 arg3 arg4
+```
+---
+[Table of Contents](#Table-of-Contents)
 
 ## Print String
 * Hello.java; 
@@ -143,6 +196,17 @@ volatile     | value of an attribute is not cached thrad-locally, and is always 
 
 [String format document](https://docs.oracle.com/javase/8/docs/api/) > String > format(String format, Object... args) > Parameters: format > java.util.Formatter
 * StringTest.java; Understand String operations
+	- stringLength
+	- letterAtIndex
+	- upperLowerCase
+	- stringEquals
+
+	![Understand String equals()](./images/understandStringEquals.jpg)
+	- escapeSquence
+	- stringBuilder
+	- stringBuilder2stringBuffer
+---
+[Table of Contents](#Table-of-Contents)
 
 ## Loop
 * ForLoop1.java; simple for loop
@@ -179,7 +243,8 @@ volatile     | value of an attribute is not cached thrad-locally, and is always 
 * GuessNumber.java;
 * RollDice.java; Math.random()
 * RollDice2.java; static method
-
+---
+[Table of Contents](#Table-of-Contents)
 
 ## Simple Math
 * SimpleMath.java; add(), sub(), mul(), div(). method overloading
@@ -193,34 +258,21 @@ volatile     | value of an attribute is not cached thrad-locally, and is always 
 * Fraction.java; Fraction math: add, sub, multiply and divide
 
 ![Perfact Number](./images/perfactNumber.png)
+---
+[Table of Contents](#Table-of-Contents)
 
-## All topics
-* Hello World! (HelloWorld.java)
-* OOP concept > Abstraction (Cup.java; Computer.java)
-* System print() (LearnForLoop.java right-angle triangle)
-* main method (MainMethodTest.java)
-* Generate JavaDoc
-* Package perspective, Navigator window, Console Window, Outline
-* Data type (DataType.java)
-* Array Test (ArrayTest.java)
-* String Test (StringTest.java)
-* Operator (OperatorTest.java)
-* Scanner (ScannerTest.java)
-* For-loop (ForLoopTest.java)
-* Function (over loadding, overriding)
-* File (FileTest.java)
-* While-loop (WhileLoopTester.java)
-* ArrayList (ArrayListTest.java)
-* GuessNumber.java (while loop, if-else, scanner)
-* Switch (SwitchTet.java)
-* Card.java
-* CollectionsTest.java
+## Array
+* ArrayTest.java
+	- intArrayTest()
+	- elementTest()
+	- forEachTest()
+	- changeIndividualElement()
+	- arraycopyTest()
+	- objectArrayTest() (fix compiler error on line-77)
+	- multidimensionalArrayTest()
+---
+[Table of Contents](#Table-of-Contents)
 
-## 2020-06-25 讲义
-* Review 
-	- pull from github
-	- Math1.java > div(10,0)
-	- printf() > 10 + 20 = 30
 ## Array List
 * ArrayListTest.java
 	- review create string array
@@ -231,12 +283,16 @@ volatile     | value of an attribute is not cached thrad-locally, and is always 
 	- practice
 		- create float ArrayList display under certain condition
 		- create a student list, write it to a file use forEach loop
+---
+[Table of Contents](#Table-of-Contents)
 
 ## Switch	
 * SwitchTest.java
 	- weekdayConverter
 	- day2word
 	- number2Weekday
+---
+[Table of Contents](#Table-of-Contents)
 
 ## Data Structure
 * QueueTest.java
@@ -245,8 +301,9 @@ volatile     | value of an attribute is not cached thrad-locally, and is always 
 
 	![Binary Search](./images/Binary-Search.png)
 * sort (sortTest.java)
-
 ---
+[Table of Contents](#Table-of-Contents)
+
 
 ## Exception
 * Understand Exception Hierarchy
@@ -256,16 +313,9 @@ volatile     | value of an attribute is not cached thrad-locally, and is always 
 	- area(-2.0f)
 	- add throw new Exception
 	- practice: rectangleArea() throw Exception test.
-
 ---
-## 2020-06-23 讲义
-* Review 
-	- create your own package for practice
-	- create integer array
-	- create string array
-	- create a Math class, define simple math functions
+[Table of Contents](#Table-of-Contents)
 
----
 ## OOP
 * Object Oriented Programming concept
 
@@ -288,234 +338,18 @@ volatile     | value of an attribute is not cached thrad-locally, and is always 
 * Abstract class (abstract method, concrete method)
 * Class
 * Constructor
+	Computer.java(String brand, int battery)
 * Getter/Setter
-* Method overloading
-* Method overriding
+	- right-click > source > generate constructor using fields
+	- right-click > source > generate getters and setters
+* Method overloading (add(int, int), add(float, float))
+* Method overriding (Card.java, Blackcard.java, getValue())
 * Super class/sub class (protected vs. package default)
 * toString() method
 * Card.java; basic card class
 
 ![Card](./images/card.png)
 * BlackjackCard.java; sub card class
-
-## File Access
-* FileTest.java
-	- readFileTest (create class, read a file, print content to console)
-	- writeFileTest
-	- appendToFileTest (api doc > FileWriter) (write "Hello world" to a file)
-* Write_CSV_File.java
-* Read_CSV_File.java
-* GsonExample1.java; write Staff object to json file staff.json
-* GsonExample2.java; read staff.json to build Staff object
-
-* Review
-	- search Scanner, Break, Continue
-	- read content from a file, parse each line to a world, display on console
-	- write hello world to a file
-	- get user name from console, write hello and his name to a file
-	- write even number between 0 to 20 to file
-	- write odd number between 10 to 30 to a file
-	- append integer 1 to 10 to a existing file
-	- create a string array, write each element to a file
-	- create a string array with names, write only name < your name to a file
-	- read content from a file, parse each line to a world, write to another file
-
----
-## 2020-06-22 讲义
-* Check homework
-## Demo how to do the homework
-* Review
-	- ~~create HelloWorld.java~~
-	- ~~Use scanner ask user name, and then say hello to him~~
-	- ~~create any class you can think of~~
-	- ~~how to find println document~~
-	- Use Scanner ask user name, and save the hello to him in file
-	- create a Card class with face and suit fields(Card.java)
-	- create simple math functions add, sub, mul, div
-	- create array hold 52 cards (Card2.java)
-	- use Scanner get user input do simple math
-	- Find System.out.printf document in javadoc api online
-	- (ForLoopTest->forEach():add condition skip Ford)
-	- Eclipse Search button on toolbar, menu Search
-
----
-## 2020-06-18 讲义
-* Check homework
-* Demo how to do the homework
-* Review
-	- create HelloWorld.java
-	- Use scanner ask user name, and then say hello to him
-	- create any class you can think of
-	- create a Card class with face and suit fields(Card.java)
-	- create simple math functions add, sub, mul, div
-	- create array hold 52 cards (Card2.java)
-	- use Scanner get user input do simple math
-	- Find System.out.printf document in javadoc api online
-	- (ForLoopTest->forEach():add condition skip Ford)
-	- Eclipse Search button on toolbar, menu Search
-
----
-## 2020-06-17 讲义
-* check homework
-* review last learn
-
-
-
-## 2020-06-16 讲义
-* Check homework
-* Review for last class
-	- add javadoc in java source code
-	- generate javadoc
-* make git pull for java repository
-	- rename /workspace/java > /workspace/myjava
-	- git clone https://github.com/jwang1122/java.git
-	- help > Eclipse Marketplace > Find:git > Git integration
-* OperatorTest.java
-	- mathOperator
-	- doubleOperator
-	- comparisionOperator
-	- logicOperator
-* StringTest.java
-	- stringLength
-	- letterAtIndex
-	- upperLowerCase
-	- stringEquals
-	![Understand String equals()](./images/understandStringEquals.jpg)
-	- escapeSquence
-	- stringBuilder
-	- stringBuilder2stringBuffer
-* ScannerTest.java
-	- consoleInputTest
-	- stringDelimiter
-	- readFromFile
-* 
----
-## 2020-06-15 讲义
-* Check homework
-	- Samule (separate class notes)
-	- everyone else (class notes)
-	- Math (HomeworkDemo.java)
-	- Equalateral Triangle (homework)
-* Review what learned in last class
-	- ArrayTest.java; 
-	- Cup.java; Create constructor (default, with fields)
-	- difference between for-loop and forEach
-	- generate javadoc
-* Snake-Game pull from javahuaxia github
-* homework demo
-	- HomeworkDemo.java
-	- Print.java
-* ArrayTest.java 
-	- multidimensionalArrayTest.java
-
-## 2020-06-11
-* Check homework
-* Review what learned in last class 
-	- Reorganize project package
-	- Use Eclipse generate Constructor, toString, getter-setter
-	- Use Code Style Formatter to avoid comments change
-	- Refactor-Rename (someone demo this)
-	- MainMethodTest.java
-	- DataTypeTest.java
-	- ArrayTest.java
-
-* Continue with ArrayTest.java
-	- forEachTest()
-	- changeIndividualElement()
-	- arraycopyTest()
-	- objectArrayTest() (fix compiler error on line-77)
-	- multidimensionalArrayTest()
-
-* ForLoopTest
-
-## 2020-06-10
-
-### Check homework
-
-### Main method
-* MainMethodTest.java
-Toolbar:run > Run Configurations > Arguments > Program arguments
-
-change folder to ~/workspace/java/huaxia/bin
-```
-$ java com.huaxia.test.MainMethodTest arg1 arg2 arg3 arg4
-```
-## Data type
-Change variable name for windows: Alt+shift+R; 
-Primitive Data Types
-```
-Refer to: DataTypeTest.java
-```
-* array of int 
-* loop through an array with for each syntax
-* array copy
-* object array
-```
-Refer to: ArrayTest.java
-```
-Right-click [project name]:properties > Java Code Style:Formatter > Configure Workspace Settings> Active profile: jwang > [Edit] > comments >
-![Comments Setup](./images/EclipseCommets.png)
-
-## Operator
-* OperatorTest.java
-
-```
-Refer to: ForLoopTest.java
-```
-## 2020-06-09
-J Fan
-Angela
-Angela Cui
-Nathan (Geoge)
-Samuel Koh
-Delbert
-
-
-### Check homework
-Fix the homework folder to
-~/workspace/homework
-
-Angela:
-* Java code OK.
-* Cup.md > 20200603ClassNotes.md
-* Add Cup.java
-* homework1.md > 20200601ClassNotes.md (it is for yourself, not for your parent)
-* readme-1.md > 20200602ClassNotes.md (fix steps in create Hello.java)
-
-Delbert & Jingyuan
-* what is the purpose of ReadMe.md?
-
-Samuel
-* Good naming on ClassNotes
-* leave the card java file name on change
-* use Computer.java name not homework.java
-* batteryLevel float > int (it is good, we can make it better)
-* problem on setting two fields at one function(how about if you only want make one change?)
-
-### Create constructor with parameters
-Computer(String brand, int battery)
-* right-click > source > generate constructor using fields
-* right-click > source > generate getters and setters
-
-### Reorganize project and package
-* highlight your java source code name drag to different project
-
-### You see a Cup by your eye, 
-never see Cup in your mind in the real world. 
-never see Cup defined in our Cup.java class.
- 
-### if-else (with for loop)
-* print even number from 1 - 20
-* print odd number from 1 - 20 
-* understand what % does
-
-## 20200608 讲义
-
-Parent's complain
-
-Watermelon vs Sesame
-![捡了芝麻丢了西瓜](images/watermeolen.png)
-
 Why Java always start from class? Java is oop.
 
 What is OOP? Abstraction, inheritence, encapsulation, polymophism
@@ -544,7 +378,6 @@ drag the cup to that folder
 create toString() method for Cup
 
 3. what we used in Cup.java
-```
 package : file folder
 class : abstraction, design, type
 public : can be used in everywhere
@@ -569,14 +402,146 @@ public String toString()
 change float to int
 
 add constructor
+---
+[Table of Contents](#Table-of-Contents)
 
+## File Access
+* FileTest.java
+	- readFileTest (create class, read a file, print content to console)
+	- writeFileTest
+	- appendToFileTest (api doc > FileWriter) (write "Hello world" to a file)
+* Write_CSV_File.java
+* Read_CSV_File.java
+* GsonExample1.java; write Staff object to json file staff.json
+* GsonExample2.java; read staff.json to build Staff object
+
+* Review
+	- search Scanner, Break, Continue
+	- read content from a file, parse each line to a world, display on console
+	- write hello world to a file
+	- get user name from console, write hello and his name to a file
+	- write even number between 0 to 20 to file
+	- write odd number between 10 to 30 to a file
+	- append integer 1 to 10 to a existing file
+	- create a string array, write each element to a file
+	- create a string array with names, write only name < your name to a file
+	- read content from a file, parse each line to a world, write to another file
+---
+[Table of Contents](#Table-of-Contents)
+
+## All topics
+* Hello World! (HelloWorld.java)
+* OOP concept > Abstraction (Cup.java; Computer.java)
+* System print() (LearnForLoop.java right-angle triangle)
+* main method (MainMethodTest.java)
+* Generate JavaDoc
+* Package perspective, Navigator window, Console Window, Outline
+* Data type (DataType.java)
+* Array Test (ArrayTest.java)
+* String Test (StringTest.java)
+* Operator (OperatorTest.java)
+* Scanner (ScannerTest.java)
+* For-loop (ForLoopTest.java)
+* Function (over loadding, overriding)
+* File (FileTest.java)
+* While-loop (WhileLoopTester.java)
+* ArrayList (ArrayListTest.java)
+* GuessNumber.java (while loop, if-else, scanner)
+* Switch (SwitchTet.java)
+* Card.java
+* CollectionsTest.java
+* create HelloWorld.java
+* Use scanner ask user name, and then say hello to him~~
+* create any class you can think of~~
+* how to find println document in java api doc
+
+[Java API Document](https://docs.oracle.com/javase/8/docs/api/)
+* Use Scanner ask user name, and save the hello to him in file
+* create a Card class with face and suit fields(Card.java)
+* create simple math functions add, sub, mul, div
+* create array hold 52 cards (Card2.java)
+* use Scanner get user input do simple math
+* Find System.out.printf document in javadoc api online
+* (ForLoopTest->forEach():add condition skip Ford)
+* Eclipse Search button on toolbar, menu Search
+* add javadoc in java source code
+* generate javadoc
+	- Reorganize project package
+	- Use Eclipse generate Constructor, toString, getter-setter
+	- Use Code Style Formatter to avoid comments change
+* Refactor Rename (someone demo this)
+* MainMethodTest.java
+* DataTypeTest.java
+* ArrayTest.java
+* Reorganize project package
+* Use Eclipse generate Constructor, toString, getter*setter
+* Use Code Style Formatter to avoid comments change
+---
+[Table of Contents](#Table-of-Contents)
+
+## Applications
+* Snake-Game pull from javahuaxia github
+---
+[Table of Contents](#Table-of-Contents)
+
+## Data type
+Change variable name for windows: Alt+shift+R; 
+Primitive Data Types
 ```
-Google Search: java 8 api document
-[Java api document](https://docs.oracle.com/javase/8/docs/api/)
-![String class](images/java8api.png)
+Refer to: DataTypeTest.java
+```
+* array of int 
+* loop through an array with for each syntax
+* array copy
+* object array
+```
+Refer to: ArrayTest.java
+```
+Right-click [project name]:properties > Java Code Style:Formatter > Configure Workspace Settings> Active profile: jwang > [Edit] > comments >
+![Comments Setup](./images/EclipseCommets.png)
+---
+[Table of Contents](#Table-of-Contents)
+
+## Operator
+* OperatorTest.java
+	- mathOperator
+	- doubleOperator
+	- comparisionOperator
+	- logicOperator
+---
+[Table of Contents](#Table-of-Contents)
+
+## Reorganize project and package
+* highlight your java source code name drag to different project
+---
+[Table of Contents](#Table-of-Contents)
+
+## You see a Cup by your eye, 
+never see Cup in your mind in the real world. 
+never see Cup defined in our Cup.java class.
+---
+[Table of Contents](#Table-of-Contents)
+ 
+## if-else
+* IfElseTest.java
+	- ifElse()
+	- ifElseIf()
+	- ternary()
+	- number2Week()
+	- isPerfactNumber(6)
+	- prime(); method return true/false
+
+(with for loop)
+* print even number from 1 - 20
+* print odd number from 1 - 20 
+* understand what % does
+
+
 
 Add document for your constructor, methods and class
 menu: Project > Generate Javadoc
+---
+[Table of Contents](#Table-of-Contents)
 
 ### String.format()
 ```java
@@ -591,16 +556,9 @@ menu: Project > Generate Javadoc
 	}
 ```
 Homework: do math
-
-
 ---
 
-## 20200605 讲义
-
-
-## 20200604 讲义
-
-# Learn from mistake
+## Learn from mistake
 ![My own mistakes](MistakesMine.jpeg)
 ![Other's mistakes](MistakesHis.jpeg)
 >Learn from other's mistake is better than from my own.
@@ -655,32 +613,6 @@ test some code change
 * Introduce Eclipse IDE
 ![Eclipse IDE](EclipseIDE.png)
 >Write HelloWorld Sample code
-* Check Git Installation
-```
-git --version
-```
-* intruduce git repository basic
-```
-git init
-git --version
-git config user.name "<username>"
-git config user.email "<useremail>"
-git status
-git add .
-git log --oneline
-git branch
-git commit -m "initial commit"
-git push
-```
-![Understand Git Process](gitProcess.png)
-test some code change
-
-* install EGit (Git for Eclipse)
-[EGit website](https://www.eclipse.org/egit/download/)
->help > install new software > 
-
-* Create a GitHub account, try upload some file
-[GitHub Website](https://github.com/)
 * 
 
 ## 2020-06-01 讲义
@@ -743,12 +675,21 @@ let student find scan
 It is not easy to use for big project
 
 * Generate Javadoc
+
+Google Search: java 8 api document
+
+[Java api document](https://docs.oracle.com/javase/8/docs/api/)
+
+![String class](images/java8api.png)
+
 Project > Generate Javadoc... >
 
-![Generate Javadoc](javadoc.png)
+![Generate Javadoc](./images/javadoc.png)
 
-### open Eclipse
+## open Eclipse
 getting formillar with Eclipse IDE
+
+![Eclipse Layout](./images/EclipseIDE.png)
 Open File explore>create a workspace\java
 ```
 git init
@@ -781,23 +722,6 @@ try to change the format
 try to remove ;
 try to create variable without data type
 
-## Markdown md文件的制作，制作课堂笔记
-![好记性不如烂笔头儿](烂笔头儿.png)
-* 显示标题，子标题 #, ##
-* 显示 tablet *，1
-* 显示命令行
-![keyboard](keyboard2.jpg)
-![Apple keyboard](apple_keyboard.jpg)
-space
-:
-ctrl+c
-tab
-Enter(Return)
-"
-```
-```
-
----
 
 ## References
 [Java api document](https://docs.oracle.com/javase/8/docs/api/)
@@ -805,8 +729,6 @@ Enter(Return)
 [Java Tutorial](https://www.w3schools.com/java/java_methods.asp)
 [Breakout room](https://www.businessinsider.com/how-to-do-breakout-rooms-in-zoom)
 [Java class type](https://www.javatpoint.com/types-of-classes-in-java)
-
-
 
 Homework 1-1
 1. write md file to take notes about all stuff we have learned today.

@@ -9,8 +9,10 @@ public class IfElseTest {
 //		test.ifElseIf();
 		// write simple loop print out odd number between 0-20
 //		test.ternary();
-		String weekday = test.number2Week(9);
+		String weekday = test.number2Week(7);
 		System.out.println(weekday);
+		System.out.println(isPerfactNumber(6));
+		System.out.println(isPerfactNumber(12));
 	}
 
 	
@@ -43,5 +45,15 @@ public class IfElseTest {
 	String number2Week(int day) {
 		return weekdays[day];
 	}
+	
+	static boolean isPerfactNumber(int x) {
+		int sum = 0;
+		for (int i = 1; i<x; i++) {
+			if ( x % i == 0)
+				sum += i;
+		}
+		return sum==x;
+	}
+	
 
 }
