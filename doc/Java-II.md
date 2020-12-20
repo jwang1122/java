@@ -1,42 +1,33 @@
 # 华夏中文学校 Java level-II
 
-Java 编写应用软件的几大要素
+## Java 编写应用软件的几大要素
 1. logging ([Java Logging](#Logging))
 2. Unit test ([Unit Test](#JUnittest))
 3. Document ([Java Doc](#Java-Doc))
 4. Database Access ([Sqlite](#Sqlite))
 5. Source Version Control ([Git](#Git))
 
-
-[Understand Kingdomino Game](#Understand-Kingdomino-Game)
-
-[enum](#enum)
-
-[Functional Programming](#Functional-Programming)
-
-[Reactive x in Java](#Reactive-x-in-Java)
-
-[class](#class)
-
-[build Blackjack Card Game](#build-Blackjack-Card-Game)
-
-[JUnittest](#JUnittest)
-
-[Gson](#Gson)
-
-[Java Doc](#Java-Doc)
-
-[Design Pattern](#Design-Pattern)
-
-[Sqlite](#Sqlite)
-
-[Applications](#Applications)
+## Table of Contents
+1. [Understand Kingdomino Game](#Understand-Kingdomino-Game)
+1. [enum](#enum)
+1. [Functional Programming](#Functional-Programming)
+1. [Reactive x in Java](#Reactive-x-in-Java)
+1. [class](#class)
+1. [build Blackjack Card Game](#build-Blackjack-Card-Game)
+1. [JUnittest](#JUnittest)
+1. [Gson](#Gson)
+1. [Java Doc](#Java-Doc)
+1. [Design Pattern](#Design-Pattern)
+1. [Sqlite](#Sqlite)
+1. [Applications](#Applications)
 
 ## JUnittest
 * Create JUnittest test case
 * Test Driving Development (TDD)
     - SimpleMath.java
     - SimpleMathTest.java
+---
+[Table of Contents](#Table-of-Contents)
 
 ## Java Doc
 * Project > Generate Javadoc...
@@ -44,6 +35,9 @@ Java 编写应用软件的几大要素
     ![Java Doc](./images/javadoc.png)
 * Markdown document
     [Markdown cheet sheet](markdown-cheat-sheet.md)
+---
+[Table of Contents](#Table-of-Contents)
+
 
 ## Sqlite
 add sqlite-jdbc-3.34.0.jar in classpath
@@ -53,6 +47,9 @@ add sqlite-jdbc-3.34.0.jar in classpath
 * Sqlite4.java; CRUD: Retrieve record
 * Sqlite5.java; CRUD: Update a record
 * Sqlite6.java; CRUD: Delete a record
+---
+[Table of Contents](#Table-of-Contents)
+
 
 ## Git
 [Git cheat sheet](Git-CheatSheet.pdf)
@@ -82,6 +79,9 @@ git log --oneline
 
 * Git process locked
     solution: remove .git/index.lock file.
+---
+[Table of Contents](#Table-of-Contents)
+
 
 ## Design Pattern
 * Observer
@@ -96,12 +96,18 @@ git log --oneline
 * Bridge
 * Facade
 * Prototype
+---
+[Table of Contents](#Table-of-Contents)
+
 
 ## Gson
 [Gson Tutorial](https://mkyong.com/java/how-to-parse-json-with-gson/)
 * GsonExample1.java
 * GsonExample2.java
 * GsonExample3.java; read json file, return ArrayList<Book>
+---
+[Table of Contents](#Table-of-Contents)
+
 
 ## Understand Kingdomino Game
 * BoarderTest.java; Unittest
@@ -110,14 +116,26 @@ git log --oneline
 * DeckTest.java;
 * MessageTest.java;
 * PositionTest.java;
+---
+[Table of Contents](#Table-of-Contents)
+
 ### Test Driving Development
 * practice: simaple math: add(), sub(), mul(), div()
+---
+[Table of Contents](#Table-of-Contents)
+
 
 ## enum
 * DividedByZero.java; Traditional programming, NullPointException
 * EitherExample.java; 
+---
+[Table of Contents](#Table-of-Contents)
+
 
 ## Functional Programming
+---
+[Table of Contents](#Table-of-Contents)
+
 
 ## Reactive x in Java
 
@@ -130,6 +148,9 @@ git log --oneline
 * MultipleReturn1.java; use Hashmap for function return multiple values.
 * Operation.java; abstract class
 * OptionExample1.java; 
+---
+[Table of Contents](#Table-of-Contents)
+
 
 ## class
 * Static Class; StaticClassExample.java
@@ -145,8 +166,14 @@ git log --oneline
     - All instance variables must be private.
     - The getter/ setter methods must be public.
 * Inner Class; OuterClass.java, AnonymousClassExample.java (Swing use a lot)
+---
+[Table of Contents](#Table-of-Contents)
+
 
 ## build Blackjack Card Game
+---
+[Table of Contents](#Table-of-Contents)
+
 
 ## Logging
     - Log all the things. Log as much as we possibly can, to always have relevant, contextual logs that don’t add overhead.
@@ -179,6 +206,9 @@ String path = LoggerExample1.class.getClassLoader().getResource("logging.propert
 System.setProperty("java.util.logging.config.file",path);
 
 ```
+---
+[Table of Contents](#Table-of-Contents)
+
 
 ## Applications
 * Calculator
@@ -187,14 +217,16 @@ System.setProperty("java.util.logging.config.file",path);
 * Kingdomino
 * Tic Tac Toe
 * Blackjack Card Game
+---
+[Table of Contents](#Table-of-Contents)
+
 
 ## References
-[Java Class Type](https://www.javatpoint.com/types-of-classes-in-java)
+1. [Java Class Type](https://www.javatpoint.com/types-of-classes-in-java)
+1. [Gson Tutorial](https://mkyong.com/java/how-to-parse-json-with-gson/)
+1. [Design Patter Tutorial](https://www.journaldev.com/1827/java-design-patterns-example-tutorial)
+1. [Java Logging](http://tutorials.jenkov.com/java-logging/logger.html)
+1. [Sqlite](https://www.tutorialspoint.com/sqlite/sqlite_java.htm)
+---
+[Table of Contents](#Table-of-Contents)
 
-[Gson Tutorial](https://mkyong.com/java/how-to-parse-json-with-gson/)
-
-[Design Patter Tutorial](https://www.journaldev.com/1827/java-design-patterns-example-tutorial)
-
-[Java Logging](http://tutorials.jenkov.com/java-logging/logger.html)
-
-[Sqlite](https://www.tutorialspoint.com/sqlite/sqlite_java.htm)
