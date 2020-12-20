@@ -6,6 +6,7 @@
 1. [Using Markdown](#Using-Markdown)
 1. [Basic Git Command](#Basic-Git-Command)
 1. [How to turn in the homework](#How-to-turn-in-the-homework)
+1. [Learn from mistake](#Learn-from-mistake)
 1. [open Eclipse](#open-Eclipse)
 1. [Print String](#Print-String)
 1. [Syntax basic](#Syntax-Basic)
@@ -80,8 +81,11 @@ brew link git
 ```
 
 * installation check
+
+Open Dos Command Window:
 ```sh
 java -version
+javac -version
 git --version
 ```
 ---
@@ -127,6 +131,9 @@ git push
 test some code change
 
 * install EGit (Git for Eclipse)
+
+![Team Commit](./images/teamCommit.png)
+
 [EGit website](https://www.eclipse.org/egit/download/)
 >help > install new software > 
 
@@ -320,6 +327,7 @@ $ java com.huaxia.test.MainMethodTest arg1 arg2 arg3 arg4
 * Object Oriented Programming concept
 
 	![Java OOP](images/oop.png)
+
 	![Abstraction](images/classDefine.png)
 
 * Abstraction
@@ -559,8 +567,10 @@ Homework: do math
 ---
 
 ## Learn from mistake
-![My own mistakes](MistakesMine.jpeg)
-![Other's mistakes](MistakesHis.jpeg)
+![My own mistakes](./images/MistakesMine.jpeg)
+
+![Other's mistakes](./images/MistakesHis.jpeg)
+
 >Learn from other's mistake is better than from my own.
 Why? you pay price on you own mistake, but if it is other's mistake, they pay the price for you.
 
@@ -584,52 +594,9 @@ refer：com.huaxia.blackjack.Cup
 
 把Computer作为作业让学生模仿制作。
 
-## 20200603 讲义
 
-* intruduce git repository basic
-```
-git init
-git --version
-git config user.name "<username>"
-git config user.email "<useremail>"
-git status
-git add .
-git log --oneline
-git branch
-git commit -m "initial commit"
-git push
-```
-![Understand Git Process](gitProcess.png)
-test some code change
-
-![OOP Concept](oop.png)
-
-## 20200602 讲义
-![Sharpen Nife](sharpen_nife.jpeg)
-![keyboard Apple](keyboard-apple.jpg)
-![keyboard Windows](keyboard-windows.jpg)
-
-* Check Eclipse Installation
-* Introduce Eclipse IDE
-![Eclipse IDE](EclipseIDE.png)
->Write HelloWorld Sample code
-* 
-
-## 2020-06-01 讲义
-
-### Famillar with your keyboard
-![keyboard Apple](keyboard-apple.jpg)
-![keyboard Windows](keyboard-windows.jpg)
-
-### Check for java installation
-open DOS window
-```
-java -version
-javac -version
-```
-
-### 软件下载安装
-### use text editor to write java program
+## 软件下载安装
+## use text editor to write java program
 ```sh
 (base) Johns-MacBook-Pro:java wangqianjiang$ javac Test.java
 (base) Johns-MacBook-Pro:java wangqianjiang$ java Test
@@ -660,7 +627,7 @@ b = 5
 print("%d + %d = %d" %(a, b,(a + b)))
 ```
 
-### Java Document
+## Java Document
 It is very important, you can learn Java all by yourself from Java document.
 
 >Google search: java document download
@@ -738,7 +705,7 @@ user name: 281-818-2512t
 password: instructor
 
 ## 注册学生邮箱
-wfkuang@yahoo.com;
+wfkuang@yahoo.com; 
 td6606@hotmail.com;
 janecn@hotmail.com;
 janeliu@gmail.com；
