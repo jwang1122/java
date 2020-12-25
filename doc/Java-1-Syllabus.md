@@ -29,6 +29,7 @@
 * Define Method
 * Method parameters
 * Method Overloading
+* Method Overriding
 * Java Scope
 * Java Recursion
 * Java comments & Javadoc
@@ -38,5 +39,11 @@
 ## Game
 * Black Jack Card Game
 * Snake-Apple
+
+![Snake Eat Apple](./images/snake.png)
 * Tic-Tac-Toe
+
+![Tic Tac Toe](./images/tictactoe.png)
 * Kingdomino
+
+![Kindomino](./images/bigwinner.png)

@@ -25,7 +25,7 @@ public class ArrayTester {
 //		test.forEachTest();
 //		test.changeIndividualElement();
 //		test.arraycopyTest();  //create new array based on existing
-//		test.objectArrayTest();
+//		test.objectArrayTest(); Comparable
 		test.multidimensionalArrayTest();
 	}
 

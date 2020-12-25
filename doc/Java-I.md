@@ -28,7 +28,37 @@
 
 ## Familiar with your keyboard
 ![windows keyboard](./images/keyboard-windows.jpg)
+
 ![Apple keyboard](./images/keyboard-apple.jpg)
+
+1. [Key name web link](https://www.computerhope.com/keys.htm)
+
+1. Keyboard Name in our Java class
+
+    Key | Name
+    |---|---|
+    space | space, empty space in editor
+    Enter | return, enter, new line in editor
+    ;  | semicolon, end of line
+    {} | curly bracket, class, method, for loop, while loop block
+    () | parenthesis, function definition and call
+    [] | bracket, square bracket, array item
+    ,  | comma, separator of args, and elements; delimiter in csv file
+    .  | dot, period, instance function call()
+    \* | asterisk, star, bullet point in markdown, math multiply operator
+    \- | dash, hyphen, minus math operator, command option java -version
+    \  | back slash, escape sequence, \n, \t...
+    /  | forward slash, file name path fold dilimiter
+    `  | back quote, grave accent, command block in markdown
+    \| | pipe, virtical bar, bitwise OR operator
+    &  | ampersand, and simple, bitwise AND operator
+    ^  | caret, circumflex, bitwise XOR operator
+    ?  | question mark, ternary operator
+	:  | colon, ternary operator
+    _  | underscore
+    $  | dollar sign
+    \# | pound, hashtag, number
+    
 ```
 space
 :
@@ -40,7 +70,7 @@ tab
 shift+tab
 Enter(Return)
 "
-`
+`back quote
 upArrow: bring previous command back
 downArrow: bring next command back
 leftArrow: move cursor to left in DOS window
