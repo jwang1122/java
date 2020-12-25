@@ -31,6 +31,8 @@
 
 ![Apple keyboard](./images/keyboard-apple.jpg)
 
+1. [Share Keyboard document](keyboard.md)
+
 1. [Key name web link](https://www.computerhope.com/keys.htm)
 
 1. Keyboard Name in our Java class
@@ -59,18 +61,22 @@
     $  | dollar sign
     \# | pound, hashtag, number
     
+	```
+	space
+	:
+	ctrl+c
+	Ctrl+v
+	ctrl+/
+	shift+downarrow
+	tab
+	shift+tab
+	Enter(Return)
+	"
+	`back quote
+	```
+1. Arrow key in DOS window
+
 ```
-space
-:
-ctrl+c
-Ctrl+v
-ctrl+/
-shift+downarrow
-tab
-shift+tab
-Enter(Return)
-"
-`back quote
 upArrow: bring previous command back
 downArrow: bring next command back
 leftArrow: move cursor to left in DOS window
@@ -144,7 +150,7 @@ git --version
 ```
 git --version
 ```
-* intruduce git repository basic
+* introduce git repository basic
 ```
 git init
 git --version
@@ -730,20 +736,3 @@ try to create variable without data type
 Homework 1-1
 1. write md file to take notes about all stuff we have learned today.
 
-[学校网站](http://houstonhuaxia.org/)
-user name: 281-818-2512t
-password: instructor
-
-## 注册学生邮箱
-wfkuang@yahoo.com; 
-td6606@hotmail.com;
-janecn@hotmail.com;
-janeliu@gmail.com；
-ywang.cbi@gmail.com
-mshlwang@gmail.com;
-happyleejing@hotmail.com;
-JOCELYN.MAK@WORLEYPARSONS.COM;
-samuelkoh2002@gmail.com;
-jhzhang68@gmail.com;
-zhch120@hotmail.com;
-ann.lee.2224@gmail.com;
