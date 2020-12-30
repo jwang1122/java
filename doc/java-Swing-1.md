@@ -1,33 +1,24 @@
 # Java Swing Class Level-I
 
-[Applications & build.xml](#Applications-&-build.xml)
-
-[Swing JComponent](#Swing-JComponent)
-
-[Swing Layout](#Swing-Layout)
-
-[Create a window frame](#Create-a-window-frame)
-
-[Commonly used Methods of Component class](#Commonly-used-Methods-of-Component-class)
-
-[Add components to frame](#Add-components-to-frame)
-
-[Anonymous Class](#Anonymous-Class)
-
-[Menu](#Menu)
+## Table of Contents
+- [Java Swing Class Level-I](#java-swing-class-level-i)
+  - [Table of Contents](#table-of-contents)
+  - [References](#references)
+  - [Applications & build.xml](#applications--buildxml)
+  - [Menu](#menu)
+  - [Swing Layout](#swing-layout)
+  - [Swing Hierarchy](#swing-hierarchy)
+  - [Swing JComponent](#swing-jcomponent)
+  - [Pane](#pane)
+  - [Applications](#applications)
+  - [Anonymous Class](#anonymous-class)
+  - [Commonly used Methods of Component class](#commonly-used-methods-of-component-class)
+  - [Create a window frame](#create-a-window-frame)
+  - [Add components to frame](#add-components-to-frame)
 
 [References](#References)
 
 ## References
-[Tutorial website](https://www.javatpoint.com/java-swing)
-
-[javax.swing api](https://docs.oracle.com/javase/7/docs/api/javax/swing/package-summary.html)
-
-[Java API](https://docs.oracle.com/javase/8/docs/api/)
-
-[Image download website](http://www.pngmart.com/image/)
-
-[Official Java Tutorial](https://docs.oracle.com/javase/tutorial/tutorialLearningPaths.html)
 
 ## Applications & build.xml
 * √ Calculator.java; add BorderLayout and GridLayout
