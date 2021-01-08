@@ -8,3 +8,6 @@
 6. [Java API](https://docs.oracle.com/javase/8/docs/api/)
 7. [Image download website](http://www.pngmart.com/image/)
 8. [Official Java Tutorial](https://docs.oracle.com/javase/tutorial/tutorialLearningPaths.html)
+
+## YouTubr Video
+1. [Data Structure](https://www.youtube.com/watch?v=RBSGKlAvoiM&t=4s)
