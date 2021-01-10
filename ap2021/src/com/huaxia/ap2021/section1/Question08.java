@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * 1. if-else if-else, one condition meet, others will not be executed.
+ * 1. if-else, one condition meet, others will not be executed.
  * 
  * 2. String.compareTo(Object) returns integer, neigative, 0, positive
  * 3. This code is not good implementation for the purpose.
@@ -13,7 +13,7 @@ import java.util.List;
  * @author John
  *
  */
-public class Question8 {
+public class Question08 {
 
 	public static void main(String[] args) {
 		String word1 = "frog";

@@ -9,7 +9,7 @@ package com.huaxia.ap2021.section1;
  * @author John
  *
  */
-public class Question9 {
+public class Question09 {
 
 	public static void main(String[] args) {
 		int temp = 90;

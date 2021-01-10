@@ -6,7 +6,7 @@ package com.huaxia.ap2021.section1;
  * @author John
  *
  */
-public class Qustion12 {
+public class Question12 {
 
 	public static void main(String[] args) {
 		int n = 6;

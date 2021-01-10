@@ -24,6 +24,7 @@ public class DiceSimulation {
 			if(die1==die2) {
 				countDouble++;
 			}
+			System.out.printf("Die1: %d\tDie2: %d\n", die1, die2);
 		}
 		return (int)(((double)countDouble/numSampleSize) * 100);
 	}

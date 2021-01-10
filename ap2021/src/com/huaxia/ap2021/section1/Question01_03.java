@@ -1,6 +1,6 @@
 package com.huaxia.ap2021.section1;
 
-public class Question1_3 {
+public class Question01_03 {
 
 	public static void main(String[] args) {
 		question1();
@@ -11,6 +11,8 @@ public class Question1_3 {
 	// precedence of /, %, + operators
 	static void question1() {
 		int x = 4 + 6 % 12/4;
+		System.out.println(6%12/4);
+		System.out.println(6%(12/4));
 		System.out.println(x);		
 	}
 	
