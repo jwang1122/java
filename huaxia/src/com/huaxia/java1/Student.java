@@ -7,6 +7,13 @@ public class Student implements Comparable<Student>{
 	String firstName;
 	String lastName;
 	int score;
+	String name;
+	int age;
+	
+	public Student(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
 	
 	public Student(int id, String firstName, String lastName, int score) {
 		this.id = id;

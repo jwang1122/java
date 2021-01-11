@@ -42,7 +42,7 @@
     space | space, empty space in editor
     Enter | return, enter, new line in editor
     ;  | semicolon, end of line
-    {} | curly bracket, class, method, for loop, while loop block
+    {} | brace, curly bracket, class, method, for loop, while loop block
     () | parenthesis, function definition and call
     [] | bracket, square bracket, array item
     ,  | comma, separator of args, and elements; delimiter in csv file

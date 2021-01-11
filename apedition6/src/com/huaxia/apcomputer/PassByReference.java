@@ -6,17 +6,17 @@ public class PassByReference {
 		PassByReference test = new PassByReference();
 		int x = 3;
 		int y = 4;
-		test.switchInt(x, y); // pass by value, no effect on original variables
+		test.swap(x, y); // pass by value, no effect on original variables
 		System.out.printf("x=%d\n", x);
 		System.out.printf("y=%d\n", y);
 
 		Student s1 = new Student("John", 12);
 		Student s2 = new Student("Helen", 11);
-		test.switchStudent(s1, s2);
+		test.swap(s1, s2);
 		System.out.println("s1: " + s1);
 		System.out.println("s2: " + s2);
 
-		test.switchStudent1(s1, s2);
+		test.swapStudents(s1, s2);
 		System.out.println("s1: " + s1);
 		System.out.println("s2: " + s2);
 		
@@ -30,19 +30,19 @@ public class PassByReference {
 		System.out.println("s1: " + s1);		
 	}
 	
-	public void switchInt(int a, int b) {
+	public void swap(int a, int b) {
 		int temp = a;
 		a = b;
 		b = temp;
 	}
 
-	public void switchStudent(Student s1, Student s2) {
+	public void swap(Student s1, Student s2) {
 		Student temp = s1;
 		s1 = s2;
 		s2 = temp;
 	}
 
-	public void switchStudent1(Student s1, Student s2) {
+	public void swapStudents(Student s1, Student s2) {
 		Student temp = new Student(s1.name, s1.age);
 		s1.name = s2.name;
 		s1.age = s2.age;

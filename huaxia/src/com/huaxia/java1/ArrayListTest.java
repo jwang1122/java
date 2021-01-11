@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class ArrayListTest {
@@ -31,14 +32,14 @@ public class ArrayListTest {
 	}
 	
 	void clearArrayList() {
-		ArrayList<String> cupTypes = arrayToArrayList();
+		List<String> cupTypes = arrayToArrayList();
 		System.out.println(cupTypes);
 		cupTypes.clear();
 		System.out.println(cupTypes.isEmpty());		
 	}
 
 	void findPosition() {
-		ArrayList<String> cupTypes = arrayToArrayList();
+		List<String> cupTypes = arrayToArrayList();
 		int position = cupTypes.indexOf("Plastic");
 		System.out.println(position);
 	}
@@ -67,14 +68,17 @@ public class ArrayListTest {
 		System.out.println(list);
 	}
 
-	ArrayList<String> arrayToArrayList() {
-		ArrayList<String> cupTypes = new ArrayList<String>();
-		cupTypes.addAll(Arrays.asList(type));
+//	ArrayList<String> arrayToArrayList() { // difference between return List and ArrayList
+	List<String> arrayToArrayList() {
+		List<String> cupTypes = new ArrayList<String>();
+//		ArrayList<String> cupTypes = new ArrayList<String>();
+		cupTypes = Arrays.asList(type);
+//		cupTypes.addAll(Arrays.asList(type));
+//		cupTypes = new ArrayList<String>(Arrays.asList(type));
 		
 		cupTypes = new ArrayList<String>(10);
 		System.out.println(cupTypes.size());
 		
-		cupTypes = new ArrayList<String>(Arrays.asList(type));
 		return cupTypes;
 	}
 	

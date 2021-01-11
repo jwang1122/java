@@ -1,5 +1,11 @@
 package com.huaxia.java1;
 
+/**
+ * @see PassByReference.java
+ * 
+ * @author John
+ *
+ */
 public class FunctionTest {
 
 	public static void main(String[] args) {
@@ -40,6 +46,7 @@ public class FunctionTest {
 	public String toString() {
 		return "" + getClass() + ", hashCode()=" + hashCode()+"]";
 	}
+	
 	
 	
 }
