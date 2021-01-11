@@ -165,3 +165,51 @@ Questions related to **if-else** can be divided by
 	(D) a[mid] + 1 > sought 	a[mid] -1 < sought
 	(E) a[mid] = sought  		a[mid] = sought
 	```  
+
+1. Consider the following code.
+
+	```java
+	int x =0; 
+	if (x == 0 ) 
+		System.out.print ("1" );
+	else 
+		System.out.print("2");
+		System.out .print("3"); 
+	```
+	Which of the following best describes the result of executing the code segment? 
+
+	(A) Since the value of x is 0, the first print statement will be performed, producing 1 as the output. 
+
+	(B) Since the value of x is 0, the first print statement will be performed, producing 13 as the output.
+
+	(C) Since the value of x is 0, the first print statement will be performed, producing 123 as the output.
+
+	(D) == is not the correct boolean operator, so a syntax error will be produced by the compiler prior to execution. 
+
+	(E) == is not the correct boolean operator, so a logical error will be produced by the compiler prior to execution. 
+
+1. Consider the following code segment.
+
+	```java
+	boolean a = true, b = false;
+	if (/* missing code */)
+		System.out.print ("Nice job.");   
+	else 
+		SYstern.out.print("Nicer job ."); 
+	```
+	Which of the following could be used to replace / * missing code * / so that the output of this block of code is "Nicer job."?
+
+	```java
+	I. 		a && !b
+	II. 	!a || d
+	III. 	!a && b   
+	``` 
+	```
+	(A) I only
+	(B) I and II only
+	(C) I and III only
+	(D) II and III only
+	(E) I, II and III
+	```
+1. 
+

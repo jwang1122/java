@@ -1,11 +1,12 @@
 package com.huaxia.ap2021.section1;
 
 /**
- * Understand the logical operators,
+ * 1. Understand the logical operators,
  * &&: both true will return true
  * ||: one true will return true
  * !: toggle the boolean result
- * 
+ * 2. Understand Boolean Short-circuiting
+ * 		if (temp >= 90 && !cloudy) // temp=90 will not check !cloudy
  * @author John
  *
  */

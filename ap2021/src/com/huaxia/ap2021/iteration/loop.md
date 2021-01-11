@@ -468,4 +468,20 @@ Questions related to **loop** can be divided by
 	(D)II and III only 
 	(E) I, II, and III 
 	```
+1. Consider the following code segment: 
 
+	```java
+	for (int i = 200 ; i > 0; i /= 3) {
+		if (i % 2 == 0 ) 
+			System.out.print(i +" ");
+	}
+	```
+	What is the output as a result of executing the code segment? 
+	```
+	(A) 200 66 22 7 2 
+	(B) 66 22 72 
+	(C) 200 66 22 2 
+	(D) 200 66 22 
+	(E) 7 
+	```
+1. 
