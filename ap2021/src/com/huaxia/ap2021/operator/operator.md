@@ -1,3 +1,18 @@
+# AP Computer Science Prep - Question Catagory - operator
+
+Catagory | Questions in 40 | Percentage
+|--- |--- |--- |
+datatype |2  |5%
+operator |3  |7.5
+if-else  |5  |12.5%
+loop     |16 |40%
+method   |14 |35%
+
+Questions related to **operator** can be divided by 
+* /, +, -, *
+* cast
+* escape sequence for special caracters
+
 1. Which of the following expressions does **not** evaluate to 0.2?
 
     ```java
