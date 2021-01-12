@@ -1,12 +1,12 @@
 # AP Computer Science Prep - Question Catagory - ifelse
 
-Catagory | Questions in 40 | Percentage
-|--- |--- |--- |
-datatype |2  |5%
-operator |3  |7.5
-if-else  |5  |12.5%
-loop     |16 |40%
-method   |14 |35%
+|Catagory | Questions in 40 | Percentage
+|---      |---              |---         |
+|datatype |2                |5%
+|operator |3                |7.5%
+|if-else  |5                |12.5%
+|loop     |16               |40%
+|method   |14               |35%
 
 Questions related to **if-else** can be divided by 
 * Comparison operator (==, >, <, >=, <=, !=)

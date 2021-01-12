@@ -1,12 +1,12 @@
 # AP Computer Science Prep - Question Catagory - loop
 
-Catagory | Questions in 40 | Percentage
-|--- |--- |--- |
-datatype |2  |5%
-operator |3  |7.5
-if-else  |5  |12.5%
-loop     |16 |40%
-method   |14 |35%
+|Catagory | Questions in 40 | Percentage
+|---      |---              |---         |
+|datatype |2                |5%
+|operator |3                |7.5%
+|if-else  |5                |12.5%
+|loop     |16               |40%
+|method   |14               |35%
 
 Questions related to **loop** can be divided by 
 * for loop
@@ -411,7 +411,7 @@ Questions related to **loop** can be divided by
 	```
 	Determine the resulting output. 
 	```
-	(A) 1  2 3 4 
+	(A) 1 2 3 4 
 		5 6 7 8  
 	(B) 1 5 2 6
 		3 7 4 8
@@ -487,8 +487,8 @@ Questions related to **loop** can be divided by
 1. Consider the following code segment. 
 
 	```java
-	int vail = 2, val2 = 22, val3 = 78; 
-	while (val2 % vail == 0 || val2 % 3 == 0 ){
+	int val1 = 2, val2 = 22, val3 = 78; 
+	while (val2 % val1 == 0 || val2 % 3 == 0 ){
 		val3++; 
 		val2--; 
 	}
@@ -530,4 +530,27 @@ Questions related to **loop** can be divided by
 		1 2 3 4
 		1 2 3 4
 		1 2 3 4    
+	```
+1. Consider the following code fragments. Assume someNum has been correctly defined and initialized as a positive integer. 
+
+	```java
+	I. 	for (int i =0; i < someNum; i++){
+			someNum--; 
+		}
+	II.	for (int i = 1; i < someNum - 1; i++) {
+			someNum -=1; 
+		}
+	III.int i =	0; 
+		while (i <someNum){
+			i++;
+			someNum--;  
+		}
+	```
+	All of the following statements are true about these code fragments **EXCEPT** 
+	```
+	(A) The for loops in I and II can be rewritten as while loops with the same result. 
+	(B) The value of someNum after execution of I and III is the same. 
+	(C) The value of i after execution of II and III is the same. 
+	(D) At least two out of I, II, and III have different numbers of iterations. 
+	(E) I, II, and III all produce different results. 
 	```

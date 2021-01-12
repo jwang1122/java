@@ -2,7 +2,7 @@ package com.huaxia.ap2021.section1;
 
 /**
  * familiar with embedded loop 
- * 
+ * *
  * @author John
  *
  */

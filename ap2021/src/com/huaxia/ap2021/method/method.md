@@ -1,5 +1,13 @@
 # AP Computer Science Prep - Question Catagory - method
 
+|Catagory | Questions in 40 | Percentage
+|---      |---              |---         |
+|datatype |2                |5%
+|operator |3                |7.5%
+|if-else  |5                |12.5%
+|loop     |16               |40%
+|method   |14               |35%
+
 Questions related to **method** can be divided by 
 * method signature
 * recursion call
@@ -404,7 +412,7 @@ Questions related to **method** can be divided by
 			if (n==0)
 				return 0;
 			else 
-				return f(n/10)+ n % 10; 
+				return f(n/10) + n % 10; 
 				
 		}
 		System.out.println(f(8765));

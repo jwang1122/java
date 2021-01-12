@@ -3,11 +3,44 @@ package com.huaxia.ap2021.iteration;
 public class IteratorTest {
 
 	public static void main(String[] args) {
-		int n = 3; // some integer greater than zero
-		count(n);
-		System.out.println(n*(n-1));
+//		int n = 3; // some integer greater than zero
+//		count(n);
+//		System.out.println(n*(n-1));
+//		while1();
+		forWhile(5);
 	}
+	private static void forWhile(int someNum) { // all for can be written as while
+		int tmp = someNum;
+		for (int i =0; i < someNum; i++){
+			someNum--; 
+			System.out.println(i);
+		}
+		System.out.println("someNum: "+someNum);
 
+		someNum = tmp;
+		for (int i = 1; i < someNum - 1; i++) {
+			someNum -=1; 
+			System.out.println(i);
+		}
+		System.out.println("someNum: "+someNum);
+
+		someNum = tmp;
+		int i =	0; 
+		while (i <someNum){
+			i++;
+			someNum--;  
+		}		
+		System.out.println(i+","+someNum);
+	}
+	static void while1() {
+		int val1 =2, val2=22, val3=78;
+		while (val2 % val1== 0 || val2 % 3 == 0 ){
+			val3++; 
+			val2--; 
+		}
+		System.out.println(val2 + ", " + val3);
+	}
+	
 	static void count(int n) {
 		int count = 0;
 		int p = 0;

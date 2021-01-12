@@ -1,12 +1,12 @@
 # AP Computer Science Prep - Question Catagory - datatype
 
-Catagory | Questions in 40 | Percentage
-|--- |--- |--- |
-datatype |2  |5%
-operator |3  |7.5
-if-else  |5  |12.5%
-loop     |16 |40%
-method   |14 |35%
+|Catagory | Questions in 40 | Percentage
+|---      |---              |---         |
+|datatype |2                |5%
+|operator |3                |7.5%
+|if-else  |5                |12.5%
+|loop     |16               |40%
+|method   |14               |35%
 
 Questions related to **datatype** can be divided by 
 * cast

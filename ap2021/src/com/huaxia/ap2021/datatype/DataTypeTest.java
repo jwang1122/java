@@ -3,8 +3,16 @@ package com.huaxia.ap2021.datatype;
 public class DataTypeTest {
 
 	public static void main(String[] args) {
-		math();
+//		math();
 //		area();
+		stringIndex();
+	}
+
+	private static void stringIndex() {
+		String s = "This is the beginning";
+		String t = s.substring(5);
+		int n = t.indexOf("the");
+		System.out.println(n);
 	}
 
 	static void math() {
