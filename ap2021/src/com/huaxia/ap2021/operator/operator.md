@@ -68,7 +68,7 @@ Questions related to **operator** can be divided by
 	if (/* missing code */)
 		System.out.print ("Nice job.");   
 	else 
-		SYstern.out.print("Nicer job ."); 
+		System.out.print("Nicer job ."); 
 	```
 	Which of the following could be used to replace / * missing code * / so that the output of this block of code is "Nicer job."?
 

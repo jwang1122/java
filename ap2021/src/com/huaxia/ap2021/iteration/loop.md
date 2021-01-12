@@ -484,4 +484,50 @@ Questions related to **loop** can be divided by
 	(D) 200 66 22 
 	(E) 7 
 	```
-1. 
+1. Consider the following code segment. 
+
+	```java
+	int vail = 2, val2 = 22, val3 = 78; 
+	while (val2 % vail == 0 || val2 % 3 == 0 ){
+		val3++; 
+		val2--; 
+	}
+	```
+	What will val3 contain after the code segment is executed?
+	```
+	(A) 77
+	(B) 78 
+	(C) 79 
+	(D) 80
+	(E) None of the above  
+	```
+1. What will be the output when the following code is evaluated?
+
+	```java
+	for (int k = 0; k< 3; k++ ) {
+		for (int j = 1; j <4; j++){
+			System.out.printin (j + " ");
+		}
+		System,out.println();
+	}
+	```
+	```
+	(A) 1 2 3 4
+		1 2 3 4 
+		1 2 3 4
+	(B) 0 1 2
+		0 1 2
+		0 1 2
+		0 1 2
+	(C) 1 2 3
+		1 2 3
+		1 2 3
+	(D) 1 2 3
+		1 2 3
+		1 2 3
+		1 2 3
+	(E) 1 2 3 4
+		1 2 3 4
+		1 2 3 4
+		1 2 3 4    
+	```
