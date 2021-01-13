@@ -211,5 +211,43 @@ Questions related to **if-else** can be divided by
 	(D) II and III only
 	(E) I, II and III
 	```
-1. 
+1. Consider the following code segments: 
+
+	```java
+	I. 	int x = 10; 
+		int y = 20;
+		int z = 0 ;
+		if (x < y && 10 < y/z) {
+			Systern.out.println("Homer") ; 
+		}
+		else{
+			System.out.printIn("gart") 
+		}
+	II.	int x = 10; 
+		int y = 20;
+		int z = 0 ;
+		if (x > y && 10 < y/z) {
+			Systern.out.println("Homer") ; 
+		}
+		else{
+			System.out.printIn("gart") 
+		}
+	III.int x = 10; 
+		int y = 20;
+		int z = 0 ;
+		if (x < y || 10 < y/z) {
+			Systern.out.println("Homer") ; 
+		}
+		else{
+			System.out.printIn("gart") 
+		}
+	```
+    Which of the code segments above will run without error? 
+	```
+	(A) I only
+	(B) II only
+	(C) III only
+	(D) II and III
+	(E) I, II and III
+	```
 

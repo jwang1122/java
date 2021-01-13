@@ -554,3 +554,139 @@ Questions related to **loop** can be divided by
 	(D) At least two out of I, II, and III have different numbers of iterations. 
 	(E) I, II, and III all produce different results. 
 	```
+1. Consider the following code segment: 
+
+	```java
+	for (int i = 1; i 100; i = i *2) {
+		if (i / 50 == 0) 
+			System.out.print(i + " ”) ; 
+	}
+	```
+	What is printed as a result of executing the code segment? 
+	```
+	(A) 1 2 4 8	16 32 64 
+	(B) 1 2 4 8 16 32 
+	(C) 2 4 8 1 6 32 64 
+	(D) 2 4 8 16 32
+	(E) 4 8 16 32 64  
+	```
+1. Consider the following output: 
+   ```
+   	O 1 
+   	O 2 4
+	0 3 6 9
+	o 4 8 12 16 
+   ```
+   Which of the following code segments will produce this output? 
+   ```java
+   (A) for (int x = 1; x < 5; x++) {
+	   		for (int z = 0; z<=x; z++) {
+				   System.out .print(x * z + "	" );
+			}
+			System.out. println (" ");
+   		}
+	(B) for(int x =1; x <= 5; x++) {
+			for (int z = 0; z<x; z++) {
+				   System.out .print(x * z + "	" );
+			}
+			System.out. println (" ");
+		}
+	(C) for(int x =1; x < 5; x++) {
+			for (int z = 0; z<=4; z++) {
+				   System.out .print(x * z + "	" );
+			}
+			System.out. println (" ");
+		}
+	(D) for(int x =1; x < 5; x++) {
+			for (int z = 0; z<=4; z++) {
+				   System.out .print(x * z + "	" );
+			}
+			System.out. println (" ");
+		}
+	(E) for(int x =1; x <= 5; x++) {
+			for (int z = 0; z<=x; z++) {
+				   System.out .print(x * z + "	" );
+			}
+			System.out. println (" ");
+		}
+   ```
+1. The speed limit of a stretch of highway is 55 miles per hour (mph). The highway patrol issues speec ding tickets to anyone caught going faster than 55 miles per hour. The fine for speeding is based on the following scale: 
+
+	|Speed |Fine
+	|---   |---  |
+	greater than 55 mph but less than 65 mph             |$1OO 
+	greater than or equal to 65 mph but less than 75 mph |$150 
+	greater than or equal to 75 mph                      |$300 
+
+	If the value of the int variable speed is the speed of a driver who was pulled over for going faster than 55 mph, which of the following code segments will assign the correct value to the int variable fine? 
+
+	```java
+	I. 	if (speed >= 75)
+			fine = 300;
+		if (speed >= 65 && speed<65)
+			fine = 150;
+		if (speed > 55 && speed<65)
+			fine = 100;
+	II. if (speed >= 75)
+			fine = 300;
+		if (65<=speed<75 )
+			fine = 150;
+		if (55<speed <65 )
+			fine = 100;
+	III.if (speed >= 75)
+			fine = 300;
+		if (speed >= 65)
+			fine = 150;
+		if (speed > 55)
+			fine = 100;
+	```
+	```
+	(A) I only
+	(B) II only
+	(C) III only
+	(D) I and II
+	(E) I and III
+	```
+1. Considerthe following code segment: 
+
+	```java
+	int x = 10; 
+	int y=3;
+	boolean b = true;
+	for (int i = 0, i< 15; i+= 5) {
+		x = x + y;
+		b = (x % y == 2);
+		if (!b){
+			y++; 
+			i += 5; 
+		} 
+	} 
+	```
+	What is the value of x after the code segment executes? 
+	```
+	(A) 10
+	(B) 15 
+	(C) 17 
+	(D) 22 
+	(E) 25 
+	```
+1. Consider the following code segment: 
+
+	```java
+	int a = 0;
+	for (int i = 0; i < 10; i ++){
+		for (int k = 0; k <= 5; k++) {
+			for (int z = 1; z <= 16; z = z * 2) {
+				a++
+			}
+		}
+	}
+	```
+	What is the value of a after the code segment executes?
+	```
+	(A) 31 
+	(B) 180 
+	(C) 200 
+	(D) 300 
+	(E) 400 
+	```

@@ -424,6 +424,15 @@ Questions related to **method** can be divided by
 	(D) 26 
 	(E) A run-time error 
 	```
+1. Which of the following class declarations would cause a compile-time error? Assume the rest of the code compiles as intended. 
+
+	```java
+	(A) public class Calculus
+	(B) public class apCalculus  
+	(C) public class APCalculus 
+	(D) public class 4Apcalculus 
+	(E) public class APCalculusextends Calculus 
+	```
 
 
 
