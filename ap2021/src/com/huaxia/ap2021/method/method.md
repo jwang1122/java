@@ -10,10 +10,9 @@
 
 Questions related to **method** can be divided by 
 * method signature
-* recursion call
 * pass by reference
+* recursion call
 * constructor
-
 
 1. Determine output of the following code.
 
@@ -431,8 +430,21 @@ Questions related to **method** can be divided by
 	(B) public class apCalculus  
 	(C) public class APCalculus 
 	(D) public class 4Apcalculus 
-	(E) public class APCalculusextends Calculus 
+	(E) public class APCalculus extends Calculus 
 	```
+1. Which of the following statements would best describe an efficient design to represent a pair of sunglasses? 
 
+	···
+	(A) Three classes: UnfoldGasses, CleanGlasses, and WearGlasses 
+	(B) An UnfoldGlasses class with methods CleanGlasses and WearGlasses 
+	（C) A PairOfSunglasses class with boolean variables unfolded, cleaned, and worn 
+	(D) A PairOfSunglasses class with methods that unfold, clean, and wear the objects in the class 
+	（E) A UseSunglasses class with statements that unfold, clean, and wear the sunglasses 
+	···
+1. The method sitOnChair belongs to another class and is supposed to allow the user to “sit” on a Chair if the chair is padded. Which of the following code segments could be used to replace <program statements> so that sitOnChair will work as intended? 
 
-
+	```java
+	I.	Chairc = new Chair(true)；
+		c.sit();
+	
+	```

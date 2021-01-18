@@ -16,7 +16,7 @@ public class PassByReference {
 		System.out.println("s1: " + s1);
 		System.out.println("s2: " + s2);
 
-		test.switchStudent1(s1, s2);
+		test.switchStudent(s1, s2, true);
 		System.out.println("s1: " + s1);
 		System.out.println("s2: " + s2);
 		
@@ -42,7 +42,7 @@ public class PassByReference {
 		s2 = temp;
 	}
 
-	public void switchStudent1(Student s1, Student s2) {
+	public void switchStudent(Student s1, Student s2, boolean flag) {
 		Student temp = new Student(s1.name, s1.age);
 		s1.name = s2.name;
 		s1.age = s2.age;

@@ -172,3 +172,20 @@ Questions related to **datatype** can be divided by
     (C) 7
     (D) 9 
    ```
+1. Which of the following option leads to the portability and security of Java?
+
+    ```
+    (A) Bytecode is executed by JVM
+    (B) The applet makes the Java code secure and portable
+    (C) Use of exception handling
+    (D) Dynamic binding between objects
+    (E) All of above
+    ```
+1. Which of the following is not a Java features?
+    ```
+    (A) Dynamic
+    (B) Architecture Neutral
+    (C) Use of pointers
+    (D) Object-oriented
+    (E) All of above
+    ```

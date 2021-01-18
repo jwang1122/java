@@ -7,7 +7,7 @@ import java.util.List;
 public class SeatingChart {
 	private String[][] chart;
 
-	SeatingChart(Name[] names, int r, int c, boolean flag) {
+	SeatingChart(Name[] names, int r, int c) {
 		List<Name> list = Arrays.asList(names);
 		Collections.shuffle(list);
 		int count = 0;
@@ -16,8 +16,7 @@ public class SeatingChart {
 			for (int j = 0; j < chart[0].length; j++) {
 				chart[i][j] = "";
 				if(count<list.size()) {
-					chart[i][j] = list.get(count).toString();
-					count++;
+					chart[i][j] = list.get(count++).toString();
 				}
 			}
 		}	
@@ -28,7 +27,7 @@ public class SeatingChart {
 	 *  first Name (e-g. Johlie, Angelina). Any locations not used in the chart should be  
 	 *  initialized to the empty string. 
 	 */
-	SeatingChart(Name[] names, int r, int c) {
+	SeatingChart(Name[] names, int r, int c, boolean flag) {
 		chart = new String[r][c];
 		for (int i = 0; i < chart.length; i++) {
 			for (int j = 0; j < chart[0].length; j++) {
@@ -40,7 +39,7 @@ public class SeatingChart {
 		int row = i / c;
 		int col = i % c;
 		while (count < names.length) {
-			while (!chart[row][col].equals("")) {
+			while (!chart[row][col].equals("") ) {
 				i = (int) (Math.random() * names.length);
 				row = i / c;
 				col = i % c;
