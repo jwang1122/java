@@ -12,7 +12,7 @@ public class Question28 {
 		}
 		for (int i = 0; i < alist1.size(); i++) {
 			if (alist1.get(i) % 2 == 0) {
-				alist1.remove(i);
+				alist1.remove(i); // be careful remove item by index
 			}
 		}
 		System.out.println(alist1);

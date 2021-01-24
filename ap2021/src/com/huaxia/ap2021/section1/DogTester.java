@@ -1,6 +1,6 @@
 package com.huaxia.ap2021.section1;
 
-public class DocTester {
+public class DogTester {
 	public static void main(String[] args) {
 		Dog d1 = new SportingDog (30 , 74 , "Black");
 		Dog d2 = new Retriever("Labrador", "Yellow", 75); 

@@ -13,8 +13,8 @@ public class Question29 {
 		for (int k = 0; k < alist5.size() - 1; k++) {
 			for (int i = 0; i < alist5.size() - 2; i++) {
 				if (alist5.get(i) > alist5.get(i + 1)) {
-					int hold = alist5.remove(i);
-					alist5.add(i + 1, hold);
+					int hold = alist5.remove(i); // remove method will return removed value
+					alist5.add(i + 1, hold); // add item by given position
 				}
 			}
 		}

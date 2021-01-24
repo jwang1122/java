@@ -23,12 +23,12 @@ public class Question32 {
 		System.out.println();
 		
 		// III.
-		for (int r = 0; r < nums[0].length; r++) {
-			for (int c = 0; c < nums.length; c++) {
-				System.out.print(nums[r][c] +" ");
-			}
-			System.out.print("\n") ;
-		}
+//		for (int r = 0; r < nums[0].length; r++) {
+//			for (int c = 0; c < nums.length; c++) {
+//				System.out.print(nums[r][c] +" ");
+//			}
+//			System.out.print("\n") ;
+//		}
 	}
 
 }
