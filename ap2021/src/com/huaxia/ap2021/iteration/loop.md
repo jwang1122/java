@@ -32,13 +32,13 @@ Questions related to **loop** can be divided by
 	```
 	```
 	(A) int i = 0;
-		while(i<str1.length);
+		while(i<str1.length)
 	(B) int i = str1.length();
-		while (i >=0);
+		while (i >=0)
 	(C) int i = str1.length() - 1;
-		while (i >=0);
+		while (i >=0)
 	(D) int i = str1.length();
-		while (i>0);
+		while (i>0)
 	(E) int i = str1.length() - 1;
 		while (i>0)
 	```
@@ -112,21 +112,21 @@ Questions related to **loop** can be divided by
 		*****
 	(B) *****
 		****
-		***
-		**
-			*
+		 ***
+		  **
+		   *
 		*****
 	(C) *****
-			*
-		*
-		*
+		   *
+		  *
+		 *
 		*
 		*****
 	(D) *****
-		*
-		*
-		*
-		*
+	     *
+		 *
+		  *
+		   *
 		*****
 	(E) *****
 		*
@@ -236,10 +236,17 @@ Questions related to **loop** can be divided by
 1. Given the following code excerpt:
 
 	```java
-		int[] nums = {11, 22, 33, 44, 55, 66};
-		for (int i=0; i<nums.length; i++)
-			nums[nums[i]/11] = nums[i];
-
+		int[] nums = { 11, 22, 33, 44, 55, 66 };
+		for (int i = 0; i < nums.length; i++) {
+			nums[nums[i] / 11] = nums[i];
+		}
+		int i = 0;
+		while (i < nums.length) {
+			System.out.print(nums[i++]);
+			if (i != 0 && i<nums.length)
+				System.out.print(", ");
+		}
+		System.out.println();
 	```
 	```
 	(A) 1, 2, 3, 4, 5
@@ -396,7 +403,7 @@ Questions related to **loop** can be divided by
 	(D) [2, 6, 8, 21, 1] 
 	(E) [1, 2, 6, 8, 21] 
 	```
-1. Given nums—a rectanglular, but not necessarily square, two-dimensional array of integers, choose the code to correctly print the array:
+1. Given numsâ€”a rectanglular, but not necessarily square, two-dimensional array of integers, choose the code to correctly print the array:
 
 	```java
 		int[][] arr2d = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 } };
@@ -432,7 +439,7 @@ Questions related to **loop** can be divided by
 		7
 		8
 	```
-1. Given nums—a rectangular, two-dimensional array of integers, choose the code to print the entire array.
+1. Given numsâ€”a rectangular, two-dimensional array of integers, choose the code to print the entire array.
 
 	```java
 		// I.
@@ -559,7 +566,7 @@ Questions related to **loop** can be divided by
 	```java
 	for (int i = 1; i 100; i = i *2) {
 		if (i / 50 == 0) 
-			System.out.print(i + " ”) ; 
+			System.out.print(i + " â€�) ; 
 	}
 	```
 	What is printed as a result of executing the code segment? 

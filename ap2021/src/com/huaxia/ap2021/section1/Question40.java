@@ -50,8 +50,8 @@ public class Question40 {
 	}
 
 	public static void main(String[] args) {
-		int number = 5;
-		int[] arr = { 1, 3, 5, 6, 8,10 };
+		int number = 6;
+		int[] arr = { 1, 3, 5, 6, 8, 10 };
 		Question40 test = new Question40();
 		System.out.println(test.search(arr, 0, arr.length - 1, number));
 	}

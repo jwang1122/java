@@ -1,5 +1,7 @@
 # AP Computer Science Prep - Question Catagory - method
 
+[Fluent Mark](https://github.com/grosenberg/Fluentmark)
+
 |Catagory | Questions in 40 | Percentage
 |---      |---              |---         |
 |datatype |2                |5%
@@ -14,23 +16,25 @@ Questions related to **method** can be divided by
 * recursion call
 * constructor
 
+
 1. Determine output of the following code.
 
 	```java
-		public static void swap(String s1, String s2) {
-			String hold = s1;
-			s1 = s2;
-			s2 = hold;
-		}
-		
-		public static void main(String[] args) {
-			String animal1 = "elephant";
-			String animal2 = "lion";
-			swap(animal1, animal2);
-			animal1.toUpperCase();
-			animal2.toUpperCase();
-			System.out.println(animal1 + " " + animal2);
-		}
+	
+	public static void swap(String s1, String s2) {
+		String hold = s1;
+		s1 = s2;
+		s2 = hold;
+	}
+	
+	public static void main(String[] args) {
+		String animal1 = "elephant";
+		String animal2 = "lion";
+		swap(animal1, animal2);
+		animal1.toUpperCase();
+		animal2.toUpperCase();
+		System.out.println(animal1 + " " + animal2);
+	}
 	```
 
 	```
@@ -73,7 +77,7 @@ Questions related to **method** can be divided by
 	}
 	```
 
-1. Using Constellation class, which of the following will cause compiler error?
+2. Using Constellation class, which of the following will cause compiler error?
 
 	```
 	(A) Constellation c1 = new Constellation("Hercules", "July");
@@ -123,7 +127,7 @@ Questions related to **method** can be divided by
 	(D) I and II only
 	(E) I, II and III
 	```
-1. Given the following code except for the Tile Class:
+1. Given the following code excerpt for the Tile Class:
 
 	```java
 	public class Tile {
@@ -184,7 +188,7 @@ Questions related to **method** can be divided by
 	```
 	```
 	(A) Tile@5ccd43c2
-	(B) 785 blue 0.0 0.0 null 0.0
+	(B) 101 blue 0.0 0.0 null 0.0
 	(C) Type mismatch error
 	(D) NullPointerException
 	(E) There will be no output; the program will not compile
@@ -217,6 +221,7 @@ Questions related to **method** can be divided by
 	```
 	Which of the following statements best reflects the outcome of the two methods?
 
+```
 	(A) Both methods will swap the contents of the two arrays correctly in all cases.
 
 	(B) swap1 will swap the contens of the two arrays correctly only if both arrays have the same munber of elements whereas swap2 will work correctly for all cases.
@@ -227,7 +232,7 @@ Questions related to **method** can be divided by
 	
 	(E) Neither method will swap the contents of the two arrays correctly under any condition.
 
-	Questions 33-34 refer to the Percussion and Xylophone class below. 
+Questions 33-34 refer to the Percussion and Xylophone class below. 
 
 	```java
 	public class Percussion {
@@ -317,7 +322,7 @@ Questions related to **method** can be divided by
 	```
 	(E) The weight of each object cannot be compared.
 
-	Questions 36-37 refer to the following classes. 
+Questions 36-37 refer to the following classes. 
 
 	```java
 	public class Dog {
@@ -434,17 +439,17 @@ Questions related to **method** can be divided by
 	```
 1. Which of the following statements would best describe an efficient design to represent a pair of sunglasses? 
 
-	···
+	```
 	(A) Three classes: UnfoldGasses, CleanGlasses, and WearGlasses 
 	(B) An UnfoldGlasses class with methods CleanGlasses and WearGlasses 
-	（C) A PairOfSunglasses class with boolean variables unfolded, cleaned, and worn 
+	(C) A PairOfSunglasses class with boolean variables unfolded, cleaned, and worn 
 	(D) A PairOfSunglasses class with methods that unfold, clean, and wear the objects in the class 
-	（E) A UseSunglasses class with statements that unfold, clean, and wear the sunglasses 
-	···
-1. The method sitOnChair belongs to another class and is supposed to allow the user to “sit” on a Chair if the chair is padded. Which of the following code segments could be used to replace <program statements> so that sitOnChair will work as intended? 
+	(E) A UseSunglasses class with statements that unfold, clean, and wear the sunglasses 
+	```
+1. The method sitOnChair belongs to another class and is supposed to allow the user to sit on a Chair if the chair is padded. Which of the following code segments could be used to replace <program statements> so that sitOnChair will work as intended? 
 
 	```java
-	I.	Chairc = new Chair(true)；
+	I.	Chair c = new Chair(true);
 		c.sit();
 	
 	```

@@ -12,7 +12,7 @@ public class CardLayoutExample extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	public static CardLayout card = new CardLayout(40, 30);
-    public static Container c;
+    public Container c;
     JButton jb1, jb2, jb3;
      
     public CardLayoutExample() {
@@ -41,10 +41,16 @@ public class CardLayoutExample extends JFrame implements ActionListener {
         cl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          
     }
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		card.next(c); 
+		
+	}
      
     // Action listener
-    public void actionPerformed(ActionEvent e) {  
-        card.next(c);  
-    }  
+//    public void actionPerformed(ActionEvent e) {  
+//        card.next(c);  
+//    }  
  
 }
