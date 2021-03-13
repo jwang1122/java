@@ -1,4 +1,4 @@
-package com.huaxia;
+package com.huaxia.snake;
 
 import java.awt.Color;
 import java.awt.Dimension;

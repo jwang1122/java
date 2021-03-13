@@ -56,7 +56,7 @@ public class Quiz6 {
 	}
 
 	private static void question5() {
-		int[] numbers = { 11, 2, 3, 24, 5, 6 };
+		int[] numbers = { -11, -2, -3, -24, -5, -6 };
 		int holdSmallest = Integer.MAX_VALUE;
 		int holdLargest = 0;
 		int a = 0;

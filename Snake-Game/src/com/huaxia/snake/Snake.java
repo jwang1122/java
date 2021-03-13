@@ -1,4 +1,4 @@
-package com.huaxia;
+package com.huaxia.snake;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;

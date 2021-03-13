@@ -15,13 +15,13 @@ public class SeatingChart {
 		for (int i = 0; i < chart.length; i++) {
 			for (int j = 0; j < chart[0].length; j++) {
 				chart[i][j] = "";
-				if(count<list.size()) {
+				if (count < list.size()) {
 					chart[i][j] = list.get(count++).toString();
 				}
 			}
-		}	
+		}
 	}
-	
+
 	/** Constructs a SeatinqChart having r rows and c columns. All elements contained in the
 	 *  names array should be placed randomly in the chart array using the format: lastName
 	 *  first Name (e-g. Johlie, Angelina). Any locations not used in the chart should be  
@@ -36,17 +36,42 @@ public class SeatingChart {
 		}
 		int count = 0;
 		int i = (int) (Math.random() * names.length);
-		int row = i / c;
-		int col = i % c;
+		int row = i / c; // one random number determine one seat location
+		int col = i % c; 
+		int randomTimes=1;
 		while (count < names.length) {
-			while (!chart[row][col].equals("") ) {
+			while (!chart[row][col].equals("")) {
 				i = (int) (Math.random() * names.length);
 				row = i / c;
 				col = i % c;
+				randomTimes++;
 			}
 			chart[row][col] = names[count].getLastName() + ", " + names[count].getFirstName();
 			count++;
 		}
+		System.out.println(randomTimes);
+
+	}
+
+	SeatingChart(Name[] names, int r, int c, int flag) {
+		chart = new String[r][c];
+		for (int i = 0; i < chart.length; i++) {
+			for (int j = 0; j < chart[0].length; j++) {
+				chart[i][j] = "";
+			}
+		}
+		int randomTimes = 0;
+		for (int i = 0; i < names.length; i++) {
+			randomTimes+=2;
+			int row = (int) (Math.random() * r); // 2 random number determine one seat location
+			int col = (int) (Math.random() * c);
+			if (chart[row][col].length() == 0) {
+				chart[row][col] = names[i].toString();
+			} else {
+				i--;
+			}
+		}
+		System.out.println(randomTimes);
 	}
 
 	/** Returns a string containing all elements of the chart array in row-major order.
@@ -72,7 +97,7 @@ public class SeatingChart {
 
 	private String padWithSpaces(String s) {
 		String str = s;
-		for (int a = s.length(); a < 35; a++) {
+		for (int a = s.length(); a < 20; a++) {
 			str += " ";
 		}
 		return str;
@@ -80,7 +105,7 @@ public class SeatingChart {
 
 	public static void main(String[] args) {
 		String[] names = { "Miller, Minnie", "Fitzgerald,Fred", "Dade, Ali", "Indigo, Inde", "Banner, Boris",
-				"Lane, Lois", "Titon, Tim", "Robilard, Robbie", "Georgian, Greg","Brne, Jane" };
+				"Lane, Lois", "Titon, Tim", "Robilard, Robbie", "Georgian, Greg", "Brne, Jane" };
 		Name[] theNames = new Name[names.length];
 		for (int i = 0; i < names.length; i++) {
 			String name = names[i];

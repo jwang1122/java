@@ -38,7 +38,6 @@ public class CalorieCount {
 		sunday.onTrack();
 		double percentage = sunday.getProteinPercentage();
 		System.out.println(percentage);
-
 	}
 
 }

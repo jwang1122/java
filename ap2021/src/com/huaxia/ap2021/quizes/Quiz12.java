@@ -27,18 +27,46 @@ public class Quiz12 {
 	}
 
 	private static void question3() {
-		// TODO Auto-generated method stub
-
+		Chair c =new Chair (true);
+//		c.sit();
+//		if (c.padded) System.out.print ("You are sitting.");
 	}
 
 	private static void question4() {
-		// TODO Auto-generated method stub
-
 	}
 
 	private static void question5() {
-		// TODO Auto-generated method stub
+		System.out.println(halfRoot(-2));
+		System.out.println(halfRoot(3));
+		System.out.println(halfRoot((int) 2.0));
+//		System.out.println(halfRoot(3.0));
 
 	}
 
+	public static double /*int*/ halfRoot(int n) {
+		return Math.sqrt(n) / 2;
+	}
+
+	public static boolean sitOnChair() {
+		/* program statements */
+		Chair c =new Chair (true);
+		return c.isPadded();
+	}
+
+}
+
+class Chair {
+	private int numberOfLegs = 4;
+	private boolean padded;
+
+	public boolean isPadded() {
+		return padded;
+	}
+
+	public Chair(boolean soft) {
+		if (soft)
+			padded = true;
+		else
+			padded = false;
+	}
 }
