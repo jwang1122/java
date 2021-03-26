@@ -46,6 +46,6 @@ class Actor {
 
 }
 
-class Bug {
+class Bug extends Actor{
 
 }

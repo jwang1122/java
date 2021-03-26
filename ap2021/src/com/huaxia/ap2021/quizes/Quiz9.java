@@ -88,7 +88,7 @@ public class Quiz9 {
         if (n==0) // since integer/10 will actually go n==0, terminate recursion call.
             return 0;
         else 
-            return f(n/10)+ n % 10; // add each digit of input integer up           
+            return f(n/10) + n % 10; // add each digit of input integer up           
     }
 }
 

@@ -11,6 +11,7 @@ public class Quiz15 {
 	}
 
 	private static void question1() {
+		System.out.println("question 1...");
 		Book b1 = new Book();
 		Book b2 = new Novel();
 		Book b3 = new Textbook();
@@ -30,22 +31,25 @@ public class Quiz15 {
 	}
 
 	private static void question2() {
-		// TODO Auto-generated method stub
+		System.out.println("question 2...");
 		System.out.println("Buttom-up Development.");
 		
 	}
 
 	private static void question3() {
+		System.out.println("question 3...");
 		Card card = new Card("HEARTS", 12);
 		System.out.println(card);
 	}
 
 	private static void question4() {
+		System.out.println("question 4...");
 		Deck deck = new Deck();
 		deck.writeDeck();		
 	}
 
 	private static void question5() {
+		System.out.println("question 5...");
 		int[] arr = {1, -1, 4, 12, 9, 32, -11};
 		int min = findMin(arr);
 		System.out.println(min);

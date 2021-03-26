@@ -11,6 +11,7 @@ public class Quiz12 {
 	}
 
 	private static void question1() {
+		System.out.println("question 1...");
 		int r = 22;
 		System.out.println(r * r * Math.PI);
 		double r1 = 22;
@@ -20,6 +21,7 @@ public class Quiz12 {
 	}
 
 	private static void question2() {
+		System.out.println("question 2...");
 		String s = "This is the beginning";
 		String t = s.substring(5);
 		int n = t.indexOf("the");
@@ -27,15 +29,20 @@ public class Quiz12 {
 	}
 
 	private static void question3() {
+		System.out.println("question 3...");
 		Chair c =new Chair (true);
 //		c.sit();
 //		if (c.padded) System.out.print ("You are sitting.");
 	}
 
 	private static void question4() {
+		System.out.println("question 4...");
+		//getter/setter = accessor/mutator
+		System.out.println("(B) add getPadded() method.");
 	}
 
 	private static void question5() {
+		System.out.println("question 5...");
 		System.out.println(halfRoot(-2));
 		System.out.println(halfRoot(3));
 		System.out.println(halfRoot((int) 2.0));

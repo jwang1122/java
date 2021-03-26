@@ -3,7 +3,7 @@ package com.huaxia.ap2021.quizes;
 public class Quiz10 {
 
 	public static void main(String[] args) {
-//		question1();
+		question1();
 //		question2();
 //		question3();
 //		question4();
@@ -11,7 +11,7 @@ public class Quiz10 {
 	}
 
 	static void question1() {
-		int number = 6; // the number must be in the array
+		int number = 3; // the number must be in the array
 		int[] arr = { 1, 3, 5, 6, 8, 10 }; // the numbers in the array must be in order
 		System.out.println(search(arr, 0, arr.length - 1, number));
 	}

@@ -11,6 +11,7 @@ public class Quiz11 {
 	}
 
 	private static void question1() {
+		System.out.println("question 1...");
 		System.out.print("Ilove Java");
 		System.out.print("Ilove" + "Java");
 //		System.out.print(1 + "love" + Java"); // (C)
@@ -20,6 +21,7 @@ public class Quiz11 {
 	}
 
 	private static void question2() {
+		System.out.println("question 2...");
 	    int a =10 ;
 	    double b = 10.7; 
 	    double c = a + b;
@@ -29,6 +31,7 @@ public class Quiz11 {
 	}
 
 	private static void question3() {
+		System.out.println("question 3...");
 	    int a = 3; 
 	    int b = 6; 
 	    int c = 8; 
@@ -39,6 +42,7 @@ public class Quiz11 {
 	}
 
 	private static void question4() {
+		System.out.println("question 4...");
 		for (int i = 200 ; i > 0; i /= 3) {
 			if (i % 2 == 0 ) 
 				System.out.print(i +" ");
@@ -47,6 +51,7 @@ public class Quiz11 {
 	}
 
 	private static void question5() {
+		System.out.println("question 5...");
 		int x = 10;
 		int y = 5;
 
