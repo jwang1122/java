@@ -4,6 +4,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @see Name
+ * 
+ * Solution for the question: C:\Users\12818\workspace\apcomputer\exams\sectionII-04.md
+ *
+ * @author John
+ *
+ */
 public class SeatingChart {
 	private String[][] chart;
 

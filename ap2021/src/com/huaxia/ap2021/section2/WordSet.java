@@ -2,6 +2,12 @@ package com.huaxia.ap2021.section2;
 
 import java.util.TreeSet;
 
+/**
+ * Soluction for ~/workspace/apcomputer/exams/sectionII-2.md
+ * 
+ * @author John
+ *
+ */
 public class WordSet {
 	private TreeSet<String> words = new TreeSet<String>();
 

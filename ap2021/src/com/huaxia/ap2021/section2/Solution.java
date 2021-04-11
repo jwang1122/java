@@ -1,7 +1,11 @@
 package com.huaxia.ap2021.section2;
 
 public interface Solution {
-    /** Qreturn an integer value that ranges from 1 (very acidic) 
+    /** 
+     * Solution for ~/workspace/apcomputer/exams/sectionII-1.md
+     * @see Experiment (main())
+     * @see MechanicalArm
+     * @return an integer value that ranges from 1 (very acidic) 
     * to 14 */ 
     int getPH();
     /** Set pH to newValue. 

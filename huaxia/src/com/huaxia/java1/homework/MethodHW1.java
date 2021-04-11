@@ -2,7 +2,7 @@ package com.huaxia.java1.homework;
 
 import java.util.Scanner;
 
-public class methodHW1 {
+public class MethodHW1 {
 	static double smallest(double v1, double v2, double v3) {
 		return Math.min(v1, Math.min(v2, v3));
 	}

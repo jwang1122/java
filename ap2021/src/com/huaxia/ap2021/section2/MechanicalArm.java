@@ -1,9 +1,17 @@
 package com.huaxia.ap2021.section2;
 
+/**
+ * @see Experiment (
+ * @see Solution
+ * 
+ * @author John
+ *
+ */
 public interface MechanicalArm {
-    /** @return the index of the current location of the 
-    * mechanical arm */ 
-    int getCurrentIndex ( );
+    /** 
+     * @return the index of the current location of the mechanical arm 
+    * */ 
+	int getCurrentIndex();
     
     /** @return true if the mechanical arm is facing right 
     * (toward solutions with larger indexes), 

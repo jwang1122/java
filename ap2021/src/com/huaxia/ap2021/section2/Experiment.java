@@ -1,8 +1,18 @@
 package com.huaxia.ap2021.section2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @see Solution
+ * @see MechanicalArm
+ * 
+ * Solution for the question: C:\Users\12818\workspace\apcomputer\exams\sectionII-1.md
+ * 
+ * @author John
+ *
+ */
 public class Experiment {
 	/** The mechanical arm used to process the solutions*/
 	private MechanicalArm arm;
@@ -42,10 +52,10 @@ public class Experiment {
 		}
 		if (minPH >= 7)
 			return -1;
-		else {
+//		else {
 			arm.moveForward(minlndex);
 			return minlndex;
-		}
+//		}
 	}
 
 	public MechanicalArm getArm() {
@@ -85,6 +95,7 @@ public class Experiment {
 			s.setPH(i);
 			solutions.add(s);
 		}
+		
 		setSolutions(solutions);
 		setArm(arm);
 	}
@@ -96,23 +107,21 @@ public class Experiment {
 		exp.init(ph, arm);
 		System.out.println(exp);
 		
-		exp.reset();
+		exp.reset();  // part (a)
 		System.out.println(exp);	
 		
-		exp.mostAcidic();
-		int result = exp.mostAcidic();
+//		exp.mostAcidic();  // part (b)
+		int result = exp.mostAcidic();// part (b)
 		System.out.println(result);
 		System.out.println(exp);	
 
-		ph = new int[]{ 7, 9, 8, 8, 12, 13, 14 };
+		ph = new int[]{ 11, 9, 8, 8, 12, 13, 14 }; // no most acide existing
 		arm = new MyArm(1, true);
 		exp.init(ph, arm);
 		result = exp.mostAcidic();
 		System.out.println(result);
-		System.out.println(exp);	
-		
+		System.out.println(exp);		
 	}
-
 }
 
 class MySolution implements Solution {

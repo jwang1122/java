@@ -2,7 +2,7 @@ package com.huaxia.java1.homework;
 
 import java.util.Scanner;
 
-public class scannerHW1 {
+public class ScannerHW1 {
 
 	public static void main(String[] args) {
 		Scanner console = new Scanner(System.in);

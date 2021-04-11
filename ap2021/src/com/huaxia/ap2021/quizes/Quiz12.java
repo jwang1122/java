@@ -50,7 +50,7 @@ public class Quiz12 {
 
 	}
 
-	public static double /*int*/ halfRoot(int n) {
+	public static double halfRoot(int n) {
 		return Math.sqrt(n) / 2;
 	}
 

@@ -40,7 +40,9 @@ public class Quiz13 {
 		System.out.println(ComputerMouse.getConnector());
 		ComputerMouse.setConnector("new connector");
 		System.out.println(ComputerMouse.getConnector());
-		
+		ComputerMouse cm = new ComputerMouse();
+		cm.setConnector("my my my");
+		System.out.println(cm.getConnector());
 	}
 
 	private static void question5() {

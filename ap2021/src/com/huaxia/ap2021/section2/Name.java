@@ -1,5 +1,14 @@
 package com.huaxia.ap2021.section2;
 
+/**
+ * @see SeatingChart (main())
+ * 
+ * Solution for the question: C:\Users\12818\workspace\apcomputer\exams\sectionII-04.md
+ *
+ * 
+ * @author John
+ *
+ */
 public class Name {
 	private String lastName; 
 	private String firstName; 
