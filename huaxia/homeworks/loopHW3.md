@@ -1,20 +1,20 @@
-# use for loop to calculate factorial of number n.
-where the factorial is defined as
+# Use for loop to calculate factorial of number n.
 
-$$
-n! = n \cdot (n-1) \cdot (n-2) \cdot \cdot \cdot \cdot 3 \cdot 2 \cdot 1
-$$
+```java
+int n = 6
 
-for instance, $5! = 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1$ = 120
-
-
-```py
-n = 6
-
-for (int i=0; i<=n; i++)
+for(int i=1; i<=n; i++){
     ...
+}
+System.out.printf(...);
 ```
 
 expected result:
 
 The factorial of 6 is : 720.
+
+[Euler's Number](https://en.wikipedia.org/wiki/E_(mathematical_constant))
+
+$$e = \sum_{n=0}^{\infty} \frac 1 {n!} = 1+ \frac 1 1 + \frac 1 {1\cdot2} + \frac 1 
+  {1 \cdot 2 \cdot 3} + \cdot \cdot \cdot$$
+

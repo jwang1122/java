@@ -16,7 +16,7 @@ public class MethodHW3 {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(middle("350"));
+		System.out.println(middle("3501"));
 
 	}
 

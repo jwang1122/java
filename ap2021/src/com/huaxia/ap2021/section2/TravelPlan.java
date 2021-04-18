@@ -3,7 +3,7 @@ package com.huaxia.ap2021.section2;
 import java.util.ArrayList;
 
 public class TravelPlan {
-	private String destination;
+	String destination;
 	private ArrayList<Tour> plans;
 
 	/** Constructs a Tour 

@@ -4,8 +4,8 @@ public class CalorieCount {
 	private int numCaloriesLimit;
 	private int numCaloriesIntake;
 	private int gramsProtein;
-	private int gramsCarbohydrate;
-	private int gramsFat;
+	int gramsCarbohydrate;
+	int gramsFat;
 
 	public CalorieCount(int numCal) {
 		numCaloriesLimit = numCal;

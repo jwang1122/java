@@ -8,7 +8,7 @@ public class HungryChameleon {
 	* @param actors the list of all adjacent neighbors 
 	* @return a list of adjacent bugs 
 	*/
-	private ArrayList<Bug> getBugs(ArrayList<Actor> actors) { /* to be implemented in part (a) */
+	ArrayList<Bug> getBugs(ArrayList<Actor> actors) { /* to be implemented in part (a) */
 		ArrayList<Bug> bugs = new ArrayList<Bug>();
 		for (Actor a : actors) 
 		{
@@ -23,7 +23,7 @@ public class HungryChameleon {
 	* Precondition: bugs.size() > 0. 
 	* @param bugs the list of adjacent bugs 
 	*/
-	private void eatBug(ArrayList<Bug> bugs) {
+	void eatBug(ArrayList<Bug> bugs) {
 		/* to be implemented in part (b) */ }
 
 	/**

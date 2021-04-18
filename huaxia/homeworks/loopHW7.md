@@ -1,4 +1,4 @@
-* Write program to print out the following pattern on terminal.
+* Write python program to print out the following pattern on terminal.
 
     1
    2 2
