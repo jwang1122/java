@@ -128,7 +128,7 @@ class RandomList {
 	/* Read random Integers from 0 to 100 inclusive into array list. */
 	public int[] getList() 
     {
-        System.out.println("How many integers?");
+        System.out.println("How many integers? (enter number in next line)");
         Scanner io = new Scanner(System.in);
         int listLength = io.nextInt();  //read user input 
         int[] list = new int[listLength]; 

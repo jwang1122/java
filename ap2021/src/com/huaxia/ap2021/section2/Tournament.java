@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Soluction for ~/workspace/apcomputer/exams/sectionII-3.md
+ * 
  * @see Player [main()]
  */
 public class Tournament {
@@ -19,10 +20,6 @@ public class Tournament {
 	the tournament, but cannot because all slots are taken. */
 	private List<String> waitingList;
 
-	public Tournament() {
-		slots = new Player[2];
-		waitingList = new ArrayList<>();
-	}
 	/**
 	* If there are any empty slots (slots with no Player) 
 	* assign the player with the specified playerName to an 
@@ -47,7 +44,7 @@ public class Tournament {
 	/**
 	* Release the slot for player p, thus removing that player 
 	* from the tournament. If there are any names in waitingList, 
-	* remove the first name and create a Piayer in the 
+	* remove the first name and create a Player in the 
 	* canceled slot for this person. Return the new Player. 
 	* If waitingList is empty > mark the slot specified by p as 
 	* empty and return null. 
@@ -68,20 +65,74 @@ public class Tournament {
 	}
 
 	public void printSlots() {
-		for(Player p : slots) {
+		for (Player p : slots) {
 			System.out.println(p);
 		}
 	}
+
 	// constructor and other methods not shown.
+	public Tournament() {
+		slots = new Player[2];
+		waitingList = new ArrayList<>();
+	}
+
+	public Player[] getSlots() {
+		return slots;
+	}
+
+	public void setSlots(Player[] slots) {
+		this.slots = slots;
+	}
+
+	public List<String> getWaitingList() {
+		return waitingList;
+	}
+
+	public void setWaitingList(List<String> waitingList) {
+		this.waitingList = waitingList;
+	}
+
+	public void displaySlots() {
+		System.out.println("\nPlayers in the slots:");
+		for (Player p : slots) {
+			System.out.println(p);
+		}
+	}
+
+	public void displayWaitingList() {
+		System.out.println("\nWaiting List: ");
+		if (waitingList.size() == 0)
+			System.out.println("Empty waiting list.");
+		for (String s : waitingList) {
+			System.out.println(s);
+		}
+	}
 
 	public static void main(String[] args) {
+		// 1. create an instance of Tournament
 		Tournament t = new Tournament();
+		
+		// 2. request players more than slots
 		Player p1 = t.requestSlot("Angela");
 		Player p2 = t.requestSlot("John");
 		Player p3 = t.requestSlot("Nick");
 		Player p4 = t.requestSlot("Charles");
-		Player p5 = t.cancelAndReassignSlot(p1);
-		Player p6 = t.cancelAndReassignSlot(p2);
+		System.out.println("No slots available: " + (p3 == p4 && p3 == null));
+		t.displaySlots();
+		t.displayWaitingList();
+		
+		// 3. Cancel one from slots and add one from waiting list
+		System.out.println("\nReassign Angela...");
+		t.cancelAndReassignSlot(p1);
+		t.displaySlots();
+		t.displayWaitingList();
+		
+		
+		// 4. replace another one from waiting list
+		System.out.println("\nReassign John...");
+		t.cancelAndReassignSlot(p2);
+		t.displaySlots();
+		t.displayWaitingList();
 	}
 
 }
