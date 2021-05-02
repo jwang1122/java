@@ -2,7 +2,9 @@ package com.huaxia.swing;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 //import java.awt.event.ActionEvent;
 //import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -35,7 +37,7 @@ public class MyPanel2 extends JPanel {// implements ActionListener {
 	}
 
 	public void paint(Graphics g) {
-
+		g.clearRect(0, 0, 400, 400);
 		g.drawImage(apple, apple_x, apple_y, this);
 
 	}
@@ -95,7 +97,7 @@ public class MyPanel2 extends JPanel {// implements ActionListener {
 				break;
 			}
 			move();
-			repaint();
+			repaint(new Rectangle(400,400));
 		}
 	}
 }

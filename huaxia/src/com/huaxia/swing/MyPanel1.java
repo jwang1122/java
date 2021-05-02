@@ -24,7 +24,7 @@ public class MyPanel1 extends JPanel implements ActionListener {
 		timer.start();
 	}
 	public void paint(Graphics g) {
-
+		g.clearRect(0,0,400,400);
 		g.drawImage(apple, apple_x, apple_y, this);
 
 	}
