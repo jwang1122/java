@@ -18,15 +18,19 @@ public class SeatingChart {
 	SeatingChart(Name[] names, int r, int c) {
 		List<Name> list = Arrays.asList(names);
 		Collections.shuffle(list);
-		int count = 0;
+//		int count = 0;
+//		chart = new String[r][c];
+//		for (int i = 0; i < chart.length; i++) {
+//			for (int j = 0; j < chart[0].length; j++) {
+//				chart[i][j] = "";
+//				if (count < list.size()) {
+//					chart[i][j] = list.get(count++).toString();
+//				}
+//			}
+//		}
 		chart = new String[r][c];
-		for (int i = 0; i < chart.length; i++) {
-			for (int j = 0; j < chart[0].length; j++) {
-				chart[i][j] = "";
-				if (count < list.size()) {
-					chart[i][j] = list.get(count++).toString();
-				}
-			}
+		for(int x=0; x<list.size(); x++) {
+			chart[x/c][x%c] = list.get(x).toString();
 		}
 	}
 
@@ -104,6 +108,7 @@ public class SeatingChart {
 	/** pads a string with spaces to ensure each string is exactly 35 characters long. */
 
 	private String padWithSpaces(String s) {
+		if(s==null) return "";
 		String str = s;
 		for (int a = s.length(); a < 20; a++) {
 			str += " ";
