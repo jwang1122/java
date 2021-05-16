@@ -1,30 +1,34 @@
-# 华夏中文学校 Java level-I
+# Java level-I
 
 ## Table of Contents
-1. [Familiar with your keyboard](#Familiar-with-your-keyboard)
-1. [Getting Started](#Getting-Started)
-1. [Using Markdown](#Using-Markdown)
-1. [Basic Git Command](#Basic-Git-Command)
-1. [How to turn in the homework](#How-to-turn-in-the-homework)
-1. [Learn from mistake](#Learn-from-mistake)
-1. [open Eclipse](#open-Eclipse)
-1. [Print String](#Print-String)
-1. [Syntax basic](#Syntax-Basic)
-1. [Data type](#Data-type)
-1. [Operator](#Operator)
-1. [Loop](#Loop)
-1. [if-else](#if-else)
-1. [Switch](#Switch)
-1. [Array](#Array)
-1. [Array List](#Array-List)
-1. [Simple Math](#Simple-Math)
-1. [Exception](#Exception)
-1. [OOP](#OOP)
-1. [File Access](#File-Access)
-1. [Data Structure](Data-Structure)
-1. [References](#References)
-1. [All Topics](#All-topics)
-1. [Review](#Review)
+- [Java level-I](#java-level-i)
+	- [Table of Contents](#table-of-contents)
+	- [Familiar with your keyboard](#familiar-with-your-keyboard)
+	- [Getting Started](#getting-started)
+	- [Using Markdown](#using-markdown)
+	- [Basic Git Command](#basic-git-command)
+	- [Learn from mistake](#learn-from-mistake)
+	- [How to turn in the homework](#how-to-turn-in-the-homework)
+	- [Java Document](#java-document)
+	- [open Eclipse](#open-eclipse)
+	- [Syntax basic](#syntax-basic)
+	- [Print String](#print-string)
+	- [Data type](#data-type)
+	- [Operator](#operator)
+	- [if-else](#if-else)
+	- [Loop](#loop)
+	- [Simple Math](#simple-math)
+	- [Array](#array)
+	- [Array List](#array-list)
+	- [Switch](#switch)
+	- [Data Structure](#data-structure)
+	- [Exception](#exception)
+	- [OOP](#oop)
+	- [File Access](#file-access)
+	- [All topics](#all-topics)
+	- [Applications](#applications)
+		- [String.format()](#stringformat)
+	- [References](#references)
 
 ## Familiar with your keyboard
 ![windows keyboard](./images/keyboard-windows.jpg)
@@ -128,7 +132,7 @@ git --version
 [Table of Contents](#Table-of-Contents)
 
 ## Using Markdown 
-* √ Markdown md文件的制作，制作课堂笔记
+Markdown md文件的制作，制作课堂笔记
 ![好记性不如烂笔头儿](./images/烂笔头儿.png)
     - add Markdown Extension
     - 显示标题，子标题 #, ##
@@ -140,7 +144,8 @@ git --version
 **Shapen your knife will not slowdown your work!** 
 
 ![磨刀不误砍柴工](./images/磨刀.jpeg)
-* [Markdown Cheat Sheet](markdown-cheat-sheet.md)
+[Markdown Cheat Sheet](markdown-cheat-sheet.md)
+
 ---
 [Table of Contents](#Table-of-Contents)
 
@@ -176,6 +181,37 @@ test some code change
 * Create a GitHub account, try upload some file
 [GitHub Website](https://github.com/)
 
+## Learn from mistake
+![My own mistakes](./images/MistakesMine.jpeg)
+
+![Other's mistakes](./images/MistakesHis.jpeg)
+
+>Learn from other's mistake is better than from my own.
+Why? you pay price on you own mistake, but if it is other's mistake, they pay the price for you.
+
+>Issue 1:  he stucked the installation on wrong folder.
+
+> Solution: delete the folder in wrong place, recreate on the right place which is
+```
+Macintosh HD⁩ ▸ ⁨Users⁩ ▸ ⁨wangqianjiang⁩ ▸ ⁨workspace⁩ ▸ python
+```
+where wangqianjiang is the login user's name.
+
+* show the homework /grace (Very good example except missing image files that she used in the notes)
+* show the homework /angela (We should use what we have learned)
+* talking about GitHub which is not show stopper, does not stop you learning Java, it is better to have
+
+问学生要他们在自己周围看到的第一个物体，抽象出来制作一个class
+学生：cup，computer
+
+制作一个Cup实体类
+refer：com.huaxia.blackjack.Cup
+
+把Computer作为作业让学生模仿制作。
+
+---
+[Table of Contents](#Table-of-Contents)
+
 ## How to turn in the homework
 	[Java-I Homework](https://github.com/jwang1122/java1homework)
 * homework demo
@@ -187,6 +223,74 @@ test some code change
 ---
 [Table of Contents](#Table-of-Contents)
 	
+## Java Document
+It is very important, you can learn Java all by yourself from Java document.
+
+>Google search: java document download
+Search result: Java SE - Downloads | Oracle Technology Network | Oracle
+[Java Document Download](https://www.oracle.com/java/technologies/javase-downloads.html)
+![Document download page](DownloadJava.png)
+>File: jdk-14.0.1_doc-all.zip
+[JSE 8 Online API Document](https://docs.oracle.com/javase/8/docs/api)
+>All classes > System > Field Detail > out
+let student find scan
+
+It is not easy to use for big project
+
+* Generate Javadoc
+
+Google Search: java 8 api document
+
+[Java api document](https://docs.oracle.com/javase/8/docs/api/)
+
+![String class](images/java8api.png)
+
+Project > Generate Javadoc... >
+
+![Generate Javadoc](./images/javadoc.png)
+
+---
+[Table of Contents](#Table-of-Contents)
+
+## open Eclipse
+getting formillar with Eclipse IDE
+
+![Eclipse Layout](./images/EclipseIDE.png)
+Open File explore>create a workspace\java
+```
+git init
+```
+Run Eclipse icon > close Welcome window > File > new project > java project > huaxia > next 
+> Project name: huaxia > [Finish] > Open Perspective
+explain little bit about perspective > close Task List window
+(Window > show view > navigator)
+click project name > click package icon > com.huaxia.package1
+click class icon > Name: First > check main() > [finish]
+
+```java
+package com.huaxia.package1;
+
+public class First {
+
+	public static void main(String[] args) {
+		System.out.println("Hello, World!");
+
+	}
+}
+```
+```java
+    Scanner scanner = new Scanner(System.in);
+    String name = scanner.nextLine();
+    System.out.println("Hello," + name);
+    scanner.close();
+```
+try to change the format
+try to remove ;
+try to create variable without data type
+
+---
+[Table of Contents](#Table-of-Contents)
+
 ## Syntax basic
 ![class abstract](./images/classAbstraction.png)
 
@@ -251,6 +355,67 @@ $ java com.huaxia.test.MainMethodTest arg1 arg2 arg3 arg4
 ---
 [Table of Contents](#Table-of-Contents)
 
+## Data type
+Change variable name for windows: Alt+shift+R; 
+Primitive Data Types
+```
+Refer to: DataTypeTest.java
+```
+* array of int 
+* loop through an array with for each syntax
+* array copy
+* object array
+```
+Refer to: ArrayTest.java
+```
+Right-click [project name]:properties > Java Code Style:Formatter > Configure Workspace Settings> Active profile: jwang > [Edit] > comments >
+![Comments Setup](./images/EclipseCommets.png)
+
+---
+[Table of Contents](#Table-of-Contents)
+
+## Operator
+* OperatorTest.java
+	- mathOperator
+	- doubleOperator
+	- comparisionOperator
+	- logicOperator
+
+---
+[Table of Contents](#Table-of-Contents)
+
+* Reorganize project and package
+	- highlight your java source code name drag to different project
+
+* You see a Cup by your eye, 
+never see Cup in your mind in the real world. 
+never see Cup defined in our Cup.java class.
+
+---
+[Table of Contents](#Table-of-Contents)
+ 
+## if-else
+* IfElseTest.java
+	- ifElse()
+	- ifElseIf()
+	- ternary()
+	- number2Week()
+	- isPerfactNumber(6)
+	- prime(); method return true/false
+
+(with for loop)
+* print even number from 1 - 20
+* print odd number from 1 - 20 
+* understand what % does
+
+
+
+Add document for your constructor, methods and class
+menu: Project > Generate Javadoc
+
+---
+[Table of Contents](#Table-of-Contents)
+
 ## Loop
 * ForLoop1.java; simple for loop
 * ForLoop2.java; step by 2
@@ -286,6 +451,7 @@ $ java com.huaxia.test.MainMethodTest arg1 arg2 arg3 arg4
 * GuessNumber.java;
 * RollDice.java; Math.random()
 * RollDice2.java; static method
+
 ---
 [Table of Contents](#Table-of-Contents)
 
@@ -301,6 +467,7 @@ $ java com.huaxia.test.MainMethodTest arg1 arg2 arg3 arg4
 * Fraction.java; Fraction math: add, sub, multiply and divide
 
 ![Perfact Number](./images/perfactNumber.png)
+
 ---
 [Table of Contents](#Table-of-Contents)
 
@@ -313,6 +480,7 @@ $ java com.huaxia.test.MainMethodTest arg1 arg2 arg3 arg4
 	- arraycopyTest()
 	- objectArrayTest() (fix compiler error on line-77)
 	- multidimensionalArrayTest()
+  
 ---
 [Table of Contents](#Table-of-Contents)
 
@@ -326,6 +494,7 @@ $ java com.huaxia.test.MainMethodTest arg1 arg2 arg3 arg4
 	- practice
 		- create float ArrayList display under certain condition
 		- create a student list, write it to a file use forEach loop
+  
 ---
 [Table of Contents](#Table-of-Contents)
 
@@ -334,6 +503,7 @@ $ java com.huaxia.test.MainMethodTest arg1 arg2 arg3 arg4
 	- weekdayConverter
 	- day2word
 	- number2Weekday
+
 ---
 [Table of Contents](#Table-of-Contents)
 
@@ -344,6 +514,7 @@ $ java com.huaxia.test.MainMethodTest arg1 arg2 arg3 arg4
 
 	![Binary Search](./images/Binary-Search.png)
 * sort (sortTest.java)
+
 ---
 [Table of Contents](#Table-of-Contents)
 
@@ -356,6 +527,7 @@ $ java com.huaxia.test.MainMethodTest arg1 arg2 arg3 arg4
 	- area(-2.0f)
 	- add throw new Exception
 	- practice: rectangleArea() throw Exception test.
+
 ---
 [Table of Contents](#Table-of-Contents)
 
@@ -446,6 +618,7 @@ public String toString()
 change float to int
 
 add constructor
+
 ---
 [Table of Contents](#Table-of-Contents)
 
@@ -470,6 +643,7 @@ add constructor
 	- create a string array, write each element to a file
 	- create a string array with names, write only name < your name to a file
 	- read content from a file, parse each line to a world, write to another file
+
 ---
 [Table of Contents](#Table-of-Contents)
 
@@ -520,72 +694,16 @@ add constructor
 * Reorganize project package
 * Use Eclipse generate Constructor, toString, getter*setter
 * Use Code Style Formatter to avoid comments change
+
 ---
 [Table of Contents](#Table-of-Contents)
 
 ## Applications
 * Snake-Game pull from javahuaxia github
+
 ---
 [Table of Contents](#Table-of-Contents)
 
-## Data type
-Change variable name for windows: Alt+shift+R; 
-Primitive Data Types
-```
-Refer to: DataTypeTest.java
-```
-* array of int 
-* loop through an array with for each syntax
-* array copy
-* object array
-```
-Refer to: ArrayTest.java
-```
-Right-click [project name]:properties > Java Code Style:Formatter > Configure Workspace Settings> Active profile: jwang > [Edit] > comments >
-![Comments Setup](./images/EclipseCommets.png)
----
-[Table of Contents](#Table-of-Contents)
-
-## Operator
-* OperatorTest.java
-	- mathOperator
-	- doubleOperator
-	- comparisionOperator
-	- logicOperator
----
-[Table of Contents](#Table-of-Contents)
-
-## Reorganize project and package
-* highlight your java source code name drag to different project
----
-[Table of Contents](#Table-of-Contents)
-
-## You see a Cup by your eye, 
-never see Cup in your mind in the real world. 
-never see Cup defined in our Cup.java class.
----
-[Table of Contents](#Table-of-Contents)
- 
-## if-else
-* IfElseTest.java
-	- ifElse()
-	- ifElseIf()
-	- ternary()
-	- number2Week()
-	- isPerfactNumber(6)
-	- prime(); method return true/false
-
-(with for loop)
-* print even number from 1 - 20
-* print odd number from 1 - 20 
-* understand what % does
-
-
-
-Add document for your constructor, methods and class
-menu: Project > Generate Javadoc
----
-[Table of Contents](#Table-of-Contents)
 
 ### String.format()
 ```java
@@ -600,39 +718,11 @@ menu: Project > Generate Javadoc
 	}
 ```
 Homework: do math
+
 ---
+[Table of Contents](#Table-of-Contents)
 
-## Learn from mistake
-![My own mistakes](./images/MistakesMine.jpeg)
-
-![Other's mistakes](./images/MistakesHis.jpeg)
-
->Learn from other's mistake is better than from my own.
-Why? you pay price on you own mistake, but if it is other's mistake, they pay the price for you.
-
->Issue 1:  he stucked the installation on wrong folder.
-
-> Solution: delete the folder in wrong place, recreate on the right place which is
-```
-Macintosh HD⁩ ▸ ⁨Users⁩ ▸ ⁨wangqianjiang⁩ ▸ ⁨workspace⁩ ▸ python
-```
-where wangqianjiang is the login user's name.
-
-* show the homework /grace (Very good example except missing image files that she used in the notes)
-* show the homework /angela (We should use what we have learned)
-* talking about GitHub which is not show stopper, does not stop you learning Java, it is better to have
-
-问学生要他们在自己周围看到的第一个物体，抽象出来制作一个class
-学生：cup，computer
-
-制作一个Cup实体类
-refer：com.huaxia.blackjack.Cup
-
-把Computer作为作业让学生模仿制作。
-
-
-## 软件下载安装
-## use text editor to write java program
+* use text editor to write java program
 ```sh
 (base) Johns-MacBook-Pro:java wangqianjiang$ javac Test.java
 (base) Johns-MacBook-Pro:java wangqianjiang$ java Test
@@ -662,69 +752,8 @@ a = 4
 b = 5
 print("%d + %d = %d" %(a, b,(a + b)))
 ```
-
-## Java Document
-It is very important, you can learn Java all by yourself from Java document.
-
->Google search: java document download
-Search result: Java SE - Downloads | Oracle Technology Network | Oracle
-[Java Document Download](https://www.oracle.com/java/technologies/javase-downloads.html)
-![Document download page](DownloadJava.png)
->File: jdk-14.0.1_doc-all.zip
-[JSE 8 Online API Document](https://docs.oracle.com/javase/8/docs/api)
->All classes > System > Field Detail > out
-let student find scan
-
-It is not easy to use for big project
-
-* Generate Javadoc
-
-Google Search: java 8 api document
-
-[Java api document](https://docs.oracle.com/javase/8/docs/api/)
-
-![String class](images/java8api.png)
-
-Project > Generate Javadoc... >
-
-![Generate Javadoc](./images/javadoc.png)
-
-## open Eclipse
-getting formillar with Eclipse IDE
-
-![Eclipse Layout](./images/EclipseIDE.png)
-Open File explore>create a workspace\java
-```
-git init
-```
-Run Eclipse icon > close Welcome window > File > new project > java project > huaxia > next 
-> Project name: huaxia > [Finish] > Open Perspective
-explain little bit about perspective > close Task List window
-(Window > show view > navigator)
-click project name > click package icon > com.huaxia.package1
-click class icon > Name: First > check main() > [finish]
-
-```java
-package com.huaxia.package1;
-
-public class First {
-
-	public static void main(String[] args) {
-		System.out.println("Hello, World!");
-
-	}
-}
-```
-```java
-    Scanner scanner = new Scanner(System.in);
-    String name = scanner.nextLine();
-    System.out.println("Hello," + name);
-    scanner.close();
-```
-try to change the format
-try to remove ;
-try to create variable without data type
-
+---
+[Table of Contents](#Table-of-Contents)
 
 ## References
 [Java api document](https://docs.oracle.com/javase/8/docs/api/)
@@ -736,3 +765,5 @@ try to create variable without data type
 Homework 1-1
 1. write md file to take notes about all stuff we have learned today.
 
+---
+[Table of Contents](#Table-of-Contents)

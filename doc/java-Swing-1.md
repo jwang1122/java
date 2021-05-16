@@ -38,9 +38,9 @@ public void setLayout(LayoutManager m)	|sets the layout manager for the componen
 public void setVisible(boolean b)	|sets the visibility of the component. It is by default false.
 
 ## Anonymous Class
-1. [ ] GetInfo.java; interface
-1. [ ] Student.java; implements GetInfo
-1. [ ] Teacher.java; implements GetInfo
+1. [x] GetInfo.java; interface
+1. [x] Student.java; implements GetInfo
+1. [x] Teacher.java; implements GetInfo
 1. [ ] StudentTest.java; test GetInfo, build Polymorpythism concept. 3 way to use Interface.
 1. [ ] JButton.addActionListener(ActionEvent) 
 
@@ -61,12 +61,12 @@ public void setVisible(boolean b)	|sets the visibility of the component. It is b
 09. [x] RandomMovineImage.java & MyPanel3.java
 10. [x] KeyboardControl.java & MyPanel2.java
 11. [x] CheckBoxExample.java & CheckBoxExample1.java; (with icon)
-12. [ ] RadioButtonExample.java; 2 ways to add an ActionListener for jButton
-13. [ ] TextAreaExample.java; copy large file to see some text been hidden.
-14. [ ] ScrolledPaneExample.java; add JScroll Pane around the TextArea
-15. [ ] ListExample.java; without layout(FlowLayout), use GridLayout(), use BorderLayout() 
+12. [x] RadioButtonExample.java; 2 ways to add an ActionListener for jButton
+13. [x] TextAreaExample.java; copy large file to see some text been hidden.
+14. [x] ScrolledPaneExample.java; add JScroll Pane around the TextArea
+15. [x] ListExample.java; without layout(FlowLayout), use GridLayout(), use BorderLayout() 
 16. [ ] ListExample2.java; with scroll
-17. [ ] listExample1.java; select birthday
+17. [x] listExample1.java; select birthday
 18. [ ] OptionPaneExample.java;
 19. [ ] ComboBoxExample.java 
 20. [ ] ComboBoxExample1.java; ActionListener, ItemListener; ask student add clear button to clear label message.
