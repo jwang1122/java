@@ -13,7 +13,7 @@ import javax.swing.*;
 public class FourCornersImage extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private static final int WIDTH = 640;
+	private static final int WIDTH = 700;
 	private static final int HEIGHT = 640;
 	static final String FOLDER = "/Users/12818/workspace/java/john/doc/";
 	static final String RANGERS1 = "TexasRangers.png";
@@ -32,7 +32,7 @@ public class FourCornersImage extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(WIDTH, HEIGHT);
 //		add(new FourCornersPanel ());
-		
+		Container c = this.getContentPane();
 		Toolkit t = Toolkit.getDefaultToolkit();
 		ImageIcon astrosIcon1 = new ImageIcon(t.getImage(FOLDER + ASTROS1));
 		ImageIcon astrosIcon2 = new ImageIcon(t.getImage(FOLDER + ASTROS2));
@@ -50,7 +50,7 @@ public class FourCornersImage extends JFrame {
 		  }
 		});
 		astrosBtn.setBounds(10, 10, 300, 300);
-		this.add(astrosBtn);
+		c.add(astrosBtn);
 		
 		ImageIcon rangeIcon1 = new ImageIcon(t.getImage(FOLDER + RANGERS1));
 		ImageIcon rangeIcon2 = new ImageIcon(t.getImage(FOLDER + RANGERS2));
@@ -68,8 +68,10 @@ public class FourCornersImage extends JFrame {
 		  }
 		});
 		rangeBtn.setBounds(300, 10, 300, 300);
-		this.add(rangeBtn);
-		setLayout(null);
+		c.add(rangeBtn);
+//		setLayout(null);
+		setLayout(new FlowLayout());
+//		pack();
 	}
 
 	public static void main(String[] args) {

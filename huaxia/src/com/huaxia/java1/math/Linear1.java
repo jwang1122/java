@@ -14,8 +14,8 @@ import org.apache.commons.math3.linear.RealVector;
  * x: 老头儿数量
  * y: 梨子的个数
  * 
- * x * 1pear = y - 1
- * x * 2pear = y + 2
+ * x * 1pear + 1pear = y
+ * x * 2pear = y + 2pear
  * 
  * x - y = -1
  * 2x -y = 2
@@ -23,13 +23,13 @@ import org.apache.commons.math3.linear.RealVector;
 public class Linear1 {
 
 	public static void main(String[] args) {
-		RealMatrix coefficients = new Array2DRowRealMatrix(new double[][] { { 1, -1 }, { 2, -1 } }, false);
+		double[][] coef = new double[][] { { 1, -1 }, { 2, -1 }}; 
+		double[] coef1 = new double[] { -1, 2 };
+		RealMatrix coefficients = new Array2DRowRealMatrix(coef, false);
 		DecompositionSolver solver = new LUDecomposition(coefficients).getSolver();
-		RealVector constants = new ArrayRealVector(new double[] { -1, 2 }, false);
+		RealVector constants = new ArrayRealVector(coef1, false);
 		RealVector solution = solver.solve(constants);
-		System.out.printf("There are %.0f old man and %.0f pears.\n",solution.getEntry(0), solution.getEntry(1));
-		String s = "世界你好";
-		System.out.println(s);
+		System.out.printf("集上有%.0f 个老头儿， 看到了%.0f 个梨.\n",solution.getEntry(0), solution.getEntry(1));
 	}
 
 }

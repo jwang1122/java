@@ -65,10 +65,10 @@ public void setVisible(boolean b)	|sets the visibility of the component. It is b
 13. [x] TextAreaExample.java; copy large file to see some text been hidden.
 14. [x] ScrolledPaneExample.java; add JScroll Pane around the TextArea
 15. [x] ListExample.java; without layout(FlowLayout), use GridLayout(), use BorderLayout() 
-16. [ ] ListExample2.java; with scroll
+16. [x] ListExample2.java; with scroll and BorderLayout
 17. [x] listExample1.java; select birthday
 18. [ ] OptionPaneExample.java;
-19. [ ] ComboBoxExample.java 
+19. [x] ComboBoxExample.java 
 20. [ ] ComboBoxExample1.java; ActionListener, ItemListener; ask student add clear button to clear label message.
 
 ## Swing Layout
@@ -77,8 +77,8 @@ public void setVisible(boolean b)	|sets the visibility of the component. It is b
 The layout manager automatically positions all the components within the container. 
 Layout Manager
 
-* [ ] remove setLayout(null) from FourCornersImages.java
-* [ ] FlowLayout.java; change the window size feel the button position changes. remove frame.pack() function call, see the result. 
+* [x] remove setLayout(null) from FourCornersImages.java
+* [x] FlowLayout.java; change the window size feel the button position changes. remove frame.pack() function call, see the result. 
     - ask student add code for button click response
     - ask student add more component in the panel, such as JTextField, and JLabel
 * [ ] BorderLayoutExample.java; resize the window. 

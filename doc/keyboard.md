@@ -1,8 +1,9 @@
 # Getting Familiar with Your Keyboard
 
 1. [Keyboard Key Name Web Link](https://www.computerhope.com/keys.htm)
-
-1. Keyboard Name in our Java class
+2. ![](images/keyboard-apple.jpg)
+3. ![](images/keyboard-windows.jpg)
+4. Keyboard Name in our Java class
 
     Key | Name
     |---|---|
@@ -28,13 +29,13 @@
     $  | dollar sign
     \# | pound, hashtag, number
     
-* Key Operations
+5. Key Operations
     - Shift+downArrow: Hight light block of code
     - Ctrl+c: copy
     - Ctrl+v: paste
     - Ctrl+/: toggle comments
 
-* DOS command window (VS Code Terminal Window)
+6. DOS command window (VS Code Terminal Window)
     - upArrow: bring previous command back
     - downArrow: bring next command back
     - leftArrow: move cursor to left in DOS window

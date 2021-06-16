@@ -1,95 +1,48 @@
-# Java level-I
+<center><h1> Java level-I</h1></center>
+
+👍[Useful Icons](myIcons.md)
+
+😄Guaranteed course, if you think you have not learned Python after this class finished, you can always join my next class section for free.
 
 ## Table of Contents
-- [Java level-I](#java-level-i)
-	- [Table of Contents](#table-of-contents)
-	- [Familiar with your keyboard](#familiar-with-your-keyboard)
-	- [Getting Started](#getting-started)
-	- [Using Markdown](#using-markdown)
-	- [Basic Git Command](#basic-git-command)
-	- [Learn from mistake](#learn-from-mistake)
-	- [How to turn in the homework](#how-to-turn-in-the-homework)
-	- [Java Document](#java-document)
-	- [open Eclipse](#open-eclipse)
-	- [Syntax basic](#syntax-basic)
-	- [Print String](#print-string)
-	- [Data type](#data-type)
-	- [Operator](#operator)
-	- [if-else](#if-else)
-	- [Loop](#loop)
-	- [Simple Math](#simple-math)
-	- [Array](#array)
-	- [Array List](#array-list)
-	- [Switch](#switch)
-	- [Data Structure](#data-structure)
-	- [Exception](#exception)
-	- [OOP](#oop)
-	- [File Access](#file-access)
-	- [All topics](#all-topics)
-	- [Applications](#applications)
-		- [String.format()](#stringformat)
-	- [References](#references)
+- [Table of Contents](#table-of-contents)
+- [Familiar with your keyboard](#familiar-with-your-keyboard)
+- [Getting Started](#getting-started)
+- [Using Markdown](#using-markdown)
+- [Basic Git Command](#basic-git-command)
+- [Learn from mistake](#learn-from-mistake)
+- [How to turn in the homework](#how-to-turn-in-the-homework)
+- [Java Document](#java-document)
+- [open Eclipse](#open-eclipse)
+- [Syntax basic](#syntax-basic)
+- [Print String](#print-string)
+- [Using Variables](#using-variables)
+- [Comments](#comments)
+- [Data type](#data-type)
+- [Operator](#operator)
+- [if-else](#if-else)
+- [Loop](#loop)
+- [Simple Math](#simple-math)
+- [Array](#array)
+- [Array List](#array-list)
+- [Switch](#switch)
+- [Data Structure](#data-structure)
+- [Exception](#exception)
+- [OOP](#oop)
+- [File Access](#file-access)
+- [All topics](#all-topics)
+- [Applications](#applications)
+	- [String.format()](#stringformat)
+- [References](#references)
 
 ## Familiar with your keyboard
-![windows keyboard](./images/keyboard-windows.jpg)
-
-![Apple keyboard](./images/keyboard-apple.jpg)
-
 1. [Share Keyboard document](keyboard.md)
 
-1. [Key name web link](https://www.computerhope.com/keys.htm)
-
-1. Keyboard Name in our Java class
-
-    Key | Name
-    |---|---|
-    space | space, empty space in editor
-    Enter | return, enter, new line in editor
-    ;  | semicolon, end of line
-    {} | brace, curly bracket, class, method, for loop, while loop block
-    () | parenthesis, function definition and call
-    [] | bracket, square bracket, array item
-    ,  | comma, separator of args, and elements; delimiter in csv file
-    .  | dot, period, instance function call()
-    \* | asterisk, star, bullet point in markdown, math multiply operator
-    \- | dash, hyphen, minus math operator, command option java -version
-    \  | back slash, escape sequence, \n, \t...
-    /  | forward slash, file name path fold dilimiter
-    `  | back quote, grave accent, command block in markdown
-    \| | pipe, virtical bar, bitwise OR operator
-    &  | ampersand, and simple, bitwise AND operator
-    ^  | caret, circumflex, bitwise XOR operator
-    ?  | question mark, ternary operator
-	:  | colon, ternary operator
-    _  | underscore
-    $  | dollar sign
-    \# | pound, hashtag, number
-    
-	```
-	space
-	:
-	ctrl+c
-	Ctrl+v
-	ctrl+/
-	shift+downarrow
-	tab
-	shift+tab
-	Enter(Return)
-	"
-	`back quote
-	```
-1. Arrow key in DOS window
-
-```
-upArrow: bring previous command back
-downArrow: bring next command back
-leftArrow: move cursor to left in DOS window
-rightArrow: move cursor to right in DOS window
-```
 ---
 [Table of Contents](#Table-of-Contents)
 
 ## Getting Started
+
 * Install JDK
 	>Google search: jdk 8 download
 	Search result: Java SE Development Kit 8 - Downloads - Oracle
@@ -354,6 +307,18 @@ $ java com.huaxia.test.MainMethodTest arg1 arg2 arg3 arg4
 	- stringBuilder2stringBuffer
 ---
 [Table of Contents](#Table-of-Contents)
+
+## Using Variables
+* variable naming convention
+* start from letter or _, followed by combination of letter and number or _, a~z, A~Z, 0~9
+* cannot start by number
+* cannot use special characters
+* cannot use java reserved words
+
+## Comments
+* Single line comments
+* multiple lines comments
+* Java Doc
 
 ## Data type
 Change variable name for windows: Alt+shift+R; 
