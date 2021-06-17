@@ -321,6 +321,8 @@ $ java com.huaxia.test.MainMethodTest arg1 arg2 arg3 arg4
 * Java Doc
 
 ## Data type
+![Language Basics](images/LanguageBasics.svg)
+
 Change variable name for windows: Alt+shift+R; 
 Primitive Data Types
 ```
