@@ -31,7 +31,7 @@ public class DataTypeTester {
 
 	void primitiveDataType() {
 		// Primitive Data Type
-		byte myByte = 127; //bit byte
+		byte myByte = 127; // 8 bits, -128~127
 		short myShort = 256;
 		int myNum = 5; // integer (whole number)
 		long myLong = 123456789;

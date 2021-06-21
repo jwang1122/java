@@ -6,8 +6,8 @@ public class IfElseTest {
 
 	public static void main(String[] args) {
 		IfElseTest test = new IfElseTest();
-		test.ifElse(11);
-//		test.ifWithoutElse(11);
+		test.ifWithoutElse(11);
+//		test.ifElse(11);
 //		test.ifElseIf();
 		// write simple loop print out odd number between 0-20
 //		test.ternary();

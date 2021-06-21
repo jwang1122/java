@@ -29,7 +29,7 @@ public class OperatorTest {
 		System.out.println(x);
 	}
 
-	void doubleOperator() {
+	void compoundOperator() {
 		int i = 5;
 		System.out.println(++i);
 		i--;
