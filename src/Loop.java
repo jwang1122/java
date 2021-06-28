@@ -8,6 +8,7 @@ public class Loop {
 			System.out.print(i + ", ");
 		}
 		System.out.println();
+		
 		// for loop with neigative step
 		int i = 10;
 		for (;i>0; i--) { // initialize looping variable; condition on looping variable; adjust looping variable
@@ -15,6 +16,11 @@ public class Loop {
 //			if(i==10) break;
 		}
 		System.out.println("\nAfter the for loop, i = "+i);
+		
+		String[] cars = {"Volvo","BMW","Ford","Mazda"};
+		for(String car: cars) { // for each loop
+			System.out.println(car);
+		}
 		
 	}
 

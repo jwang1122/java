@@ -4,16 +4,18 @@ public class Quiz2 {
 
 	public static void main(String[] args) {
 		question1();
-		question2();
-		question3();
-		question4();
-		question5();
+//		question2();
+//		question3();
+//		question4();
+//		question5();
 	}
 
 	private static void question1() {
+		System.out.println("question1()...");
 		int[] a1 = { 11, 2, 3, 24, 5, 6 };
 		int[] a2 = { 1, 21, 3, 14, 15, 0 };
 		swap2(a1, a2);
+		System.out.println(a1);
 		printArray(a1);
 		printArray(a2);
 		swap1(a1, a2);
@@ -22,10 +24,11 @@ public class Quiz2 {
 	}
 
 	private static void question2() {
+		System.out.println("question2()...");
 		String animal1 = "elephant";
 		String animal2 = "lion";
 		swap(animal1, animal2);
-		animal1.toUpperCase();
+		animal1 = animal1.toUpperCase();
 		animal2.toUpperCase();
 		System.out.println(animal1 + " " + animal2);
 
@@ -54,19 +57,19 @@ public class Quiz2 {
 	public static void swap1(int[] a1, int[] a2) {
 		for (int i = 0; i < a1.length; i++) {
 			int arrhold = a1[i];
-			a1[i] = a2[i];
+			a1[i] = a2[i]; // reassign value on index i
 			a2[i] = arrhold;
 		}
 	}
 
-	public static void swap2(int[] a1, int[] a2) {
-		int[] arrhold = a1;
-		a1 = a2;
-		a2 = arrhold;
+	public static void swap2(int[] b1, int[] b2) {
+		int[] arrhold = b1; // switch pointer
+		b1 = b2;
+		b2 = arrhold;
 	}
 
 	private static void printArray(int[] a1) {
-		for (int i : a1) {
+		for (int i : a1) { // for each
 			System.out.print(i + ", ");
 		}
 		System.out.println();

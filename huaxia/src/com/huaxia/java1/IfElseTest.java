@@ -17,6 +17,14 @@ public class IfElseTest {
 //		System.out.println(isPerfactNumber(12));
 	}
 
+	void ifWithoutElse(int time) {
+		if (time < 18) {
+			System.out.println("Good day.");
+			return;
+		}
+		System.out.println("Good evening.");
+	}
+
 	void ifElse(int time) {
 		if (time < 18) {
 			System.out.println("Good day.");
@@ -25,13 +33,6 @@ public class IfElseTest {
 		}
 	}
 
-	void ifWithoutElse(int time) {
-		if (time < 18) {
-			System.out.println("Good day.");
-			return;
-		}
-		System.out.println("Good evening.");
-	}
 
 	void ifElseIf() {
 		int time = 22;

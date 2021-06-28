@@ -1,5 +1,5 @@
 <h1> 休斯顿华夏中文学校-Java Class Notes</h1>
-[](doc/myIcons.md)
+[](myIcons.md)
 
 - [Markdown Class Notes](#markdown-class-notes)
 - [Language Basics](#language-basics)
@@ -12,8 +12,7 @@
 - [Loop](#loop)
 - [References](#references)
 
-1. [java](doc/java.md)
-2. 
+
 ## Markdown Class Notes
 Organize Class Notes File Structure
 <java root>
@@ -26,43 +25,43 @@ Organize Class Notes File Structure
          ├── eclipseTrics.md     
          ├── markdownTrics.md     
          ├── myIcons.md     
-         └── learnJava.md     
+         └── java.md     
 
-[Homework 1](homeworks/markdown01.md)
-[Homework 2](homeworks/markdown02.md)
+[Homework 1](../homeworks/markdown01.md)
+[Homework 2](../homeworks/markdown02.md)
 
 ## Language Basics
-![](doc/images/LanguageBasics.svg)
+![](../doc/images/LanguageBasics.svg)
 
 ## Print
-* [Print.java](src/Print.java)
+* [Print.java](../src/Print.java)
 * Homeworks
-  1. [Math Competition](homeworks/12023%20Harmoney%20School%20Houston.pdf)
-  2. [variable01](homeworks/variable01.md)
-  3. [variable02](homeworks/variable02.md)
+  1. [Math Competition](../homeworks/12023%20Harmoney%20School%20Houston.pdf)
+  2. [variable01](../homeworks/variable01.md)
+  3. [variable02](../homeworks/variable02.md)
 
 ## Scanner
-[Scanner](src/MyScanner.java)
+[Scanner](../src/MyScanner.java)
 
 ## Data Type
-* [DataType.java](src/DataType.java)
+* [DataType.java](../src/DataType.java)
 * Homeworks
     1. 
 ## Operator
-* [Operator.java](src/Operator.java)
+* [Operator.java](../src/Operator.java)
 * Homeworks
-    1. [quiz02.md](homeworks/quiz02.md)
-    2. [operator01.md](homeworks/operator01.md)
-    3. [operator02.md](homeworks/operator02.md)
+    1. [quiz02.md](../homeworks/quiz02.md)
+    2. [operator01.md](../homeworks/operator01.md)
+    3. [operator02.md](../homeworks/operator02.md)
 
 ## If-else
-* [if-else syntax](src/IfElse.java)
+* [if-else syntax](../src/IfElse.java)
 ## switch
 [switch]
   - Homeworks
 
 ## Loop
-* [for/while loop](src/Loop.java)
+* [for/while loop](../src/Loop.java)
 
 
 ## References

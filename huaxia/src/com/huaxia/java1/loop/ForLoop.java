@@ -19,9 +19,9 @@ public class ForLoop {
 
 	public static void main(String[] args) {
 		ForLoop test = new ForLoop();
-//		test.simpleFor();
-//		test.stepBy2();
-//		test.stepByNeigative2();
+		test.simpleFor();
+		test.stepBy2();
+		test.stepByNeigative2();
 		test.forEach();
 //		test.breakOnCondition(4);
 //		test.continueOnCondition(4);
