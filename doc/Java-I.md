@@ -22,6 +22,7 @@
 - [Operator](#operator)
 - [if-else](#if-else)
 - [Loop](#loop)
+	- [For loop](#for-loop)
 - [Simple Math](#simple-math)
 - [Array](#array)
 - [Array List](#array-list)
@@ -362,6 +363,43 @@ never see Cup defined in our Cup.java class.
 [Table of Contents](#Table-of-Contents)
  
 ## if-else
+
+```mermaid
+graph TB
+A((start))
+B{if <condition>:}
+C[if code block]
+D[else code block]
+E[end]
+
+
+A-->B
+B--True-->C-->E
+B--False-->D-->E
+
+A1((start))
+B1{if <condition>:<br>line-10}
+B2{elif <condition>:<br>line-12}
+C1[if code block<br>line-11]
+D1[elif code block<br>line-13]
+E1[end]
+F1[else code block<br>line-15]
+
+A1-->B1
+B1--True-->C1-->E1
+B1--False-->B2--True-->D1-->E1
+B2--False-->F1-->E1
+
+
+classDef html fill:#F46624,stroke:#F46624,stroke-width:4px,color:white;
+classDef js fill:yellow,stroke:#DE9E1F,stroke-width:2px;
+classDef start fill:green,stroke:#DE9E1F,stroke-width:2px;
+classDef end1 fill:red,stroke:#DE9E1F,stroke-width:2px;
+class A,A1 start
+class B,B1,B2 html
+class E,E1 end1
+```
+
 * IfElseTest.java
 	- ifElse()
 	- ifElseIf()
@@ -384,6 +422,10 @@ menu: Project > Generate Javadoc
 [Table of Contents](#Table-of-Contents)
 
 ## Loop
+### For loop
+
+![](images/Loop.svg)
+
 * ForLoop1.java; simple for loop
 * ForLoop2.java; step by 2
 * ForLoop3.java; neigative step
@@ -409,6 +451,10 @@ menu: Project > Generate Javadoc
 [Print Homework](printHW.md)
 
 * WhileLoop1.java; 
+
+![](images/while.svg)
+
+![](images/DoWhile.svg)
 	- whileTest
 	- doWhileTest
 	- breakOnCondition

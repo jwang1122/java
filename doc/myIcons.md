@@ -1,6 +1,32 @@
 ## Useful Icons
 
-⚡️📄📝✔️❌❓❗️📌🔨💡☝️👉👇☝️👍👎👌💾🗑🐛📒⚠️😄😢♻️🔥🛠📐🎯✉️☎️
+✔️❓❌❗️⚡️📄📝📌🔨💡☝️👉👇☝️👍👎👌💾🗑🐛📒⚠️😄😢♻️🔥🛠📐🎯✉️☎️
+
+## Color picker
+[Pick color website](https://www.webfx.com/web-design/color-picker/)
+
+## math symbols
+|operator | LaTex Symbols |
+|---------|---------------|
+× | times
+÷ | div
+± | pm
+° | degree
+∞ | infty
+ϕ | phi
+Φ | Phi
+θ | theta
+α | alpha
+β | beta
+γ | gamma
+δ | delta
+μ | mu
+π | pi
+λ | lambda
+ω | omega
+⇒ | Rightarrow
+⟹| Longrightarrow
+⇓ | Downarrow
 
 ## Sample File Structure:
 
@@ -44,3 +70,4 @@ class IF if
 class DB db
 class END end1
 ```
+

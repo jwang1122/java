@@ -54,6 +54,8 @@ public class Operator {
 		// ternary operator
 		x = a<b?a:b;
 		System.out.println(x);
+
+		// bitwise operator
 	}
 
 }
