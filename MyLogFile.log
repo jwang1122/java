@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2020-12-17T15:52:01.542816Z</date>
-  <millis>1608220321542</millis>
-  <nanos>816000</nanos>
+  <date>2021-07-19T13:41:12.485008400Z</date>
+  <millis>1626702072485</millis>
+  <nanos>8400</nanos>
   <sequence>1</sequence>
   <logger>MyLogger</logger>
   <level>INFO</level>
@@ -14,15 +14,15 @@
   <message>{}Book [_id=12345, title=Introduction to Python, price=12.99]</message>
 </record>
 <record>
-  <date>2020-12-17T15:52:01.608638800Z</date>
-  <millis>1608220321608</millis>
-  <nanos>638800</nanos>
+  <date>2021-07-19T13:41:12.543449Z</date>
+  <millis>1626702072543</millis>
+  <nanos>449000</nanos>
   <sequence>3</sequence>
   <logger>MyLogger</logger>
   <level>SEVERE</level>
   <class>com.huaxia.java2.LoggerExample2</class>
   <method>createBook</method>
   <thread>1</thread>
-  <message>java.lang.NullPointerException</message>
+  <message>java.lang.NullPointerException: Cannot invoke "java.lang.Double.doubleValue()" because "price" is null</message>
 </record>
 </log>

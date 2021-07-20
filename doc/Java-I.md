@@ -558,7 +558,7 @@ menu: Project > Generate Javadoc
 	SubClass1.java
 * Encapsulation
 * Polymophism
-	what's your name?
+	what's your occupation?
 	Student
 	Teacher
 	Employee
