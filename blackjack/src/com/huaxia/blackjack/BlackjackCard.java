@@ -1,27 +1,34 @@
 package com.huaxia.blackjack;
 
-public class BlackJackCard extends Card {
+public class BlackjackCard extends Card {
 	// constructors
-	public BlackJackCard() {
-		super();
+	public BlackjackCard() {
 	}
 
-	public BlackJackCard(Face face, Suit suit) {
+	public BlackjackCard(String face, String suit) {
 		super(face, suit);
 	}
 
-	public BlackJackCard(Face face, Suit suit, String imageFile) {
-		super(face, suit, imageFile);
-	}
+//	public BlackJackCard(Face face, Suit suit, String imageFile) {
+//		super(face, suit, imageFile);
+//	}
 
 	public int getValue() {
-		Face face = getFace();
-		if (face == Face.ACE)
-			return 11;
-		if (face.value<11) {
-			return face.value;
+		int value = 0;
+		if(!isPictured()) {
+			return Integer.parseInt(face);
 		}
-		return 10;
+		switch(face) {
+		case "A":
+			value=11; 
+			break;
+		case "J":
+		case "Q":
+		case "K":
+			value = 10;
+			break;
+		}
+		return value;
 	}
 
 	public static boolean isNumeric(String str) {

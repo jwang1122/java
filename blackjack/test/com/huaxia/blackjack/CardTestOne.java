@@ -1,24 +1,21 @@
 package com.huaxia.blackjack;
 
-import static java.lang.System.*;
-
-import com.huaxia.blackjack.Card.Face;
-import com.huaxia.blackjack.Card.Suit;
+import static java.lang.System.out;
 
 public class CardTestOne {
 
 	public static void main(String[] args) {
-		Card heartA = new BlackJackCard(Face.ACE,Suit.HEART);
+		Card heartA = new BlackjackCard("A","HEARTS");
 		out.println(heartA);
-		Card diamond2 = new BlackJackCard(Face.TWO, Suit.DIAMOND);
+		Card diamond2 = new BlackjackCard("2", "DIAMONDS");
 		out.println(diamond2);
-		Card club3 = new BlackJackCard(Face.THREE, Suit.CLUB);
+		Card club3 = new BlackjackCard("3", "CLUBS");
 		out.println(club3);
-		Card spade4 = new BlackJackCard(Face.FOUR, Suit.SPADE);
+		Card spade4 = new BlackjackCard("4", "SPADES");
 		out.println(spade4);
-		Card heartQ = new BlackJackCard(Face.QUEEN, Suit.HEART);
+		Card heartQ = new BlackjackCard("5", "HEARTS");
 		out.println(heartQ);
-		Card spade9 = new BlackJackCard(Face.NINE, Suit.SPADE);
+		Card spade9 = new BlackjackCard("9", "SPADES");
 		out.println(spade9);
 		out.println(heartA.equals(diamond2));
 		out.println(heartA.equals(heartA));

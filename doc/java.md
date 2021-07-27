@@ -30,6 +30,11 @@
 - [Logging](#logging)
 - [Blackjack Card Game](#blackjack-card-game)
   - [Object relationship](#object-relationship)
+  - [Game logic](#game-logic)
+  - [Code Optimization](#code-optimization)
+  - [Integration Test](#integration-test)
+  - [Documentation](#documentation)
+  - [Software development life cycle](#software-development-life-cycle)
 - [References](#references)
 
 ## Getting Start
@@ -450,11 +455,68 @@ class Demo extends Sum{
    }
 }
 ```
+```mermaid
+graph LR
+
+A([Software Project])
+B[User Interface<br>GUI Front End]
+C[Business Logic<br>middle tier]
+D[Database<br>Back End]
+E[Unit test]
+F[Logging]
+K[Documentation]
+L[Integration Test]
+G[Window Based<br>Eclipse IDE]
+H[Web Based<br>Google, Amazon]
+I[MongoDB]
+J[SQL Server]
+REACT[ReactJS]
+ANGULAR[Angular]
+DJANGO[DJango]
+GIT[Source Control]
+
+A-->B & C & D & E & F & K & L & GIT
+B-->H & G
+D-->I & J
+H-->REACT & ANGULAR & DJANGO
+
+classDef block1 fill:#F46624,stroke:#F46624,stroke-width:4px,color:white;
+classDef start fill:green,stroke:#DE9E1F,stroke-width:2px,color:white;
+
+class A start
+class C,E,F,D,J,GIT block1
+```
 
 ## Unit test
+❓What is Unit Test?
+>✔️A unit is a specific piece of code to be tested, such as a function or a class. Unit tests are then other pieces of code that specifically exercise the code unit with a full range of different inputs, including boundary and edge cases.
+
+```mermaid
+graph TB
+A(["Software Project (Application)"])
+B["Method (Unit)"]
+C["Class (Unit)"]
+
+A--build by-->B & C
+
+classDef html fill:#F46624,stroke:#F46624,stroke-width:4px,color:white;
+
+class B,C html
+```
+
+In order to make the project or application work well, we need make sure each small unit works correctly.
+
 [](SimpleMathTest.java)
 
 ## Logging
+
+❓What is logging in programming?
+✔️Logging is keeping a record of all data input, processes, data output, and final results in a program to a file or database.
+❓Why we need logging?
+✔️There are multiple reasons why we may need to capture the application activity.
+1. Recording unusual circumstances or errors that may be happening in the program
+2. Getting the info about whats going in the application
+
 [console log message](loggerExample1.java)
 [log to File](loggerExample2.java)
 
@@ -518,19 +580,89 @@ class Player{
 
 class Dealer {
   deck:Deck
-  hand:[]
-  win:int
   shuffle()
   deal()
   hit()
   showHand()
 }
 
+class Game{
+  playerList:ArrayList<Player>
+  dealer:Dealer
+  determineWinner()
+  play()
+}
+
 Player<|--Dealer:dealer is player
 Dealer *--Deck:dealer own the deck
 Card<|--BlackjackCard
 Deck o--BlackjackCard:stack of Cards
+Game *-- Dealer
+Game *-- Player
 ```
+### Game logic
+```mermaid
+graph TB
+A([start])
+B[Deal cards]
+C[Show hands]
+D{hit?}
+F[determine winner<br>show result]
+END[end]
+AGAIN{more game?}
+S[Shuffule, clean hand]
+
+A-->B-->C-->D
+D--true-->B
+D--false-->F-->AGAIN
+AGAIN--false-->END
+AGAIN--true-->S-->B
+
+classDef start fill:green,stroke:#DE9E1F,stroke-width:2px,color:white;
+classDef end1 fill:red,stroke:#DE9E1F,stroke-width:2px,color:white;
+classDef if fill:#EBCD6F,stroke:black,stroke-width:2px;
+
+class A start
+class END end1
+class D,AGAIN if
+```
+### Code Optimization
+```mermaid
+graph TB
+START([start])
+PLAYER[player win]
+DEALER[dealer win]
+TIED[tied]
+
+A{player>21}
+C{dealer>21}
+D{player==dealer}
+E{player>dealer}
+
+START-->A
+A--false-->C
+A--true-->DEALER
+C--true-->PLAYER
+C--false-->
+D--true-->TIED
+D--false-->E
+E--true-->PLAYER
+E--false-->DEALER
+
+classDef if fill:#EBCD6F,stroke:black,stroke-width:2px;
+
+class A,D,C,E if
+```
+
+* player get 4 Ace
+* player get 3 Ace
+* player get 2 Ace
+### Integration Test
+
+### Documentation
+
+### Software development life cycle
+
 
 ## References
 * [👍 All excercises](https://www.w3resource.com/java-exercises/index.php)

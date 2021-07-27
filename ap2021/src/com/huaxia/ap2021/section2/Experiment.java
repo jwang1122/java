@@ -167,13 +167,10 @@ class MyArm implements MechanicalArm{
 	@Override
 	public void moveForward(int numLocs) {
 		if (facingRight) {
-			for(int i=0; i<numLocs; i++)
-				index++;		
-		}else {
-			for(int i=numLocs; i>0; i--)
-				index--;		
-			
+			index += numLocs;
+			return;
 		}
+		index -= numLocs;
 	}
 
 	public void setIndex(int index) {

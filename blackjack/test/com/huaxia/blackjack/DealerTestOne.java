@@ -2,6 +2,9 @@ package com.huaxia.blackjack;
 
 import static java.lang.System.out;
 
+import com.huaxia.blackjack1.Dealer;
+import com.huaxia.blackjack1.Player;
+
 public class DealerTestOne {
 	public static void main(String args[]) { // Code to test the Dealer
 		Dealer dealer = new Dealer();

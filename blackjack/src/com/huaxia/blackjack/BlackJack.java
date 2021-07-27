@@ -4,7 +4,7 @@ import static java.lang.System.out;
 
 import java.util.Scanner;
 
-public class BlackJack {
+public class BlackJack{
 
 	Player player = new Player();
 	Dealer dealer = new Dealer();
@@ -12,7 +12,7 @@ public class BlackJack {
 	public BlackJack() {
 
 	}
-
+	
 	public void playGame() {
 		System.out.println("The game start...");
 		Scanner scanner = new Scanner(System.in);

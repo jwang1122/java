@@ -1,8 +1,7 @@
 package com.huaxia.blackjack;
 
-import java.util.*;
-
-import com.huaxia.blackjack.Card.Face;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player {
 	private int winCount = 0;
@@ -55,7 +54,7 @@ public class Player {
 		int totalValue = 0;
 		boolean containA = false;
 		for (Card aCard : this.hand) {
-			if(aCard.face==Face.ACE) {
+			if(aCard.face.equals("A")) {
 				containA = true;
 			}
 			totalValue += aCard.getValue();

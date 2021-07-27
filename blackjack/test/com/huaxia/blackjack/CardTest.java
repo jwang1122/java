@@ -1,17 +1,17 @@
 package com.huaxia.blackjack;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.huaxia.blackjack.Card.Face;
-import com.huaxia.blackjack.Card.Suit;
+import com.huaxia.blackjack1.Card;
 
 class CardTest {
-	Card heartA = new Card(Face.ACE, Suit.HEART);
-	Card club9 = new Card(Face.NINE, Suit.CLUB);
-	Card clubQ = new Card(Face.QUEEN, Suit.CLUB);
+	Card heartsA = new Card("A", "HEARTS");
+	Card clubs9 = new Card("9", "CLUBS");
+	Card clubsQ = new Card("Q", "CLUBS");
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -19,9 +19,14 @@ class CardTest {
 
 	@Test
 	void testGetValue() {
-		assertTrue(heartA.getValue()==1);
-		assertTrue(club9.getValue()==9);
-		assertTrue(clubQ.getValue()==12);
+		assertTrue(heartsA.getValue()==1);
+		assertTrue(clubs9.getValue()==9);
+		assertTrue(clubsQ.getValue()==12);
 	}
 
+	@Test
+	void testIsPictured() {
+		assertTrue(heartsA.isPictured());
+		assertFalse(clubs9.isPictured());
+	}
 }

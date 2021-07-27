@@ -17,33 +17,57 @@ public class Card {
 	static final String[] SUITS = { "SPADE", "CLUB", "DIAMOND", "HEART" };
 	
 	Image image;
-	Face face;
-	Suit suit;
+	String face;
+	String suit;
 	String imageFile;
 	
-//	Card(String face, String suit) {
+	Card(String face, String suit) {
+		this.face = face;
+		this.suit = suit;
+	}
+	
+//	public Card(Face face, Suit suit, String imageFile) {
+//		this.face = face;
+//		this.suit = suit;
+//		this.imageFile = imageFile;
+//	}
+//
+//	public Card(Face face, Suit suit) {
 //		this.face = face;
 //		this.suit = suit;
 //	}
-	
-	public Card(Face face, Suit suit, String imageFile) {
-		this.face = face;
-		this.suit = suit;
-		this.imageFile = imageFile;
-	}
-
-	public Card(Face face, Suit suit) {
-		this.face = face;
-		this.suit = suit;
-	}
 	public Card() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getValue() {
-		return this.face.value;
-	}
+//	public int getValue() {
+//		return this.face.value;
+//	}
 	
+	public boolean isPictured() {
+		return "AJQK".contains(face);
+	}
+	public int getValue() {
+		int value = 0;
+		if(!isPictured()) {
+			return Integer.parseInt(face);
+		}
+		switch(face) {
+		case "A":
+			value=1; 
+			break;
+		case "J":
+			value = 11;
+			break;
+		case "Q":
+			value = 12;
+			break;
+		case "K":
+			value = 13;
+			break;
+		}
+		return value;
+	}
 	public Image getImage() {
 		if(image==null) {
 			try {
@@ -60,13 +84,13 @@ public class Card {
 		this.image = image;
 	}
 	
-	public Face getFace() {
-		return face;
-	}
-
-	public Suit getSuit() {
-		return suit;
-	}
+//	public Face getFace() {
+//		return face;
+//	}
+//
+//	public Suit getSuit() {
+//		return suit;
+//	}
 
 	@Override
 	public String toString() {
@@ -105,7 +129,7 @@ public class Card {
 	}
 
 	public static void main(String[] args) {
-		Card diamondA = new Card(Face.ACE, Suit.DIAMOND);
+		Card diamondA = new Card("A", "DIAMONDS");
 		System.out.println(diamondA);
 	}
 
