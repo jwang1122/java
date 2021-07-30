@@ -1,38 +1,43 @@
-package com.huaxia.blackjack;
-
-import java.util.*;
+package com.huaxia.blackjack1;
 
 public class Dealer extends Player {
-	private Deck aDeck;
-	private ArrayList<Card> hand;
-	private int handTotal;
-//	private int currentIndex = 0;
-
-	public Dealer() {
-		hand = new ArrayList<Card>();
-		handTotal = 0;
-		aDeck = new Deck();
-		aDeck.shuffle();
-		name="Dealer";
-	}
-
-	public int getTotal() {
-		return handTotal = super.getHandValue();
-	}
-
-	public boolean hit() {
-		if (handTotal <= 16)
-			return true;
-		return false;
+	private Deck deck;
+	
+	public Dealer() { //constructor for Dealer
+		this.name = "Dealer";
+		this.deck = new Deck();
 	}
 
 	public void shuffle() {
-		Collections.shuffle(hand);
+		deck.shuffle();
 	}
-
+	
 	public Card deal() {
-		Card c = aDeck.nextCard();
-		return c;
-
+		return deck.nextCard();
 	}
+	
+	public String showHand(boolean isFaceUp) {
+		String myHand = name + "{";
+		if(isFaceUp) {
+			for(Card card: hand) { // for-each loop
+				myHand += card + " ";
+			}
+			myHand += "}:";
+			myHand += getHandValue();
+			myHand += ":"+win;
+		}else {
+			myHand += hand.get(0)+" HIDDEN}";
+		}
+		return myHand;
+	}
+
+	@Override
+	public boolean hit() {
+		int value = getHandValue();
+		if(value<17) {
+			return true;
+		}
+		return false;
+	}
+
 }

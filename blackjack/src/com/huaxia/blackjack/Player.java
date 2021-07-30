@@ -1,72 +1,108 @@
-package com.huaxia.blackjack;
+package com.huaxia.blackjack1;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+
 public class Player {
-	private int winCount = 0;
-	private ArrayList<Card> hand = new ArrayList<Card>();
-	String name;
+	static Scanner input = new Scanner(System.in);
 
-	Player() {
-
+	protected String name;
+	protected List<Card> hand = new ArrayList<>();
+	protected int win = 0;
+	
+	public static Player createPlayer() {
+		System.out.println("Enter player name: ");
+		String name = input.nextLine();
+		return new Player(name);
+	}
+	
+	public Player() {
+		super();
 	}
 
-	Player(String name) {
+	public Player(String name){
 		this.name = name;
 	}
-
-	public void addCardToHand(Card temp) {
-		hand.add(temp);
-
+	
+	public void win() {
+		win++;
 	}
-
-	public void resetHand() {
-		hand = new ArrayList<Card>();
-	}
-
+	
 	public boolean hit() {
-		int value = this.getHandValue();
-		if (value >= 20)
-			return false;
-		if (value <= 10)
-			return true;
-		System.out.print("Do you want to hit?(y or n)");
-		@SuppressWarnings("resource")
-		Scanner scanner = new Scanner(System.in);
-		String input = scanner.nextLine();
-		return input.equals("y");
+		boolean needMoreCard = false;
+		System.out.print(name + ", do you want to hit? (y/n) ");
+		String answer = input.nextLine();
+		needMoreCard = answer.toLowerCase().equals("y");
+		return needMoreCard;
 	}
 
-	public void setWinCount(int numWins) {
-		winCount = numWins;
+	public void addCardToHand(Card card) {
+		hand.add(card);
+	}
+	
+	public void cleanHand() {
+		hand.clear();
+	}
+	
+	public int getHandValue() {
+		int value = 0;
+		for(Card card:hand) {
+			value += card.getValue();
+		}
+		if(value>21) { // bust
+			if(isAceInHand()) {
+				value -= 10; // correct my Ace from 11 to 1
+			}
+		}
+		return value;
+	}
+	
+	//Homework: write unit test to test this method
+	private boolean isAceInHand() {
+		boolean flag = false; // assume there is no Ace in my hand
+		for(Card card : hand) {
+			if(card.face.equals("A")) {
+				flag = true; // find Ace in hand
+				break;
+			}
+		}
+		return flag;
+	}
+	
+	public String showHand() {
+		String myHand =name + "{";
+		for(Card card: hand) { // for-each loop
+			myHand += card + " ";
+		}
+		myHand += "}:"; 
+		myHand += getHandValue();
+		myHand += ":"+win;
+		return myHand;
+	}
+	
+	@Override
+	public String toString() {
+		return name;
 	}
 
-	public int getWinCount() {
-		return winCount;
-	}
-
-	public int getHandSize() {
+	public Integer getHandSize() {
 		return hand.size();
 	}
 
-	public int getHandValue() {
-		int totalValue = 0;
-		boolean containA = false;
-		for (Card aCard : this.hand) {
-			if(aCard.face.equals("A")) {
-				containA = true;
-			}
-			totalValue += aCard.getValue();
-		}
-		if(totalValue>21 && containA) {
-			totalValue -= 10;
-		}
-		return totalValue;
+	public String getName() {
+		return name;
+	}
+	
+	public static void main(String[] args) {
+		Player john = new Player("John");
+		System.out.println(john.hit());
 	}
 
-	public String toString() {
-		return "hand = " + hand.toString() + " -  # wins " + winCount;
+	public boolean moreGame() {
+		System.out.print("More game? (y/n) ");
+		String answer = input.nextLine();
+		return answer.toLowerCase().equals("y");
 	}
-
 }

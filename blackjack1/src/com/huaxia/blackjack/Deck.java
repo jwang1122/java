@@ -1,4 +1,4 @@
-package com.huaxia.blackjack1;
+package com.huaxia.blackjack;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,13 +7,13 @@ public class Deck {
 	static final String[] FACES = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
 	static final String[] SUITS = {"SPADES","CLUBS","DIAMONDS","HEARTS"};
 	
-	private ArrayList<Card> stackOfCards = new ArrayList<>();
+	private ArrayList<BlackjackCard> stackOfCards = new ArrayList<>();
 	private int currentIndex;
 
 	public Deck(){
 		for(String face: FACES) {
 			for (String suit : SUITS) {
-				Card card = new BlackjackCard(face, suit);
+				BlackjackCard card = new BlackjackCard(face, suit);
 				stackOfCards.add(card);
 			}
 		}
@@ -24,7 +24,7 @@ public class Deck {
 		Collections.shuffle(stackOfCards);
 	}
 	
-	public Card nextCard() {
+	public BlackjackCard nextCard() {
 		int index = currentIndex;
 		currentIndex--;
 		return stackOfCards.get(index);
@@ -34,8 +34,17 @@ public class Deck {
 		return currentIndex;
 	}
 
-	public ArrayList<Card> getStackOfCards() {
+	public ArrayList<BlackjackCard> getStackOfCards() {
 		return stackOfCards;
 	}
 
+	public void setStackOfCards(ArrayList<BlackjackCard> stackOfCards) {
+		this.stackOfCards = stackOfCards;
+	}
+
+	public void setCurrentIndex(int currentIndex) {
+		this.currentIndex = currentIndex;
+	}
+	
+	
 }
