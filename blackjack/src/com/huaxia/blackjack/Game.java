@@ -1,4 +1,4 @@
-package com.huaxia.blackjack1;
+package com.huaxia.blackjack;
 
 import java.util.ArrayList;
 
@@ -47,6 +47,7 @@ public class Game {
 			}
 			System.out.println(dealer.showHand(true));
 			determineWinner();
+			System.out.println();
 			for (Player player : playerList) {
 				System.out.println(player.showHand());
 			}

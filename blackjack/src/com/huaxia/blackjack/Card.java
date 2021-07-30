@@ -1,5 +1,11 @@
-package com.huaxia.blackjack1;
+package com.huaxia.blackjack;
 
+/**
+ * Single card for regular card game with face and suit.
+ * 
+ * @author John
+ *
+ */
 public class Card {
 	protected String face;
 	protected String suit;

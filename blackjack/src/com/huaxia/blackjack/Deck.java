@@ -1,4 +1,4 @@
-package com.huaxia.blackjack1;
+package com.huaxia.blackjack;
 
 import java.util.ArrayList;
 import java.util.Collections;

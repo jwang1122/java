@@ -2,7 +2,6 @@ package com.huaxia.blackjack;
 
 import static java.lang.System.out;
 
-import com.huaxia.blackjack1.Deck;
 
 public class DeckTestOne {
 	public static void main(String args[]) {

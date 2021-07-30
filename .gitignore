@@ -7,6 +7,7 @@ huaxia/doc/
 lib/
 build/
 lib/
+api/
 *.class
 .classpath
 .project

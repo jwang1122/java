@@ -1,9 +1,15 @@
-package com.huaxia.blackjack1;
+package com.huaxia.blackjack;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.huaxia.blackjack.BlackjackCard;
+import com.huaxia.blackjack.Card;
+import com.huaxia.blackjack.Dealer;
+import com.huaxia.blackjack.Game;
+import com.huaxia.blackjack.Player;
 
 class GameTest {
 

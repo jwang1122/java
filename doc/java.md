@@ -35,6 +35,11 @@
   - [Integration Test](#integration-test)
   - [Documentation](#documentation)
   - [Software development life cycle](#software-development-life-cycle)
+- [jar file](#jar-file)
+  - [create jar file use ant](#create-jar-file-use-ant)
+  - [use jar](#use-jar)
+- [Java Doc](#java-doc)
+- [MongoDB](#mongodb)
 - [References](#references)
 
 ## Getting Start
@@ -658,11 +663,133 @@ class A,D,C,E if
 * player get 3 Ace
 * player get 2 Ace
 ### Integration Test
+❓What is Integration Test?
+✔️Play the Blackjack game by running Game class.
 
 ### Documentation
 
 ### Software development life cycle
+* Test Driven Development (TDD)
+```mermaid
+graph TB
+START([start])
+C[Create Base class]
+UT[unit test]
+F[fix code pass test]
+DONE{Done all classes}
+INT[integration test]
+ERROR{error or <br>improvement?}
+FIX[fix issue, make better]
+PROD([production])
 
+START-->C-->UT-->F-->DONE
+DONE--true-->INT-->ERROR
+DONE--false, dev cycle-->C
+ERROR--true-->FIX--integration cycle-->UT
+ERROR--false-->PROD
+
+classDef if fill:#EBCD6F,stroke:black,stroke-width:2px;
+classDef start fill:green,stroke:#DE9E1F,stroke-width:2px,color:white;
+
+class ERROR,DONE if
+class START,PROD start
+```
+## jar file
+
+### create jar file use ant
+[build.xml](../blackjack/build.xml)
+```xml
+<project name="blackjack" default="dist" basedir=".">
+	<!-- set global properties for this build -->
+	<property name="src" location="src" />
+	<property name="build" location="build" />
+	<property name="dist" location="dist" />
+
+	<path id="project.classpath">
+		<pathelement location="bin" />
+	</path>
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp />
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="compile" depends="init" description="compile the source">
+		<!-- Compile the Java code from ${src} into ${build} -->
+		<javac srcdir="${src}" destdir="${build}"/>
+	</target>
+
+	<target name="dist" depends="compile" description="generate the distribution">
+		<!-- Create the distribution directory -->
+		<mkdir dir="${dist}/lib" />
+
+		<!-- Put everything in ${build} into the snake.jar file -->
+		<jar jarfile="${dist}/lib/blackjack.jar" basedir="${build}">
+			<manifest>
+				<attribute name="Built-By" value="John Wang" />
+				<attribute name="Main-Class" value="com.huaxia.blackjack.Game" />
+			</manifest>
+		</jar>
+	</target>
+	<target name="run">
+		<java fork="yes" classname="com.huaxia.blackjack.Game" failonerror="true">
+			<classpath refid="project.classpath" />
+		</java>
+	</target>
+
+	<target name="clean" description="clean up">
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+</project>
+
+```
+### use jar 
+```DOS
+cd blackjack/dist/lib
+java -jar blackjack.jar
+```
+
+## Java Doc
+```
+cd blackjack/doc
+mkdir api
+cd api
+javadoc -sourcepath ../../src -subpackages com.huaxia
+```
+
+## MongoDB
+❓What is MongoDB?
+✔️One of NoSQL database application written in C++.
+1. stores data in JSON-like documents that can have various structures
+2. uses dynamic schemas, which means that we can create records without predefining structure such as SQL relational database table.
+3. the structure of a record can be changed simply by adding new fields or deleting existing ones.
+
+```mermaid
+graph LR
+
+MONGO(mongo DB)
+D[database]
+C[collection]
+DOC[document]
+COL[collection]
+
+MONGO-->D-->C-->DOC & COL
+```
+4. document database
+5. key-value database 
+
+![](images/NoSQL.png)
+
+❓What is NoSQL database?
+✔️NoSQL databases (aka "not only SQL") are non tabular, and store data differently than relational tables. NoSQL databases come in a variety of types based on their data model. The main types are document, key-value, wide-column, and graph. They provide flexible schemas and scale easily with large amounts of data and high user loads.
+
+❓What is SQL?
+✔️SQL stands for Structured Query Language specially for relational database.
+SQLite: Python built in SQL database.
 
 ## References
 * [👍 All excercises](https://www.w3resource.com/java-exercises/index.php)

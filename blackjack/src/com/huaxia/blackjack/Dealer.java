@@ -1,5 +1,11 @@
-package com.huaxia.blackjack1;
+package com.huaxia.blackjack;
 
+/**
+ * Dealer instance in blackjack game responsible for deal cards to all players.
+ * 
+ * @author John
+ *
+ */
 public class Dealer extends Player {
 	private Deck deck;
 	

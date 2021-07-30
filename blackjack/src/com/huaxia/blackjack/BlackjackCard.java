@@ -1,5 +1,12 @@
-package com.huaxia.blackjack1;
+package com.huaxia.blackjack;
 
+/**
+ * Single card instance for Blackjack card game, which has face and suit. 
+ * Inherits from Card override getValue() method.
+ * 
+ * @author John
+ *
+ */
 public class BlackjackCard extends Card {
 	
 	BlackjackCard(String face, String suit){

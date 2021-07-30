@@ -6,8 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.huaxia.blackjack1.Card;
-
 class CardTest {
 	Card heartsA = new Card("A", "HEARTS");
 	Card clubs9 = new Card("9", "CLUBS");
