@@ -37,8 +37,8 @@ public class LoggerExample4 {
 	public static void main(String[] args) {
 		System.out.println("-- main method starts --");
 		logger.fine("this is fine message");
-		logger.info("this is info message in MyClass");
-		logger.warning("a test warning");
+		logger.info("this is info message.");
+		logger.warning("this is a test warning");
 		logger.severe("this is a severe message");
 	}
 }

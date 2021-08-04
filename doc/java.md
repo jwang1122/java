@@ -2,22 +2,52 @@
 
 [](myIcons.md)
 
+- [Getting Start](#getting-start)
+  - [Check Software Installation](#check-software-installation)
+  - [Basic skills(questions and answers)](#basic-skillsquestions-and-answers)
+- [File Structure](#file-structure)
+- [My First Java Program](#my-first-java-program)
+- [Language Basics](#language-basics)
+- [Print](#print)
+- [Variable Naming](#variable-naming)
+- [Variable and memory](#variable-and-memory)
+- [Comment](#comment)
+- [Scanner](#scanner)
+- [Data Type](#data-type)
+- [Array](#array)
+- [Operator](#operator)
+- [Excution Control](#excution-control)
+  - [if-else](#if-else)
+  - [switch](#switch)
+- [Loop](#loop)
+- [OOP](#oop)
+- [class](#class)
+  - [Construtor](#construtor)
+  - [Inhritance](#inhritance)
+  - [Method Overloading vs. Overriding](#method-overloading-vs-overriding)
+  - [An Abstract Class Example](#an-abstract-class-example)
+- [Unit test](#unit-test)
+- [Logging](#logging)
+- [Blackjack Card Game](#blackjack-card-game)
+  - [Object relationship](#object-relationship)
+  - [Game logic](#game-logic)
+  - [Code Optimization](#code-optimization)
 - [using logging](#using-logging)
-    - [load logging.properties from file](#load-loggingproperties-from-file)
-    - [load logging.properties from classpath](#load-loggingproperties-from-classpath)
-    - [load logging.properties from InputSream](#load-loggingproperties-from-inputsream)
-    - [Understand log message format](#understand-log-message-format)
-  - [Integration Test](#integration-test)
-  - [Documentation](#documentation)
-    - [Java Doc](#java-doc)
-  - [Software development life cycle](#software-development-life-cycle)
-  - [Deployment(jar file)](#deploymentjar-file)
-    - [create jar file use ant](#create-jar-file-use-ant)
-    - [use jar](#use-jar)
-    - [view jar](#view-jar)
-  - [MongoDB](#mongodb)
-  - [SQLite](#sqlite)
-  - [References](#references)
+  - [load logging.properties from file](#load-loggingproperties-from-file)
+  - [load logging.properties from classpath](#load-loggingproperties-from-classpath)
+  - [load logging.properties from InputSream](#load-loggingproperties-from-inputsream)
+  - [Understand log message format](#understand-log-message-format)
+- [Integration Test](#integration-test)
+- [Documentation](#documentation)
+  - [Java Doc](#java-doc)
+- [Software development life cycle](#software-development-life-cycle)
+- [Deployment(jar file)](#deploymentjar-file)
+  - [create jar file use ant](#create-jar-file-use-ant)
+  - [use jar](#use-jar)
+  - [view jar](#view-jar)
+- [MongoDB](#mongodb)
+- [SQLite](#sqlite)
+- [References](#references)
 
 ## Getting Start
 ❓✔️❌✔️
@@ -657,7 +687,7 @@ class A,D,C,E if
 * player get 1 Ace busted
 * player get 1 Ace not busted
 
-# using logging
+## using logging
 1. create a static logger instance of Logger class in Game class.
 2. insert fine, info, severe message in our program.
 3. While running the game, we setup logger lever to Level.WARNING for production, and setup Level.FINE for debugging.
@@ -720,25 +750,31 @@ Level setting Rule:
 static Logger logger = null;
 static {
       System.setProperty("java.util.logging.config.file",
-              "d:\\test-app\\logging.properties");
+              "/Users/12818/workspace/java/huaxia/conf/logging.properties");
       //must initialize loggers after setting above property
-      logger = Logger.getLogger(MyClass.class.getName());
+      logger = Logger.getLogger("JOHN");
   }
 ```
+😢👎This is not a good way, since if you deploy your application to different machine, the absolute folder path may not exists❗️
+
 ### load logging.properties from classpath
+😄✔️Copy logging.properties into src folder is a good idea.👍
+
 ```java
 private static Logger logger;
 
   static {
-      String path = MyClass2.class.getClassLoader()
+      String path = LoggerExample4.class.getClassLoader()
                                   .getResource("logging.properties")
                                   .getFile();
       System.setProperty("java.util.logging.config.file", path);
-      logger = Logger.getLogger(MyClass2.class.getName());
+      logger = Logger.getLogger("WANG");
   }
 ```
 
 ### load logging.properties from InputSream
+👌ok way to do logging configuration, but the code looks little complicated, ❓why choose it?
+
 ```java
   static {
     InputStream stream = LoggerExample4.class
