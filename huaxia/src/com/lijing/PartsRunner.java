@@ -1,3 +1,4 @@
+package com.lijing;
 
 
 import static java.lang.System.in;

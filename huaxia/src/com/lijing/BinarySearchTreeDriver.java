@@ -1,3 +1,4 @@
+package com.lijing;
 import java.util.*;
 import static java.lang.System.*;
 import java.io.*;

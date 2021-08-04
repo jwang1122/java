@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2021-07-19T13:41:12.485008400Z</date>
-  <millis>1626702072485</millis>
-  <nanos>8400</nanos>
+  <date>2021-08-04T13:32:24.213440Z</date>
+  <millis>1628083944213</millis>
+  <nanos>440000</nanos>
   <sequence>1</sequence>
   <logger>MyLogger</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>{}Book [_id=12345, title=Introduction to Python, price=12.99]</message>
 </record>
 <record>
-  <date>2021-07-19T13:41:12.543449Z</date>
-  <millis>1626702072543</millis>
-  <nanos>449000</nanos>
+  <date>2021-08-04T13:32:24.261319200Z</date>
+  <millis>1628083944261</millis>
+  <nanos>319200</nanos>
   <sequence>3</sequence>
   <logger>MyLogger</logger>
   <level>SEVERE</level>

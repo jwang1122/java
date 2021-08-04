@@ -2,47 +2,39 @@
 
 [](myIcons.md)
 
-- [Getting Start](#getting-start)
-  - [Check Software Installation](#check-software-installation)
-  - [questions and anwers](#questions-and-anwers)
-- [File Structure](#file-structure)
-- [My First Java Program](#my-first-java-program)
-- [Language Basics](#language-basics)
-- [Print](#print)
-- [Variable Naming](#variable-naming)
-- [Variable and memory](#variable-and-memory)
-- [Comment](#comment)
-- [Scanner](#scanner)
-- [Data Type](#data-type)
-- [Array](#array)
-- [Operator](#operator)
-- [Excution Control](#excution-control)
-  - [if-else](#if-else)
-  - [switch](#switch)
-- [Loop](#loop)
-- [OOP](#oop)
-- [class](#class)
-  - [Construtor](#construtor)
-  - [Inhritance](#inhritance)
-  - [Method Overloading vs. Overriding](#method-overloading-vs-overriding)
-  - [An Abstract Class Example](#an-abstract-class-example)
-- [Unit test](#unit-test)
-- [Logging](#logging)
-- [Blackjack Card Game](#blackjack-card-game)
-  - [Object relationship](#object-relationship)
-  - [Game logic](#game-logic)
-  - [Code Optimization](#code-optimization)
+- [using logging](#using-logging)
+    - [load logging.properties from file](#load-loggingproperties-from-file)
+    - [load logging.properties from classpath](#load-loggingproperties-from-classpath)
+    - [load logging.properties from InputSream](#load-loggingproperties-from-inputsream)
+    - [Understand log message format](#understand-log-message-format)
   - [Integration Test](#integration-test)
   - [Documentation](#documentation)
+    - [Java Doc](#java-doc)
   - [Software development life cycle](#software-development-life-cycle)
-- [jar file](#jar-file)
-  - [create jar file use ant](#create-jar-file-use-ant)
-  - [use jar](#use-jar)
-- [Java Doc](#java-doc)
-- [MongoDB](#mongodb)
-- [References](#references)
+  - [Deployment(jar file)](#deploymentjar-file)
+    - [create jar file use ant](#create-jar-file-use-ant)
+    - [use jar](#use-jar)
+    - [view jar](#view-jar)
+  - [MongoDB](#mongodb)
+  - [SQLite](#sqlite)
+  - [References](#references)
 
 ## Getting Start
+❓✔️❌✔️
+1. do it by yourself
+2. learn from mistakes
+   
+![learn from mistakes](images/MistakesMine.jpeg)
+
+![Other's mistakes](images/MistakesHis.jpeg)
+
+![How to learn](images/鲁班学艺的故事.png)
+
+**Lǔbān** is a famous master carpenter of ancient China. **Lǔbān** studied hard for three years and learned all the skills. The old master want to try him more, and destroy all the models, let him build them all over again. He made one by one exactly the same as the original all based on his memory. The old master created a lot of new models for him to build. He pondered and did it, and the results were made according to the style of the master. The old master was very satisfied.
+
+鲁班是著名的中国古代的木匠师傅。鲁班苦学了三年，把所有的手艺都学会了。老师傅还要试试他，把模型全部毁掉，让他重新造。他凭记忆，一件一件都造得跟原来的一模一样。老师傅又提出好多新模型让他造。他一边琢磨一边做，结果都按师傅说的式样做出来了。老师傅非常满意。
+
+>Everything you have learned, you need do it all by yourself, until then, whatever you've learned indeed belongs to yourself.
 
 ### Check Software Installation
 ```DOS
@@ -50,7 +42,7 @@ java -version
 javac -version
 ```
 
-### questions and anwers
+### Basic skills(questions and answers)
 
 * ❓How do I create a Java project?
 ✔️Right-Click on explore window ⟹ New ⟹ Java Project ⟹ enter project name
@@ -662,13 +654,152 @@ class A,D,C,E if
 * player get 4 Ace
 * player get 3 Ace
 * player get 2 Ace
-### Integration Test
+* player get 1 Ace busted
+* player get 1 Ace not busted
+
+# using logging
+1. create a static logger instance of Logger class in Game class.
+2. insert fine, info, severe message in our program.
+3. While running the game, we setup logger lever to Level.WARNING for production, and setup Level.FINE for debugging.
+4. insert log message into other classes by using logger defined in Game class.
+5. send log message to a file so we can do analysis in the future.
+   
+❓How do I setup log level to SEVERE for Console?
+✔️😢the file handler also no output❌
+```java
+logger.setLevel(Level.SEVERE);
+```
+❌😢it does NOT work for ConsoleHandler!
+❌Set System property also faild
+✔️😄try logging.properties file
+❓How can I make Console Handler and File Handler different log level?
+✔️use LogMager and provide logging.properties file.
+
+1. create conf folder
+2. create logging.properies file
+3. add key-value pair
+4. set System property fir the file
+```java
+	static {
+		System.setProperty("java.util.logging.config.file", "/Users/12818/workspace/java0/john/conf/logging.properties");
+	}
+	public static Logger logger = Logger.getLogger("JOHN");
+
+```
+
+❓What is .properties file?
+✔️It is a plain text file holds key-value pair separated by '=' for configuration.
+
+```properties
+handlers= java.util.logging.FileHandler, java.util.logging.ConsoleHandler
+.level=FINEST
+
+java.util.logging.FileHandler.level = FINE
+
+java.util.logging.FileHandler.pattern = %h/workspace/java/mylogs%u.log
+java.util.logging.FileHandler.limit = 50000
+java.util.logging.FileHandler.count = 1
+java.util.logging.FileHandler.maxLocks = 100
+java.util.logging.FileHandler.formatter = java.util.logging.XMLFormatter
+
+java.util.logging.ConsoleHandler.level = INFO
+java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
+java.util.logging.SimpleFormatter.format=[%1$tF %1$tT] [%4$-7s] %5$s %n
+```
+
+Level setting Rule:
+1. .level=FINE defined parent logger level for all handlers
+2. java.util.logging.ConsoleHandler.level=WARNING defined log level for ConsoleHandler
+3. log level overridden: which ever is more severe, logger will use that level
+
+❓How do I send log message to file?
+✔️
+
+### load logging.properties from file
+```java
+static Logger logger = null;
+static {
+      System.setProperty("java.util.logging.config.file",
+              "d:\\test-app\\logging.properties");
+      //must initialize loggers after setting above property
+      logger = Logger.getLogger(MyClass.class.getName());
+  }
+```
+### load logging.properties from classpath
+```java
+private static Logger logger;
+
+  static {
+      String path = MyClass2.class.getClassLoader()
+                                  .getResource("logging.properties")
+                                  .getFile();
+      System.setProperty("java.util.logging.config.file", path);
+      logger = Logger.getLogger(MyClass2.class.getName());
+  }
+```
+
+### load logging.properties from InputSream
+```java
+  static {
+    InputStream stream = LoggerExample4.class
+        .getClassLoader()
+        .getResourceAsStream("logging.properties");
+    try {
+      LogManager manager = LogManager.getLogManager();
+      manager.readConfiguration(stream);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+```
+
+### Understand log message format
+1. java.util.logging.XMLFormatter (FileHandler default)
+2. java.util.logging.SimpleFormatter
+```properties
+java.util.logging.SimpleFormatter.format=[%1$tF %1$tT] [%4$-7s] %5$s %n
+```  
+```output
+[2021-08-04 14:17:02] [SEVERE ] this is a severe message 
+```
+```java
+String.format(format, date, source, logger, level, message, thrown);
+//position:             1     2       3       4       5       6   
+```
+❓what is the simple example below?
+```java
+java.util.logging.SimpleFormatter.format="%4$s: %5$s [%1$tc]%n"
+```
+✔️This prints 1 line with the log level (4$), the log message (5$) and the timestamp (1$) in a square bracket.
+```
+WARNING: warning message [Tue Mar 22 13:11:31 PDT 2011]
+```
+
+refer to java.util.Formatter class
+
+where %s means String output, 4$ means 4th item in the String.format which is level.
+%tc means date/time output, 1$ means 1th item in the String.format which is date.
+
+[Sample logging.properties file](../huaxia/src/logging.properties)
+[Use logging.properties](../huaxia/src/com/huaxia/java2/LoggerExample4.java)
+
+
+## Integration Test
 ❓What is Integration Test?
 ✔️Play the Blackjack game by running Game class.
 
-### Documentation
+## Documentation
+### Java Doc
 
-### Software development life cycle
+```DOS
+cd blackjack/doc
+mkdir api
+cd api
+javadoc -sourcepath ../../src -subpackages com.huaxia
+```
+
+
+## Software development life cycle
 * Test Driven Development (TDD)
 ```mermaid
 graph TB
@@ -694,7 +825,7 @@ classDef start fill:green,stroke:#DE9E1F,stroke-width:2px,color:white;
 class ERROR,DONE if
 class START,PROD start
 ```
-## jar file
+## Deployment(jar file)
 
 ### create jar file use ant
 [build.xml](../blackjack/build.xml)
@@ -747,21 +878,35 @@ class START,PROD start
 </project>
 
 ```
+* Targets
+  1. init
+  2. compile
+  3. dist
+  4. clean
+
+```mermaid
+graph TB
+INIT(init>create build folder)
+COMP[compile<br>java to class<br>copy to build folder]
+DIST[jar all classes]
+CLEAN(delete build and dist folders)
+
+INIT--compile depends on init-->COMP
+COMP--dist depends on compile-->DIST
+
+```
 ### use jar 
 ```DOS
 cd blackjack/dist/lib
 java -jar blackjack.jar
 ```
+### view jar
+Help menu ⟹ Eclipse Marketplace... ⟹ Eclipse Archive Utility 0.1.0
 
-## Java Doc
-```
-cd blackjack/doc
-mkdir api
-cd api
-javadoc -sourcepath ../../src -subpackages com.huaxia
-```
+Window ⟹ show view ⟹ Project Explore ⟹ click arrow on the jar file
 
 ## MongoDB
+[Using MongoDB in Java](https://www.tutorialspoint.com/mongodb/mongodb_java.htm)
 ❓What is MongoDB?
 ✔️One of NoSQL database application written in C++.
 1. stores data in JSON-like documents that can have various structures
@@ -790,6 +935,14 @@ MONGO-->D-->C-->DOC & COL
 ❓What is SQL?
 ✔️SQL stands for Structured Query Language specially for relational database.
 SQLite: Python built in SQL database.
+
+* [Java MongoDB API](http://mongodb.github.io/mongo-java-driver/3.6/javadoc/org/bson/Document.html)
+
+* [MongoDB Connection, Collection, CRUD](../mongodb/src/main/java/org/huaxia/mongodb/MongoDB_CRUD.java)
+* [Book.java](../mongodb/src/main/java/org/huaxia/mongodb/Book.javaBook.java)
+
+## SQLite
+[SQLiteDB Connection, CRUD](../mongodb/src/main/java/org/huaxia/sqlite/SQLiteDB_CRUD.java)
 
 ## References
 * [👍 All excercises](https://www.w3resource.com/java-exercises/index.php)

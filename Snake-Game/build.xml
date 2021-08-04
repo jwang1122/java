@@ -36,7 +36,7 @@
 		</jar>
 	</target>
 	<target name="run">
-		<java fork="yes" classname="com.huaxia.Snake" failonerror="true">
+		<java fork="yes" classname="com.huaxia.snake.Snake" failonerror="true">
 			<classpath refid="project.classpath" />
 		</java>
 	</target>

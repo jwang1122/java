@@ -1,8 +1,8 @@
 package com.huaxia.java2;
+
 /*
- * Use project level logging.properties
- * 1. create logging.properties in ./conf folder
- * 2. set the conf folder in the classpath
+ * Use project level logging.properties 1. create logging.properties in ./conf folder 2. set the conf folder in the
+ * classpath
  */
 import java.util.logging.Logger;
 
@@ -10,11 +10,11 @@ public class LoggerExample3 {
 	static {
 // 
 // use absolute file path
-//		System.setProperty("java.util.logging.config.file","C:\\Users\\12818\\workspace\\java\\huaxia\\conf\\logging.properties");
+		System.setProperty("java.util.logging.config.file", "C:\\Users\\12818\\workspace\\java\\huaxia\\conf\\logging.properties");
 
 // use classpath (set conf to classpath folder)
-		String path = LoggerExample1.class.getClassLoader().getResource("logging.properties").getFile();
-		System.setProperty("java.util.logging.config.file",path);
+//		String path = LoggerExample1.class.getClassLoader().getResource("logging.properties").getFile();
+//		System.setProperty("java.util.logging.config.file",path);
 
 //-Djava.util.logging.config.file=C:\Users\12818\workspace\java\huaxia\conf\logging.properties		
 	}

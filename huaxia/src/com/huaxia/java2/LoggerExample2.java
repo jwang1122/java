@@ -34,6 +34,7 @@ public class LoggerExample2 {
 		FileHandler fh;
 		// the following block code will add another file handler(it may cause two file handler without your notice.)
 		try {
+			
 			// This block configure the logger with handler and formatter
 			fh = new FileHandler("C:/Users/12818/workspace/java/MyLogFile.log");
 			LoggerExample2.logger.addHandler(fh);

@@ -1,3 +1,4 @@
+package com.lijing;
 public class PartList {
 	private String result = "";
 

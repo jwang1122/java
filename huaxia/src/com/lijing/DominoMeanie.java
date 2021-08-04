@@ -1,3 +1,4 @@
+package com.lijing;
 import java.util.*;
 
 public class DominoMeanie {

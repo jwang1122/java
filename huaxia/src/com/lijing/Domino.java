@@ -1,3 +1,4 @@
+package com.lijing;
 public class Domino implements Comparable<Domino>{
 	
 	private int side1, side2;

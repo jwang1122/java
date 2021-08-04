@@ -2,51 +2,51 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2020-12-17T16:12:02.958799100Z</date>
-  <millis>1608221522958</millis>
-  <nanos>799100</nanos>
+  <date>2021-08-04T19:28:10.252179100Z</date>
+  <millis>1628105290252</millis>
+  <nanos>179100</nanos>
   <sequence>0</sequence>
-  <logger>MyLogger</logger>
+  <logger>WANG</logger>
   <level>FINE</level>
-  <class>com.huaxia.java2.LoggerExample3</class>
-  <method>createBook</method>
+  <class>com.huaxia.java2.LoggerExample4</class>
+  <method>main</method>
   <thread>1</thread>
-  <message>Creating a Book...</message>
+  <message>this is fine message</message>
 </record>
 <record>
-  <date>2020-12-17T16:12:02.979741400Z</date>
-  <millis>1608221522979</millis>
-  <nanos>741400</nanos>
+  <date>2021-08-04T19:28:10.363881100Z</date>
+  <millis>1628105290363</millis>
+  <nanos>881100</nanos>
   <sequence>1</sequence>
-  <logger>MyLogger</logger>
+  <logger>WANG</logger>
   <level>INFO</level>
-  <class>com.huaxia.java2.LoggerExample3</class>
-  <method>createBook</method>
+  <class>com.huaxia.java2.LoggerExample4</class>
+  <method>main</method>
   <thread>1</thread>
-  <message>{}Book [_id=12345, title=Introduction to Python, price=12.99]</message>
+  <message>this is info message in MyClass</message>
 </record>
 <record>
-  <date>2020-12-17T16:12:03.040578900Z</date>
-  <millis>1608221523040</millis>
-  <nanos>578900</nanos>
+  <date>2021-08-04T19:28:10.364878Z</date>
+  <millis>1628105290364</millis>
+  <nanos>878000</nanos>
   <sequence>2</sequence>
-  <logger>MyLogger</logger>
-  <level>FINE</level>
-  <class>com.huaxia.java2.LoggerExample3</class>
-  <method>createBook</method>
+  <logger>WANG</logger>
+  <level>WARNING</level>
+  <class>com.huaxia.java2.LoggerExample4</class>
+  <method>main</method>
   <thread>1</thread>
-  <message>Creating a Book...</message>
+  <message>a test warning</message>
 </record>
 <record>
-  <date>2020-12-17T16:12:03.041576700Z</date>
-  <millis>1608221523041</millis>
-  <nanos>576700</nanos>
+  <date>2021-08-04T19:28:10.365875500Z</date>
+  <millis>1628105290365</millis>
+  <nanos>875500</nanos>
   <sequence>3</sequence>
-  <logger>MyLogger</logger>
+  <logger>WANG</logger>
   <level>SEVERE</level>
-  <class>com.huaxia.java2.LoggerExample3</class>
-  <method>createBook</method>
+  <class>com.huaxia.java2.LoggerExample4</class>
+  <method>main</method>
   <thread>1</thread>
-  <message>java.lang.NullPointerException</message>
+  <message>this is a severe message</message>
 </record>
 </log>

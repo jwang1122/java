@@ -32,11 +32,6 @@
 			</manifest>
 		</jar>
 	</target>
-	<target name="run">
-		<java fork="yes" classname="com.huaxia.blackjack.Game" failonerror="true">
-			<classpath refid="project.classpath" />
-		</java>
-	</target>
 
 	<target name="clean" description="clean up">
 		<!-- Delete the ${build} and ${dist} directory trees -->
