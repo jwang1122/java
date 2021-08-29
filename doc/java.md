@@ -51,13 +51,20 @@
 
 ## Getting Start
 ❓✔️❌✔️
+```
+1. Create Java Project: javaclass
+2. Create Package: com.huaxia.javaclass (by package name convention)
+<com, org>.<company name>.<project name>.<package name>...
+3. Create class: Hello.java
+for any class name by convention, use Upercase for first letter
+```
+* [My First Java Program](../huaxia/src/com/huaxia/java1/Hello.java)
+
+❓ How to learn new computer language?
+✔️
 1. do it by yourself
 2. learn from mistakes
    
-![learn from mistakes](images/MistakesMine.jpeg)
-
-![Other's mistakes](images/MistakesHis.jpeg)
-
 ![How to learn](images/鲁班学艺的故事.png)
 
 **Lǔbān** is a famous master carpenter of ancient China. **Lǔbān** studied hard for three years and learned all the skills. The old master want to try him more, and destroy all the models, let him build them all over again. He made one by one exactly the same as the original all based on his memory. The old master created a lot of new models for him to build. He pondered and did it, and the results were made according to the style of the master. The old master was very satisfied.
@@ -65,6 +72,11 @@
 鲁班是著名的中国古代的木匠师傅。鲁班苦学了三年，把所有的手艺都学会了。老师傅还要试试他，把模型全部毁掉，让他重新造。他凭记忆，一件一件都造得跟原来的一模一样。老师傅又提出好多新模型让他造。他一边琢磨一边做，结果都按师傅说的式样做出来了。老师傅非常满意。
 
 >Everything you have learned, you need do it all by yourself, until then, whatever you've learned indeed belongs to yourself.
+
+![learn from mistakes](images/MistakesMine.jpeg)
+
+![Other's mistakes](images/MistakesHis.jpeg)
+
 
 ### Check Software Installation
 ```DOS
