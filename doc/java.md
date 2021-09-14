@@ -5,14 +5,15 @@
 - [Getting Start](#getting-start)
   - [Check Software Installation](#check-software-installation)
   - [Basic skills(questions and answers)](#basic-skillsquestions-and-answers)
-- [File Structure](#file-structure)
-- [My First Java Program](#my-first-java-program)
+  - [File Structure](#file-structure)
+  - [My First Java Program](#my-first-java-program)
+  - [Getting farmiliar with your keyboard](#getting-farmiliar-with-your-keyboard)
+  - [Print](#print)
+  - [Variable](#variable)
+    - [naming rules](#naming-rules)
+  - [Comment](#comment)
+  - [Scanner](#scanner)
 - [Language Basics](#language-basics)
-- [Print](#print)
-- [Variable Naming](#variable-naming)
-- [Variable and memory](#variable-and-memory)
-- [Comment](#comment)
-- [Scanner](#scanner)
 - [Data Type](#data-type)
 - [Array](#array)
 - [Operator](#operator)
@@ -47,6 +48,8 @@
   - [view jar](#view-jar)
 - [MongoDB](#mongodb)
 - [SQLite](#sqlite)
+  - [one-to-many relationship](#one-to-many-relationship)
+  - [many-to-many relationship](#many-to-many-relationship)
 - [References](#references)
 
 ## Getting Start
@@ -110,7 +113,7 @@ javac -version
 4. click save button on toolbar
 ```
 
-## File Structure
+### File Structure
 Organize Class Notes File Structure
 ```
 <java root>
@@ -129,8 +132,15 @@ Organize Class Notes File Structure
 [Homework 1](../homeworks/markdown01.md)
 [Homework 2](../homeworks/markdown02.md)
 
-## My First Java Program
-* [Hello.java](../src/com/huaxia/john/Hello.java)
+### My First Java Program
+```
+1. Create Java Project: javaclass
+2. Create Package: com.huaxia.javaclass (by package name convention)
+<com, org>.<company name>.<project name>.<package name>...
+3. Create class: Hello.java
+for any class name by convention, use Upercase for first letter
+```
+* [My First Java Program](../src/com/huaxia/john/Hello.java)
     - System.out.println()
     - // single line comment
     - every Java statement line ends with ;
@@ -141,6 +151,83 @@ Organize Class Notes File Structure
     - main() method name is special, change it will cause main() not found error.
     - String[] is part of main() method signature, cannot be changed
     - args is variable name which can be changed.
+  1. java reserved keyword in purple color: package,public,class,static,void
+  2. public and static is modifier which can be used to modify class, method, or variable
+  3. class is used to declare a java class
+  4. void is a method return data type, which means nothinbg to return
+  5. package is actual file folders
+  6. cannot use private modifier for class
+  7. default class can be used within same package
+  8. package declaration line cannot be removed
+  9. ❓how to rename class name: ✔️highlight class name > right-click > refactor > Rename
+  10. cannot remove public or static modifier and void return type from main() method.
+  11. cannot change main() method name. JRE will use it to run the class.
+  12. cannot change argument String[] in main() method, it is part of the signature of main().
+  13. the args variable name can be changed to something else.
+  14. ; cannot be removed, it is used to complete the java statement.
+  15. "" define a String object.
+  16. 😢System.out.println([String]), there are more than one signature for println() method, such as println([int]);
+
+>method signature:
+1. method name
+2. number of arguments
+3. type of arguments
+4. return data type(it may not belong to signature, but is part of method declaration)
+
+### Getting farmiliar with your keyboard
+[Keyboard definition](keyboard.md) 
+
+### Print
+* [Print.java](../src/Print.java)
+1. System.out.printf(), is a formatted print out.
+2. %d placeholder for integer
+3. \n new line character
+4. // single line comment
+
+* Homeworks
+  1. [Math Competition](../homeworks/12023%20Harmoney%20School%20Houston.pdf)
+  2. [variable01](../homeworks/variable01.md)
+  3. [variable02](../homeworks/variable02.md)
+
+### Variable
+❓ Why using variable?
+✔️ we can define variable once, and use it at many place, so that you only make less change when you need change the value.
+
+#### naming rules
+1. any variable name cannot start with number.
+2. variable name can be a combination of letters and numbers and '$', '_', not other special characters.
+3. cannot use Java reservered keywords as variable name.
+4. cannot define same variable name within same code scope.
+5. you can re-assign new value on same variable without declaration.
+
+1. variable name cannot start with number
+2. variable can be combination of letters and numbers _, a~z, A~Z, 0~9, no other special characters
+3. don't use reserved keywords as variable name
+   
+![](images/javaKeywords.png)
+
+[define variable, assign value](../src/com/huaxia/javaclass/Variable.java)
+
+>**the naming rules above is also apply for class name, method name.**
+
+### Comment
+1. single line comment
+2. multiple line comment
+3. for document
+4. block code from executing
+
+### Scanner
+❓ What is Scanner?
+✔️ is Java built-in class which allow program to get user input from console.
+[Scanner](../src/MyScanner.java)
+1. System.in is the console
+2. **new** is a Java keyword used to create instance of a class.
+3. nextLine(), nextInt(), ..., find all other functions from Java API document👇 below.
+
+[Java API Document](https://docs.oracle.com/javase/8/docs/api/)
+seach for java.util.Scanner
+
+>❗️ public class name must to be the same as the java file name!
 
 ## Language Basics
 ```mermaid
@@ -157,35 +244,7 @@ classDef html fill:#F46624,stroke:#F46624,stroke-width:4px,color:white;
 
 class B,C,D,E html
 ```
-
-## Print
-* [Print.java](../src/Print.java)
-* Homeworks
-  1. [Math Competition](../homeworks/12023%20Harmoney%20School%20Houston.pdf)
-  2. [variable01](../homeworks/variable01.md)
-  3. [variable02](../homeworks/variable02.md)
-
-## Variable Naming
-1. variable name cannot start with number
-2. variable can be combination of letters and numbers _, a~z, A~Z, 0~9, no other special characters
-3. don't use reserved keywords as variable name
-   
-![](images/javaKeywords.png)
-
-
-## Variable and memory
-![](images/chineseMedicine.jpg)
-
-![](images/memory.gif)
-
-## Comment
-1. single line comment
-2. multiple line comment
-3. for document
-4. block code from executing
-
-## Scanner
-[Scanner](../src/MyScanner.java)
+![](images/LanguageBasics.svg)
 
 ## Data Type
 * [DataType.java](../src/DataType.java)
@@ -987,10 +1046,96 @@ SQLite: Python built in SQL database.
 * [Java MongoDB API](http://mongodb.github.io/mongo-java-driver/3.6/javadoc/org/bson/Document.html)
 
 * [MongoDB Connection, Collection, CRUD](../mongodb/src/main/java/org/huaxia/mongodb/MongoDB_CRUD.java)
-* [Book.java](../mongodb/src/main/java/org/huaxia/mongodb/Book.javaBook.java)
+* [Book.java](../mongodb/src/main/java/org/huaxia/mongodb/Book.java)
 
 ## SQLite
-[SQLiteDB Connection, CRUD](../mongodb/src/main/java/org/huaxia/sqlite/SQLiteDB_CRUD.java)
+❓ What is relational database (RDBMS)?
+✔️A relational database is a type of database that stores and provides access to data points that are related to one another.
+
+```mermaid
+graph TB
+
+CUST[Customer]
+PROD[Product]
+
+```
+[SQLiteDB Connection, CRUD](../sqlite/src/main/java/sqlitedb/SQLiteDB_CRUD.java)
+1. create()
+2. retrieve()
+3. update()
+4. delete()
+
+* Prepare for Relational database
+1. create database (file)
+2. create tables in the database
+
+* to access the database
+```mermaid
+graph TB
+
+A[Create Connection]
+B[Create SQL Statement]
+C["Create Statement <br> or (PrepareStatement)"]
+D[Execute SQL Statement]
+E[Commit the change]
+F[close connection]
+
+A-->B
+B-->C
+C-->D
+D-->E
+E-->F
+```
+* [Book.java](../sqlite/src/main/java/sqlitedb/Book.java)
+  - hide database complexity from Book user
+* [Test.java](../sqlite/src/main/java/sqlitedb/Test.java)
+* [Hide db access complexity](../sqlite/src/main/java/sqlitedb/DBHelper.java)
+* [Test DB access function](../sqlite/src/main/java/sqlitedb/Test.java)
+
+### one-to-many relationship
+```mermaid
+ erDiagram
+    PROJECT ||--o{ TASK : contains
+    PROJECT {
+        int id
+        string name
+        date begineDate
+        date endDate
+    }
+    TASK {
+        int id
+        string name
+        date beginDate
+        date endDate
+    }
+```
+* [one to many](../sqlite/src/main/java/sqlitedb/Project.java)
+* [Project > Task](../sqlite/src/main/java/sqlitedb/Task.java)
+* [Test.java](../sqlite/src/main/java/sqlitedb/Test.java)
+
+### many-to-many relationship
+```mermaid
+ erDiagram
+    Student ||--o{ Enrollment:one-to-many
+    Course ||--o{ Enrollment:one-to-many
+    Student {
+        int sid
+        string name
+    }
+    Course {
+        int cid
+        string name
+    }
+    Enrollment{
+      int sid
+      int cid
+    }
+```
+
+SQL = SELECT Student.name FROM Student JOIN Enrollment On(Student.sid=Enrollment.sid) WHERE Course.name='CS4320'
+
+[many to many, Course:Student](../sqlite/src/main/java/sqlitedb/Course.java)
+[Student.java](../sqlite/src/main/java/sqlitedb/Student.java)
 
 ## References
 * [👍 All excercises](https://www.w3resource.com/java-exercises/index.php)

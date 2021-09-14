@@ -13,4 +13,5 @@ api/
 .project
 *.mp4
 .DS_Store
-.log
+*.log
+*.db
