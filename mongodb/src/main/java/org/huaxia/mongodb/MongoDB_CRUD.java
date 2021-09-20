@@ -73,9 +73,23 @@ public class MongoDB_CRUD
     	// Retrieve all documents
 		Iterator<Document> it = books.find().iterator();
     	while(it.hasNext()) {
-    		System.out.println(it.next());
+//    		System.out.println(it.next());
+    		Document doc = it.next();
+    		Book book = Book.getBook(doc);
+    		System.out.println(book);
     	}
     	System.out.println();
+	}
+	
+	static Book doc2book(Document doc) {
+		Book book = new Book();
+		book.set_id(doc.getString("_id"));
+		book.setTitle(doc.getString("title"));
+		book.setAuthor(doc.getString("author"));
+		book.setPrice(doc.getDouble("price"));
+		book.setRead(doc.getBoolean("read", false));
+		book.setRating(doc.getInteger("rating", 0));
+		return book;
 	}
 	
     public static void main( String[] args )
@@ -83,9 +97,9 @@ public class MongoDB_CRUD
     	MongoDatabase db = mongoClient.getDatabase("mydb");
     	MongoCollection<Document> books = db.getCollection("books");
     	
-    	createDocument(books);
+//    	createDocument(books);
 //    	retrieveAllBook(books);
-    	deleteDocument(books, "afb744a9-292e-4934-a09f-0a94782be97b");
+//    	deleteDocument(books, "afb744a9-292e-4934-a09f-0a94782be97b");
 //    	retrieveDocument(books, "e50be011-370b-4df6-930f-c364c315848f");
     	retrieveAllBook(books);
     	

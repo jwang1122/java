@@ -13,6 +13,20 @@ public class Book {
 	private double price;
 	private int rating;
 	
+	public Book() {
+		
+	}
+
+	public Book(String title, String author, double price, boolean read, int rating) {
+		UUID uuid = UUID.randomUUID();
+		this._id = uuid.toString();
+		this.title = title;
+		this.author = author;
+		this.price = price;
+		this.read = read;
+		this.rating = rating;
+	}
+	
 	public static Book getBook(Document doc) {
 		Book book = new Book();
 		book.set_id(doc.getString("_id"));
@@ -50,19 +64,6 @@ public class Book {
 		}
 		
 		return book;
-	}
-	
-	public Book() {
-		
-	}
-	public Book(String title, String author, double price, boolean read, int rating) {
-		UUID uuid = UUID.randomUUID();
-		this._id = uuid.toString();
-		this.title = title;
-		this.author = author;
-		this.price = price;
-		this.read = read;
-		this.rating = rating;
 	}
 	
 	public String get_id() {

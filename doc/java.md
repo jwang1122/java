@@ -47,7 +47,11 @@
   - [use jar](#use-jar)
   - [view jar](#view-jar)
 - [MongoDB](#mongodb)
+  - [one-to-one relation](#one-to-one-relation)
+  - [one-to-many relation](#one-to-many-relation)
+  - [many-to-many relation](#many-to-many-relation)
 - [SQLite](#sqlite)
+  - [one-to-one relationship](#one-to-one-relationship)
   - [one-to-many relationship](#one-to-many-relationship)
   - [many-to-many relationship](#many-to-many-relationship)
 - [References](#references)
@@ -249,8 +253,12 @@ class B,C,D,E html
 ## Data Type
 * [DataType.java](../src/DataType.java)
   - primitive data type (boolean, byte, char, short, int, long, float, double)
+>cast: small value can assign to large container; must cast large value before assign to small container.
+
   - Java built in data type (String, )
   - User defined data type
+
+![](images/A65-ASCII.png)
 
 ## Array
 * [Array.java](../src/Array.java)
@@ -297,9 +305,9 @@ B--False-->D-->E
 
 A1((start))
 B1{if <condition>:<br>line-10}
-B2{elif <condition>:<br>line-12}
+B2{else if <condition>:<br>line-12}
 C1[if code block<br>line-11]
-D1[elif code block<br>line-13]
+D1[else if code block<br>line-13]
 E1[end]
 F1[else code block<br>line-15]
 
@@ -1048,6 +1056,138 @@ SQLite: Python built in SQL database.
 * [MongoDB Connection, Collection, CRUD](../mongodb/src/main/java/org/huaxia/mongodb/MongoDB_CRUD.java)
 * [Book.java](../mongodb/src/main/java/org/huaxia/mongodb/Book.java)
 
+>In NoSQL, you don't design your database based on the relationships between data entities. You design your database based on the queries you will run against it. Use the same criteria you would use to denormalize a relational database: if it's more important for data to have cohesion (think of values in a comma-separated list instead of a normalized table), then do it that way.
+
+Incremental Map/Reduce
+
+```mermaid
+classDiagram
+
+class Publisher{
+  id:int
+  name:String
+}
+
+class Book{
+  id:int
+  title:String
+  publisher_id:int
+}
+
+class Author{
+  id:int
+  name:String
+}
+
+Publisher *-- Book:has
+Book *-- Author:has
+```
+
+```mermaid
+erDiagram
+publisher{
+  id integer
+  name text
+}
+
+book{
+  id integer
+  title text
+  publisher_id integer
+}
+
+author{
+  id integer
+  name text
+  book_id integer
+}
+
+publisher ||--|{ book: has
+book ||--|{ author: has
+```
+SQL==>Join vs. NoSQL==>Collation
+
+```sql
+SELECT 
+  publisher.id, publisher.name, book.title
+FROM publisher
+JOIN book ON publisher.id=book.publisher_id
+ORDER BY publisher.id, book.title
+```
+
+```json
+{
+  "_id":"oreilly",
+  "collection":"publisher",
+  "name":"O'Reilly Media",
+  "books":[
+    {"title":"CouchDB: The Definitive Guide"},
+    {"title":"RESTful Web Services"},
+    {"title":"DocBook: The definitive Guide"},
+    {"title":"Building iPhone Apps with HTML, CSS, and JavaScript"}
+  ]
+}
+```
+
+[Entity Relationships in a Document Database](https://www.youtube.com/watch?v=lQLTiX93PL8)
+
+### one-to-one relation
+```mermaid
+erDiagram
+
+user{
+  name text
+  gender text
+  age integer
+  account_id integer
+}
+
+account{
+  id integer
+  name text
+}
+
+user ||--o| account:one-to-one
+```
+* when there is an exclusive need for getting the account data without the user data.
+
+### one-to-many relation
+```mermaid
+erDiagram
+
+user{
+  name text
+  gender text
+  age integer
+  account_id integer
+}
+
+account{
+  id integer
+  name text
+}
+
+user ||--o{ account:one-to-many
+```
+### many-to-many relation
+```mermaid
+erDiagram
+
+user{
+  name text
+  gender text
+  age integer
+}
+
+product{
+  id integer
+  name text
+}
+
+user }o--o{ product:many-to-many
+```
+
+
 ## SQLite
 ❓ What is relational database (RDBMS)?
 ✔️A relational database is a type of database that stores and provides access to data points that are related to one another.
@@ -1091,7 +1231,34 @@ E-->F
 * [Test.java](../sqlite/src/main/java/sqlitedb/Test.java)
 * [Hide db access complexity](../sqlite/src/main/java/sqlitedb/DBHelper.java)
 * [Test DB access function](../sqlite/src/main/java/sqlitedb/Test.java)
+### one-to-one relationship
 
+```mermaid
+erDiagram
+families{
+  id integer
+  reference text
+  name text
+  unite text
+  article_id int
+}
+
+articles{
+  id integer
+  reference text
+  name text
+  quantity real
+  unite text
+  purchased integer
+  reserved integer
+  sold integer
+  available integer
+  minimum integer
+  family_id integer
+}
+
+families ||--o| articles:one-to-one
+```
 ### one-to-many relationship
 ```mermaid
  erDiagram
@@ -1131,6 +1298,7 @@ E-->F
       int cid
     }
 ```
+where the intermediate table **Enrollment** is called linking or conjunction table.
 
 SQL = SELECT Student.name FROM Student JOIN Enrollment On(Student.sid=Enrollment.sid) WHERE Course.name='CS4320'
 
