@@ -274,7 +274,8 @@ class B,C,D,E html
   - comparison operator: >, <, >=, <=, ==, !=
   - logical operator: && and, || or, ! not
   - ternary operator: a<b?a:b
-  - bitwise operator:
+  - bitwise operator: &, |, ^
+  - precendence: *, /; +, -; ()
 ``` 
 		 &: bitwise and
 		 |: bitwise or
@@ -475,6 +476,28 @@ where the Student class is subclass of Person class, we call the Person as Super
 
 ❓How do I use the interface?
 ✔️implements the interface from the class
+
+```mermaid
+classDiagram
+
+class Occupation{
+  Occupation: +getOccupation() String
+}
+<<interface>> Occupation
+
+class Person{
+  #name: String
+  #ssn: String
+  #age: int
+  #gender: String
+}
+<<abstract>> Person
+
+Occupation <|-- Person
+Person <|-- Teacher
+Person <|-- Doctor
+Person <|-- Developer
+```
 
 5. use **abstract** modifier to make the class abstract which allow no implementation of the abstract method defined in interface.
  
