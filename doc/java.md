@@ -481,17 +481,17 @@ where the Student class is subclass of Person class, we call the Person as Super
 classDiagram
 
 class Occupation{
-  Occupation: +getOccupation() String
+  <<interface>>
+  +getOccupation() String
 }
-<<interface>> Occupation
 
 class Person{
+  <<abstract>>
   #name: String
   #ssn: String
   #age: int
   #gender: String
 }
-<<abstract>> Person
 
 Occupation <|-- Person
 Person <|-- Teacher
@@ -499,7 +499,27 @@ Person <|-- Doctor
 Person <|-- Developer
 ```
 
-5. use **abstract** modifier to make the class abstract which allow no implementation of the abstract method defined in interface.
+* Annotations on classes
+  1. << interface >>
+  2. << abstract >>
+  3. << Service >>
+  4. << enumeration >>
+
+```mermaid
+classDiagram
+%% this is a comments
+class Color{
+  <<enumeration>>
+  RED
+  BLUE
+  GREEN
+  WHITE
+  BLACK
+}
+```
+
+
+1. use **abstract** modifier to make the class abstract which allow no implementation of the abstract method defined in interface.
  
 ❓What is abstract class?
 ✔️Abstract classes are similar to interfaces. You cannot instantiate them, and they may contain a mix of methods declared with or without an implementation. Abstract class: is a restricted class 💡that cannot be used to create objects (to access it, it must be inherited from another class).
@@ -1254,6 +1274,40 @@ E-->F
 * [Test.java](../sqlite/src/main/java/sqlitedb/Test.java)
 * [Hide db access complexity](../sqlite/src/main/java/sqlitedb/DBHelper.java)
 * [Test DB access function](../sqlite/src/main/java/sqlitedb/Test.java)
+
+* Create Syntax
+```sql
+INSERT INTO <table name> VALUES (?,?,...)
+INSERT INTO <table name> (column1, column2, ...) VALUES (?, ?, ...)
+```
+
+* Retrieve Syntax
+```sql
+SELECT * FROM <table name>
+SELECT * FROM <table name> WHERE <condition>
+```
+
+* Update Syntax
+```sql
+UPDATE <table name> Set column1=?, column2=?, ... WHERE <condition>
+```
+
+* Delete Syntax
+```sql
+DELETE FROM <table name> WHERE <condition>
+```
+
+* Create [Book.writeBookToDB()]
+* Retrieve All [Book.getAll()](../sqlite/src/main/java/sqlitedb/Book.java)
+* Retrieve [Book.loadBookFromDB()](../sqlite/src/main/java/sqlitedb/Book.java)
+* Update [Book.updateBookInDB()](../sqlite/src/main/java/sqlitedb/Book.java)
+* Delete [Book.deleteBookInDB()]
+* Book can CRUD itself to DB.
+* Use DBHelper to reduce duplicated code
+* Use DBSetting to set default database file connection
+
+Practice:
+
 ### one-to-one relationship
 
 ```mermaid

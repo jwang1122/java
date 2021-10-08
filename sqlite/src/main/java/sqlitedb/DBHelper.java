@@ -6,14 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Hashtable;
 
 public class DBHelper {
-	private String filepath;
+	private String filepath = "/Users/12818/workspace/mydb.db"; // default setting for Database
 	public static Connection conn;
 
-	public DBHelper(String filepath) {
+	public DBHelper(String newfilepath) {
 		super();
-		this.filepath = filepath;
+		if (newfilepath!=null) {
+			this.filepath = newfilepath;
+		}
 		String url = "jdbc:sqlite:" + this.filepath;
 		try {
 			if (conn == null) {
@@ -26,6 +29,7 @@ public class DBHelper {
 
 	public void execute(String sql) { // shared by create table, insert record, delete record
 		if (conn != null) {
+			System.out.println(sql);
 			try {
 				Statement stmt = conn.createStatement();
 				stmt.execute(sql);
@@ -48,23 +52,16 @@ public class DBHelper {
 		return rs;
 	}
 
-	public void updateBook(String id, Book book) {
-		String sql = "UPDATE books SET title=?,author=?,read=?,price=?,rating=? WHERE _id = ?";
-		if (conn != null) {
-			try {
-				PreparedStatement stmt = conn.prepareStatement(sql);
-				stmt.setString(1, book.getTitle());
-				stmt.setString(2, book.getAuthor());
-				stmt.setBoolean(3, book.isRead());
-				stmt.setDouble(4, book.getPrice());
-				stmt.setInt(5, book.getRating());
-				stmt.setString(6, book.get_id());
-				stmt.executeUpdate();
-			} catch (Exception ex) {
-				ex.printStackTrace();
+	public void writeToDB(String sql, Hashtable<Integer, Object> values) {
+		try {
+			PreparedStatement pstmt = DBHelper.conn.prepareStatement(sql);
+			for(int i=1; i<=values.size(); i++) {
+				pstmt.setObject(i, values.get(i));
 			}
+			pstmt.execute();
+		}catch(Exception ex) {
+			ex.printStackTrace();
 		}
-
 	}
 
 }
