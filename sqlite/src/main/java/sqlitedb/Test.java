@@ -94,11 +94,11 @@ public class Test {
 //		c.create();
 		Student s1 = new Student(1111, "John Martine");
 //		s1.create();
-		Student s2 = new Student(2222, "Charles Lee");
+//		Student s2 = new Student(2222, "Charles Lee");
 //		s2.create();
-		Student s3 = new Student(3333, "Lee Robertson");
+//		Student s3 = new Student(3333, "Lee Robertson");
 //		s3.create();
-		Student s4 = new Student(4444, "Terry Miller");
+//		Student s4 = new Student(4444, "Terry Miller");
 //		s4.create();
 //		s1.enroll(4368);
 //		s1.enroll(4370);
@@ -112,11 +112,39 @@ public class Test {
 		System.out.println(courses);
 	}
 
+	static void testPassenger() {
+//		Passenger.createTable();
+		Passenger p = new Passenger(1111, "John", "Male", 16);
+//		p.writeToDB();
+//		p.setTicket_id(1234);
+//		p.updateToDB();
+		p.retriveFromDB();
+		Ticket t = p.getTicket();
+		System.out.println(t);
+	}
+	
+	static void testTicket() {
+//		Ticket.createTable();
+		Ticket t = new Ticket(1234);
+//		t.setAirline("United Air");
+//		t.setArrival("2021-11-02 09:13:00");
+//		t.setDepature("2021-11-02 13:33:00");
+//		t.setFlight("UA98");
+//		t.setGate("C-11");
+//		t.setPassenger_id(1111);
+//		t.writeToDB();
+		t.retriveFromDB();
+		System.out.println(t);
+		Passenger p = t.getPassenger();
+		System.out.println(p);
+	}
 	public static void main(String[] args) {
 //		testBook();
 //		testProject();
 //		testTask();
-		testMany2Many();
+//		testMany2Many();
+		testTicket();
+//		testPassenger();
 		System.out.println("Done.");
 	}
 }

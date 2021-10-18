@@ -3,7 +3,7 @@ package sqlitedb;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -114,7 +114,7 @@ public class Book extends DBSetting {
 	// update book record in the database
 	public void updateBookInDB() {
 		String sql = "UPDATE books SET title=?, author=?, read=?, price=?, rating=? WHERE _id='" + this._id + "'"; // database retrieve
-		Hashtable<Integer, Object> values = new Hashtable<>();
+		HashMap<Integer, Object> values = new HashMap<>();
 		values.put(1, this.title);
 		values.put(2, this.author);
 		values.put(3, this.read);

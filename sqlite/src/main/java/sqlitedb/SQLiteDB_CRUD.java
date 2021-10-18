@@ -140,11 +140,11 @@ public class SQLiteDB_CRUD {
 //		update();
 //		delete();
 		
-//		List<Book> bookList = Book.getAll();
-//		System.out.println(bookList);
-//		
-		Book book = new Book("1234");
-		book.deleteBookInDB();
+		List<Book> bookList = Book.getAll();
+		System.out.println(bookList);
+		
+//		Book book = new Book("1234");
+//		book.deleteBookInDB();
 		System.out.println("Done.");
 	}
 

@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 public class DBHelper {
 	private String filepath = "/Users/12818/workspace/mydb.db"; // default setting for Database
@@ -52,7 +52,7 @@ public class DBHelper {
 		return rs;
 	}
 
-	public void writeToDB(String sql, Hashtable<Integer, Object> values) {
+	public void writeToDB(String sql, HashMap<Integer, Object> values) {
 		try {
 			PreparedStatement pstmt = DBHelper.conn.prepareStatement(sql);
 			for(int i=1; i<=values.size(); i++) {

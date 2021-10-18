@@ -21,6 +21,7 @@
   - [if-else](#if-else)
   - [switch](#switch)
 - [Loop](#loop)
+- [Java class](#java-class)
 - [OOP](#oop)
 - [class](#class)
   - [Construtor](#construtor)
@@ -347,10 +348,32 @@ while loop has 3 part:
 2. variable condition, a<10
 3. adjust variable, a +=1
 ```
+❓ What is **static** method?
+✔️ a static method can be called by the class name, the method has nothing to do with the class attributes.
+
+```mermaid
+graph TB
+
+A([java programing])
+B[class]
+C[name]
+D[attributes]
+E[methods]
+
+A --is nothing but write--> B
+B --includes--> C & D & E
+```
+
+## Java class
+❓ What is java class?
+✔️
+
 ## OOP
-Object Oriented Programming concept
+❓ What is OOP?
+✔️ Object Oriented Programming concept
 
   ![](images/oop.png)
+
 1. Encapsulation: private, protected
 ❓What is private modifier?
 >✔️private modifier make variable or method in the class can only be used within the class, which makes encapsulation possible.
@@ -447,9 +470,9 @@ where the Student class is subclass of Person class, we call the Person as Super
 
 ### Inhritance
 * Inherit from class
-  [](Person.java)
-  [](Student.java)
-  [](Teacher.java)
+  [Super class: Person](Person.java)
+  [Subclass Student](Student.java)
+  [Subclass Teacher](Teacher.java)
   - class can only inherit from one class, Java does NOT allow multiple inheritance
 
 * Implements from Interface
@@ -1309,6 +1332,35 @@ DELETE FROM <table name> WHERE <condition>
 Practice:
 
 ### one-to-one relationship
+* Passenger vs. ticket
+```mermaid
+erDiagram
+passenger{
+  id integer
+  name text
+  gender text
+  age integer
+  ticket_id integer
+}
+
+ticket{
+  id integer
+  flight text
+  depature text
+  arrival text
+  airport text
+  gate text
+  airline text
+  passenger_id integer
+}
+
+passenger ||--o| ticket:one-to-one
+```
+[Passenger Database Access](../../java/sqlite/src/main/java/sqlitedb/Passenger.java)
+
+[Ticket Database Access](../../java/sqlite/src/main/java/sqlitedb/Ticket.java)
+
+[Ticket-Passenger Test](../../java/sqlite/src/main/java/sqlitedb/Test.java)
 
 ```mermaid
 erDiagram
