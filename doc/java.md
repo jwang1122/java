@@ -831,6 +831,14 @@ class A,D,C,E if
 * player get 2 Ace
 * player get 1 Ace busted
 * player get 1 Ace not busted
+  
+* [Face.java](../john/src/com/john/blackjack/Face.java)
+* [Suit.java](../john/src/com/john/blackjack/Suit.java)
+* [Card.java](../john/src/com/john/blackjack/Card.java)
+* [Deck.java](../john/src/com/john/blackjack/Deck.java)
+* [Player.java](../john/src/com/john/blackjack/Player.java)
+* [Dealer.java](../john/src/com/john/blackjack/Dealer.java)
+* [Game.java](../john/src/com/john/blackjack/Game.java)
 
 ## using logging
 1. create a static logger instance of Logger class in Game class.

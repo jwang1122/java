@@ -213,7 +213,7 @@ public class FirstWindow extends JFrame implements ActionListener {
 			r1 = Integer.parseInt(rowText);
 			cc = Integer.parseInt(colText);
 			this.setVisible(false);
-			FirstWindow custom = new FirstWindow(r1, cc);
+//			FirstWindow custom = new FirstWindow(r1, cc);
 
 		}
 		if (e.getSource() == Standard) {

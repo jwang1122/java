@@ -18,7 +18,7 @@ public class Teacher implements GetInfo {
 		return "Teacher: " + name;
 	}
 	
-	public void assignHomework(ArrayList students) {
+	public void assignHomework(ArrayList<Student> students) {
 		
 	}
 

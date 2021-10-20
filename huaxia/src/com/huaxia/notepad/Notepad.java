@@ -235,7 +235,7 @@ public class Notepad implements ActionListener, MenuConstants {
 	JLabel statusBar;
 
 	private String fileName = "Untitled";
-	private boolean saved = true;
+//	private boolean saved = true;
 	String applicationName = "Javapad";
 
 	String searchString, replaceString;

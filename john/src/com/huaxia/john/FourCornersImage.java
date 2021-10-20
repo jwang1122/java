@@ -8,6 +8,11 @@ import javax.swing.*;
 
 public class FourCornersImage extends JFrame {
 
+	/**
+	 * we use the serialVersionUID attribute to remember versions of a Serializable class to verify 
+	 * that a loaded class and the serialized object are compatible.
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final int WIDTH = 640;
 	private static final int HEIGHT = 640;
 	static final String FOLDER = "C:\\Users\\12818\\workspace\\java\\john\\doc\\";

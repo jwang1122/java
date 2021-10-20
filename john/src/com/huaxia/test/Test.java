@@ -1,8 +1,5 @@
 package com.huaxia.test;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import com.huaxia.john.GetInfo;
 import com.huaxia.john.Student;
 

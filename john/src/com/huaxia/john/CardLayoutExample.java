@@ -10,7 +10,8 @@ import java.awt.event.ActionListener;
  
 public class CardLayoutExample extends JFrame implements ActionListener {
  
-    public static CardLayout card = new CardLayout(5, 30);
+	private static final long serialVersionUID = 1L;
+	public static CardLayout card = new CardLayout(5, 30);
     public static Container c;
     JButton jb1, jb2, jb3;
      

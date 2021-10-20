@@ -13,7 +13,7 @@ public class MethodHW11 {
 				+ "3. A password must contain at least two digits \n"
 				+ "Input a password (You are agreeing to the above Terms and Conditions.): ");
 		String s = input.nextLine();
-
+		input.close();
 		if (is_Valid_Password(s)) {
 			System.out.println("Password is valid: " + s);
 		} else {

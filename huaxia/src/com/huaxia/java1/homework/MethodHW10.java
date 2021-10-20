@@ -7,7 +7,7 @@ public class MethodHW10 {
 		Scanner in = new Scanner(System.in);
 		System.out.print("Input a year: ");
 		int year = in.nextInt();
-		
+		in.close();
 		String output = is_LeapYear(year)?"is":"is Not";
 		System.out.printf("The %d %s a leap year.",year, output);
 	}

@@ -9,6 +9,7 @@ public class MethodHW12 {
 		System.out.print("Input a number: ");
 		int n = in.nextInt();
 		printMatrix(n);
+		in.close();
 	}
 
 	public static void printMatrix(int n) {

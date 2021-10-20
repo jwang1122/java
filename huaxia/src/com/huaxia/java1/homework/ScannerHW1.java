@@ -20,7 +20,7 @@ public class ScannerHW1 {
 		for (int i = 1; i <= power; i++) {
 			result *= base;
 		}
-
+		console.close();
 		System.out.println("Result: " + result);
 	}
 

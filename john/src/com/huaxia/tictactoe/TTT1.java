@@ -13,6 +13,10 @@ import javax.swing.JOptionPane;
 
 
 class TTT1 extends JFrame implements ItemListener, ActionListener {
+	/**
+	 * we use the serialVersionUID attribute to remember versions of a Serializable class to verify that a loaded class and the serialized object are compatible.
+	 */
+	private static final long serialVersionUID = 1L;
 	int i, j, ii, jj, x, y, yesnull;
 	int a[][] = { { 10, 1, 2, 3, 11 }, { 10, 1, 4, 7, 11 }, { 10, 1, 5, 9, 11 }, { 10, 2, 5, 8, 11 },
 			{ 10, 3, 5, 7, 11 }, { 10, 3, 6, 9, 11 }, { 10, 4, 5, 6, 11 }, { 10, 7, 8, 9, 11 } };

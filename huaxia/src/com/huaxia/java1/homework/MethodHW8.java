@@ -15,7 +15,7 @@ public class MethodHW8 {
 		double rate = in.nextDouble();
 		System.out.print("Input number of years: ");
 		int year = in.nextInt();
-
+		in.close();
 		rate *= 0.01;
 
 		System.out.println("Years    FutureValue");
