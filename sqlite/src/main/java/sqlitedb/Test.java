@@ -1,6 +1,7 @@
 package sqlitedb;
 
 import java.sql.ResultSet;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -138,13 +139,69 @@ public class Test {
 		Passenger p = t.getPassenger();
 		System.out.println(p);
 	}
+	
+	static void insertTask() {
+		try {
+			Date begin = Project.sdf.parse("2021-11-02");
+			Date end = Project.sdf.parse("2021-11-14");
+			Task task1 = new Task("proj1111-t1",5,"6f52cc62-1465-4926-a7db-0225faad7dcf",begin,end);
+			task1.create();
+			begin = Project.sdf.parse("2021-11-10");
+			end = Project.sdf.parse("2021-11-18");
+			Task task2 = new Task("proj1111-t2",3,"6f52cc62-1465-4926-a7db-0225faad7dcf",begin,end);
+			task2.create();
+			begin = Project.sdf.parse("2021-11-19");
+			end = Project.sdf.parse("2021-12-01");
+			Task task3 = new Task("proj1111-t3",1,"6f52cc62-1465-4926-a7db-0225faad7dcf",begin,end);
+			task3.create();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	static void insertProject() {
+		try {
+			Date begin = Project.sdf.parse("2021-11-02");
+			Date end = Project.sdf.parse("2021-12-04");
+			Project proj = new Project("proj1111",begin,end);
+			proj.create();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	static Project loadProject() {
+		Project proj = new Project("6f52cc62-1465-4926-a7db-0225faad7dcf");
+		proj.load();
+		return proj;
+		
+	}
+	private static Task loadTask() {
+		Task task = new Task("868aedac-c182-46b7-a110-999691a5d58f");
+		task.load();
+		return task;
+	}
+	
 	public static void main(String[] args) {
 //		testBook();
 //		testProject();
 //		testTask();
 //		testMany2Many();
-		testTicket();
+//		testTicket();
 //		testPassenger();
+//		Project.createTable();
+//		Task.createTable();
+//		insertProject();
+//		insertTask();
+		Project p = loadProject();
+		System.out.println(p);
+		System.out.println(p.getTaskList());
+		Task task = loadTask();
+		System.out.println(task);
+		System.out.println(task.getProject());
 		System.out.println("Done.");
 	}
+
 }

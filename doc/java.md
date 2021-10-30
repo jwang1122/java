@@ -2,6 +2,15 @@
 
 [](myIcons.md)
 
+To-Do List
+1. java1: add more many-to-many sample
+2. python1: add sticker sample app
+3. python1: add notepad app
+4. python1: complete blackjack tkinter game
+5. 
+
+## Table of Contents
+- [Table of Contents](#table-of-contents)
 - [Getting Start](#getting-start)
   - [Check Software Installation](#check-software-installation)
   - [Basic skills(questions and answers)](#basic-skillsquestions-and-answers)
@@ -366,7 +375,61 @@ B --includes--> C & D & E
 
 ## Java class
 ❓ What is java class?
-✔️
+✔️ Java class is a software developer defined code blocks as a **data type** can be used to create an instance of that class. It includes class name, attributes and methods.
+
+❓ What is constructor?
+✔️ the class constructor is special method which returns an instance of that class.
+1. Constructor must use class name as its name;
+2. the constructor can be modified by modifiers such as: private, public, default;
+3. the constructor has no return data type, since it retuens the instance of this class;
+4. there can be more than one constructors with different signatures so called method overloading;
+
+
+❓ What is method signature?
+```mermaid
+graph LR
+
+A(method)
+B[return type]
+C[method name]
+E[parentheses]
+D[parameter list]
+F[scope modifier]
+
+A--includes-->F & B & C & E & D
+```
+✔️ includes 1. method name; 2. parameter data type; 3. number of parameters;
+
+may concern a return type also as part of the signature;
+
+❓ Parameter vs. argument
+✔️ 
+> An **argument** is a value passed to a function when the function is called. An argument when passed with a function replaces with those variables which were used during the function;
+> In other hand, a **parameter** is a variable used to define a particular value during a function definition. In the example below, a and b are **parameters**. 
+
+[params vs. argument](../huaxia/src/com/huaxia/java1/Example1.java)
+
+```java
+public class Example {
+
+	public static int multiply(int a, int b)
+	{
+		return a + b;
+	}
+
+	public static void main(String[] args)
+	{
+		int x = 2;
+		int y = 5;
+
+		// the variables x and y are arguments
+		int sum = multiply(x, y);
+
+		System.out.println("SUM IS: " + sum);
+	}
+}
+```
+where x, y are the arguments.
 
 ## OOP
 ❓ What is OOP?
@@ -374,6 +437,21 @@ B --includes--> C & D & E
 
   ![](images/oop.png)
 
+```mermaid
+graph TB
+A(OOP<br>Object Oriented Programming)
+B[Abstraction]
+C[Inheritance]
+D[Polymorphism]
+E[Encapsulation]
+
+A--Features--> B & C & D & E
+classDef html fill:#F46624,stroke:#F46624,stroke-width:4px,color:white;
+classDef start fill:green,stroke:#DE9E1F,stroke-width:2px,color:white;
+
+class A start
+class B,C,D,E html
+```
 1. Encapsulation: private, protected
 ❓What is private modifier?
 >✔️private modifier make variable or method in the class can only be used within the class, which makes encapsulation possible.
@@ -1416,7 +1494,9 @@ families ||--o| articles:one-to-one
 * [one to many](../sqlite/src/main/java/sqlitedb/Project.java)
 * [Project > Task](../sqlite/src/main/java/sqlitedb/Task.java)
 * [Test.java](../sqlite/src/main/java/sqlitedb/Test.java)
-
+* load project with all task
+* get project from task
+* 
 ### many-to-many relationship
 ```mermaid
  erDiagram

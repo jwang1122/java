@@ -1,5 +1,6 @@
 package sqlitedb;
 
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
@@ -11,6 +12,7 @@ public class Task extends DBSetting {
 	private String projectId;
 	private Date beginDate;
 	private Date endDate;
+	private Project project;
 	
 	public Task(String name, int priority, String projectId, Date beginDate, Date endDate) {
 		super();
@@ -20,6 +22,10 @@ public class Task extends DBSetting {
 		this.projectId = projectId;
 		this.beginDate = beginDate;
 		this.endDate = endDate;
+	}
+
+	public Task(String id) {
+		this.id = id;
 	}
 
 	public static void createTable() {
@@ -36,7 +42,34 @@ public class Task extends DBSetting {
 		db.execute(sql);
 	}
 
-
+	public void load() {
+		String sql = "SELECT * FROM task WHERE id='" + this.id + "'"; // database retrieve
+		ResultSet rs = db.retrieve(sql);
+		try {
+			this.setName(rs.getString("name"));
+			this.setPriority(rs.getInt("priority"));
+			this.setProjectId(rs.getString("project_id"));
+			Date begin = Project.sdf.parse(rs.getString("begin_date"));
+			setBeginDate(begin);
+			Date end = Project.sdf.parse(rs.getString("end_date"));
+			setEndDate(end);
+			
+			sql = "SELECT * FROM project WHERE id='" + this.projectId + "'";
+			rs = db.retrieve(sql);
+			while(rs.next()) {
+				project = new Project(this.projectId);
+				project.setName(rs.getString("name"));
+				begin = Project.sdf.parse(rs.getString("begin_date"));
+				end = Project.sdf.parse(rs.getString("end_date"));
+				project.setBeginDate(begin);
+				project.setEndDate(end);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	public String getId() {
 		return id;
 	}
@@ -83,6 +116,14 @@ public class Task extends DBSetting {
 
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+	}
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
 	}
 
 	@Override
