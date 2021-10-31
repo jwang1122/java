@@ -108,7 +108,8 @@ public class Project extends DBSetting{
 
 	@Override
 	public String toString() {
-		return "Project [name=" + name + ", begineDate=" + beginDate + "]";
+		SimpleDateFormat sdfUS = new SimpleDateFormat("MM/dd/yyyy");
+		return "Project [name=" + name + ", begineDate=" + sdfUS.format(beginDate) + "]";
 	}
 	
 	

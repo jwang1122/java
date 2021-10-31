@@ -78,39 +78,53 @@ public class Test {
 		}
 	}
 
-	static void testMany2Many() {
-//		Student.createTable();
-//		Course.createTable();
+	static void createStudentCourseEnrollmentTables() {
+		Student.createTable();
+		Course.createTable();		
+	}
+	
+	static void insertCourse() {
 		Course c = new Course(4012, "Pysics4012");
-//		c.create();
+		c.create();
 		c = new Course(4368, "COSC 4368");
-//		c.create();
-//		c = new Course(4370, "COSC 4370");
-//		c.create();
-//		c = new Course(4372, "COSC 4372");
-//		c.create();
-//		c = new Course(4397, "COSC 4397");
-//		c.create();
-//		c = new Course(4398, "COSC 4398");
-//		c.create();
+		c.create();
+		c = new Course(4370, "COSC 4370");
+		c.create();
+		c = new Course(4372, "COSC 4372");
+		c.create();
+		c = new Course(4397, "COSC 4397");
+		c.create();
+		c = new Course(4398, "COSC 4398");
+		c.create();		
+	}
+	
+	static void insertStudent() {
 		Student s1 = new Student(1111, "John Martine");
-//		s1.create();
-//		Student s2 = new Student(2222, "Charles Lee");
-//		s2.create();
-//		Student s3 = new Student(3333, "Lee Robertson");
-//		s3.create();
-//		Student s4 = new Student(4444, "Terry Miller");
-//		s4.create();
-//		s1.enroll(4368);
-//		s1.enroll(4370);
-//		s2.enroll(4368);
-//		s3.enroll(4368);
-//		s4.enroll(4398);
-//		s4.enroll(4372);
+		s1.create();
+		Student s2 = new Student(2222, "Charles Lee");
+		s2.create();
+		Student s3 = new Student(3333, "Lee Robertson");
+		s3.create();
+		Student s4 = new Student(4444, "Terry Miller");
+		s4.create();
+		s1.enroll(4368);
+		s1.enroll(4370);
+		s2.enroll(4368);
+		s3.enroll(4368);
+		s4.enroll(4398);
+		s4.enroll(4372);		
+	}
+	
+	static void manyToMany() {
+//		createStudentCourseEnrollmentTables();
+//		insertCourse();
+//		insertStudent();
+		Course c = new Course(4368, "COSC 4368");
 		List<String> students = c.getStudents();
-		System.out.println(students);
+		System.out.println(String.format("%s: %s", c, students));
+		Student s1 = new Student(1111, "John Martine");
 		List<String> courses = s1.getCourses();
-		System.out.println(courses);
+		System.out.println(String.format("%s: %s", s1, courses));
 	}
 
 	static void testPassenger() {
@@ -184,13 +198,13 @@ public class Test {
 		return task;
 	}
 	
-	public static void main(String[] args) {
-//		testBook();
-//		testProject();
-//		testTask();
-//		testMany2Many();
-//		testTicket();
-//		testPassenger();
+	static void oneToOne() {
+		testTicket();
+		testPassenger();
+		
+	}
+	
+	static void oneToMany() {
 //		Project.createTable();
 //		Task.createTable();
 //		insertProject();
@@ -202,6 +216,14 @@ public class Test {
 		System.out.println(task);
 		System.out.println(task.getProject());
 		System.out.println("Done.");
+		
+	}
+	
+	public static void main(String[] args) {
+//		testBook();
+//		oneToOne();
+//		oneToMany();
+		manyToMany();
 	}
 
 }

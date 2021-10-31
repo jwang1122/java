@@ -17,12 +17,12 @@ public class Student extends DBSetting {
 	public static void createTable() {
 		String sql = "CREATE TABLE IF NOT EXISTS student(id int PRIMARY KEY, name text NOT NULL)";
 		db.execute(sql);		
-		sql = "CREATE TABLE IF NOT EXISTS enrollment(sid int, cid int, PRIMARY KEY (sid, cid)"; // composite primary key
+		sql = "CREATE TABLE IF NOT EXISTS enrollment(sid int, cid int, PRIMARY KEY (sid, cid))"; // composite primary key
 		db.execute(sql);		
 	}
 	
 	public void create() {
-		String sqlFormat = "INSERT INTO student values('%d','%s')";
+		String sqlFormat = "INSERT INTO student (id, name) values('%d','%s')";
 		String sql = String.format(sqlFormat, sid, name);
 		db.execute(sql);
 	}

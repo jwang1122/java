@@ -1522,6 +1522,10 @@ SQL = SELECT Student.name FROM Student JOIN Enrollment On(Student.sid=Enrollment
 [many to many, Course:Student](../sqlite/src/main/java/sqlitedb/Course.java)
 [Student.java](../sqlite/src/main/java/sqlitedb/Student.java)
 
+```sql
+SELECT project.id, project.name, project.begin_date, project.end_date, task.id, task.name, task.priority, task.begin_date, task.end_date
+FROM project JOIN task on project.id=task.project_id
+```
 ## References
 * [👍 All excercises](https://www.w3resource.com/java-exercises/index.php)
   1. [Loop Excercises](http://www.beginwithjava.com/java/loops/questions.html)

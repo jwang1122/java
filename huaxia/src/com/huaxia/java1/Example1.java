@@ -1,4 +1,4 @@
-package com.huaxia.john;
+package com.huaxia.java1;
 
 import java.util.Arrays;
 
