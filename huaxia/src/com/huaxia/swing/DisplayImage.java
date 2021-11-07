@@ -28,27 +28,21 @@ public class DisplayImage extends JFrame {
 		setSize(400, 400);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JButton btn = new JButton("Click");
-		btn.setPreferredSize(new Dimension(100,30));
+		btn.setPreferredSize(new Dimension(100, 30));
 		MyAction1 action = new MyAction1(p, this);
 		btn.addActionListener(action);
 		setLayout(new BorderLayout());
 		JPanel controlPnl = new JPanel();
 		controlPnl.add(btn);
-		
+
 		add(p);
 		add(controlPnl, BorderLayout.SOUTH);
 	}
 
 	public static void main(String[] args) {
-	       SwingUtilities.invokeLater(new Runnable() {
-	            @Override
-	            public void run() {
+		DisplayImage di = new DisplayImage();
+		di.setVisible(true);
 
-	        		DisplayImage di = new DisplayImage();
-	        		di.setVisible(true);
-
-	            }
-	        });
 	}
 
 }

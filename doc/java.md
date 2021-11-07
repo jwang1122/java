@@ -510,7 +510,10 @@ where the Student class is subclass of Person class, we call the Person as Super
 * [Student, Subclass of Person](../src/com/huaxia/java1/Student.java)
 * [Teacher, Subclass of Person](../src/com/huaxia/java1/Teacher.java)
 
-4. Polymorphism: give different answer for the same question from different classes which inherit from same superclas or interface. (异类同功)
+4. Polymorphism: 
+> allows a single task to be performed in different ways.
+> Polymorphism in Java is the ability of an object to take many forms, it allows us to perform the same action in many different ways. (method Overriding, Overloading, runtime polymorphism)
+> give different answer for the same question from different classes which inherit from same superclas or interface. (异类同功)
    
 [Test Polymorphism](../src/com/huaxia/test/TestMethod.java)
 

@@ -1,11 +1,22 @@
 package org.huaxia.mongodb;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import java.util.UUID;
 
 import org.bson.Document;
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+
 public class Book {
+	static MongoClient mongoClient = new MongoClient("localhost", 27017);
 	private String _id;
 	private String title;
 	private String author;
@@ -16,7 +27,12 @@ public class Book {
 	public Book() {
 		
 	}
-
+	public static void main(String[] params) {
+//		lendBook2Student("3d209655264244459b94cd06c88c661c","4e46d1b2-ceaf-4c81-8bff-d18e5fb271a9");
+		List<Book> list = getAllBooksByStudent("4e46d1b2-ceaf-4c81-8bff-d18e5fb271a9");
+		System.out.println(list);
+	}
+	
 	public Book(String title, String author, double price, boolean read, int rating) {
 		UUID uuid = UUID.randomUUID();
 		this._id = uuid.toString();
@@ -25,6 +41,25 @@ public class Book {
 		this.price = price;
 		this.read = read;
 		this.rating = rating;
+	}
+	
+	public static void lendBook2Student(String bookId, String studentId) {
+    	MongoDatabase db = mongoClient.getDatabase("mydb");
+    	MongoCollection<Document> books = db.getCollection("books");
+		books.updateOne(Filters.eq("_id", bookId), Updates.set("studentId", studentId));
+		System.out.println("Done.");
+	}
+	
+	public static List<Book> getAllBooksByStudent(String studentId){
+		List<Book> list = new ArrayList<>();
+    	MongoDatabase db = mongoClient.getDatabase("mydb");
+    	MongoCollection<Document> books = db.getCollection("books");
+    	Iterator<Document> it = books.find(Filters.eq("studentId", studentId)).iterator();
+    	while(it.hasNext()) {
+    		Book book = Book.getBook(it.next());
+    		list.add(book);
+    	}
+		return list;
 	}
 	
 	public static Book getBook(Document doc) {
@@ -50,20 +85,15 @@ public class Book {
 		return doc;
 	}
 	
-	public static Book getBook(ResultSet rs) {
-		Book book = new Book();
-		try {
-			book.set_id(rs.getString("_id"));
-			book.setTitle(rs.getString("title"));
-			book.setAuthor(rs.getString("author"));
-			book.setPrice(rs.getDouble("price"));
-			book.setRead(rs.getBoolean("read"));
-			book.setRating(rs.getInt("rating"));
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		
-		return book;
+	public static Book retrieve(String id) {
+    	MongoDatabase db = mongoClient.getDatabase("mydb");
+    	MongoCollection<Document> books = db.getCollection("books");
+    	Document doc = new Document("_id", id);
+    	Iterator<Document> it = books.find(doc).iterator();
+    	if(it.hasNext()) {
+    		return Book.getBook(doc);
+    	}
+    	return null;
 	}
 	
 	public String get_id() {

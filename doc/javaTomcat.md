@@ -221,3 +221,65 @@ C:\Users\12818\workspace\java\tomcat\webapps\ROOT\index.html
 ```
 3. start tomcat server (run bin/startup.bat or Tomcat > Start Tomcat)
 [Hello World from servlet](http://localhost:8080/HelloWorld)
+
+## Use GET method
+1. write login2.html & LoginForm.java
+[Login Form](../tomcat/webapps/ROOT/login2.html)
+[Login Servlet](../tomcat/src/org/huaxia/tomcat/LoginForm.java)
+2. add configuration on web.xml
+```xml
+	<servlet-mapping>
+		<servlet-name>LoginForm</servlet-name>
+		<url-pattern>/LoginForm</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>LoginForm</servlet-name>
+		<servlet-class>org.huaxia.tomcat.LoginForm</servlet-class>
+	</servlet>
+```
+3. start tomcat server
+[Login Page](http://localhost:8080/login2.html)
+
+## Use POST method
+1. write login2.html & LoginPost.java
+[Login Form](../tomcat/webapps/ROOT/login.html)
+[Login Servlet](../tomcat/src/org/huaxia/tomcat/LoginPost.java)
+2. add configuration on web.xml
+```xml
+	<servlet>
+		<servlet-name>LoginPost</servlet-name>
+		<servlet-class>org.huaxia.tomcat.LoginPost</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginPost</servlet-name>
+		<url-pattern>/LoginPost</url-pattern>
+	</servlet-mapping>
+
+```
+3. start tomcat server
+[Login Page](http://localhost:8080/login.html)
+
+## Use CheckBox
+1. write checkbox.html & CheckBox.java
+[Option selection html](../tomcat/webapps/ROOT/checkbox.html)
+[CheckBox Servlet](../tomcat/src/org/huaxia/tomcat/CheckBox.java)
+2. add configuration on web.xml
+```xml
+	<servlet>
+		<servlet-name>CheckBox</servlet-name>
+		<servlet-class>org.huaxia.tomcat.CheckBox</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CheckBox</servlet-name>
+		<url-pattern>/CheckBox</url-pattern>
+	</servlet-mapping>
+
+```
+3. start tomcat server
+[check box page](http://localhost:8080/checkbox.html)
+
+## Display data from database
+1. write book.html and Book.java
+[](https://groups.google.com/g/xerial/c/qo1k7IuYwN8?pli=1)
+[](https://helicaltech.com/connecting-sqlite-database-java-web-application/)
