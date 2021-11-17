@@ -4,6 +4,14 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Many-to-many relationship.
+ * 
+ * !load courses while load student and load students while load courses <b>causes</b> infinite loop!!!
+ * 
+ * @author John
+ *
+ */
 public class Student extends DBSetting {
 	private int sid;
 	private String name;

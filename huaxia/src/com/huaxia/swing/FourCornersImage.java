@@ -23,7 +23,7 @@ public class FourCornersImage extends JFrame {
 	static final String MAVERICKS1 = "DallasMavericks.png";
 	static final String MAVERICKS = "Mavericks.png";
 	static final String ROCKETS1 = "HoustonRockets.png";
-	static final String ROCKETS2 = "Astros.png";
+	static final String ROCKETS2 = "Rockets.png";
 	
 	boolean astros1 = false;
 	boolean range1 = false;

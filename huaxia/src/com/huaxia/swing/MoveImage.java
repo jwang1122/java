@@ -11,8 +11,8 @@ public class MoveImage extends JFrame{
 		
 		MyPanel1 myPanel = new MyPanel1();
 		add(myPanel);
-		
 	}
+
 	public static void main(String[] args) {
 		MoveImage mi = new MoveImage();
 		mi.setVisible(true);

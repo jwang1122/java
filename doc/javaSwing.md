@@ -35,20 +35,35 @@ Layout Manager
 ## Swing JComponent
 [Java Tutorial](https://docs.oracle.com/javase/tutorial/uiswing/components/scrollpane.html)
 [JRadio Button](https://www.geeksforgeeks.org/jradiobutton-java-swing/?ref=lbp)
-1. √ OpenWindow.java; show JFrame window
-1. √ AddButton.java; add a button to JFrame
-1. √ AddTextField.java; add both TextField and Button in JFrame with button click response
-1. √ AddLabel.java; add JLabel in the JFrame
-1. √ Frame2.java; Extends JFrame
-1. √ DisplayImage.java & MyPanel.java; display an apple image, load some image from internet
-1. √ FourCornersImages.java; Homework, display images in JFrame
-1. √ MovingImage.java & MyPanel1.java
-1. √ RandomMovineImage.java & MyPanel3.java
-1. √ KeyboardControl.java & MyPanel2.java
-1. √ CheckBoxExample.java & CheckBoxExample1.java; (with icon)
-1. √ RadioButtonExample.java; 2 ways to add an ActionListener for jButton
-1. √ TextAreaExample.java; copy large file to see some text been hidden.
-1. √ 
+
+1. [Open Window](../huaxia/src/com/huaxia/swing/OpenWindow.java)
+7. [Add Label](../huaxia/src/com/huaxia/swing/AddLabel.java)
+4. [Add Button](../huaxia/src/com/huaxia/swing/AddButton.java)
+6. [Add TextField](../huaxia/src/com/huaxia/swing/AddTextField.java)
+8. [Open Frame](../huaxia/src/com/huaxia/swing/Frame2.java)
+9. √ DisplayImage.java & MyPanel.java; display an apple image, load some image from 
+10. [DisplayImage](../huaxia/src/com/huaxia/swing/DisplayImage.java)
+11. [Image Panel](../huaxia/src/com/huaxia/swing/MyPanel.java)
+13. [Button switch image](../huaxia/src/com/huaxia/swing/FourCornersImage.java)
+14. √ MovingImage.java & MyPanel1.java
+15. [Moving Image](../huaxia/src/com/huaxia/swing/MoveImage.java) 
+16. [Moving Image Panel](../huaxia/src/com/huaxia/swing/MyPanel1.java)
+25. [Key Controlled Image](../huaxia/src/com/huaxia/swing/KeyboardControl.java)
+26. [Key Controlled Image Panel](../huaxia/src/com/huaxia/swing/MyPanel2.java)
+21. [Random Moving Image](../huaxia/src/com/huaxia/swing/RandomMoveImage.java)
+22. [Random Moving Imabe Panel](../huaxia/src/com/huaxia/swing/MyPanel3.java)
+17. [Bounced Image](../huaxia/src/com/huaxia/swing/DisplayBouncedImage.java)
+18. [Bounced Image Panel](../huaxia/src/com/huaxia/swing/MyPanel4.java)
+19. [Bufferred Image](../huaxia/src/com/huaxia/swing/DisplayBufferedImage.java)
+20. [Bufferend Image Panel](../huaxia/src/com/huaxia/swing/MyPanel5.java)
+23. [Random Ball Image](../huaxia/src/com/huaxia/swing/DiaplayBallImage.java)
+24. [Ball Image Panel](../huaxia/src/com/huaxia/swing/MyPanel6.java)
+25. [Simple add math](../huaxia/src/com/huaxia/swing/MyMath.java)
+26. [Check Box](../huaxia/src/com/huaxia/swing/CheckBoxExample.java)
+27. √ CheckBoxExample.java & CheckBoxExample1.java; (with icon)
+28. √ RadioButtonExample.java; 2 ways to add an ActionListener for jButton
+29. √ TextAreaExample.java; copy large file to see some text been hidden.
+30. √ 
 ScrolledPaneExample.java; add JScroll√ 
 Pane around the TextArea
 1. ListExample.java; without layout(FlowLayout), use GridLayout(), use BorderLayout() 

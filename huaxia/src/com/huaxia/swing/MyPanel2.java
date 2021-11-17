@@ -14,6 +14,12 @@ import java.net.URL;
 import javax.swing.JPanel;
 //import javax.swing.Timer;
 
+/**
+ * Arrow Key moving image
+ * 
+ * @author John
+ *
+ */
 public class MyPanel2 extends JPanel {// implements ActionListener {
 	private static final long serialVersionUID = 1L;
 //	private final int DELAY = 40;

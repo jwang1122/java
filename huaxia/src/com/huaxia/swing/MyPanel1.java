@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -22,9 +23,22 @@ public class MyPanel1 extends JPanel implements ActionListener {
 		loadImage();
 		timer = new Timer(DELAY, this);
 		timer.start();
+		JButton btn = new JButton("<");
+		btn.setBounds(5, 5, 50, 30);
+		btn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("button clicked...");
+				
+			}
+			
+		});
+		add(btn);
+		setLayout(null);
 	}
 	public void paint(Graphics g) {
-		g.clearRect(0,0,400,400);
+		g.clearRect(60,0,400,400);
 		g.drawImage(apple, apple_x, apple_y, this);
 
 	}

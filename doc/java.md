@@ -1,6 +1,8 @@
 <h1> 休斯顿华夏中文学校-Java Class Notes</h1>
 
 [](myIcons.md)
+[编程入门该学哪门语言?](https://www.youtube.com/watch?v=6B9Olpve4n0)
+酒店注册
 
 To-Do List
 1. java1: add more many-to-many sample
@@ -35,6 +37,9 @@ To-Do List
 - [class](#class)
   - [Construtor](#construtor)
   - [Inhritance](#inhritance)
+- [interface](#interface)
+- [abstract class](#abstract-class)
+- [concrete class](#concrete-class)
   - [Method Overloading vs. Overriding](#method-overloading-vs-overriding)
   - [An Abstract Class Example](#an-abstract-class-example)
 - [Unit test](#unit-test)
@@ -563,23 +568,23 @@ where the Student class is subclass of Person class, we call the Person as Super
   [](TestOccupation.java)
   
 ❓What is interface?
-✔️
-1. An interface is a completely "abstract class" that is used to group related methods with empty bodies:
-2. An interface is a completely "abstract class" that is used to group related methods signature without implementation.(with 😢empty bodies.) 👍collection of definition of methods.
-3. With interfaces, all fields are automatically public, static, and final, and all methods that you declare or define (as default methods) are public.
-4. class can implements more than one interface
 
+👎 An interface is a completely "abstract class" that is used to group related methods with empty bodies:
 
-❓How do I create interface?
+✔️👍 An interface is a special java code block that defined collection of abstract methods without implementation, and possible constants. 
+1. All methods defined in interface are ***abstract***.
+2. All methods defined in interface are ***public***.
+3. All vriables defined in interface are ***static***, ***final*** constants.
+4. One class can implements more than one interface
+5. to ***implements*** an interface, all methods defined in the interface need to be implemented (provide method body).
+6. 😄An interface cannot be used to create an object.
+7. Interface can be used to declare variable as a data type.
+
+❓ How do I create interface?
 ✔️
-1. 😄I cannot instantiate an interface.
-2. instance can define more than one methods.
-3. instance cannot implement the method or get compiler error(Abstract methods do not specify a body).
-4. interface only defined abstract methods whick all are public
-5. one class can implements more than one interface
 
 ❓How do I use the interface?
-✔️implements the interface from the class
+✔️implements the interface in the class
 
 ```mermaid
 classDiagram
@@ -622,8 +627,39 @@ class Color{
 }
 ```
 
+## interface
+❓ What is interface?
 
-1. use **abstract** modifier to make the class abstract which allow no implementation of the abstract method defined in interface.
+✔️ the following definition
+
+❌👎Bad definition: An interface is a completely "abstract class" that is used to group related methods with empty bodies.
+> ✔️👍 Better definition: An interface is a special java code block that define abstract methods, and possible constants.
+
+❓ What is an abstract methond?
+
+✔️ a method with an ***abstract*** modifier with all method signatures without implementation.
+
+1. All methods defined in interface are ***abstract***.
+2. All methods defined in interface are ***public***.
+3. All vriables defined in interface are ***static***, ***final*** constants.
+4. All classes implement the interface need implement all methods defined in the interface.
+5. An interface can not be used to create object.
+
+## abstract class
+❓ What is an abstract class?
+✔️
+1. the abstract class can leave method as abstract. (can have abstract methods)
+2. An abstract class can not used to create object.
+3. if the abstract class implements an abstract method defined in the interface, its subclass won't be necessary to implement that method.
+
+## concrete class
+❓ What is an concrete class?
+✔️
+1. A concrete class can be used to create an object.
+2. A concrete class cannot include abstract method.
+
+
+3. use **abstract** modifier to make the class abstract which allow no implementation of the abstract method defined in interface.
  
 ❓What is abstract class?
 ✔️Abstract classes are similar to interfaces. You cannot instantiate them, and they may contain a mix of methods declared with or without an implementation. Abstract class: is a restricted class 💡that cannot be used to create objects (to access it, it must be inherited from another class).
@@ -1524,6 +1560,43 @@ SQL = SELECT Student.name FROM Student JOIN Enrollment On(Student.sid=Enrollment
 
 [many to many, Course:Student](../sqlite/src/main/java/sqlitedb/Course.java)
 [Student.java](../sqlite/src/main/java/sqlitedb/Student.java)
+[Test.java](../sqlite/src/main/java/sqlitedb/Test.java)
+
+```mermaid
+classDiagram
+class Student{
+  name:String
+  id:int
+  load()
+  loadCourses()
+}
+
+class Course{
+  name:String
+  id:int
+  load()
+  loadStudents()
+}
+```
+
+⚡️❗️🐛👎Infinite Circle causes application died.
+
+```mermaid
+graph TB
+DB[(Database)]
+S[Load Student]
+C[Load Course]
+SC["Load Courses<br/>By Student"]
+CS["Load Students<br/>By Course"]
+DB-->S
+S-->SC
+DB-->C
+C-->CS
+CS-->S
+SC-->C
+```
+
+✔️💡 Load all courses while loading student by the same SQL statement.
 
 ```sql
 SELECT project.id, project.name, project.begin_date, project.end_date, task.id, task.name, task.priority, task.begin_date, task.end_date

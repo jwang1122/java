@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class MyMath {
@@ -15,12 +16,30 @@ public class MyMath {
 		t.setBounds(50, 50, 30, 30);
 		f.add(t);
 
+		JLabel plusLbl = new JLabel("+");
+		plusLbl.setBounds(90, 50, 30, 30);
+		f.add(plusLbl);
+
+		JTextField t1 = new JTextField();
+		t1.setBounds(120, 50, 30, 30);
+		f.add(t1);
+
+		JLabel eqLbl = new JLabel("=");
+		eqLbl.setBounds(160, 50, 30, 30);
+		f.add(eqLbl);
+
+		JLabel resultLbl = new JLabel("");
+		resultLbl.setBounds(200, 50, 30, 30);
+		f.add(resultLbl);
+
 		JButton b = new JButton("click");// creating instance of JButton
 		b.setBounds(130, 100, 100, 40);// x axis, y axis, width, height
 		b.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("The button clicked.");				
+				int x = Integer.parseInt(t.getText());
+				int y = Integer.parseInt(t1.getText());
+				resultLbl.setText(""+(x+y));
 			}
 		});
 		String a = "123";
