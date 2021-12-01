@@ -20,9 +20,11 @@ public class GridLayoutExample {
         JButton jb3 = new JButton("Button 3");          
         JButton jb4 = new JButton("Button 4");          
         JButton jb5 = new JButton("Button 5");          
+        JButton jb6 = new JButton("Button 6");          
+        JButton jb7 = new JButton("Button 7");          
         // Define the panel to hold the buttons 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3,3));
+        panel.setLayout(new GridLayout(3,3)); // make change on row and column
         panel.add(jb1);
         panel.add(jb2);
         panel.add(jb3);

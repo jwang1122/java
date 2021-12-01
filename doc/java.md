@@ -1595,13 +1595,19 @@ C-->CS
 CS-->S
 SC-->C
 ```
-
+👍 Solution #1:
 ✔️💡 Load all courses while loading student by the same SQL statement.
+
+💡lazy loading: only load from DB when demands
 
 ```sql
 SELECT project.id, project.name, project.begin_date, project.end_date, task.id, task.name, task.priority, task.begin_date, task.end_date
 FROM project JOIN task on project.id=task.project_id
 ```
+[Student.loadCourses()](../sqlite/src/main/java/sqlitedb/Student.java)
+[Course.loadStudents()](../sqlite/src/main/java/sqlitedb/Course.java)
+[Test.manyToMany()](../sqlite/src/main/java/sqlitedb/Test.java)
+
 ## References
 * [👍 All excercises](https://www.w3resource.com/java-exercises/index.php)
   1. [Loop Excercises](http://www.beginwithjava.com/java/loops/questions.html)

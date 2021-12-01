@@ -19,6 +19,8 @@ public class GridBagLayoutExample {
 		JButton jb3 = new JButton("Button 3");
 		JButton jb4 = new JButton("Button 4");
 		JButton jb5 = new JButton("Button 5");
+		JButton jb6 = new JButton("Button 6");
+		JButton jb7 = new JButton("Button 7");
 		// Define the panel to hold the buttons
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridBagLayout());
@@ -29,26 +31,35 @@ public class GridBagLayoutExample {
 		panel.add(jb1, gbc);
 		
 		gbc.gridx = 1;
-		gbc.gridy = 0;
+		// gbc.gridy = 0;
 		panel.add(jb2, gbc);
+
+		gbc.gridx = 2;
+		// gbc.gridy = 0;
+		panel.add(jb7, gbc);
 
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		gbc.gridwidth = 2;
+		gbc.gridwidth = 3;
 		panel.add(jb3, gbc);
 		
+		gbc.gridwidth = 1;
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		panel.add(jb5, gbc);
+
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		panel.add(jb6, gbc);
 		
 		gbc.gridx = 1;
 		gbc.gridy = 2;
 		gbc.gridwidth = 1;
 		gbc.gridheight = 2;
-		jb4.setSize(30,160);
+		gbc.fill = GridBagConstraints.BOTH;
 		panel.add(jb4, gbc);
 
-		gbc.gridx = 0;
-		gbc.gridy = 4;
-		panel.add(jb5, gbc);
 		
 		// Set the window to be visible as the default to be false
 		frame.add(panel);

@@ -1,17 +1,59 @@
 package sqlitedb;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Course extends DBSetting {
 	private int id;
 	private String name;
+	List<Student> studentList = new ArrayList<>();
 
 	public Course(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
+	}
+
+	public Course(int id) {
+		super();
+		this.id = id;
+		load();
+	}
+
+	public void load() {
+		String sql = "SELECT * FROM course WHERE id="+id;
+		ResultSet rs = db.retrieve(sql);
+		try {
+			if(rs.next()) {
+				this.name = rs.getString("name");
+			}else {
+				System.out.printf("The course with id=%d does NOT exist.\n", id);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		loadStudents();
+	}
+	
+	private void loadStudents() {
+		String sql = "SELECT Student.name, Student.id FROM Course JOIN Enrollment ON(Course.id=Enrollment.cid) JOIN Student ON(Enrollment.sid=Student.id) WHERE Course.id=" + id;
+		ResultSet rs = db.retrieve(sql);
+		ArrayList<Course> courses = new ArrayList<>();
+		try {
+			int count = 0;
+			while (rs.next()) {
+				String studentName = rs.getString(1);
+				int studentId = rs.getInt(2);
+				studentList.add(new Student(studentId, studentName));
+				count++;
+			}
+			System.out.println("total number of students: " + count);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 
 	public static void createTable() {
@@ -59,6 +101,10 @@ public class Course extends DBSetting {
 	@Override
 	public String toString() {
 		return "Course [id=" + id + ", name=" + name + "]";
+	}
+
+	public List<Student> getStudentList() {
+		return studentList;
 	}
 
 }

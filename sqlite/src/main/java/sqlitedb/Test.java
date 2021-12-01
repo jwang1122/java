@@ -8,6 +8,13 @@ import java.util.Date;
 import java.util.List;
 
 public class Test {
+	public static void main(String[] args) {
+//		testBook();
+//		oneToOne();
+//		oneToMany();
+		manyToMany();
+	}
+
 	static void insert() {
 		Book book = new Book("Cooking Skills", "John Q", 12.99);
 		DBHelper db = new DBHelper("/Users/12818/workspace/java/mydb.db");
@@ -115,17 +122,6 @@ public class Test {
 		s4.enroll(4372);		
 	}
 	
-	static void manyToMany() {
-//		createStudentCourseEnrollmentTables();
-//		insertCourse();
-//		insertStudent();
-		Course c = new Course(4368, "COSC 4368");
-		List<String> students = c.getStudents();
-		System.out.println(String.format("%s: %s", c, students));
-		Student s1 = new Student(1111, "John Martine");
-		List<String> courses = s1.getCourses();
-		System.out.println(String.format("%s: %s", s1, courses));
-	}
 
 	static void testPassenger() {
 //		Passenger.createTable();
@@ -219,11 +215,16 @@ public class Test {
 		
 	}
 	
-	public static void main(String[] args) {
-//		testBook();
-//		oneToOne();
-//		oneToMany();
-		manyToMany();
+	static void manyToMany() {
+//		createStudentCourseEnrollmentTables();
+//		insertCourse();
+//		insertStudent();
+		Course c = new Course(4368);
+		List<Student> students = c.getStudentList();
+		System.out.println(String.format("%s: %s", c, students));
+		Student s1 = new Student(1111);
+		List<Course> courses = s1.getCourseList(); // lazy loading: only load from DB when demands
+		System.out.println(String.format("%s: %s", s1, courses));
 	}
 
 }

@@ -1,6 +1,7 @@
 package sqlitedb;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
 public class Student extends DBSetting {
 	private int sid;
 	private String name;
+	private List<Course> courseList = new ArrayList<>();
 	
 	public Student(int sid, String name) {
 		super();
@@ -22,6 +24,27 @@ public class Student extends DBSetting {
 		this.name = name;
 	}
 
+	public Student(int sid) {
+		super();
+		this.sid = sid;
+		load();
+	}
+
+	public void load() {
+		String sql = "SELECT * FROM student WHERE id="+sid;
+		ResultSet rs = db.retrieve(sql);
+		try {
+			if(rs.next()) {
+				this.name = rs.getString("name");
+			}else {
+				System.out.printf("The student with id=%d does NOT exist.\n", sid);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		loadCourses();
+	}
 	public static void createTable() {
 		String sql = "CREATE TABLE IF NOT EXISTS student(id int PRIMARY KEY, name text NOT NULL)";
 		db.execute(sql);		
@@ -41,20 +64,24 @@ public class Student extends DBSetting {
 		db.execute(sql);
 	}
 	
-	public List<String> getCourses(){
-		String sql = "SELECT Course.name FROM Course JOIN Enrollment ON(Course.id=Enrollment.cid) JOIN Student ON(Enrollment.sid=Student.id) WHERE Student.id=" + sid;
+	public void loadCourses(){
+		String sql = "SELECT Course.name, Course.id FROM Course JOIN Enrollment ON(Course.id=Enrollment.cid) JOIN Student ON(Enrollment.sid=Student.id) WHERE Student.id=" + sid;
 		ResultSet rs = db.retrieve(sql);
-		ArrayList<String> courseNames = new ArrayList<>();
+		ArrayList<Course> courses = new ArrayList<>();
 		try {
+			int count = 0;
 			while (rs.next()) {
-				courseNames.add(rs.getString(1));
+				String courseName = rs.getString(1);
+				int courseId = rs.getInt(2);
+				courseList.add(new Course(courseId, courseName));
+				count++;
 			}
+			System.out.println("total number of courses: " + count);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		return courseNames;
-		
 	}
+
 
 	public int getSid() {
 		return sid;
@@ -79,6 +106,10 @@ public class Student extends DBSetting {
 	@Override
 	public String toString() {
 		return "Student [sid=" + sid + ", name=" + name + "]";
+	}
+
+	public List<Course> getCourseList() {
+		return courseList;
 	}
 	
 	

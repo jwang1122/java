@@ -61,18 +61,31 @@ Layout Manager
 25. [Simple add math](../huaxia/src/com/huaxia/swing/MyMath.java)
 26. [Check Box](../huaxia/src/com/huaxia/swing/CheckBoxExample.java)
 27. √ CheckBoxExample.java & CheckBoxExample1.java; (with icon)
-28. √ RadioButtonExample.java; 2 ways to add an ActionListener for jButton
-29. √ TextAreaExample.java; copy large file to see some text been hidden.
-30. √ 
-ScrolledPaneExample.java; add JScroll√ 
-Pane around the TextArea
-1. ListExample.java; without layout(FlowLayout), use GridLayout(), use BorderLayout() 
-1. ListExample2.java; with scroll
-1. listExample1.java; select birthday
-1. OptionPaneExample.java;
-1. ComboBoxExample.java 
-1. ComboBoxExample1.java; ActionListener, ItemListener; ask student add clear button to clear label message.
+28. [Radio Button](../huaxia/src/com/huaxia/swing/RadioButtonExample.java)
+29. √ RadioButtonExample.java; 2 ways to add an ActionListener for jButton
+30. [Text Area](../huaxia/src/com/huaxia/swing/TextAreaExample.java)
+31. √ TextAreaExample.java; copy large file to see some text been hidden.
+32. [Scrolled Pane](../huaxia/src/com/huaxia/swing/ScrolledPaneExample.java)
+33. √ Pane around the TextArea
+34. [List](../huaxia/src/com/huaxia/swing/ListExample.java)
+35. [List 1](../huaxia/bin/com/huaxia/swing/ListExample1.class)
+36. [List 2](../huaxia/src/com/huaxia/swing/ListExample2.java)
+37. ListExample.java; without layout(FlowLayout), use GridLayout(), use BorderLayout() 
+38. ListExample2.java; with scroll
+39. listExample1.java; select birthday
+40. OptionPaneExample.java;
+41. ComboBoxExample.java 
+42. ComboBoxExample1.java; ActionListener, ItemListener; ask student add clear button to clear label message.
 
+## Layout
+* [Flow Layout](../huaxia/src/com/huaxia/swing/FlowLayoutExample.java)
+* [Border Layout](../huaxia/src/com/huaxia/swing/BorderLayoutExample.java)
+* [Embedded Border Layout](../huaxia/src/com/huaxia/swing/BorderLayoutExample1.java)
+* [Grid Layout](../huaxia/src/com/huaxia/swing/GridLayoutExample.java)
+* [Grid Bag Layout](../huaxia/src/com/huaxia/swing/GridBagLayoutExample.java)
+* [Box Layout]
+* [Group Layout]
+* 
 ## Pane
 1. ScrolledPaneExample.java; add JScrollPane around the TextArea
 1. OptionPaneExample.java;

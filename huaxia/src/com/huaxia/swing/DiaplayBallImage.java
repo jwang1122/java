@@ -1,7 +1,5 @@
 package com.huaxia.swing;
 
-import java.io.IOException;
-
 import javax.swing.JFrame;
 
 public class DiaplayBallImage extends JFrame {
