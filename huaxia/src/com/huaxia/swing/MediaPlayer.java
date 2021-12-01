@@ -13,6 +13,11 @@ import javax.swing.JPanel;
 
 public class MediaPlayer extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public MediaPlayer(URL mediauUrl) {
 
 		setLayout(new BorderLayout());
@@ -47,7 +52,7 @@ public class MediaPlayer extends JPanel {
 		File file = new File("C:\\Users\\12818\\workspace\\java\\kingdomino\\kingdomino.mp4");
 		try {
 
-			mediaUrl = file.toURL();
+			mediaUrl = file.toURI().toURL();
 
 		} catch (MalformedURLException ex) {
 

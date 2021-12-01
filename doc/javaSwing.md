@@ -102,9 +102,10 @@ Layout Manager
     Toolkit t = Toolkit.getDefaultToolkit();
     URL iconUrl = this.getClass().getResource("resources/tiger.jpeg");
     apple = t.getImage(iconUrl);
-
 ```
-1. 
+1. [Kingdomino](https://www.youtube.com/watch?v=Wo7tLXgnzzI)
+
+ 
 ## Anonymous Class
 1. √ GetInfo.java; interface
 1. √ Student.java; implements GetInfo

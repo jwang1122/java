@@ -71,7 +71,12 @@ public class ImageHandler {
         JPanel controlPanel = new JPanel();
         JButton addLabelButton = new JButton("Delete Selected Image");
         addLabelButton.addActionListener(new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 imageViewPanel.removeFocusedImageLabel();
             }
@@ -104,7 +109,11 @@ public class ImageHandler {
 
 class ImageViewPanel extends JPanel {
 
-    JLabel NO_IMAGES = new JLabel("No Images");
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	JLabel NO_IMAGES = new JLabel("No Images");
     ArrayList<BufferedImage> images;
     ArrayList<MyLabel> imageLabels;
 
@@ -120,7 +129,12 @@ class ImageViewPanel extends JPanel {
 
         getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, 0, true), "Delete pressed");
         getActionMap().put("Delete pressed", new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 removeFocusedImageLabel();
             }
@@ -163,7 +177,11 @@ class ImageViewPanel extends JPanel {
 
 class MyLabel extends JLabel {
 
-    private final ImageViewPanel imageViewPanel;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final ImageViewPanel imageViewPanel;
     private boolean clicked = false;
 
     public MyLabel(Icon image, ImageViewPanel imageViewPanel) {

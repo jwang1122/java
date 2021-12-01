@@ -30,6 +30,8 @@ public class GridLayoutExample {
         panel.add(jb3);
         panel.add(jb4); 
         panel.add(jb5);
+        panel.add(jb6); 
+        panel.add(jb7);
         // Set the window to be visible as the default to be false
         frame.add(panel);
         frame.pack();

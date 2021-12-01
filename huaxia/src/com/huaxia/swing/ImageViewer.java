@@ -1,10 +1,14 @@
-package com.rodney.swing;
+package com.huaxia.swing;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ImageViewer extends AbstractFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public ImageViewer() {
 		super();
 	}

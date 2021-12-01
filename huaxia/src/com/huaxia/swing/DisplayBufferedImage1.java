@@ -51,7 +51,12 @@ public class DisplayBufferedImage1 {
 
     public class TestPane extends JPanel {
 
-        private BufferedImage img;
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		private BufferedImage img;
 
         private int xDelta, yDelta;
         private int xPos, yPos;

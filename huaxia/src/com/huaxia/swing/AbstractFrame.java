@@ -1,8 +1,12 @@
-package com.rodney.swing;
+package com.huaxia.swing;
 
 import javax.swing.JFrame;
 
 public abstract class AbstractFrame extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	String title = "My Frame";
 	public AbstractFrame() {
 		setSize(400,500);
