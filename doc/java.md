@@ -69,7 +69,9 @@ To-Do List
   - [one-to-one relationship](#one-to-one-relationship)
   - [one-to-many relationship](#one-to-many-relationship)
   - [many-to-many relationship](#many-to-many-relationship)
+- [Data Structure](#data-structure)
 - [References](#references)
+
 
 ## Getting Start
 ❓✔️❌✔️
@@ -1604,10 +1606,24 @@ SC-->C
 SELECT project.id, project.name, project.begin_date, project.end_date, task.id, task.name, task.priority, task.begin_date, task.end_date
 FROM project JOIN task on project.id=task.project_id
 ```
+<<<<<<< HEAD
 [Student.loadCourses()](../sqlite/src/main/java/sqlitedb/Student.java)
 [Course.loadStudents()](../sqlite/src/main/java/sqlitedb/Course.java)
 [Test.manyToMany()](../sqlite/src/main/java/sqlitedb/Test.java)
 
+=======
+
+## Data Structure
+* Stack (FILO)
+* Queue (FIFO)
+* Linked List
+* Doubly linked list
+* Tree
+❓ What is tree structure
+✔️Trees are a collection of nodes (vertices), and they are linked with edges (pointers), representing the hierarchical connections between the nodes. A node contains data of any type, but all the nodes must be of the same data type. 
+![tree](images/tree.png)
+[](https://www.educative.io/blog/data-structures-trees-java)
+>>>>>>> 0d34fbef62543ad3089c38591076c9dbd83f14d2
 ## References
 * [👍 All excercises](https://www.w3resource.com/java-exercises/index.php)
   1. [Loop Excercises](http://www.beginwithjava.com/java/loops/questions.html)
