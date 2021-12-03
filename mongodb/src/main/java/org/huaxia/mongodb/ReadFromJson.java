@@ -32,12 +32,12 @@ public class ReadFromJson {
             //Bulk Approach:
             int count = 0;
             int batch = 100;
-            List<InsertOneModel<Document>> docs = new ArrayList<>();
+            List<InsertOneModel<Document>> docs = new ArrayList();
 
             try (BufferedReader br = new BufferedReader(new FileReader("data/publisher.json"))) {
                 String line;
                 while ((line = br.readLine()) != null) {
-                    docs.add(new InsertOneModel<>(Document.parse(line)));
+                    docs.add(new InsertOneModel(Document.parse(line)));
                     count++;
                     if (count == batch) {
                         coll.bulkWrite(docs, new BulkWriteOptions().ordered(false));

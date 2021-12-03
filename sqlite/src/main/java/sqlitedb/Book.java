@@ -76,7 +76,7 @@ public class Book extends DBSetting {
 	public static List<Book> getAll(){
 		String sql = "SELECT * FROM books";
 		ResultSet rs = db.retrieve(sql);
-		ArrayList<Book> bookList = new ArrayList<>();
+		ArrayList<Book> bookList = new ArrayList<Book>();
 		try {
 			while(rs.next()) {
 				Book book = new Book(rs.getString("_id"));
@@ -114,7 +114,7 @@ public class Book extends DBSetting {
 	// update book record in the database
 	public void updateBookInDB() {
 		String sql = "UPDATE books SET title=?, author=?, read=?, price=?, rating=? WHERE _id='" + this._id + "'"; // database retrieve
-		HashMap<Integer, Object> values = new HashMap<>();
+		HashMap<Integer, Object> values = new HashMap<Integer, Object>();
 		values.put(1, this.title);
 		values.put(2, this.author);
 		values.put(3, this.read);

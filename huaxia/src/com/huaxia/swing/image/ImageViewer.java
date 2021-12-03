@@ -1,8 +1,10 @@
-package com.huaxia.swing;
+package com.huaxia.swing.image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import com.huaxia.swing.component.AbstractFrame;
 
 public class ImageViewer extends AbstractFrame {
 	/**

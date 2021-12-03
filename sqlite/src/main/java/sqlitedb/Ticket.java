@@ -43,7 +43,7 @@ public class Ticket extends DBSetting{
 
 	public void writeToDB() {
 		String sql = "INSERT INTO tickets values (?,?,?,?,?,?,?)";
-		HashMap<Integer, Object> values = new HashMap<>();
+		HashMap<Integer, Object> values = new HashMap<Integer, Object>();
 		values.put(1, id);
 		values.put(2, flight);
 		values.put(3, depature);

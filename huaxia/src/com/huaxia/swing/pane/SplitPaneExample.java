@@ -1,4 +1,4 @@
-package com.huaxia.swing;
+package com.huaxia.swing.pane;
 
 import java.awt.FlowLayout;
 import java.awt.Panel;

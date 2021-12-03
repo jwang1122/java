@@ -1,4 +1,4 @@
-package com.huaxia.swing;
+package com.huaxia.swing.image;
 
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;

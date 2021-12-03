@@ -8,7 +8,7 @@ import java.util.List;
 public class Course extends DBSetting {
 	private int id;
 	private String name;
-	List<Student> studentList = new ArrayList<>();
+	List<Student> studentList = new ArrayList<Student>();
 
 	public Course(int id, String name) {
 		super();
@@ -41,7 +41,6 @@ public class Course extends DBSetting {
 	private void loadStudents() {
 		String sql = "SELECT Student.name, Student.id FROM Course JOIN Enrollment ON(Course.id=Enrollment.cid) JOIN Student ON(Enrollment.sid=Student.id) WHERE Course.id=" + id;
 		ResultSet rs = db.retrieve(sql);
-		ArrayList<Course> courses = new ArrayList<>();
 		try {
 			int count = 0;
 			while (rs.next()) {
@@ -71,7 +70,7 @@ public class Course extends DBSetting {
 		String sql = "SELECT Student.name FROM Student JOIN Enrollment ON(Student.id=Enrollment.sid) JOIN Course ON(Enrollment.cid=Course.id) WHERE Course.name='" 
 				+ name + "'";
 		ResultSet rs = db.retrieve(sql);
-		ArrayList<String> studentNames = new ArrayList<>();
+		ArrayList<String> studentNames = new ArrayList<String>();
 		try {
 			while (rs.next()) {
 				studentNames.add(rs.getString(1));

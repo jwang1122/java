@@ -1,4 +1,4 @@
-package com.huaxia.swing;
+package com.huaxia.swing.layout;
  
 import java.awt.Insets;
 
@@ -12,7 +12,7 @@ public class BoxLayoutExample {
  
     public static void main(String[] args) {
         // Create and set up a frame window
-        JFrame.setDefaultLookAndFeelDecorated(true);
+//        JFrame.setDefaultLookAndFeelDecorated(true);
         JFrame frame = new JFrame("BoxLayout Example X_AXIS");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          

@@ -1,4 +1,4 @@
-package com.huaxia.swing;
+package com.huaxia.swing.component;
 
 //Packages to import 
 import javax.swing.JFrame; 

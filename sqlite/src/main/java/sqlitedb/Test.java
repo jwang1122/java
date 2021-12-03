@@ -33,7 +33,7 @@ public class Test {
 		System.out.println(book);
 		DBHelper db = new DBHelper("/Users/12818/workspace/java/mydb.db");
 		String sql = "SELECT * FROM books";
-		ArrayList<Book> books = new ArrayList<>();
+		ArrayList<Book> books = new ArrayList<Book>();
 		try {
 			ResultSet rs = db.retrieve(sql);
 			while (rs.next()) {

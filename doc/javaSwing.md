@@ -84,7 +84,10 @@ Layout Manager
 * [Grid Layout](../huaxia/src/com/huaxia/swing/GridLayoutExample.java)
 * [Grid Bag Layout](../huaxia/src/com/huaxia/swing/GridBagLayoutExample.java)
 * [Box Layout]
+![](images/BoxLayout-1.gif)
 * [Group Layout]
+* [Card Layout]
+* [Spring Layout]
 * 
 ## Pane
 1. ScrolledPaneExample.java; add JScrollPane around the TextArea
@@ -130,3 +133,4 @@ public void setVisible(boolean b)	|sets the visibility of the component. It is b
 * AddButton.java
 * AddTextField.java
 * AddLabel.java
+

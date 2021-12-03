@@ -13,7 +13,7 @@ public class Project extends DBSetting{
 	private String name;
 	private Date beginDate;
 	private Date endDate;
-	private List<Task> taskList = new ArrayList<>();
+	private List<Task> taskList = new ArrayList<Task>();
 	
 	public Project(String name, Date beginDate, Date endDate) {
 		super();

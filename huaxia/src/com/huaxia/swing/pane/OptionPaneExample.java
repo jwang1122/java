@@ -1,4 +1,4 @@
-package com.huaxia.swing;
+package com.huaxia.swing.pane;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;

@@ -16,7 +16,7 @@ import java.util.List;
 public class Student extends DBSetting {
 	private int sid;
 	private String name;
-	private List<Course> courseList = new ArrayList<>();
+	private List<Course> courseList = new ArrayList<Course>();
 	
 	public Student(int sid, String name) {
 		super();
@@ -67,7 +67,6 @@ public class Student extends DBSetting {
 	public void loadCourses(){
 		String sql = "SELECT Course.name, Course.id FROM Course JOIN Enrollment ON(Course.id=Enrollment.cid) JOIN Student ON(Enrollment.sid=Student.id) WHERE Student.id=" + sid;
 		ResultSet rs = db.retrieve(sql);
-		ArrayList<Course> courses = new ArrayList<>();
 		try {
 			int count = 0;
 			while (rs.next()) {

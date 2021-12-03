@@ -47,7 +47,7 @@ public class Passenger extends DBSetting{
 
 	public void writeToDB() {
 		String sql = "INSERT INTO passengers values(?,?,?,?,?)";
-		HashMap<Integer, Object> values = new HashMap<>();
+		HashMap<Integer, Object> values = new HashMap<Integer, Object> ();
 		values.put(1, id);
 		values.put(2, name);
 		values.put(3, gender);
@@ -58,7 +58,7 @@ public class Passenger extends DBSetting{
 	
 	public void updateToDB() {
 		String sql = "UPDATE passengers SET name=?, gender=?, age=?, ticket_id=? WHERE id='" + id +"'";
-		HashMap<Integer, Object> values = new HashMap<>();
+		HashMap<Integer, Object> values = new HashMap<Integer, Object>();
 		values.put(1, name);
 		values.put(2, gender);
 		values.put(3, age);

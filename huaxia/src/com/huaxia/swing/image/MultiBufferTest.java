@@ -1,4 +1,4 @@
-package com.huaxia.swing;
+package com.huaxia.swing.image;
 
 /*
  * Copyright (c) 1995, 2008, Oracle and/or its affiliates. All rights reserved.

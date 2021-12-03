@@ -51,7 +51,7 @@ public class Book {
 	}
 	
 	public static List<Book> getAllBooksByStudent(String studentId){
-		List<Book> list = new ArrayList<>();
+		List<Book> list = new ArrayList<Book>();
     	MongoDatabase db = mongoClient.getDatabase("mydb");
     	MongoCollection<Document> books = db.getCollection("books");
     	Iterator<Document> it = books.find(Filters.eq("studentId", studentId)).iterator();

@@ -3,77 +3,37 @@ package com.huaxia.swing;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.media.Manager;
 import javax.media.MediaLocator;
+import javax.media.NoPlayerException;
 import javax.media.Player;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
-public class MediaPlayer extends JPanel {
+/**
+*
+* @author BUDDHIMA
+*/
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class MediaPlayer extends JFrame {
 
-	public MediaPlayer(URL mediauUrl) {
-
-		setLayout(new BorderLayout());
-
-		try {
-
-			Player mediaPlayer = Manager.createRealizedPlayer(new MediaLocator(mediauUrl));
-
-			Component video = mediaPlayer.getVisualComponent();
-
-			Component control = mediaPlayer.getControlPanelComponent();
-
-			if (video != null) {
-
-				add(video, BorderLayout.CENTER); // place the video component in the panel
-
-			}
-
-			add(control, BorderLayout.SOUTH); // place the control in panel
-
-			mediaPlayer.start();
-
-		} catch (Exception e) {
-
-		}
-
-	}
 
 	public static void main(String[] args) {
 
-		URL mediaUrl = null;
-		File file = new File("C:\\Users\\12818\\workspace\\java\\kingdomino\\kingdomino.mp4");
 		try {
-
-			mediaUrl = file.toURI().toURL();
-
-		} catch (MalformedURLException ex) {
-
-			System.out.println(ex);
-
-		}
-
-		JFrame mediaTest = new JFrame("Movie Player");
-
-		mediaTest.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		MediaPlayer mediaPanel = new MediaPlayer(mediaUrl);
-
-		mediaTest.add(mediaPanel);
-
-		mediaTest.setSize(800, 700); // set the size of the player
-
-		mediaTest.setLocationRelativeTo(null);
-
-		mediaTest.setVisible(true);
-
+			File file = new File("/Users/12818/workspace/java/kingdomino/kingdomino.mp4");
+			Player player = Manager.createPlayer(file.toURI().toURL());
+			player.start();
+			player.close();
+			
+			Component visual = player.getVisualComponent();
+			Component control = player.getControlPanelComponent();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 	}
 
 }

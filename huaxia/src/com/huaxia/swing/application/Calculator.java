@@ -1,4 +1,4 @@
-package com.huaxia.swing;
+package com.huaxia.swing.application;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import com.huaxia.swing.component.AbstractFrame;
 
 public class Calculator extends AbstractFrame implements ActionListener{
 	/**

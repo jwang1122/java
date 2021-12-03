@@ -20,7 +20,7 @@ public class Student {
 	private String lastName;
 	private int age;
 	private int grade;
-	private List<Book> borrowedBooks = new ArrayList<>();
+	private List<Book> borrowedBooks = new ArrayList();
 
 	public String getId() {
 		return id;

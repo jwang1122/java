@@ -8,7 +8,7 @@ import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 public class Observer1 implements Observer<String> {
-	List<String> list = new ArrayList<>();
+	List<String> list = new ArrayList();
 	
 	@Override
 	public void onComplete() {
