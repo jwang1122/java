@@ -1,4 +1,4 @@
-package com.huaxia.swing.pane;
+package com.huaxia.swing.layout;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;

@@ -83,11 +83,15 @@ Layout Manager
 * [Embedded Border Layout](../huaxia/src/com/huaxia/swing/BorderLayoutExample1.java)
 * [Grid Layout](../huaxia/src/com/huaxia/swing/GridLayoutExample.java)
 * [Grid Bag Layout](../huaxia/src/com/huaxia/swing/GridBagLayoutExample.java)
-* [Box Layout]
+* [Box Layout](../huaxia/src/com/huaxia/swing/layout/BoxLayoutExample.java)
 ![](images/BoxLayout-1.gif)
-* [Group Layout]
-* [Card Layout]
-* [Spring Layout]
+* [Box Vertical](../huaxia/src/com/huaxia/swing/layout/BoxVertical.java)
+* [Box Horizontal](../huaxia/src/com/huaxia/swing/layout/BoxHorizontal.java)
+* [Box Glue](../huaxia/src/com/huaxia/swing/layout/BoxLayoutVerticalGlueTest.java)
+* [Group Layout](../huaxia/src/com/huaxia/swing/layout/GroupLayoutExample.java)
+* [Group Layout 2](../huaxia/src/com/huaxia/swing/layout/GroupLayoutExample2.java)
+* [Card Layout](../huaxia/src/com/huaxia/swing/layout/CardLayoutExample.java)
+* [Spring Layout](../huaxia/src/com/huaxia/swing/layout/SpringLayoutExample.java)
 * 
 ## Pane
 1. ScrolledPaneExample.java; add JScrollPane around the TextArea
@@ -134,3 +138,5 @@ public void setVisible(boolean b)	|sets the visibility of the component. It is b
 * AddTextField.java
 * AddLabel.java
 
+## References
+[Java tutorial](http://www.java2s.com/Tutorial/Java/0240__Swing/BoxcreateVerticalGlue.htm)
