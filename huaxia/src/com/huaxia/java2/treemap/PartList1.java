@@ -14,6 +14,12 @@ import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+/**
+ * Better way to load data from auto parts data file. (Functional programing)
+ * 
+ * @author John
+ *
+ */
 public class PartList1 {
 	public static final String filename = "/Users/12818/workspace/java/huaxia/docs/autoparts.dat";
 	private HashMap<String, Part> map = new HashMap<>();

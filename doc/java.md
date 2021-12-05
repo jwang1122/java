@@ -1614,14 +1614,61 @@ FROM project JOIN task on project.id=task.project_id
 ## Data Structure
 * Stack (FILO)
 * Queue (FIFO)
-* [Linked List](../huaxia/linkedList)
-* Doubly linked list
+* [Linked List](../huaxia/src/com/huaxia/datastructure/LinkedList.java)
+* [Doubly linked list](../huaxia/src/com/huaxia/datastructure/DoublyLinkedList.java)
 * Tree
 ❓ What is tree structure
 ✔️Trees are a collection of nodes (vertices), and they are linked with edges (pointers), representing the hierarchical connections between the nodes. A node contains data of any type, but all the nodes must be of the same data type. 
 ![tree](images/tree.png)
 [](https://www.educative.io/blog/data-structures-trees-java)
 
+![](images/tree-1.webp)
+```mermaid
+classDiagram
+
+class BinaryNode{
+  value:int
+  left:BinaryNode
+  rght:BinaryNode
+}
+
+class BinaryTree{
+  root:BinaryNode
+  addRecursive(BinaryNode, value)
+  traverseInOrder(BinaryNode)
+  traversePreOrder(BinaryNode)
+}
+```
+* [BinaryNode](../huaxia/src/com/huaxia/datastructure/BinaryNode.java)
+* [BinaryTree](../huaxia/src/com/huaxia/datastructure/BinaryTree.java)
+* [PartList Homework](../huaxia/docs/PartList.pdf)
+* ![PartList Design](../huaxia/docs/autopartDesign.jpg)
+
+* [BinaryTree.insert() test](../huaxia/src/com/huaxia/danceticket/Test.java)
+* [BinaryTree](../huaxia/src/com/huaxia/danceticket/BinaryTree.java)
+```mermaid
+graph TB
+A((6))
+B((4))
+C((8))
+D((3))
+E((5))
+F((7))
+G((9))
+H((2))
+A --> B & C
+B --> D & E
+C --> F & G
+D --> H
+```
+* [TreeMap sort by AutoComparator](../huaxia/src/com/huaxia/java2/treemap/PartList.java)
+* [Functional programing Better way to load part data](../huaxia/src/com/huaxia/java2/treemap/PartList1.java)
+* []()
+* [Order Part by make and year](../huaxia/src/com/huaxia/java2/treemap/TreeMapDemo1.java)
+* [Sorted by make, mode, and year](../huaxia/src/com/huaxia/java2/treemap/TreeMapDemo2.java)
+* [TreeMap Generics sorted by value](../huaxia/src/com/huaxia/java2/treemap/TreeMapDemo.java)
+* [TreeSet ](../huaxia/src/com/huaxia/java2/treemap/TreeSetExample.java)
+* [TreeSetDemo](../huaxia/src/com/huaxia/java2/treemap/TreeSetDemo.java)
 
 ## References
 * [👍 All excercises](https://www.w3resource.com/java-exercises/index.php)

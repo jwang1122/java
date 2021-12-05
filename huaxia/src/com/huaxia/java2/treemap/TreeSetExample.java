@@ -4,7 +4,7 @@ import java.util.TreeSet;
 
 public class TreeSetExample {
 	public static void main(String[] args) {
-//creating a TreeSet   
+//creating a TreeSet, notice the String is comparable   
 		TreeSet<String> ts = new TreeSet<String>();
 //adding elements to TreeSet  
 		ts.add("Dell");

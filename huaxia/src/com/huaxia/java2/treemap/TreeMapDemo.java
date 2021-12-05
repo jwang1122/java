@@ -28,6 +28,7 @@ class TreeMapDemo {
 		treemap.put("Key4", "Tom");
 		treemap.put("Key5", "Steve");
 
+		System.out.println(treemap);
 		// Calling the method sortByvalues
 		Map<String, String> sortedMap = sortByValues(treemap);
 		for (String key : sortedMap.keySet()) {

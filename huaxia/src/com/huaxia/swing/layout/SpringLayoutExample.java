@@ -24,8 +24,8 @@ public class SpringLayoutExample {
         panel.add(text);
  
         // Put constraint on components
-        layout.putConstraint(SpringLayout.WEST, label, 5, SpringLayout.BASELINE, panel);
-        layout.putConstraint(SpringLayout.NORTH, label, 10, SpringLayout.BASELINE, panel);
+        layout.putConstraint(SpringLayout.WEST, label, 5, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, label, 10, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, text, 5, SpringLayout.EAST, label);
         layout.putConstraint(SpringLayout.NORTH, text, 5, SpringLayout.NORTH, panel);
 

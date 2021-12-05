@@ -27,6 +27,7 @@ public class PartList2 {
 			e.printStackTrace();
 		}
 
+		// add count to same part
 		for (Part part : autoPartList) {
 			UUID uuid = UUID.randomUUID();
 			String id = uuid.toString();
@@ -40,12 +41,13 @@ public class PartList2 {
 				}
 			}else {
 				part.addCount();
-				randomPartMap.put(part.getUuid(), part);
+				randomPartMap.put(part.getUuid(), part); // use generic UUID as key
 			}
 		}
 		return randomPartMap;
 	}
 
+	// functional programing provide this function for map
 	private Function<String, Part> mapToItem = (line) -> {
 		String[] parts = line.split(",");
 		int year = Integer.parseInt(parts[2].trim());
@@ -57,6 +59,7 @@ public class PartList2 {
 		return randomPartMap;
 	}
 
+	// generic comparator that compare autoparts by value
 	public static <K, V extends Comparable<V>> Map<K, V> sortByValues(final Map<K, V> map) {
 		Comparator<K> valueComparator = new Comparator<K>() {
 			public int compare(K k1, K k2) {

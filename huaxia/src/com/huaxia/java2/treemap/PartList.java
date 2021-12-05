@@ -10,6 +10,12 @@ import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.UUID;
 
+/**
+ * load autoparts from file, sort parts by make and year through AutoPartComparator.
+ * 
+ * @author John
+ *
+ */
 public class PartList {
 	public static final String filename = "/Users/12818/workspace/java/huaxia/docs/autoparts.dat";
 	private HashMap<String, Part> randomPartMap = new HashMap<>();

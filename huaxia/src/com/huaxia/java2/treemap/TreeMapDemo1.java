@@ -30,6 +30,9 @@ class TreeMapDemo1 {
 			System.out.printf("%s: %s\n",key, key.getUuid());
 		}
 	}
+	
+	
+	// ordered by make and year
 	class MyComparator implements Comparator<Part>{
 
 		@Override
