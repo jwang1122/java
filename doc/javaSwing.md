@@ -78,11 +78,11 @@ Layout Manager
 42. ComboBoxExample1.java; ActionListener, ItemListener; ask student add clear button to clear label message.
 
 ## Layout
-* [Flow Layout](../huaxia/src/com/huaxia/swing/FlowLayoutExample.java)
-* [Border Layout](../huaxia/src/com/huaxia/swing/BorderLayoutExample.java)
-* [Embedded Border Layout](../huaxia/src/com/huaxia/swing/BorderLayoutExample1.java)
-* [Grid Layout](../huaxia/src/com/huaxia/swing/GridLayoutExample.java)
-* [Grid Bag Layout](../huaxia/src/com/huaxia/swing/GridBagLayoutExample.java)
+* [Flow Layout](../huaxia/src/com/huaxia/swing/layout/FlowLayoutExample.java)
+* [Border Layout](../huaxia/src/com/huaxia/swing/layout/BorderLayoutExample.java)
+* [Embedded Border Layout](../huaxia/src/com/huaxia/swing/layout/BorderLayoutExample1.java)
+* [Grid Layout](../huaxia/src/com/huaxia/swing/layout/GridLayoutExample.java)
+* [Grid Bag Layout](../huaxia/src/com/huaxia/swing/layout/GridBagLayoutExample.java)
 * [Box Layout](../huaxia/src/com/huaxia/swing/layout/BoxLayoutExample.java)
 ![](images/BoxLayout-1.gif)
 * [Box Vertical](../huaxia/src/com/huaxia/swing/layout/BoxVertical.java)

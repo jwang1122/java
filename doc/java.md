@@ -1645,6 +1645,7 @@ class BinaryTree{
 * ![PartList Design](../huaxia/docs/autopartDesign.jpg)
 
 * [BinaryTree.insert() test](../huaxia/src/com/huaxia/danceticket/Test.java)
+* [BinaryTree.remove() test](../huaxia/src/com/huaxia/danceticket/Test.java)
 * [BinaryTree](../huaxia/src/com/huaxia/danceticket/BinaryTree.java)
 ```mermaid
 graph TB

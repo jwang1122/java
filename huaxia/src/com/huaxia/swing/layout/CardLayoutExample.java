@@ -22,7 +22,8 @@ public class CardLayoutExample extends JFrame implements ActionListener {
         // Define new buttons
         jb1 = new JButton("Button 1");      
         jb2 = new JButton("Button 2");
-        jb3 = new JButton("Button 3");      
+        jb3 = new JButton("Button 3"); 
+        JPanel pnl = new J     
          
         jb1.addActionListener(this);
         jb2.addActionListener(this);
