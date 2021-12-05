@@ -1,6 +1,8 @@
 package com.huaxia.danceticket;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
@@ -36,10 +38,13 @@ public class MainPanel extends JPanel {
 			int width = img.getWidth(this);
 			int height = img.getHeight(this);
 			g.drawImage(img, x, y, width, height, this);
-			g.drawRoundRect(300, 10, 160, 70, 5, 5);
-			g.drawString("Time: 7:30PM, 1/1/2022", 310, 35);
-			g.drawString("Location: University Center", 310, 65);
-			g.drawString("Sponsored by: Chinese Student Association.", 220, 430);
+			g.drawRoundRect(250, 10, 220, 70, 5, 5);
+			g.setFont(new Font("Arial", Font.BOLD, 15));
+			g.setColor(Color.RED);
+			g.drawString("Time: 7:30PM, 1/1/2022", 260, 35);
+			g.drawString("Location: University Center", 260, 65);
+			g.setColor(Color.BLACK);
+			g.drawString("Sponsored by: Chinese Student Association.", 160, 430);
 		}
 	}
 

@@ -126,7 +126,8 @@ public class MainFrame extends AbstractFrame implements ActionListener {
 			dialog.setVisible(true);
 			break;
 		case "Refund":
-			System.out.println("Refund is selected...");
+			dialog = new RefundDialog(this);
+			dialog.setVisible(true);
 			break;
 		case "One":
 			dialog = new DetailDialog(this);
@@ -185,7 +186,7 @@ public class MainFrame extends AbstractFrame implements ActionListener {
 		return data;
 	}
 
-	public void traverseInOrder(Node current, List<Student> list) {
+	private void traverseInOrder(Node<Student> current, List<Student> list) {
 		if (current != null) {
 			traverseInOrder(current.left, list);
 			list.add(current.student);

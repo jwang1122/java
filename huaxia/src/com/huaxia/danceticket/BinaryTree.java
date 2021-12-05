@@ -3,11 +3,11 @@ package com.huaxia.danceticket;
 import java.util.Queue;
 
 public class BinaryTree {
-	Node root;
+	Node<Student> root;
 
-	private Node addRecursive(Node current, Student s) {
+	private Node<Student> addRecursive(Node<Student> current, Student s) {
 		if (current == null) { // first time add root, or null node
-			return new Node(s); // terminate recursive call
+			return new Node<Student>(s); // terminate recursive call
 		}
 
 		if (s.compareTo(current.student) < 0) {
@@ -26,26 +26,26 @@ public class BinaryTree {
 		root = addRecursive(root, student);
 	}
 
-	public void insert(Node current, Student student) {
+	public void insert(Node<Student> current, Student student) {
 		if (current == null) {
-			root = new Node(student);
+			root = new Node<Student>(student);
 			return;
 		}
-		Queue<Node> queue = new java.util.LinkedList<Node>();
+		Queue<Node<Student>> queue = new java.util.LinkedList<Node<Student>>();
 		queue.add(current);
 		int id = student.getId();
 		while (!queue.isEmpty()) {
 			current = queue.poll();
 			if (id < current.student.getId()) {
 				if (current.left == null) {
-					current.left = new Node(student);
+					current.left = new Node<Student>(student);
 					break;
 				} else {
 					queue.add(current.left);
 				}
 			}else{
 				if (current.right == null) {
-					current.right = new Node(student);
+					current.right = new Node<Student>(student);
 					break;
 				} else {
 					queue.add(current.right);
@@ -54,12 +54,12 @@ public class BinaryTree {
 		}
 	}
 
-	private Node deleteRecursive(Node current, Student value) {
+	private Node<Student> deleteRecursive(Node<Student> current, Student value) {
 		if (current == null) {
 			return null;
 		}
 
-		if (value == current.student) {
+		if (value.equals(current.student)) {
 			// no children
 			if (current.left == null && current.right == null) {
 				return null;
@@ -85,15 +85,15 @@ public class BinaryTree {
 		return current;
 	}
 
-	public void delete(Student value) {
+	public void remove(Student value) {
 		root = deleteRecursive(root, value);
 	}
 
-	private Student findSmallestValue(Node current) {
+	private Student findSmallestValue(Node<Student> current) {
 		return current.left == null ? current.student : findSmallestValue(current.left);
 	}
 
-	private boolean containsNodeRecursive(Node current, Student value) {
+	private boolean containsNodeRecursive(Node<Student> current, Student value) {
 		if (current == null) {
 			return false;
 		}
@@ -104,11 +104,11 @@ public class BinaryTree {
 				: containsNodeRecursive(current.right, value);
 	}
 
-	public boolean containsNode(Student value) {
+	public boolean contains(Student value) {
 		return containsNodeRecursive(root, value);
 	}
 
-	public void traverseInOrder(Node node) {
+	public void traverseInOrder(Node<Student> node) {
 		if (node != null) {
 			traverseInOrder(node.left);
 			System.out.print(" " + node.student);
@@ -116,7 +116,7 @@ public class BinaryTree {
 		}
 	}
 
-	public void traversePreOrder(Node node) {
+	public void traversePreOrder(Node<Student> node) {
 		if (node != null) {
 			System.out.print(" " + node.student);
 			traversePreOrder(node.left);
@@ -124,7 +124,7 @@ public class BinaryTree {
 		}
 	}
 
-	public void traversePostOrder(Node node) {
+	public void traversePostOrder(Node<Student> node) {
 		if (node != null) {
 			traversePostOrder(node.left);
 			traversePostOrder(node.right);
@@ -136,11 +136,11 @@ public class BinaryTree {
 		if (root == null) {
 			return;
 		}
-		Queue<Node> nodes = new java.util.LinkedList<Node>();
+		Queue<Node<Student>> nodes = new java.util.LinkedList<Node<Student>>();
 		nodes.add(root);
 
 		while (!nodes.isEmpty()) {
-			Node node = nodes.remove();
+			Node<Student> node = nodes.remove();
 			System.out.print(" " + node.student);
 			if (node.left != null) {
 				nodes.add(node.left);
@@ -163,7 +163,7 @@ public class BinaryTree {
 	 * 
 	 * @param node The branch to count from.
 	 */
-	private int size(Node node) {
+	private int size(Node<Student> node) {
 		if (node == null)
 			return (0);
 		else {
@@ -175,7 +175,7 @@ public class BinaryTree {
 		return findNodeRecursive(Student.students.root, id);
 	}
 
-	public Student findNodeRecursive(Node current, int id) {
+	public Student findNodeRecursive(Node<Student> current, int id) {
 		if (current == null) {
 			return null;
 		}

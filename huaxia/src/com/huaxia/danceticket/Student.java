@@ -48,6 +48,20 @@ public class Student implements Comparable<Student>{
 	}
 
 	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Student) {
+			Student other = (Student)obj;
+			return id==other.getId();
+		}else
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return Integer.valueOf(id).hashCode();
+	}
+
+	@Override
 	public String toString() {
 		return "Student [id=" + id + "]";
 	}
@@ -74,7 +88,7 @@ public class Student implements Comparable<Student>{
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
 			bw.write("id,name,early bird,door price\n");
-			outputInOrder(students.root, bw);
+			saveAll(students.root, bw);
 			bw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -87,16 +101,16 @@ public class Student implements Comparable<Student>{
 	 * @param current is current node
 	 * @param bw is output file BufferedWriter.
 	 */
-	private static void outputInOrder(Node current, BufferedWriter bw) {
+	private static void saveAll(Node<Student> current, BufferedWriter bw) {
 		if (current != null) {
-			outputInOrder(current.left, bw);
+			saveAll(current.left, bw);
 			Student s = current.student;
 			try {
 				bw.write(s.getId() + "," + s.getName() + "," + s.getEarlyBirdTickets() + "," + s.getDoorTickets()+"\n");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			outputInOrder(current.right, bw);
+			saveAll(current.right, bw);
 		}		
 	}
 	

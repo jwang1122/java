@@ -44,11 +44,41 @@ public class Test {
 		students.traverseLevelOrder();
 		
 	}
+	
+	static void testRemove() {
+		// remove 4 which has both left and right branches.
+		BinaryTree students = testBinaryTreeAdd();
+		students.traverseLevelOrder();
+		System.out.println();
+		Student s = new Student(4, "Rodney");
+		students.remove(s);
+		students.traverseLevelOrder();		
+		System.out.println();
+		
+		// remove 5 which is a leaf
+		students = testBinaryTreeAdd();
+		students.traverseLevelOrder();
+		System.out.println();
+		s = new Student(5, "Bob");
+		students.remove(s);
+		students.traverseLevelOrder();	
+		System.out.println();
+
+		// remove 6 which is root
+		students = testBinaryTreeAdd();
+		students.traverseLevelOrder();
+		System.out.println();
+		s = new Student(6, "John");
+		students.remove(s);
+		students.traverseLevelOrder();		
+	}
+	
 	public static void main(String[] args) {
 //		testBinaryTreeAdd();
 //		testLoadAndSave();
 //		testFind();
-		testInsert();
+//		testInsert();
+		testRemove();
 	}
 
 }
