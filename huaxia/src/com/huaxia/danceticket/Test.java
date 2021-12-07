@@ -1,5 +1,16 @@
 package com.huaxia.danceticket;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Properties;
+
+/**
+ * Test program to test add, contains, size, save, load, remove functions for BinaryTree.
+ * 
+ * @author John
+ *
+ */
 public class Test {
 
 	static BinaryTree testBinaryTreeAdd() {
@@ -73,12 +84,36 @@ public class Test {
 		students.traverseLevelOrder();		
 	}
 	
+	static Properties testLoadProperties() {
+		MainFrame frame = new MainFrame();
+		Properties prop = frame.getProp();
+		System.out.println(prop.get("early.bird.price"));		
+		System.out.println(prop.get("party.start.time"));		
+		return prop;
+	}
+	
+	static void testDateFormat() {
+		try {
+			Properties prop = testLoadProperties();
+			String startTime = prop.getProperty("party.start.time");
+			SimpleDateFormat sdfInput = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			Date date = sdfInput.parse(startTime);
+			System.out.println(date);
+			SimpleDateFormat sdfOutput = new SimpleDateFormat("h:mm a MM/dd/yyyy");
+			System.out.println(sdfOutput.format(date));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}		
+	}
+	
 	public static void main(String[] args) {
 //		testBinaryTreeAdd();
 //		testLoadAndSave();
 //		testFind();
 //		testInsert();
-		testRemove();
+//		testRemove();
+//		testLoadProperties();
+		testDateFormat();
 	}
 
 }

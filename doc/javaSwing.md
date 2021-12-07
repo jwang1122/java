@@ -5,9 +5,10 @@
 [Java API](https://docs.oracle.com/javase/8/docs/api/)
 [Image download website](http://www.pngmart.com/image/)
 [Official Java Tutorial](https://docs.oracle.com/javase/tutorial/tutorialLearningPaths.html)
+
 ## Applications & build.xml
-* √ Calculator.java; add BorderLayout and GridLayout
-* √ Snake-Game; Ant build.xml
+* [Calculator.java](../huaxia/src/com/huaxia/calculator/Calculator.java); add BorderLayout and GridLayout
+* [Snake-Game](../Snake-Game/build.xml)
 * √ Tic Tac Toe, TT1.java; build jar; load image by using classpath
 
 ## Swing Layout

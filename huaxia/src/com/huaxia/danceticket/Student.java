@@ -10,14 +10,14 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class Student implements Comparable<Student>{
+public class Student implements Comparable<Student> {
 	public static final String filename = "tickets.csv";
 	private int id;
 	private String name;
 	private int earlyBirdTickets;
 	private int doorTickets;
 	static BinaryTree students = new BinaryTree();
-	
+
 	public Student(int id, String name) {
 		this.id = id;
 		this.name = name;
@@ -26,7 +26,7 @@ public class Student implements Comparable<Student>{
 	public void addStudent(Student s) {
 		students.add(s);
 	}
-	
+
 	public int getEarlyBirdTickets() {
 		return earlyBirdTickets;
 	}
@@ -49,11 +49,11 @@ public class Student implements Comparable<Student>{
 
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Student) {
-			Student other = (Student)obj;
-			return id==other.getId();
-		}else
-		return false;
+		if (obj instanceof Student) {
+			Student other = (Student) obj;
+			return id == other.getId();
+		} else
+			return false;
 	}
 
 	@Override
@@ -74,16 +74,16 @@ public class Student implements Comparable<Student>{
 
 	public void save() {
 		try {
-			String output = id+","+name+","+earlyBirdTickets+","+this.doorTickets+"\n";
+			String output = id + "," + name + "," + earlyBirdTickets + "," + this.doorTickets + "\n";
 			FileWriter writer = new FileWriter(filename, true);
 			writer.write(output);
 			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	public static void saveAll() {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
@@ -94,7 +94,7 @@ public class Student implements Comparable<Student>{
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Recursive function output students in the order of student id.
 	 * 
@@ -106,14 +106,15 @@ public class Student implements Comparable<Student>{
 			saveAll(current.left, bw);
 			Student s = current.student;
 			try {
-				bw.write(s.getId() + "," + s.getName() + "," + s.getEarlyBirdTickets() + "," + s.getDoorTickets()+"\n");
+				bw.write(s.getId() + "," + s.getName() + "," + s.getEarlyBirdTickets() + "," + s.getDoorTickets()
+						+ "\n");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			saveAll(current.right, bw);
-		}		
+		}
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
@@ -125,16 +126,16 @@ public class Student implements Comparable<Student>{
 			List<Student> studentList = br.lines().skip(1).map(mapToItem).collect(Collectors.toList());
 			br.close();
 			Collections.sort(studentList);
-			Student student = studentList.get(studentList.size()/2);
+			Student student = studentList.get(studentList.size() / 2);
 			students.add(student);
-			for(Student s : studentList) {
+			for (Student s : studentList) {
 				students.add(s);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static Function<String, Student> mapToItem = (line) -> {
 		String[] items = line.split(",");
 		int id = Integer.parseInt(items[0].trim());
@@ -146,6 +147,5 @@ public class Student implements Comparable<Student>{
 		student.setEarlyBirdTickets(earlyBird);
 		return student;
 	};
-	
-	
+
 }

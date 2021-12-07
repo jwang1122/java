@@ -14,20 +14,24 @@ import javax.swing.JTextField;
 
 import com.huaxia.danceticket.MainFrame.TicketType;
 
-public class TicketDialog extends JDialog implements ActionListener{
+public class TicketDialog extends JDialog implements ActionListener {
 	private static final long serialVersionUID = 1L;
+	private static final String EARLY_BIRD_PRICE = "early.bird.price";
+	private static final String DOOR_PRICE = "door.price";
 	private JTextField idTxt, nameTxt;
 	private JSpinner quantitySpi;
 	private TicketType type;
-	
-	public TicketDialog(TicketType type, JFrame parent) {
+
+	public TicketDialog(TicketType type, MainFrame parent) {
 		this.type = type;
 		setSize(300, 150);
 		setResizable(false);
 		this.setLocationRelativeTo(parent);
-		String title = "Early Bird Tickets $5 each";
+		String earlyBirdPrice = parent.getProp().getProperty(EARLY_BIRD_PRICE);
+		String doorPrice = parent.getProp().getProperty(DOOR_PRICE);
+		String title = "Early Bird Tickets $" + earlyBirdPrice + " each";
 		if (type == TicketType.DOOR) {
-			title = "Door Price Tickets $8 each";
+			title = "Door Price Tickets $" + doorPrice + " each";
 		}
 		setTitle(title);
 		setLayout(new GridBagLayout());
@@ -72,18 +76,18 @@ public class TicketDialog extends JDialog implements ActionListener{
 		gbc.gridx = 1;
 		add(closeBtn, gbc);
 	}
-	
+
 	private void buyTickets() {
 		String id = idTxt.getText();
 		String name = nameTxt.getText();
-		int quantity = (int)quantitySpi.getValue();
-		if(id!=null && id.length()>0) {
+		int quantity = (int) quantitySpi.getValue();
+		if (id != null && id.length() > 0) {
 			int studentId = Integer.parseInt(id);
 			Student s = new Student(studentId, name);
-			if(type==TicketType.EARLY_BIRD) {
+			if (type == TicketType.EARLY_BIRD) {
 				s.setEarlyBirdTickets(quantity);
 			}
-			if(type==TicketType.DOOR) {
+			if (type == TicketType.DOOR) {
 				s.setDoorTickets(quantity);
 			}
 			save(s);
@@ -91,19 +95,19 @@ public class TicketDialog extends JDialog implements ActionListener{
 		idTxt.setText("");
 		nameTxt.setText("");
 		quantitySpi.setValue(1);
-	}			
+	}
 
 	private void save(Student student) {
 		student.save();
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
-		switch(cmd) {
+		switch (cmd) {
 		case "Close":
 			this.dispose();
 		}
-		
+
 	}
 }

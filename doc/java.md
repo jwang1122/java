@@ -1,5 +1,8 @@
 <h1> 休斯顿华夏中文学校-Java Class Notes</h1>
 
+[Java 8 API Document](https://docs.oracle.com/javase/8/docs/api/)
+[Java 16 API Document](https://docs.oracle.com/en/java/javase/16/docs/api/index.html)
+
 [](myIcons.md)
 [编程入门该学哪门语言?](https://www.youtube.com/watch?v=6B9Olpve4n0)
 酒店注册
@@ -161,7 +164,7 @@ Organize Class Notes File Structure
 3. Create class: Hello.java
 for any class name by convention, use Upercase for first letter
 ```
-* [My First Java Program](../src/com/huaxia/john/Hello.java)
+* [My First Java Program](../huaxia/src/com/huaxia/java1/Hello.java)
     - System.out.println()
     - // single line comment
     - every Java statement line ends with ;
@@ -199,7 +202,7 @@ for any class name by convention, use Upercase for first letter
 [Keyboard definition](keyboard.md) 
 
 ### Print
-* [Print.java](../src/Print.java)
+* [Print.java](../huaxia/src/com/huaxia/java1/Print.java)
 1. System.out.printf(), is a formatted print out.
 2. %d placeholder for integer
 3. \n new line character
@@ -227,7 +230,7 @@ for any class name by convention, use Upercase for first letter
    
 ![](images/javaKeywords.png)
 
-[define variable, assign value](../src/com/huaxia/javaclass/Variable.java)
+[define variable, assign value](../huaxia/src/com/huaxia/java1/Variable.java)
 
 >**the naming rules above is also apply for class name, method name.**
 
@@ -240,7 +243,7 @@ for any class name by convention, use Upercase for first letter
 ### Scanner
 ❓ What is Scanner?
 ✔️ is Java built-in class which allow program to get user input from console.
-[Scanner](../src/MyScanner.java)
+[Scanner](../huaxia/src/com/huaxia/java1/ScannerTest.java)
 1. System.in is the console
 2. **new** is a Java keyword used to create instance of a class.
 3. nextLine(), nextInt(), ..., find all other functions from Java API document👇 below.
@@ -268,7 +271,7 @@ class B,C,D,E html
 ![](images/LanguageBasics.svg)
 
 ## Data Type
-* [DataType.java](../src/DataType.java)
+* [DataType.java](../huaxia/src/com/huaxia/java1/DataType.java)
   - primitive data type (boolean, byte, char, short, int, long, float, double)
 >cast: small value can assign to large container; must cast large value before assign to small container.
 
@@ -278,13 +281,13 @@ class B,C,D,E html
 ![](images/A65-ASCII.png)
 
 ## Array
-* [Array.java](../src/Array.java)
-  - int[]
-  - String[]
-  - Hello[]
+* [ArrayTester.java](../huaxia/src/com/huaxia/java1/ArrayTester.java)
+  - int[] primitive array
+  - String[] Java defined array
+  - Cup[] Developer defined array
 
 ## Operator
-* [Operator.java](../src/Operator.java)
+* [Operators.java](../huaxia/src/com/huaxia/java1/Operators.java)
   - Arithmatic operator: +,-,*,/,%
   - compound assignment operator: +=, -=, *=, /=, %= 
   - binary operator: ++, --,
@@ -343,7 +346,7 @@ class A,A1 start
 class B,B1,B2 html
 class E,E1 end1
 ```
-* [if-else syntax](../src/IfElse.java)
+* [if-else syntax](../huaxia/src/com/huaxia/java1/ExecutionControl.java)
   
 ### switch
 [switch]
@@ -352,7 +355,7 @@ class E,E1 end1
 ## Loop
 * For loop
   ![](images/Loop.svg)
-* [for/while loop/do-while](../src/Loop.java)
+* [for/while loop/do-while](../huaxia/src/com/huaxia/java1/Loop.java)
 * While loop
     ![](images/while.svg)
 * do-while loop
@@ -464,7 +467,7 @@ class B,C,D,E html
 >✔️private modifier make variable or method in the class can only be used within the class, which makes encapsulation possible.
 2. Abstraction: abstract object in the real world to write a class.
   ![](images/ClassAbstraction.png)
-[First class](../src/com/huaxia/java1/Air.java)
+[First class](../huaxia/src/com/huaxia/java1/Cup.java)
 ```mermaid
 classDiagram
 class Air{
@@ -513,16 +516,16 @@ Person <|-- Teacher:teacher is person
 Student is a Person, the relationship between Student and Person is **is relation**.
 where the Student class is subclass of Person class, we call the Person as Superclass of Student class.
 
-* [Person, Superclass](../src/com/huaxia/java1/Person.java)
-* [Student, Subclass of Person](../src/com/huaxia/java1/Student.java)
-* [Teacher, Subclass of Person](../src/com/huaxia/java1/Teacher.java)
+* [Person, Superclass](../huaxia/src/com/huaxia/java1/Person.java)
+* [Student, Subclass of Person](../huaxia/src/com/huaxia/java1/Student.java)
+* [Teacher, Subclass of Person](../huaxia/src/com/huaxia/java1/Teacher.java)
 
 4. Polymorphism: 
 > allows a single task to be performed in different ways.
 > Polymorphism in Java is the ability of an object to take many forms, it allows us to perform the same action in many different ways. (method Overriding, Overloading, runtime polymorphism)
 > give different answer for the same question from different classes which inherit from same superclas or interface. (异类同功)
    
-[Test Polymorphism](../src/com/huaxia/test/TestMethod.java)
+[Test Polymorphism](../huaxia/test/com/huaxia/java1/Test.java)
 
 ## class
 ❓What functions defined in Object class which are useful for us?
@@ -547,7 +550,7 @@ where the Student class is subclass of Person class, we call the Person as Super
 ❓What is protected modifier?
 ✔️protected modifier allow subclass to access the superclass attributes or methods. protect from using by other classes.
 
-[getter, setter, toString, default constructor](../src/com/huaxia/java1/Superclass1.java)
+[getter, setter, toString, default constructor](../huaxia/src/com/huaxia/java1/Superclass1.java)
 
 ❓How do I create getter/setter?
 ✔️
@@ -558,16 +561,16 @@ where the Student class is subclass of Person class, we call the Person as Super
 
 ### Inhritance
 * Inherit from class
-  [Super class: Person](Person.java)
-  [Subclass Student](Student.java)
-  [Subclass Teacher](Teacher.java)
+  [Super class: Person](../huaxia/src/com/huaxia/java1/Person.java)
+  [Subclass Student](../huaxia/src/com/huaxia/java1/Student.java)
+  [Subclass Teacher](../huaxia/src/com/huaxia/java1/Teacher.java)
   - class can only inherit from one class, Java does NOT allow multiple inheritance
 
 * Implements from Interface
-  [](Occupation.java)
-  [](Teacher.java)
-  [](Engineer.java)
-  [](TestOccupation.java)
+  [](../huaxia/src/com/huaxia/java1/Occupation.java)
+  [](../huaxia/src/com/huaxia/java1/Teacher.java)
+  [](../huaxia/src/com/huaxia/java1/Engineer.java)
+  [](../huaxia/src/com/huaxia/java1/TestOccupation.java)
   
 ❓What is interface?
 
@@ -689,9 +692,9 @@ Abstract method: can only be used in an abstract class, and it does not have a b
 
 (🔥polymorphism) 👇see sample code below👇.
 
-[Person.java](../src/com/huaxia/java1/Person.java)
+[Person.java](../huaxia/src/com/huaxia/java1/Person.java)
 
-[TestMethod.java](../src/com/huaxia/java1/TestMethod.java)  
+[Test.java](../huaxia/test/com/huaxia/java1/Test.java)  
 
 ### Method Overloading vs. Overriding
 * Overloading:
@@ -797,7 +800,7 @@ class B,C html
 
 In order to make the project or application work well, we need make sure each small unit works correctly.
 
-[](SimpleMathTest.java)
+[Simple math Unittest](../huaxia/test/com/huaxia/java2/SimpleMathTest.java)
 
 ## Logging
 
@@ -808,8 +811,10 @@ In order to make the project or application work well, we need make sure each sm
 1. Recording unusual circumstances or errors that may be happening in the program
 2. Getting the info about whats going in the application
 
-[console log message](loggerExample1.java)
-[log to File](loggerExample2.java)
+[console log message](../huaxia/src/com/huaxia/java1/LoggingTest.java)
+[log to File](../huaxia/src/com/huaxia/java1/loggerExample2.java)
+[console log message](../huaxia/src/com/huaxia/java1/loggerExample1.java)
+[log to File](../huaxia/src/com/huaxia/java1/loggerExample3.java)
 
 ## Blackjack Card Game
 * [Black Jack Rules](https://bicyclecards.com/how-to-play/blackjack/)
@@ -1045,8 +1050,10 @@ private static Logger logger;
 ```
 
 ### load logging.properties from InputSream
-👌ok way to do logging configuration, but the code looks little complicated, ❓why choose it?
+👌ok way to do logging configuration, but the code looks little complicated, 
+❓why choose it?
 
+[LoggerExample4.java](../huaxia/src/com/huaxia/java2/LoggerExample4.java)
 ```java
   static {
     InputStream stream = LoggerExample4.class
@@ -1060,6 +1067,7 @@ private static Logger logger;
     }
   }
 ```
+❗️⚡️ the logging.properties file is put under ./src folder, and then copied to bin folder by compiler.
 
 ### Understand log message format
 1. java.util.logging.XMLFormatter (FileHandler default)
@@ -1194,10 +1202,10 @@ class START,PROD start
 
 ```mermaid
 graph TB
-INIT(init>create build folder)
+INIT(init<br/>create build folder)
 COMP[compile<br>java to class<br>copy to build folder]
-DIST[jar all classes]
-CLEAN(delete build and dist folders)
+DIST[jar<br/>zip all classes]
+CLEAN(clean<br/>delete build and dist folders)
 
 INIT--compile depends on init-->COMP
 COMP--dist depends on compile-->DIST
@@ -1208,6 +1216,7 @@ COMP--dist depends on compile-->DIST
 cd blackjack/dist/lib
 java -jar blackjack.jar
 ```
+
 ### view jar
 Help menu ⟹ Eclipse Marketplace... ⟹ Eclipse Archive Utility 0.1.0
 
@@ -1483,11 +1492,11 @@ ticket{
 
 passenger ||--o| ticket:one-to-one
 ```
-[Passenger Database Access](../../java/sqlite/src/main/java/sqlitedb/Passenger.java)
+[Passenger Database Access](../sqlite/src/main/java/sqlitedb/Passenger.java)
 
-[Ticket Database Access](../../java/sqlite/src/main/java/sqlitedb/Ticket.java)
+[Ticket Database Access](../sqlite/src/main/java/sqlitedb/Ticket.java)
 
-[Ticket-Passenger Test](../../java/sqlite/src/main/java/sqlitedb/Test.java)
+[Ticket-Passenger Test](../sqlite/src/main/java/sqlitedb/Test.java)
 
 ```mermaid
 erDiagram

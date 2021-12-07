@@ -2,7 +2,8 @@ package com.huaxia.swing.layout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
- 
+import javax.swing.JPanel;
+
 import java.awt.CardLayout;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -23,7 +24,7 @@ public class CardLayoutExample extends JFrame implements ActionListener {
         jb1 = new JButton("Button 1");      
         jb2 = new JButton("Button 2");
         jb3 = new JButton("Button 3"); 
-        JPanel pnl = new J     
+        JPanel pnl = new JPanel();    
          
         jb1.addActionListener(this);
         jb2.addActionListener(this);
