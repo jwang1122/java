@@ -1,6 +1,12 @@
-package com.huaxia.java2;
+package com.huaxia.datastructure;
 
-class BinarySearchExample1 {
+/**
+ * recursive function call for binary search
+ * 
+ * @author John
+ *
+ */
+class BinarySearchRecursive {
 	public static int binarySearch(int arr[], int first, int last, int key) {
 		if (last >= first) {
 			int mid = first + (last - first) / 2;

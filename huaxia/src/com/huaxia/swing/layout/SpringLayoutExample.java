@@ -12,7 +12,7 @@ public class SpringLayoutExample {
         // Create and set up a frame window
         JFrame frame = new JFrame("Spring Layout");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         
+        frame.setSize(640,480); 
         JPanel panel = new JPanel();
         SpringLayout layout = new SpringLayout();
          
@@ -31,7 +31,7 @@ public class SpringLayoutExample {
 
         // Set the window to be visible as the default to be false
         frame.add(panel);
-        frame.pack();
+//        frame.pack();
         frame.setVisible(true);     
     }
  

@@ -1,4 +1,4 @@
-package com.huaxia.java2;
+package com.huaxia.datastructure;
 
 public class LinearSearchExample {
 	public static int linearSearch(int[] arr, int key) {

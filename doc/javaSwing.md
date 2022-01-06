@@ -61,22 +61,16 @@ Layout Manager
 24. [Ball Image Panel](../huaxia/src/com/huaxia/swing/MyPanel6.java)
 25. [Simple add math](../huaxia/src/com/huaxia/swing/MyMath.java)
 26. [Check Box](../huaxia/src/com/huaxia/swing/CheckBoxExample.java)
-27. √ CheckBoxExample.java & CheckBoxExample1.java; (with icon)
-28. [Radio Button](../huaxia/src/com/huaxia/swing/RadioButtonExample.java)
-29. √ RadioButtonExample.java; 2 ways to add an ActionListener for jButton
-30. [Text Area](../huaxia/src/com/huaxia/swing/TextAreaExample.java)
-31. √ TextAreaExample.java; copy large file to see some text been hidden.
-32. [Scrolled Pane](../huaxia/src/com/huaxia/swing/ScrolledPaneExample.java)
-33. √ Pane around the TextArea
-34. [List](../huaxia/src/com/huaxia/swing/ListExample.java)
-35. [List 1](../huaxia/bin/com/huaxia/swing/ListExample1.class)
-36. [List 2](../huaxia/src/com/huaxia/swing/ListExample2.java)
-37. ListExample.java; without layout(FlowLayout), use GridLayout(), use BorderLayout() 
-38. ListExample2.java; with scroll
-39. listExample1.java; select birthday
-40. OptionPaneExample.java;
-41. ComboBoxExample.java 
-42. ComboBoxExample1.java; ActionListener, ItemListener; ask student add clear button to clear label message.
+27. [CheckBoxExample1.java](../huaxia/src/com/huaxia/swing/component/CheckBoxExample1.java); (with icon)
+28. [Radio Button](../huaxia/src/com/huaxia/swing/RadioButtonExample.java)2 ways to add an ActionListener for jButton
+29. [Text Area](../huaxia/src/com/huaxia/swing/TextAreaExample.java) copy large file to see some text been hidden.
+30. [Scrolled Pane](../huaxia/src/com/huaxia/swing/ScrolledPaneExample.java)Scrolled Pane around the TextArea
+31. [List](../huaxia/src/com/huaxia/swing/ListExample.java)
+32. [List 1](../huaxia/bin/com/huaxia/swing/ListExample1.class)
+33. [List 2](../huaxia/src/com/huaxia/swing/ListExample2.java) without layout(FlowLayout), use GridLayout(), use BorderLayout() 
+36. [OptionPane](../huaxia/src/com/huaxia/swing/pane/OptionPaneExample.java);
+37. [ComboBox](../huaxia/src/com/huaxia/swing/component/ComboBoxExample.java) 
+38. [ComboBox1](../huaxia/src/com/huaxia/swing/component/ComboBoxExample1.java); ActionListener, ItemListener; ask student add clear button to clear label message.
 
 ## Layout
 * [Flow Layout](../huaxia/src/com/huaxia/swing/layout/FlowLayoutExample.java)
@@ -95,17 +89,18 @@ Layout Manager
 * [Spring Layout](../huaxia/src/com/huaxia/swing/layout/SpringLayoutExample.java)
 * 
 ## Pane
-1. ScrolledPaneExample.java; add JScrollPane around the TextArea
-1. OptionPaneExample.java;
-1. TabbedPaneExmple.java;
-1. DesktopPaneExample.java;
-1. EditorPaneExample.java;
-1. EditorPaneExample1.java;
+* [ScrolledPane](../huaxia/src/com/huaxia/swing/pane/ScrolledPaneExample.java); add JScrollPane around the TextArea
+* [OptionPaneExample.java](../huaxia/src/com/huaxia/swing/pane/OptionPaneExample.java);
+* [TabbedPaneExmple.java](../huaxia/src/com/huaxia/swing/pane/TabbedPaneExample.java);
+* [DesktopPaneExample.java](../huaxia/src/com/huaxia/swing/pane/DesktopPaneExample.java);
+* [EditorPaneExample.java](../huaxia/src/com/huaxia/swing/pane/EditorPaneExample.java);
+* [EditorPaneExample1.java](../huaxia/src/com/huaxia/swing/pane/EditorPaneExample1.java);
 
 
 ## Applications
-1. √ Calculator.java; Default layout=FlowLayout, JFrame, JPanel, JTextField, JButton 
-1. Tic Tac Toe; com.huaxia.tictactoe; layout=null, resizable=false; getClass().getResource() refer to MyPanel.java; CheckBox, JOptionPane,
+* [Calculator.java](../huaxia/src/com/huaxia/calculator/Calculator.java); Default layout=FlowLayout, JFrame, JPanel, JTextField, JButton 
+* [Calculator1](../huaxia/src/com/huaxia/calculator/Calculator1.java)
+* [Tic Tac Toe](../huaxia/src/com/huaxia/tictactoe/TTT1.java); com.huaxia.tictactoe; layout=null, resizable=false; getClass().getResource() refer to MyPanel.java; CheckBox, JOptionPane,
 ```java
     Toolkit t = Toolkit.getDefaultToolkit();
     URL iconUrl = this.getClass().getResource("resources/tiger.jpeg");
@@ -131,11 +126,11 @@ public void setVisible(boolean b)	|sets the visibility of the component. It is b
 
 ## Create a window frame
 
-* OpenWindow.java
-* Frame2.java
+* [OpenWindow.java](../huaxia/src/com/huaxia/swing/component/OpenWindow.java)
+* [Frame2.java](../huaxia/src/com/huaxia/swing/component/Frame2.java)
 
 ## Add components to frame
-* AddButton.java
+* [AddButton.java](../huaxia/src/com/huaxia/swing/component/AddButton.java)
 * AddTextField.java
 * AddLabel.java
 

@@ -8,10 +8,10 @@
 酒店注册
 
 To-Do List
-1. java1: add more many-to-many sample
-2. python1: add sticker sample app
+1. ✔️ java1: add more many-to-many sample
+2. ✔️ python1: add sticker sample app
 3. python1: add notepad app
-4. python1: complete blackjack tkinter game
+4. ✔️python1: complete blackjack tkinter game
 5. 
 
 ## Table of Contents
@@ -36,6 +36,7 @@ To-Do List
   - [switch](#switch)
 - [Loop](#loop)
 - [Java class](#java-class)
+- [Exception](#exception)
 - [OOP](#oop)
 - [class](#class)
   - [Construtor](#construtor)
@@ -440,6 +441,28 @@ public class Example {
 }
 ```
 where x, y are the arguments.
+
+## Exception
+❓ What is Exception?
+✔️ In java, Exception is a root class for all Exceptions.
+
+```mermaid
+classDiagram
+
+class Exception
+
+class InvalidInputDataException
+
+Exception <|--InvalidInputDataException:is
+```
+* Using Exception root class in general cases
+* 
+[SimpleMath.div()](../src/com/huaxia/john/SimpleMath.java)
+
+* Create your own specific Exception
+[Create my own Exception](../src/com/huaxia/john/InvalidInputDateException.java)
+
+* try-catch block
 
 ## OOP
 ❓ What is OOP?
@@ -1673,12 +1696,38 @@ D --> H
 ```
 * [TreeMap sort by AutoComparator](../huaxia/src/com/huaxia/java2/treemap/PartList.java)
 * [Functional programing Better way to load part data](../huaxia/src/com/huaxia/java2/treemap/PartList1.java)
-* []()
+* [Insertion sort](../huaxia/src/com/huaxia/datastructure/InsertionSort.java)
+
+![](images/Selection-sort-flowchart.jpg)
+
+* [Selection Sort](../huaxia/src/com/huaxia/datastructure/SelectionSort.java)
+
+```mermaid
+graph TB
+S([Start])
+R[/Read the length<br/>of array in n<br/> and the array<br/>in arr/]
+A[set i=0]
+B{i<n-1}
+C[min_index=i]
+D[j=i+1]
+P[/print sorted array/]
+
+
+S-->R-->A-->B
+B--true-->C
+B--false-->P
+```
+![](images/insertionsort.png)
+
+* [Quick sort](../huaxia/src/com/huaxia/datastructure/QuickSort.java)
+![](images/QuickSort2.png)
+
 * [Order Part by make and year](../huaxia/src/com/huaxia/java2/treemap/TreeMapDemo1.java)
 * [Sorted by make, mode, and year](../huaxia/src/com/huaxia/java2/treemap/TreeMapDemo2.java)
 * [TreeMap Generics sorted by value](../huaxia/src/com/huaxia/java2/treemap/TreeMapDemo.java)
 * [TreeSet ](../huaxia/src/com/huaxia/java2/treemap/TreeSetExample.java)
 * [TreeSetDemo](../huaxia/src/com/huaxia/java2/treemap/TreeSetDemo.java)
+* [Video for insertion sort](images/insertionsort.mp4)
 
 ## References
 * [👍 All excercises](https://www.w3resource.com/java-exercises/index.php)

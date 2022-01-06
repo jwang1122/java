@@ -1,6 +1,12 @@
-package com.huaxia.java2;
+package com.huaxia.datastructure;
 
-class BinarySearchExample {
+/**
+ * use while loop do the binary search. 
+ * 
+ * @author John
+ *
+ */
+class BinarySearchWhile {
 	public static void binarySearch(int arr[], int first, int last, int key) {
 		int mid = (first + last) / 2;
 		while (first <= last) {

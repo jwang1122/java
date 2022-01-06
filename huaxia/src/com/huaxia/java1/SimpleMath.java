@@ -1,27 +1,39 @@
 package com.huaxia.java1;
 
 public class SimpleMath {
-	
-	public static void main(String[] args) {
-		SimpleMath test = new SimpleMath();
-		int sum = test.add(10, 34);
-		System.out.println(sum);
-
+	public static double circleArea(double radius) throws InvalidInputDateException{ // this method only depends on the argument radius
+		if(radius<0) {
+			throw new InvalidInputDateException("Radius of a circle cannot be negative.");
+		}
+		return Math.PI * Math.pow(radius, 2);
 	}
-	
-	int add(int x, int y) {
+
+	public static double add(double x, double y) {
+		return x + y;
+	}
+
+	// overloading add method above with different method signature.
+	public static int add(int x, int y) {
 		return x+y;
 	}
 
-	int sub(int x, int y) {
-		return x-y;
+	public static double sub(double x, double y) {
+		return x - y;
 	}
 
-	int mul(int x, int y) {
-		return x*y;
+	public static double mul(double x, double y) {
+		return x * y;
 	}
 
-	int div(int x, int y) {
-		return x/y;
+	public static double div(double x, double y) throws Exception{
+		if(y==0) {
+			throw new Exception("Cannot divided by 0.");
+		}
+		return x / y;
 	}
+
+	public static double abs(double x) {
+		return Math.abs(x);
+	}
+
 }

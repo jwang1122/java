@@ -1,4 +1,4 @@
-package com.john.swing;
+package com.huaxia.swing.layout;
 
 import java.awt.CardLayout;
 import java.awt.Container;
@@ -9,7 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class CardLayoutTest extends OpenFrame implements ActionListener {
+import com.huaxia.swing.component.AbstractFrame;
+
+public class CardLayoutTest extends AbstractFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private CardLayout layout;
 	private Container container;

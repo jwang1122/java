@@ -22,7 +22,7 @@ public class TicketDialog extends JDialog implements ActionListener {
 	private JSpinner quantitySpi;
 	private TicketType type;
 
-	public TicketDialog(TicketType type, MainFrame parent) {
+	public TicketDialog(TicketType type, MainFrame parent) { 
 		this.type = type;
 		setSize(300, 150);
 		setResizable(false);

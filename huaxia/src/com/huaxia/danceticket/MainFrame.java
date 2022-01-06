@@ -6,13 +6,12 @@ import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -25,9 +24,24 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+/**
+ * MainFrame include menu system and dance party information. allow user to sell
+ * tickets to student, and refund their money and more.
+ * 
+ * @author John
+ *
+ */
 public class MainFrame extends AbstractFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
-	private static final String PROP_FILE = "danceticket.properties";
+	private static final String PROP_FILE = "resources/danceticket.properties";
+	static {
+//		System.setProperty("java.util.logging.config.file", "/Users/12818/workspace/Rodney/java/john/conf/logging.properties");
+		String path = MainFrame.class.getClassLoader().getResource("logging.properties").getFile();
+		System.out.println(path);
+		System.setProperty("java.util.logging.config.file", path);		
+//		System.setProperty("java.util.logging.ConsoleHandler.level", "java.util.logging.Level.WARNING");
+	}
+	static Logger logger = Logger.getLogger("DANCE_TICKET");
 
 	public enum TicketType {
 		EARLY_BIRD, DOOR
@@ -57,10 +71,10 @@ public class MainFrame extends AbstractFrame implements ActionListener {
 
 	private void loadProperties() {
 		prop = new Properties();
-		URL propUrl = this.getClass().getResource(PROP_FILE);
-		try (InputStream input = new FileInputStream(propUrl.getFile())) {
+		InputStream in = MainFrame.class.getClassLoader().getResourceAsStream(PROP_FILE);
+		try {
 			// load a properties file
-			prop.load(input);
+			prop.load(in);
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}

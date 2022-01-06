@@ -1,4 +1,4 @@
-package com.huaxia.java2;
+package com.huaxia.datastructure;
 
 import java.util.Scanner;
 
