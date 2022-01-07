@@ -1,4 +1,4 @@
-package com.huaxia.swing.component;
+package com.huaxia.component;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;

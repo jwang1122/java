@@ -1,4 +1,4 @@
-package com.huaxia.swing.application;
+package com.huaxia.application;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

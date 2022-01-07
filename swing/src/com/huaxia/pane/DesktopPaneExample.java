@@ -1,4 +1,4 @@
-package com.huaxia.swing.pane;
+package com.huaxia.pane;
 
 import java.awt.BorderLayout;
 import java.awt.Container;

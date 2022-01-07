@@ -1,4 +1,4 @@
-package com.huaxia.swing.image;
+package com.huaxia.image;
 
 /**
 
@@ -30,7 +30,7 @@ public class MyPanel5 extends JPanel {
 	private int xPos, yPos;
 
 	public MyPanel5() throws IOException {
-		URL iconUrl = this.getClass().getResource("diamondK.gif");
+		URL iconUrl = getClass().getClassLoader().getResource("resources/diamondK.gif");
 		img = ImageIO.read(new File(iconUrl.getFile()));
 		Random rnd = new Random();
 //        do {

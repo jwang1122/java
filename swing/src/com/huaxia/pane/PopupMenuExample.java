@@ -1,4 +1,4 @@
-package com.huaxia.swing.pane;
+package com.huaxia.pane;
 
 import javax.swing.*;
 import java.awt.event.*;

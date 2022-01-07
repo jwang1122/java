@@ -1,4 +1,4 @@
-package com.huaxia.swing.pane;
+package com.huaxia.pane;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

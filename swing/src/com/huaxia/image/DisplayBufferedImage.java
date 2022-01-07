@@ -1,4 +1,4 @@
-package com.huaxia.swing.image;
+package com.huaxia.image;
 
 import java.io.IOException;
 

@@ -1,10 +1,9 @@
-package com.huaxia.swing.image;
+package com.huaxia.image;
 
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
 //import java.awt.event.ActionEvent;
 //import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -16,6 +15,8 @@ import javax.swing.JPanel;
 
 /**
  * Arrow Key moving image
+ * 
+ * @see KeyboardControl
  * 
  * @author John
  *
@@ -50,7 +51,7 @@ public class MyPanel2 extends JPanel {// implements ActionListener {
 
 	private void loadImage() {
 		Toolkit t = Toolkit.getDefaultToolkit();
-		URL iconUrl = this.getClass().getResource("resources/apple.png");
+		URL iconUrl = getClass().getClassLoader().getResource("resources/apple.png");
 		apple = t.getImage(iconUrl);
 	}
 

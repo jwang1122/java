@@ -1,4 +1,4 @@
-package com.huaxia.swing;
+package com.huaxia;
 
 public class Student implements GetInfo {
 	private String name;

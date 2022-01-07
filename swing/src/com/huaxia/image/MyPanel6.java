@@ -1,10 +1,8 @@
-package com.huaxia.swing.image;
+package com.huaxia.image;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
@@ -15,8 +13,8 @@ public class MyPanel6 extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private BufferedImage img;
-	private int DELAY = 1000 / 30; // 30 pictures per second
-	private int xDelta, yDelta;
+//	private int DELAY = 1000 / 30; // 30 pictures per second
+//	private int xDelta, yDelta;
 	private int xPos = 100, yPos = 100;
 
 	public MyPanel6() {

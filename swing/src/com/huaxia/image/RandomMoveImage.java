@@ -1,7 +1,12 @@
-package com.huaxia.swing.image;
+package com.huaxia.image;
 
 import javax.swing.JFrame;
 
+/**
+ * @see MyPanel3
+ * @author John
+ *
+ */
 public class RandomMoveImage extends JFrame{
 
 	private static final long serialVersionUID = 1L;

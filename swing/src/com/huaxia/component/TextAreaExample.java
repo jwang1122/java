@@ -1,4 +1,4 @@
-package com.huaxia.swing.component;
+package com.huaxia.component;
 
 import javax.swing.JFrame;
 import javax.swing.JTextArea;

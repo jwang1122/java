@@ -1,4 +1,4 @@
-package com.huaxia.swing.layout;
+package com.huaxia.layout;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;

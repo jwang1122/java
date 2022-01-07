@@ -1,8 +1,8 @@
-package com.huaxia.swing;
+package com.huaxia;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 

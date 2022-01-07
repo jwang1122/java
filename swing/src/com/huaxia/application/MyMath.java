@@ -1,4 +1,4 @@
-package com.huaxia.swing.application;
+package com.huaxia.application;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,7 +42,7 @@ public class MyMath {
 				resultLbl.setText(""+(x+y));
 			}
 		});
-		String a = "123";
+//		String a = "123";
 		f.add(b);// adding button in JFrame
 		f.setSize(400, 500);// 400 width and 500 height
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // terminate app on close window

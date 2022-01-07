@@ -1,4 +1,4 @@
-package com.huaxia.swing.image;
+package com.huaxia.image;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -13,7 +13,7 @@ import javax.swing.Timer;
 
 /**
  * Random moving image
- * 
+ * @see RandomMoveImage
  * @author John
  *
  */
@@ -42,7 +42,7 @@ public class MyPanel3 extends JPanel implements ActionListener {
 
 	private void loadImage() {
 		Toolkit t = Toolkit.getDefaultToolkit();
-		URL iconUrl = this.getClass().getResource("resources/apple.png");
+		URL iconUrl = this.getClass().getResource("/resources/apple.png");
 		apple = t.getImage(iconUrl);
 	}
 

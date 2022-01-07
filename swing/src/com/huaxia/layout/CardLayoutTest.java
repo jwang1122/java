@@ -1,4 +1,4 @@
-package com.huaxia.swing.layout;
+package com.huaxia.layout;
 
 import java.awt.CardLayout;
 import java.awt.Container;
@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.huaxia.swing.component.AbstractFrame;
+import com.huaxia.component.AbstractFrame;
 
 public class CardLayoutTest extends AbstractFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -52,6 +52,7 @@ public class CardLayoutTest extends AbstractFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
+		System.out.println(cmd);
 		layout.next(container);
 	}
 

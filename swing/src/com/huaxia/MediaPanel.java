@@ -1,4 +1,4 @@
-package com.huaxia.swing;
+package com.huaxia;
 
 
 import java.awt.BorderLayout;

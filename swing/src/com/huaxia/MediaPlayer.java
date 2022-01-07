@@ -1,16 +1,9 @@
-package com.huaxia.swing;
+package com.huaxia;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
 import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
+
 import javax.media.Manager;
-import javax.media.MediaLocator;
-import javax.media.NoPlayerException;
 import javax.media.Player;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 /**
@@ -21,6 +14,11 @@ import javax.swing.JFrame;
 public class MediaPlayer extends JFrame {
 
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static void main(String[] args) {
 
 		try {
@@ -29,8 +27,8 @@ public class MediaPlayer extends JFrame {
 			player.start();
 			player.close();
 			
-			Component visual = player.getVisualComponent();
-			Component control = player.getControlPanelComponent();
+			player.getVisualComponent();
+			player.getControlPanelComponent();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 

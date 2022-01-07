@@ -1,7 +1,12 @@
-package com.huaxia.swing.image;
+package com.huaxia.image;
 
 import javax.swing.JFrame;
 
+/**
+ * @see MyPanel2
+ * @author John
+ *
+ */
 public class KeyboardControl extends JFrame{
 
 	private static final long serialVersionUID = 1L;
