@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import com.huaxia.blackjack.BlackjackCard;
 import com.huaxia.blackjack.Card;
-import com.huaxia.blackjack.Player;
+
+import blackjack.Player;
 
 class PlayerTest {
 

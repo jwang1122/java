@@ -1,87 +1,75 @@
-package com.huaxia.blackjack;
+package blackjack;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
-import java.util.Scanner;
-
 
 public class Player {
-	static Scanner input = new Scanner(System.in);
-
+	public static Hashtable<String, Position> seats = new Hashtable<>();
+	static {
+		seats.put("WEST", new Position(80, 250));
+		seats.put("SOUTH", new Position(300, 500));
+		seats.put("EAST", new Position(600, 250));
+		seats.put("NORTH", new Position(300, 30));
+	};
+	static final int CARD_GAP = 30;
+	
 	protected String name;
+	protected String seat;
 	protected List<Card> hand = new ArrayList<>();
 	protected int win = 0;
-	
-	public static Player createPlayer() {
-		System.out.println("Enter player name: ");
-		String name = input.nextLine();
-		return new Player(name);
-	}
-	
+	protected int cardX, cardY;
+	protected MainFrame frame;
+
 	public Player() {
-		super();
+
 	}
 
-	public Player(String name){
+	public Player(String name, String seat, MainFrame frame) {
+		this.frame = frame;
 		this.name = name;
+		this.seat = seat;
+		Position pos = seats.get(seat);
+		cardX = pos.getX();
+		cardY = pos.getY();
 	}
-	
+
 	public void win() {
 		win++;
 	}
-	
-	public boolean hit() {
-		boolean needMoreCard = false;
-		System.out.print(name + ", do you want to hit? (y/n) ");
-		String answer = input.nextLine();
-		needMoreCard = answer.toLowerCase().equals("y");
-		return needMoreCard;
+
+	public void hit() {
+	}
+
+	public void pass() {
+
 	}
 
 	public void addCardToHand(Card card) {
 		hand.add(card);
+		frame.addCard(card, this);
+		cardX += CARD_GAP;
 	}
-	
+
 	public void cleanHand() {
 		hand.clear();
 	}
-	
+
 	public int getHandValue() {
-		int value = 0;
-		for(Card card:hand) {
+		int value = 0, count = 0;
+		for (Card card : hand) {
 			value += card.getValue();
-		}
-		if(value>21) { // bust
-			if(isAceInHand()) {
-				value -= 10; // correct my Ace from 11 to 1
+			if (card.face == "A") {
+				count++;
 			}
+		}
+		while (value > 21 && count > 0) { // bust
+			value -= 10; // correct my Ace from 11 to 1
+			count--;
 		}
 		return value;
 	}
-	
-	//Homework: write unit test to test this method
-	private boolean isAceInHand() {
-		boolean flag = false; // assume there is no Ace in my hand
-		for(Card card : hand) {
-			if(card.face.equals("A")) {
-				flag = true; // find Ace in hand
-				break;
-			}
-		}
-		return flag;
-	}
-	
-	public String showHand() {
-		String myHand =name + "{";
-		for(Card card: hand) { // for-each loop
-			myHand += card + " ";
-		}
-		myHand += "}:"; 
-		myHand += getHandValue();
-		myHand += ":"+win;
-		return myHand;
-	}
-	
+
 	@Override
 	public String toString() {
 		return name;
@@ -94,15 +82,35 @@ public class Player {
 	public String getName() {
 		return name;
 	}
-	
-	public static void main(String[] args) {
-		Player john = new Player("John");
-		System.out.println(john.hit());
+
+	public Card getCurrentCard() {
+		// TODO Auto-generated method stub
+		return hand.get(hand.size()-1);
 	}
 
-	public boolean moreGame() {
-		System.out.print("More game? (y/n) ");
-		String answer = input.nextLine();
-		return answer.toLowerCase().equals("y");
+	public int getCardX() {
+		// TODO Auto-generated method stub
+		return cardX;
 	}
+
+	public int getCardY() {
+		// TODO Auto-generated method stub
+		return cardY;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+		
+	}
+
+	public int getWin() {
+		return win;
+	}
+
+	public void reset() {
+		Position pos = seats.get(seat);
+		cardX = pos.getX();
+		cardY = pos.getY();
+	}
+
 }

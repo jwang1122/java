@@ -20,8 +20,10 @@ Every 40 miliseconds, the application will run the function **actionPerformed()*
 ```java
 		Toolkit t = Toolkit.getDefaultToolkit();
 		URL iconUrl = this.getClass().getResource("/resources/apple.png");
-		apple = t.getImage(iconUrl);
+		Image apple = t.getImage(iconUrl);
 ```
+🔔⚡️ Notice: t.getImage() method return a BufferedImage, you can then get image width and height.
+
 ```output
 <project root>
     ├── 📝doc/
@@ -41,4 +43,14 @@ where **src** is in **classpath**. all images stored in **resources** folder.
 		URL iconUrl = getClass().getClassLoader().getResource("resources/diamondK.gif");
 		img = ImageIO.read(new File(iconUrl.getFile()));
 ```
-🔔⚡️ Notice that there is no / before **resoutces**.
+🔔⚡️ Notice that there is no / before **resoutces**, read() method throws IOException.
+
+3. Use **ImageIcon** load image	
+```java
+    URL url = getClass().getClassLoader().getResource("resources/animation.gif");
+    ImageIcon bkImage = new ImageIcon(url.getPath());
+    titleLbl.setFont(new Font(Font.SERIF, Font.BOLD, 48));
+    titleLbl.setForeground(new Color(152, 16, 61));
+    JLabel imageLbl = new JLabel(bkImage);
+```
+🔔⚡️ Notice that ImageIcon can display animation gif image.

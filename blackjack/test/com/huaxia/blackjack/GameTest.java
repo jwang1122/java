@@ -9,7 +9,8 @@ import com.huaxia.blackjack.BlackjackCard;
 import com.huaxia.blackjack.Card;
 import com.huaxia.blackjack.Dealer;
 import com.huaxia.blackjack.Game;
-import com.huaxia.blackjack.Player;
+
+import blackjack.Player;
 
 class GameTest {
 
