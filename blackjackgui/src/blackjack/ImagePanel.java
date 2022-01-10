@@ -1,28 +1,31 @@
 package blackjack;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.net.URL;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 public class ImagePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
+	Image frontImg;
 	
 	public ImagePanel() {
-		setLayout(new BorderLayout());
-		URL url = getClass().getClassLoader().getResource("resources/animation.gif");
-		ImageIcon bkImage = new ImageIcon(url.getPath());
-		JLabel titleLbl = new JLabel("Welcome to Our Blackjack Game!", SwingConstants.CENTER);
-		titleLbl.setFont(new Font(Font.SERIF, Font.BOLD, 48));
-		titleLbl.setForeground(new Color(152, 16, 61));
-		JLabel imageLbl = new JLabel(bkImage);
-		add(titleLbl, BorderLayout.NORTH);
-		add(imageLbl, BorderLayout.CENTER);
+		URL url = getClass().getResource("/resources/animation.gif");
+		frontImg = Toolkit.getDefaultToolkit().getImage(url);
+	}
+	
+	public void paint(Graphics g) {
+		g.clearRect(0, 0, 1024, 768);
+		g.setColor(new Color(107,155,17));
+		g.fillRect(0, 0, 1024, 768);
+		g.setColor(new Color(110, 15, 135));
+		g.setFont(new Font(Font.SERIF, Font.BOLD, 48));
+		g.drawString("Welcome to Our Blackjack Game!", 160, 70);
+		g.drawImage(frontImg, 180, 110, this);
 	}
 	
 }

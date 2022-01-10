@@ -27,6 +27,10 @@ public class Deck {
 	public Card nextCard() {
 		int index = currentIndex;
 		currentIndex--;
+		if(currentIndex<0) {
+			index=51;
+			shuffle();
+		}
 		return stackOfCards.get(index);
 	}
 	

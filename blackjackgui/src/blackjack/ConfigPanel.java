@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 public class ConfigPanel extends JPanel implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	private MainFrame parent;
-	private Color btnColor = new Color(152, 16, 61);
+	private Color btnColor = new Color(110, 15, 135);
 	
 	public ConfigPanel(MainFrame parent) {
 		this.parent = parent;
@@ -79,7 +79,7 @@ public class ConfigPanel extends JPanel implements ActionListener{
 			break;
 		case "Configure Players":
 			ConfigPlayerDialog dialog = new ConfigPlayerDialog(parent);
-			
+			dialog.setVisible(true);
 			break;
 		default:
 			return;

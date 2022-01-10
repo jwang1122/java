@@ -5,9 +5,9 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 
 /**
- * Single card for regular card game with face and suit.
+ * Single card for regular card game with face, suit and cardImage.
  * 
- * @author John
+ * @author Rodney
  *
  */
 public class Card {

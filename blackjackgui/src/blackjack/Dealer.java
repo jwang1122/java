@@ -3,7 +3,7 @@ package blackjack;
 /**
  * Dealer instance in blackjack game responsible for deal cards to all players.
  * 
- * @author John
+ * @author Rodney
  *
  */
 public class Dealer extends Player {

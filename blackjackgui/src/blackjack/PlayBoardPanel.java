@@ -1,11 +1,16 @@
 package blackjack;
 
 import java.awt.Color;
+import java.awt.GridLayout;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 public class PlayBoardPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -22,19 +27,27 @@ public class PlayBoardPanel extends JPanel {
 	private List<JLabel> resultNameLabelList = new ArrayList<>();
 	private List<JLabel> resultValueLabelList = new ArrayList<>();
 	private List<Player> playerList;
+	private ImageIcon faceDownImg;
+	private JLabel faceDownLbl;
+	private MainFrame parent;
 	
-	public PlayBoardPanel() {
+	public PlayBoardPanel(MainFrame parent) {
+		this.parent = parent;
 		bkColor = color3;
 		this.setBackground(bkColor);
 		setLayout(null);
+		URL url = getClass().getClassLoader().getResource("resources/backR.gif");
+		faceDownImg = new ImageIcon(url);
 	}
 	
-	
-	void setBackgroundColor(Color bkColor){
-		this.bkColor = bkColor;
-	}
-
 	public void addCard(Card card, Player player) {
+		if(player.isDealer() && player.getHandSize()==2) {
+			faceDownLbl = new JLabel(faceDownImg);
+			faceDownLbl.setLocation(player.getCardX(), player.getCardY());
+			faceDownLbl.setSize(Card.CARD_WIDTH, Card.CARD_HEIGHT);
+			add(faceDownLbl);
+			parent.enableHitBtn();
+		}
 		JLabel label = new JLabel(card.getCardImage());
 		label.setLocation(player.getCardX(), player.getCardY());
 		label.setSize(Card.CARD_WIDTH, Card.CARD_HEIGHT);
@@ -49,31 +62,46 @@ public class PlayBoardPanel extends JPanel {
 		for(JLabel card: cardList) {
 			remove(card);
 		}
-		
+		remove(faceDownLbl);
+		for(Player player: playerList) {
+			player.cleanHand();
+		}
 	}
-
-	public void setPlayerList(List<Player> playerList) {
-		this.playerList = playerList;
+	
+	public void setPlayerName(List<Player> playerList) {
 		for (int i=0; i<playerList.size(); i++) {
 			Player player = playerList.get(i);
 			JLabel nameLbl = new JLabel(player.getName());
 			nameLbl.setLocation(player.getCardX()-60, player.getCardY());
 			nameLbl.setSize(70, 30);
 			add(nameLbl);
-			playerNameLabelList.add(nameLbl);
-			JLabel resultNameLbl = new JLabel(player.getName());
-			resultNameLbl.setLocation(800,i*30 + 30);
-			resultNameLbl.setSize(70, 30);
-			add(resultNameLbl);
-			resultNameLabelList.add(resultNameLbl);
-			JLabel resultValueLbl = new JLabel("" + player.getWin());
-			resultValueLbl.setLocation(900,i*30 + 30);
-			resultValueLbl.setSize(30, 30);
-			add(resultValueLbl);
-			resultValueLabelList.add(resultValueLbl);
+			playerNameLabelList.add(nameLbl);	
 		}
 	}
 
+	public void setPlayerList(List<Player> playerList) {
+		this.playerList = playerList;
+		// put label into JPanel, put the JPanel to specific location.
+		Border borderLine = BorderFactory.createTitledBorder("Game Result");
+		JPanel resultPnl = new JPanel();
+		resultPnl.setBorder(borderLine);
+		resultPnl.setLayout(new GridLayout(4,2));
+		resultPnl.setBackground(Color.yellow);
+		for (int i=0; i<playerList.size(); i++) {
+			Player player = playerList.get(i);
+			JLabel resultNameLbl = new JLabel(player.getName());
+			resultPnl.add(resultNameLbl);
+			resultNameLabelList.add(resultNameLbl);
+			
+			JLabel resultValueLbl = new JLabel("" + player.getWin());
+			resultPnl.add(resultValueLbl);
+			resultValueLabelList.add(resultValueLbl);
+			
+			resultPnl.setLocation(800,20);
+			resultPnl.setSize(200,200);
+			add(resultPnl);
+		}
+	}
 
 	public void updatePlayerName() {
 		for(int i=0; i<3; i++) {
@@ -81,5 +109,20 @@ public class PlayBoardPanel extends JPanel {
 			playerNameLabelList.get(i).setText(name);
 			resultNameLabelList.get(i).setText(name);
 		}
+	}
+
+	public void removeFaceDownCard() {
+		remove(faceDownLbl);
+		repaint();
+	}
+
+	public void updateResult() {
+		for(int i=0; i<4; i++) {
+			Player player = playerList.get(i);
+			int win = player.getWin();
+			JLabel label = resultValueLabelList.get(i);
+			label.setText(""+ win);
+		}
+		
 	}
 }

@@ -6,16 +6,17 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class ButtonPanel extends JPanel {
+public class ControlPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	JLabel playerNameLbl = new JLabel("Player Name: ");
-	JButton dealCardBtn, resultBtn, hitBtn, passBtn, configBtn, clearBtn;
+	JButton dealCardBtn, resultBtn, hitBtn, passBtn, configBtn, clearBtn, endBtn;
 	MainFrame parent;
 	Player player;
 	
-	public ButtonPanel(MainFrame parent) {
+	public ControlPanel(MainFrame parent) {
 		this.parent = parent;
 		this.setLayout(new BorderLayout());
 		
@@ -29,9 +30,31 @@ public class ButtonPanel extends JPanel {
 		playerButtonPnl.add(playerNameLbl);
 		hitBtn = new JButton("Hit");
 		hitBtn.setEnabled(false);
+		hitBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				boolean failed = player.addCardToHand(parent.getDealer().deal());
+				if(failed) {
+					JOptionPane.showMessageDialog(parent, player.name.concat(", your hand value is busted! You can only do pass."), "Warning", JOptionPane.WARNING_MESSAGE);
+				}
+			}
+			
+		});
 		playerButtonPnl.add(hitBtn);
 		passBtn = new JButton("Pass");
 		passBtn.setEnabled(false);
+		passBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Player player = parent.nextPlayer();
+				if(player.isDealer()) {
+					parent.addCardToDealer();
+				}
+			}
+			
+		});
 		playerButtonPnl.add(passBtn);
 		return playerButtonPnl;
 	}
@@ -50,9 +73,17 @@ public class ButtonPanel extends JPanel {
 			
 		});
 		
-		resultBtn = new JButton("Display Game Result");
+		resultBtn = new JButton("Update Results");
+		resultBtn.setEnabled(false);	
+		resultBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				parent.calculateResult();				
+			}
+			
+		});
 		cardButtonPnl.add(resultBtn);
-		resultBtn.setEnabled(false);		
 		
 		configBtn = new JButton("Configure");
 		cardButtonPnl.add(configBtn);
@@ -76,6 +107,17 @@ public class ButtonPanel extends JPanel {
 			
 		});
 		
+		endBtn = new JButton("Exit");
+		cardButtonPnl.add(endBtn);
+		endBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+			
+		});
+		
 		
 		return cardButtonPnl;
 	}
@@ -87,6 +129,16 @@ public class ButtonPanel extends JPanel {
 
 	public void updateCurrentPlayerName() {
 		playerNameLbl.setText(this.player.name);
+	}
+
+	public void enableHitBtn() {
+		hitBtn.setEnabled(true);
+		passBtn.setEnabled(true);
+	}
+
+	public void setEnabledDealBtn(boolean b) {
+		dealCardBtn.setEnabled(b);
+		resultBtn.setEnabled(!b);
 	}
 	
 }

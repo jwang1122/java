@@ -1,10 +1,12 @@
 package blackjack;
 
 /**
- * Single card instance for Blackjack card game, which has face and suit. 
+ * Single card instance for Blackjack card game, which has face, suit and cardImage. 
  * Inherits from Card override getValue() method.
  * 
- * @author John
+ * @see Card
+ * 
+ * @author Rodney
  *
  */
 public class BlackjackCard extends Card {

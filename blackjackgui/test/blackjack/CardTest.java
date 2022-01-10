@@ -1,11 +1,9 @@
-package com.huaxia.blackjack;
+package blackjack;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import com.huaxia.blackjack.Card;
 
 class CardTest {
 
@@ -16,10 +14,10 @@ class CardTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		heartsA = new Card("A", "HEARTS");
-		hearts4 = new Card("4", "HEARTS");
-		diamondsQ = new Card("Q", "DIAMONDS");
-		clubs10 = new Card("10", "CLUBS");
+		heartsA = new Card("A", "heart");
+		hearts4 = new Card("4", "heart");
+		diamondsQ = new Card("Q", "diamond");
+		clubs10 = new Card("10", "club");
 	}
 
 	@Test
@@ -39,11 +37,11 @@ class CardTest {
 	
 	@Test
 	void testToString() {
-		String expected = "[4, HEARTS]";
+		String expected = "[4, heart]";
 		String actual = hearts4.toString();
 		assertEquals(actual, expected);
 		
-		expected = "[Q, DIAMONDS]";
+		expected = "[Q, diamond]";
 		actual = diamondsQ.toString();
 		assertEquals(actual, expected);
 	}
