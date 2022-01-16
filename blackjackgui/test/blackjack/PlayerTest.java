@@ -40,7 +40,7 @@ class PlayerTest {
 		player3 = new Player("Laura", "SOUTH", frame);
 		player3.addCardToHand(spades2);
 		player3.addCardToHand(hearts4);
-		player3.addCardToHand(heartsA);		
+		player3.addCardToHand(heartsA);	// 17	
 	}
 
 	@Test
@@ -57,12 +57,6 @@ class PlayerTest {
 	}
 	
 	@Test
-	void testGetHandValueWithAceBust() {
-		int actual = player1.getHandValue();
-		assertEquals(15, actual);
-	}
-	
-	@Test
 	void testGetHandValueWithAce() {
 		int actual = player3.getHandValue();
 		assertEquals(17, actual);
@@ -72,6 +66,68 @@ class PlayerTest {
 	void testGetHandValueWithoutAce() {
 		int actual = player2.getHandValue();
 		assertEquals(16, actual);
+	}
+	
+	@Test 
+	void test2Ace(){
+		player3.addCardToHand(heartsA);
+		int actual = player3.getHandValue();
+		assertEquals(18, actual);		
+	}
+	
+	@Test
+	void test3Ace() {
+		player3.addCardToHand(heartsA);
+		player3.addCardToHand(heartsA);
+		int actual = player3.getHandValue();
+		assertEquals(19, actual);				
+	}
+	
+	@Test
+	void test4Ace() {
+		player3.addCardToHand(heartsA);
+		player3.addCardToHand(heartsA);
+		player3.addCardToHand(heartsA);
+		int actual = player3.getHandValue();
+		assertEquals(20, actual);				
+	}
+	
+	@Test 
+	void test1AceBusted(){
+		player3.addCardToHand(diamondsQ);
+		player3.addCardToHand(diamondsQ);
+		int actual = player3.getHandValue();
+		assertEquals(27, actual);		
+	}
+	
+	@Test 
+	void test2AceBusted(){
+		player3.addCardToHand(heartsA);
+		player3.addCardToHand(diamondsQ);
+		player3.addCardToHand(hearts4);
+		int actual = player3.getHandValue();
+		assertEquals(22, actual);		
+	}
+	
+	@Test 
+	void test3AceBusted(){
+		player3.addCardToHand(heartsA);
+		player3.addCardToHand(heartsA);
+		player3.addCardToHand(hearts4);
+		player3.addCardToHand(diamondsQ);
+		int actual = player3.getHandValue();
+		assertEquals(23, actual);		
+	}
+	
+	@Test 
+	void test4AceBusted(){
+		player3.addCardToHand(heartsA);
+		player3.addCardToHand(heartsA);
+		player3.addCardToHand(heartsA);
+		player3.addCardToHand(hearts4);
+		player3.addCardToHand(diamondsQ);
+		int actual = player3.getHandValue();
+		assertEquals(24, actual);		
 	}
 	
 	@Test

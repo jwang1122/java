@@ -14,13 +14,7 @@ import javax.swing.border.Border;
 
 public class PlayBoardPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
-	static Color color1, color2, color3;
-	static {
-		color1 = new Color(114, 183, 244);
-		color2 = new Color(244, 215, 114);
-		color3 = new Color(183, 243, 79);		
-	}
-	
+
 	private Color bkColor;
 	private List<JLabel> cardList = new ArrayList<>(); // for removing all cards from the Panel
 	private List<JLabel> playerNameLabelList = new ArrayList<>(); // for resigning player name label
@@ -33,7 +27,7 @@ public class PlayBoardPanel extends JPanel {
 	
 	public PlayBoardPanel(MainFrame parent) {
 		this.parent = parent;
-		bkColor = color3;
+		bkColor = MyBackgroundColor.MY_BLUE;
 		this.setBackground(bkColor);
 		setLayout(null);
 		URL url = getClass().getClassLoader().getResource("resources/backR.gif");

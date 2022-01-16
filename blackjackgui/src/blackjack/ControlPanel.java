@@ -41,7 +41,9 @@ public class ControlPanel extends JPanel {
 			}
 			
 		});
+		hitBtn.setEnabled(false);
 		playerButtonPnl.add(hitBtn);
+		
 		passBtn = new JButton("Pass");
 		passBtn.setEnabled(false);
 		passBtn.addActionListener(new ActionListener() {
@@ -55,6 +57,7 @@ public class ControlPanel extends JPanel {
 			}
 			
 		});
+		passBtn.setEnabled(false);
 		playerButtonPnl.add(passBtn);
 		return playerButtonPnl;
 	}
@@ -83,6 +86,7 @@ public class ControlPanel extends JPanel {
 			}
 			
 		});
+		resultBtn.setEnabled(false);
 		cardButtonPnl.add(resultBtn);
 		
 		configBtn = new JButton("Configure");
@@ -106,6 +110,7 @@ public class ControlPanel extends JPanel {
 			}
 			
 		});
+		clearBtn.setEnabled(false);
 		
 		endBtn = new JButton("Exit");
 		cardButtonPnl.add(endBtn);
@@ -117,6 +122,7 @@ public class ControlPanel extends JPanel {
 			}
 			
 		});
+		
 		
 		
 		return cardButtonPnl;
@@ -138,7 +144,21 @@ public class ControlPanel extends JPanel {
 
 	public void setEnabledDealBtn(boolean b) {
 		dealCardBtn.setEnabled(b);
-		resultBtn.setEnabled(!b);
 	}
+	
+	public void setEnabledClearBtn(boolean b) {
+		clearBtn.setEnabled(b);
+	}
+	
+	public void setEnabledResultBtn(boolean b) {
+		resultBtn.setEnabled(b);		
+	}
+	
+	public void setEnabledHitBtn(boolean b) {
+		hitBtn.setEnabled(b);
+		passBtn.setEnabled(b);
+	}
+	
+	
 	
 }

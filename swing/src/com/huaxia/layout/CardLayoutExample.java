@@ -7,11 +7,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
  
 public class CardLayoutExample extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	public static CardLayout card = new CardLayout(40, 30);
+	public static CardLayout card = new CardLayout();
+	JPanel myPanel = new JPanel();
     public Container c;
     JButton jb1, jb2, jb3;
      

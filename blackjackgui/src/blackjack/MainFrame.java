@@ -112,6 +112,8 @@ public class MainFrame extends JFrame {
 		index=0;
 		currentPlayer = playerList.get(index);
 		buttonPnl.setCurrentPlayer(currentPlayer);
+		buttonPnl.setEnabledClearBtn(false);
+		buttonPnl.setEnabledDealBtn(true);
 		boardPnl.repaint();
 	}
 
@@ -170,12 +172,16 @@ public class MainFrame extends JFrame {
 			value = dealer.getHandValue();
 		}
 		index = 0;
-		buttonPnl.setEnabledDealBtn(false);
+		buttonPnl.setEnabledDealBtn(false); 
+		buttonPnl.setEnabledHitBtn(false);
+		buttonPnl.setEnabledResultBtn(true);
 	}
 
 	public void calculateResult() {
 		determineWinner();
 		boardPnl.updateResult();
+		buttonPnl.setEnabledResultBtn(false);
+		buttonPnl.setEnabledClearBtn(true);
 	}
 
 	/**
