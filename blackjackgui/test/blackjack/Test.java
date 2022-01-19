@@ -6,6 +6,7 @@ public class Test {
 		Subclass sub = new Subclass();
 		System.out.println(sub);
 		Super sup = new Super(1);
+		System.out.println(sup);
 	}
 
 }

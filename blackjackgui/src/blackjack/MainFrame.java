@@ -62,8 +62,8 @@ public class MainFrame extends JFrame {
 		playerList.add(getDealer());
 		currentPlayer = playerList.get(index);
 		buttonPnl.setCurrentPlayer(currentPlayer);
-		boardPnl.setPlayerName(playerList);
 		boardPnl.setPlayerList(playerList);
+		boardPnl.setPlayerName(playerList);
 	}
 
 	private JPanel buildBoardPanel() {
@@ -106,6 +106,7 @@ public class MainFrame extends JFrame {
 	public void clearBoard() {
 		for(Player player: playerList) {
 			player.resetCardPosition();
+			player.lblList.clear();
 		}
 		buttonPnl.setEnabledDealBtn(true);
 		boardPnl.clearBoard();
@@ -191,5 +192,9 @@ public class MainFrame extends JFrame {
 	 */
 	public List<Player> getPlayerList() {
 		return playerList;
+	}
+
+	public void setEnabledHitBtn(boolean b) {
+		buttonPnl.setEnabledHitBtn(b); 	
 	}
 }

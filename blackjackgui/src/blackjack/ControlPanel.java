@@ -36,7 +36,7 @@ public class ControlPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				boolean failed = player.addCardToHand(parent.getDealer().deal());
 				if(failed) {
-					JOptionPane.showMessageDialog(parent, player.name.concat(", your hand value is busted! You can only do pass."), "Warning", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(parent, player.name.concat(", your hand value is equal or greater than 21! You can only do pass."), "Warning", JOptionPane.WARNING_MESSAGE);
 				}
 			}
 			

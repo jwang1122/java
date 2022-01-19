@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
+import javax.swing.JLabel;
+
 public class Player {
 	public static Hashtable<String, Position> seats = new Hashtable<>();
 	static {
@@ -12,7 +14,6 @@ public class Player {
 		seats.put("EAST", new Position(600, 250));
 		seats.put("NORTH", new Position(300, 30));
 	};
-	static final int CARD_GAP = 30;
 
 	protected String name;
 	protected String seat;
@@ -20,6 +21,8 @@ public class Player {
 	protected int win = 0;
 	protected int cardX, cardY;
 	protected MainFrame frame;
+
+	public List<JLabel> lblList = new ArrayList<>();
 
 	public Player(String name, String seat, MainFrame frame) {
 		this.frame = frame;
@@ -37,12 +40,11 @@ public class Player {
 	public boolean addCardToHand(Card card) {
 		boolean failed = false;
 		int value = getHandValue();
-		if (value > 21) {
+		if (value >= 21) {
 			failed = true;
 		} else {
 			hand.add(card);
 			frame.addCard(card, this);
-			cardX += CARD_GAP;
 		}
 		return failed;
 	}

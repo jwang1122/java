@@ -5,7 +5,7 @@ import java.awt.EventQueue;
 /**
  * This is startup class for Blackjack game.
  * 
- * @author Rodney
+ * @author John
  *
  */
 public class Blackjack {

@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class DisplatyImageOnJLabel extends JFrame {
-
+	private static final long serialVersionUID = 1L;
 	DisplatyImageOnJLabel(){
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(640,480);
