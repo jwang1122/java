@@ -12,7 +12,6 @@ blackjack/ (project)
     |              ├── Blackjack.java (start up class) 
     |              └── MainFrame.java
 ```
-
 ## Start up
 
 1. Create **blackjack** java project
@@ -44,3 +43,66 @@ public class MainFrame extends JFrame {
 
 1. CardLayout
 2. Bi-direction connection
+
+## Object Relationship
+
+```mermaid
+classDiagram
+
+class MainFrame{
+    dealer Dealer
+    playerList List<Player>
+    configPnl JPanel
+    boardPnl Jpanel
+}
+
+class ConfigPanel{
+    parent MainFrame
+}
+
+class BoardPanel{
+    parent MainFrame
+}
+
+class Player{
+    name String
+    seat String
+    hand List<Card>
+    winCount int
+    
+    addCardToHand(Card)
+    getHandValue()
+    win()
+}
+
+class Dealer{
+    deal()
+    shuffle()
+}
+
+class Card{
+	face String
+	suit String
+	image ImageIcon
+	
+	getValue()
+}
+
+class BlackjackCard{
+	getValue()
+}
+class Deck{
+    stackOfCards List
+    shuffle()
+    next()
+}
+
+Player <-- Dealer:is
+MainFrame o-- Player:aggregation
+MainFrame *-- Dealer:composition
+MainFrame *--* ConfigPanel:contains
+MainFrame *--* BoardPanel:contains
+Player o-- BlackjackCard:collection
+Dealer *-- Deck:owns
+Card <-- BlackjackCard
+```

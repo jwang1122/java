@@ -1,5 +1,6 @@
 package blackjack;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,6 +13,9 @@ public class ConfigPanel extends JPanel {
 	
 	ConfigPanel(MainFrame parent){
 		this.parent = parent;
+		this.setLayout(new BorderLayout());
+		ImagePanel imgPnl = new ImagePanel();
+		add(imgPnl, BorderLayout.CENTER);
 		JButton switchBtn = new JButton("Switch Play Board");
 		switchBtn.addActionListener(new ActionListener() {
 
@@ -23,7 +27,7 @@ public class ConfigPanel extends JPanel {
 		});
 		
 		
-		add(switchBtn);
+		add(switchBtn, BorderLayout.SOUTH);
 	}
 
 }
