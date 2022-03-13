@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class Deck {
 	static final String[] FACES = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
-	static final String[] SUITS = {"SPADES","CLUBS","DIAMONDS","HEARTS"};
+	static final String[] SUITS = {"spade","club","diamond","heart"};
 	
 	private ArrayList<Card> stackOfCards = new ArrayList<>();
 	private int currentIndex;

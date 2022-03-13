@@ -1,4 +1,5 @@
 # Mermaid Diagram in Markdown Document
+[Tutorial](https://github.com/mermaid-js/mermaid/blob/develop/docs/classDiagram.md)
 - [Mermaid Diagram in Markdown Document](#mermaid-diagram-in-markdown-document)
   - [Links](#links)
   - [Cardinality](#cardinality)
@@ -11,6 +12,7 @@
   - [Project management diagram](#project-management-diagram)
   - [Pie chart](#pie-chart)
   - [Git Flow](#git-flow)
+  - [icon](#icon)
 
 ## Links
 <|-- - Inheritance
@@ -161,7 +163,7 @@ classDiagram
   }
   Student "1" --o "1" IdCard : carries
   Student "1" --o "1" Bike : rides
-  ```
+```
 
 ## Graph Diagram
 * Font Awesome icons
@@ -366,4 +368,15 @@ commit
 checkout master
 commit
 merge dev
+```
+
+## icon
+```mermaid
+graph TB
+A("fa:fa-code index.html<br/>root page with placeholder")
+B["fa:fa-clone index.js<br>inject page to placeholder"]
+C["fa:fa-clone App.js<br>build page component"]
+
+B--id=root-->A
+C--export to-->B
 ```

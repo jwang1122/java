@@ -10,8 +10,7 @@ package blackjack;
 public class BlackjackCard extends Card {
 	
 	BlackjackCard(String face, String suit){
-		this.face = face;
-		this.suit = suit;
+		super(face, suit);
 	}
 
 	@Override // method overridden

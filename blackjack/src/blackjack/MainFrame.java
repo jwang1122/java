@@ -1,6 +1,8 @@
 package blackjack;
 
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,24 +13,42 @@ import javax.swing.JPanel;
 public class MainFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	public static final int WIDTH = 1024;
+	public static final int HEIGHT = 768;
+	
 	CardLayout cardLyt = new CardLayout();
 	ConfigPanel configPnl;
 	BoardPanel boardPnl;
+	ControlPanel controlPnl;
 	Container container;
 	List<Player> playerList = new ArrayList<>(); // Demand Driven Development
-	Dealer dealer = new Dealer();
+	Dealer dealer;
+	Player currentPlayer;
+	private int index;
 	
 	MainFrame(){ // default scope modifier (public, protected, private, default)
 		init();
-		this.setLayout(cardLyt);
+		buildPlayerList();
+		index = 0;
 		
+		this.setLayout(cardLyt);
 		configPnl = new ConfigPanel(this); // build a bi-direction connection
-		boardPnl = new BoardPanel(this);
+		
+		JPanel playPnl = new JPanel();
+		playPnl.setLayout(new BorderLayout());
+		controlPnl = new ControlPanel(this);
+		boardPnl = new BoardPanel(this, playerList);
+		playPnl.add(controlPnl, BorderLayout.NORTH);
+		playPnl.add(boardPnl, BorderLayout.CENTER);
 		
 		add(configPnl);
-		add(boardPnl);
-		
-		buildPlayerList();
+		add(playPnl);
+		controlPnl.setPlayer(getCurrentPlayer());
+	}
+	
+	private Player getCurrentPlayer() {
+		currentPlayer = playerList.get(index);
+		return currentPlayer;
 	}
 	
 	private void buildPlayerList() {
@@ -38,13 +58,13 @@ public class MainFrame extends JFrame {
 		playerList.add(player);
 		player = new Player("WEST", "WEST", this);
 		playerList.add(player);
-		player = new Dealer(this);
-		playerList.add(player);
+		this.dealer = new Dealer(this);
+		playerList.add(dealer);
 		
 	}
-
+	
 	private void init() {
-		this.setSize(1024, 728);
+		this.setSize(WIDTH, HEIGHT);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Blackjack Card Game");
 		this.setResizable(false);	
@@ -52,13 +72,81 @@ public class MainFrame extends JFrame {
 	}
 
 	public void switchCard() {
-		cardLyt.next(container);
-		
+		cardLyt.next(container);		
 	}
 
 	public void addCard(Card card, Player player) {
-		// TODO Auto-generated method stub
+		boardPnl.addCard(card, player);
 		
 	}
+	
+	public void deal(Player player) {
+		player.addCardToHand(dealer.deal());
+		index ++;
+		if(index>3) {
+			index = 0;
+		}
+		controlPnl.setPlayer(getCurrentPlayer());
+	}
+
+	public void setBoardBackground(Color bgColor) {
+		boardPnl.setBackground(bgColor);
+		
+	}
+
+	public void setPlayerSeat(String name, String seat) {
+		for(Player player : playerList) {
+			if(player.seat.equals(seat)) {
+				player.name = name;
+				break;
+			}
+		}
+		boardPnl.setPlayerName(name, seat);
+		controlPnl.setPlayerName(name, seat);
+	}
+
+	public void disableDealBtn() {
+		controlPnl.setButtonEnabled(controlPnl.dealBtn, false);	
+	}
+	
+	public void enableDealBtn() {
+		controlPnl.setButtonEnabled(controlPnl.dealBtn, true);	
+	}
+	
+	public void disableHitBtn() {
+		controlPnl.setButtonEnabled(controlPnl.hitBtn, false);	
+	}
+	
+	public void enableHitBtn() {
+		controlPnl.setButtonEnabled(controlPnl.hitBtn, true);	
+	}
+	
+	public void disablePassBtn() {
+		controlPnl.setButtonEnabled(controlPnl.passBtn, false);	
+	}
+	
+	public void enablePassBtn() {
+		controlPnl.setButtonEnabled(controlPnl.passBtn, true);	
+	}
+
+	public void hit(Player player) {
+		player.addCardToHand(dealer.deal()); //if player is not dealer		
+	}
+
+	public void pass(Player player) {
+		index++;
+		controlPnl.setPlayer(getCurrentPlayer());
+		if(currentPlayer.name.equals("Dealer")) { //the index is out of bound
+			index = 0;
+			boardPnl.removeFacedownCard();
+			this.disableHitBtn();
+			this.disablePassBtn();
+			while(dealer.getHandValue()<17) {
+				dealer.addCardToHand(dealer.deal());
+			}
+		}
+	}
+	
+	
 	
 }

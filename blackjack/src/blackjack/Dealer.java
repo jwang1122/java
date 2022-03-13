@@ -12,14 +12,18 @@ public class Dealer extends Player {
 	public Dealer() { //constructor for Dealer
 		this.name = "Dealer";
 		this.deck = new Deck();
+		this.deck.shuffle();
 	}
 
 	public Dealer(MainFrame mainFrame) {
-		this.name = "Dealer";
-		this.seat = "NORTH";
+		super("Dealer", "NORTH", mainFrame);
 		this.deck = new Deck();
-		this.parent = mainFrame;
+		this.deck.shuffle();
+		Position pos = positions.get(seat);
+		x = pos.getX();
+		y = pos.getY();
 	}
+	
 
 	public void shuffle() {
 		deck.shuffle();

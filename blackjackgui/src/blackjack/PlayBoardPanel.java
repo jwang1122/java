@@ -51,29 +51,29 @@ public class PlayBoardPanel extends JPanel {
 	 * @param player
 	 */
 	public void addCard(Card card, Player player) {
-		if(player.isDealer() && player.getHandSize()==2) {
-			faceDownLbl = new JLabel(faceDownImg); // cover the second card with face down card
-			faceDownLbl.setLocation(player.getCardX()+30, player.getCardY());
-			faceDownLbl.setSize(Card.CARD_WIDTH, Card.CARD_HEIGHT);
-			add(faceDownLbl);
-			parent.setEnabledHitBtn(true);
-		}
 		JLabel label = new JLabel(card.getCardImage());
 		label.setLocation(player.getCardX(), player.getCardY());
 		label.setSize(Card.CARD_WIDTH, Card.CARD_HEIGHT);
-//		add(label);
-		cardList.add(label);
-		player.lblList.add(label);
-		for (JLabel lbl: player.lblList) {
-			this.remove(lbl);
+		add(label, 0);
+		if(player.isDealer() && player.getHandSize()==2) {
+			faceDownLbl = new JLabel(faceDownImg); // cover the second card with face down card
+			faceDownLbl.setLocation(player.getCardX(), player.getCardY());
+			faceDownLbl.setSize(Card.CARD_WIDTH, Card.CARD_HEIGHT);
+			add(faceDownLbl, 0);
+			parent.setEnabledHitBtn(true);
 		}
-		for (int i = player.lblList.size()-1; i>=0; i--) {
-			int currentXPosition = player.getCardX()+i*30;
-			JLabel label1 = player.lblList.get(i);
-			label1.setLocation(currentXPosition, player.getCardY());
-			label1.setSize(Card.CARD_WIDTH, Card.CARD_HEIGHT);
-			add(label1);
-		}
+//		cardList.add(label);
+//		player.lblList.add(label);
+//		for (JLabel lbl: player.lblList) {
+//			this.remove(lbl);
+//		}
+//		for (int i = player.lblList.size()-1; i>=0; i--) {
+//			int currentXPosition = player.getCardX()+i*30;
+//			JLabel label1 = player.lblList.get(i);
+//			label1.setLocation(currentXPosition, player.getCardY());
+//			label1.setSize(Card.CARD_WIDTH, Card.CARD_HEIGHT);
+//			add(label1);
+//		}
 		repaint(); // repaint the whole panel 
 	}
 

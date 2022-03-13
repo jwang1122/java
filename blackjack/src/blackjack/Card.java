@@ -11,6 +11,9 @@ import javax.swing.ImageIcon;
  *
  */
 public class Card{
+	public static final int IMAGE_WIDTH = 125;
+	public static final int IMAGE_HEIGHT = 170;
+	
 	protected String face;
 	protected String suit;
 	protected ImageIcon image;
@@ -18,8 +21,8 @@ public class Card{
 	public Card(String face, String suit) {
 		this.face = face;
 		this.suit = suit;
-		String imageFileName = "resouces/".concat(suit).concat(face).concat(".gif");
-		URL url = this.getClass().getClassLoader().getResource(imageFileName );
+		String imageFileName = "resources/".concat(suit).concat(face).concat(".gif");
+		URL url = getClass().getClassLoader().getResource(imageFileName);
 		image = new ImageIcon(url);
 	}
 	
@@ -58,5 +61,8 @@ public class Card{
 		return "[" + face + ", " + suit + "]";
 	}
 	
-	
+	public static void main(String[] args) {
+		Card card = new Card("K","diamond");
+		System.out.println(card.getImage());
+	}
 }

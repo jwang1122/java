@@ -20,12 +20,12 @@ public class Player {
 	protected List<Card> hand = new ArrayList<>();
 	protected int win = 0;
 	protected int cardX, cardY;
-	protected MainFrame frame;
+	protected MainFrame parent;
 
 	public List<JLabel> lblList = new ArrayList<>();
 
 	public Player(String name, String seat, MainFrame frame) {
-		this.frame = frame;
+		this.parent = frame;
 		this.name = name;
 		this.seat = seat;
 		Position pos = seats.get(seat);
@@ -44,7 +44,8 @@ public class Player {
 			failed = true;
 		} else {
 			hand.add(card);
-			frame.addCard(card, this);
+			cardX += 30;
+			parent.addCard(card, this);
 		}
 		return failed;
 	}

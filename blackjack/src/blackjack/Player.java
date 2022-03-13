@@ -1,15 +1,25 @@
 package blackjack;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 
 public class Player {
+	protected static Hashtable<String, Position> positions = new Hashtable<>();
+	static {
+		positions.put("EAST", new Position(650, 250));
+		positions.put("SOUTH", new Position(300, 500));
+		positions.put("WEST", new Position(70, 250));
+		positions.put("NORTH", new Position(300, 20));
+	}
 	protected String name;
 	protected String seat;
 	protected List<Card> hand = new ArrayList<>();
 	protected int win = 0;
 	protected MainFrame parent;
+	protected int x; // x is the card start location on play board
+	protected int y;
 	
 	public Player() {
 	}
@@ -23,6 +33,9 @@ public class Player {
 		this.name = name;
 		this.seat = seat;
 		this.parent = parent;
+		Position pos = positions.get(seat);
+		x = pos.getX();
+		y = pos.getY();
 	}
 
 	public void win() {
@@ -32,6 +45,7 @@ public class Player {
 	public void addCardToHand(Card card) {
 		hand.add(card);
 		parent.addCard(card, this);
+		x += 30;
 	}
 	
 	public void cleanHand() {
@@ -85,6 +99,14 @@ public class Player {
 
 	public String getName() {
 		return name;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
 	}
 	
 }
