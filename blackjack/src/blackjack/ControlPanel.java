@@ -60,6 +60,9 @@ public class ControlPanel extends JPanel implements ActionListener{
 
 		configBtn.addActionListener(this);
 		dealBtn.addActionListener(this);
+		exitBtn.addActionListener(this);
+		updateBtn.addActionListener(this);
+		clearBtn.addActionListener(this);
 		return leftPnl;
 	}
 
@@ -96,11 +99,20 @@ public class ControlPanel extends JPanel implements ActionListener{
 		case "Pass":
 			parent.pass(player);
 			break;
+		case "Update Result":
+			parent.updateResult();
+			break;
+		case "Clear":
+			parent.clearCards();
+			break;
 		case "Exit":
 			System.exit(0);
 			break;
+		default:
+			System.exit(0);			
 		}
 			
 		
 	}
+
 }

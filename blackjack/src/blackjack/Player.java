@@ -50,6 +50,8 @@ public class Player {
 	
 	public void cleanHand() {
 		hand.clear();
+		Position pos = positions.get(seat);
+		x = pos.getX();
 	}
 	
 	public int getHandValue() {

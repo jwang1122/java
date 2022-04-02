@@ -43,7 +43,7 @@ class Calculator extends JFrame implements ActionListener {
 		Calculator c = new Calculator(); 
 
 		// create a textfield 
-		l = new JTextField(25); 
+		l = new JTextField(20); 
 
 		// set the textfield to non editable 
 		l.setEditable(false); 

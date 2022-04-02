@@ -16,15 +16,15 @@ public class MainFrame extends JFrame {
 	public static final int WIDTH = 1024;
 	public static final int HEIGHT = 768;
 	
-	CardLayout cardLyt = new CardLayout();
+	CardLayout cardLyt = new CardLayout(); // switch windows
 	ConfigPanel configPnl;
 	BoardPanel boardPnl;
 	ControlPanel controlPnl;
-	Container container;
+	Container container; // for switch window
 	List<Player> playerList = new ArrayList<>(); // Demand Driven Development
 	Dealer dealer;
 	Player currentPlayer;
-	private int index;
+	private int index; // to change current player
 	
 	MainFrame(){ // default scope modifier (public, protected, private, default)
 		init();
@@ -144,7 +144,68 @@ public class MainFrame extends JFrame {
 			while(dealer.getHandValue()<17) {
 				dealer.addCardToHand(dealer.deal());
 			}
+			this.enableUpdateBtn();
 		}
+	}
+
+	private void enableUpdateBtn() {
+		controlPnl.setButtonEnabled(controlPnl.updateBtn, true);	
+	}
+
+	public void updateResult() {
+		int dealerTotal = dealer.getHandValue();
+		for(Player p:playerList) {
+			if(p.name.equals("Dealer")) {
+				break;
+			}
+			int playerTotal = p.getHandValue();
+			if(playerTotal>21) {
+				dealer.win();
+			}else if (dealerTotal>21) {
+				p.win();
+			}else if(playerTotal==dealerTotal) {
+				
+			}else if(playerTotal>dealerTotal) {
+				p.win();
+			}else {
+				dealer.win();
+			}
+//			System.out.printf("%s: %s", p.name, p.win);
+		}
+//		System.out.printf("%s: %s", dealer.name, dealer.win);
+		displayResult();
+		disableUpdateBtn();
+		enableClearBtn();
+	}
+
+	private void enableClearBtn() {
+		controlPnl.setButtonEnabled(controlPnl.clearBtn, true);	
+	}
+
+	private void disableClearBtn() {
+		controlPnl.setButtonEnabled(controlPnl.clearBtn, false);	
+	}
+
+	private void displayResult() {
+		boardPnl.displayResult();
+		
+	}
+
+	private void disableUpdateBtn() {
+		controlPnl.setButtonEnabled(controlPnl.updateBtn, false);	
+		
+	}
+
+	public void clearCards() {
+		boardPnl.clearCards(); // DDD (Demand Driven Development)
+		disableClearBtn();
+		enableDealBtn();
+		for(Player player: playerList) {
+			player.cleanHand();
+		}
+		index = 0;
+		currentPlayer = getCurrentPlayer();
+		controlPnl.setPlayer(currentPlayer);
 	}
 	
 	

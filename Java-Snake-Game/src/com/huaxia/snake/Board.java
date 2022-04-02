@@ -13,15 +13,10 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.net.URL;
 
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Board extends JPanel implements ActionListener {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private final int B_WIDTH = 300;
@@ -66,15 +61,15 @@ public class Board extends JPanel implements ActionListener {
 	}
 
 	private void loadImages() {
-		URL iconUrl = this.getClass().getResource("resources/dot.png");
+		URL iconUrl = this.getClass().getClassLoader().getResource("resources/dot.png");
 		Toolkit tk = this.getToolkit();
 		ball = tk.getImage(iconUrl);
 //      ImageIcon iid = new ImageIcon("resources/dot.png");
 //		ball = iid.getImage();
-		iconUrl = this.getClass().getResource("resources/apple.png");
+		iconUrl = this.getClass().getClassLoader().getResource("resources/apple.png");
 //		ImageIcon iia = new ImageIcon("resources/apple.png");
 		apple = tk.getImage(iconUrl);
-		iconUrl = this.getClass().getResource("resources/head.png");
+		iconUrl = this.getClass().getClassLoader().getResource("resources/head.png");
 //		ImageIcon iih = new ImageIcon("resources/head.png");
 		head = tk.getImage(iconUrl);
 	}
@@ -225,7 +220,7 @@ public class Board extends JPanel implements ActionListener {
 		public void keyPressed(KeyEvent e) {
 
 			int key = e.getKeyCode();
-
+			System.out.println(key);
 			if ((key == KeyEvent.VK_LEFT) && (!rightDirection)) {
 				leftDirection = true;
 				upDirection = false;

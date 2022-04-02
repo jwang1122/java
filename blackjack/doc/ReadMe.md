@@ -285,6 +285,8 @@ F[add image label to board]
 A-->B-->C-->D-->E-->F
 ```
 
+![](images/addcard.png)
+
 ```output
 blackjack/ (project)
     ├── 📝doc/
@@ -313,3 +315,85 @@ blackjack/ (project)
     		       ....gif (card image) 
     		       └── heartK.gif (card image) 
 ```
+❌ **Mistake:**: new card is put under the old one
+✔️ **Solution:**: when add the new card, using index=0
+
+[BoardPanel.addCard()](../src/blackjack/BoardPanel.java)
+
+```java
+	public void addCard(Card card, Player player) {
+		ImageIcon image = card.getImage();
+		JLabel imageLbl = new JLabel(image);
+		imageLbl.setLocation(player.getX(), player.getY());
+		imageLbl.setSize(125, 170);
+		add(imageLbl, 0); // new card will be on top of old one.
+		if(player.name.equals("Dealer") && player.hand.size()==2) { // cover second card
+			facedownLbl.setLocation(player.getX(), player.getY());
+			facedownLbl.setSize(125, 170);
+			add(facedownLbl,0);
+			parent.disableDealBtn();
+			parent.enableHitBtn();
+			parent.enablePassBtn();
+		}
+		repaint();
+	}
+```
+
+1. get image from Card object;
+2. create a JLabel by the image;
+3. set the lable location;
+4. set the lable size;
+5. add the lable to the panel by index=0;
+
+## hit and pass
+* MainFrame.hit()
+* MainFrame.pass()
+
+## handle dealer's hand
+* MainFrame.pass()
+  while hand value <17, get more cards.
+
+## disable and enable buttons properly
+* MainFrame.enable...()
+* MainFrame.diable...()
+  
+## calculate result
+* MainFrame.updateResult()
+  
+## add result to BoardPanel
+* BoardPanel.buildResultPanel()
+  
+1. create a titled panel (BorderFactory)
+2. put the panel on frame
+   a. create a grid layout panel;
+   b. set the panel location;
+   c. set the panel size;
+   d. add the panel to the frame;
+
+## clear all cards(player's hand, and display)
+* MainFrame.clearCards()
+* BoardPanel.clearCards()
+
+1. clear cards on screen;
+2. disable clear button;
+3. enable deal button;
+4. clear each player's hand;
+5. set first player (EAST) to ControlPanle.
+
+## create MyColor class
+for display predefined colors by name (override toString())
+
+## deploy the application
+
+* build a jar file which is nothing but a zip file.
+* use build.xml
+  1. init
+  2. compile
+  3. dist
+
+## documentation
+1. player's guide
+2. GUI design document
+3. development notes
+4. improvement in the future.
+5. java doc (for contributors or developer)
