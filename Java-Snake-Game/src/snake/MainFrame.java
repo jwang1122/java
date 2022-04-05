@@ -11,8 +11,8 @@ public class MainFrame extends JFrame {
 		init();
 //		Board board = new Board();
 //		MoveSnake board = new MoveSnake();
-//		ControlSnake board = new ControlSnake();
-		RandomApple board = new RandomApple();
+		ControlSnake board = new ControlSnake();
+//		RandomApple board = new RandomApple();
 		add(board);
 	}
 	private void init() {

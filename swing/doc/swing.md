@@ -54,3 +54,8 @@ where **src** is in **classpath**. all images stored in **resources** folder.
     JLabel imageLbl = new JLabel(bkImage);
 ```
 🔔⚡️ Notice that ImageIcon can display animation gif image.
+
+## Play MP3 music file
+1. [Download jar](https://www.tutorialsfield.com/download5/)
+2. [javazoom api](http://javadox.com/com.googlecode.soundlibs/jlayer/1.0.1-1/javazoom/jl/player/package-summary.html)
+3. 

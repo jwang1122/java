@@ -1,5 +1,32 @@
 <h1>Snake Eat Apple</h1>
 
+## Objects
+
+```mermaid
+classDiagram
+
+class SnakeEatApple{
+    frame:MainFrame
+    main()
+}
+
+class MainFrame{
+    snake:Snake
+    apple:Apple
+}
+
+class Snake{
+    head:Image
+    tail:Image
+}
+class Apple{
+    img:Image
+}
+
+SnakeEatApple *-- MainFrame
+MainFrame *-- Snake
+MainFrame *-- Apple
+```
 ## display snake
 [MainFrame](../src/snake/MainFrame.java)
 [Snake](../src/snake/Snake.java)
@@ -27,8 +54,11 @@ class Rect{
     width:int
     height:int
 
-    collidepoint()
-    colliderect()
+    boolean collidepoint()
+    boolean colliderect()
+    void move_ip()
+    Rect copy(Rect)
+    void setTopLeft(int, int)
 }
 ```
 

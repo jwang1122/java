@@ -9,12 +9,17 @@ public class Snake {
 	Image tail;
 	int width = 10;
 	int height = 10;
+	int x=10;
+	int y=10;
 	ArrayList<Position> bodies = new ArrayList<>();
 
 	Snake(AbstractBoard board) {
 		this.board = board;
 		head = board.loadImage("head.png");
 		tail = board.loadImage("dot.png");
+		setHead(new Position(x, y));
+		addTail(new Position(x, y - height));
+		addTail(new Position(x, y - 2*height));
 	}
 
 	void setHead(Position point) {
