@@ -1,4 +1,4 @@
-package com.huaxia.ap2021.operator;
+package knowledgebase;
 
 public class OperatorTest {
 	public static void main(String[] args) {

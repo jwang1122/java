@@ -8,8 +8,8 @@ public class Shape {
         TShape, SquareShape, LShape, MirroredLShape }
 
     private Tetrominoe pieceShape;
-    private int coords[][];
-    private int[][][] coordsTable;
+    private int coords[][]; // holds selected shape coordinates
+    private int[][][] coordsTable; // holds all shapes coordinates
 
 
     public Shape() {

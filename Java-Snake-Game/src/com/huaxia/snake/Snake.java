@@ -1,5 +1,5 @@
 package com.huaxia.snake;
-
+//total lines of code: 283
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 

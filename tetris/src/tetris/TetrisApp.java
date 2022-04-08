@@ -1,7 +1,6 @@
-package snake;
-// total 147 lines of code
-public class SnakeEatApple {
+package tetris;
 
+public class TetrisApp {
 	public static void main(String[] args) {
 		Game frame = new Game();
 		frame.setVisible(true);	

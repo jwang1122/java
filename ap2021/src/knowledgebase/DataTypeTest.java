@@ -1,4 +1,4 @@
-package com.huaxia.ap2021.datatype;
+package knowledgebase;
 
 public class DataTypeTest {
 
@@ -6,6 +6,13 @@ public class DataTypeTest {
 //		math();
 //		area();
 		stringIndex();
+		var x = 5;
+		int y = 6;
+		int z = x + y;
+		System.out.println(z);
+		var s = new Student("John", 11);
+		System.out.println(s);
+		System.out.println(s.getClass().getName());
 	}
 
 	private static void stringIndex() {
@@ -40,4 +47,6 @@ public class DataTypeTest {
 		System.out.println(a);
 
 	}
+	
+	
 }

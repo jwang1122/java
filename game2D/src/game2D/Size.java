@@ -1,8 +1,8 @@
 package game2D;
 
 public class Size {
-	int width;
-	int height;
+	public int width;
+	public int height;
 	
 	public Size(int width, int height){
 		this.width = width;

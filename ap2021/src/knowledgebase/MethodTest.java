@@ -1,4 +1,4 @@
-package com.huaxia.ap2021.method;
+package knowledgebase;
 
 public class MethodTest {
 	public static void swap(String s1, String s2) {

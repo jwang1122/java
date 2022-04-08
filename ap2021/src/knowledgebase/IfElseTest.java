@@ -1,4 +1,4 @@
-package com.huaxia.ap2021.ifelse;
+package knowledgebase;
 
 public class IfElseTest {
 
