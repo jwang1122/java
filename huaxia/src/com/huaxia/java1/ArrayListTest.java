@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -114,4 +115,59 @@ public class ArrayListTest {
 		fw.close();
 	}
 
+	void old(){
+		// create ArryaList
+		ArrayList<String> list = new ArrayList<>();
+		list.add("Hello");
+		list.add("World");
+		list.add("Good Morning");
+		list.add("John");
+		System.out.println(list);
+		
+		System.out.println(list.indexOf("World")); // what is the index of "world"
+		boolean flag = list.contains("John");
+		System.out.println(flag);
+		
+		List<Integer> iList = new ArrayList<>();
+		iList.add(2);
+		iList.add(12);
+		iList.add(8);
+		System.out.println(iList);
+		System.out.println(iList.contains(12));
+		System.out.println(list.size());
+		
+		// modify ArrayList (CRUD)
+		iList.add(90);
+		iList.set(2, 11); // update value
+		System.out.println(iList);
+		iList.add(2, 78); // insert new element in given index
+		System.out.println(iList);
+		iList.remove(Integer.valueOf(78)); // delete element at given index
+		System.out.println(iList);
+		System.out.println(iList.getClass().getName());
+		iList.clear();  // remove all elements from the ArrayList
+		System.out.println("40: list size is " + iList.size());
+		
+		list.remove("John");    // delete element directly
+		System.out.println(list);
+		
+		// create ArrayList from an array
+		Integer[] a = {1,4,6,3,8}; // must use Integer instead of int
+		a[2]=7;
+		System.out.println(Arrays.toString(a)); 
+		iList = Arrays.asList(a);  // use Arrays.asList() to convert array to Arrays$ArrayList
+//		iList.add(19); // 😢 👎java.lang.UnsupportedOperationException due to iList is Arrays$ArrayList
+		System.out.println(iList.getClass().getName());
+		iList = new ArrayList<Integer>(iList);
+		System.out.println(iList.getClass().getName());
+		iList.add(19);
+		System.out.println(iList);
+		// write while loop, only print the number >= 7 by using if condition
+		
+		// sort ArrayList
+		Collections.sort(iList);
+		System.out.println(iList);
+		
+
+	}
 }

@@ -63,7 +63,7 @@ IF--True-->DB-->END
 IF--False-->B-->END
 
 classDef start fill:blue,stroke:#DE9E1F,stroke-width:2px,color:white;
-classDef html fill:#F46624,stroke:#F46624,stroke-width:4px,color:white;
+classDef process fill:#F46624,stroke:#F46624,stroke-width:4px,color:white;
 classDef js fill:yellow,stroke:black,stroke-width:2px;
 classDef if fill:#EBCD6F,stroke:black,stroke-width:2px;
 classDef db fill:#BEBDB7,stroke:black,stroke-width:2px;

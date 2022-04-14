@@ -9,15 +9,13 @@
 
 To-Do List
 1. ✔️ java1: add more many-to-many sample
-2. ✔️ python1: add sticker sample app
 3. python1: add notepad app
-4. ✔️python1: complete blackjack tkinter game
-5. 
 
 ## Table of Contents
 - [Table of Contents](#table-of-contents)
 - [Getting Start](#getting-start)
   - [Check Software Installation](#check-software-installation)
+  - [method signature:](#method-signature)
   - [Basic skills(questions and answers)](#basic-skillsquestions-and-answers)
   - [File Structure](#file-structure)
   - [My First Java Program](#my-first-java-program)
@@ -30,14 +28,18 @@ To-Do List
 - [Language Basics](#language-basics)
 - [Data Type](#data-type)
 - [Array](#array)
+- [ArrayList](#arraylist)
 - [Operator](#operator)
 - [Excution Control](#excution-control)
   - [if-else](#if-else)
   - [switch](#switch)
 - [Loop](#loop)
 - [Java class](#java-class)
-- [Exception](#exception)
 - [OOP](#oop)
+  - [Abstraction](#abstraction)
+  - [Inheritance](#inheritance)
+  - [Polymorphism](#polymorphism)
+  - [Encapsulations](#encapsulations)
 - [class](#class)
   - [Construtor](#construtor)
   - [Inhritance](#inhritance)
@@ -46,7 +48,9 @@ To-Do List
 - [concrete class](#concrete-class)
   - [Method Overloading vs. Overriding](#method-overloading-vs-overriding)
   - [An Abstract Class Example](#an-abstract-class-example)
+- [Exception](#exception)
 - [Unit test](#unit-test)
+- [TDD (Test Driving Development)](#tdd-test-driving-development)
 - [Logging](#logging)
 - [Blackjack Card Game](#blackjack-card-game)
   - [Object relationship](#object-relationship)
@@ -78,20 +82,83 @@ To-Do List
 
 
 ## Getting Start
-❓✔️❌✔️
+
+### Check Software Installation
+```DOS
+java -version
+javac -version
 ```
-1. Create Java Project: javaclass
-2. Create Package: com.huaxia.javaclass (by package name convention)
+* here is a sample output:
+```DOS
+C:\Users\12818\workspace\java>java -version
+java version "16.0.2" 2021-07-20
+Java(TM) SE Runtime Environment (build 16.0.2+7-67)
+Java HotSpot(TM) 64-Bit Server VM (build 16.0.2+7-67, mixed mode, sharing)
+
+C:\Users\12818\workspace\java>javac -version
+javac 16.0.2
+```
+
+❓ what is JVM?
+✔️ The JVM stands for Java Virtual Machine, which manages system memory and provides a portable execution environment for Java-based applications
+
+❓ What is JRE? (java.exe)
+✔️ The JRE stands for Java Runtime Environment, which provides the minimum requirements for executing a Java application. It includes JVM, core classes, and supporting files.
+
+❓ What is JDK? (javac.exe)
+✔️ THe JDK stands for Java Development Kit, which is a software development environment used for developing Java applications and applets. It includes JRE, an interpreter/loader (java.exe), a compiler (javac.exe) and archiver (jar.exe), a documentation generator (javadoc.exe), and more...
+
+![JDK Installed file structure](images/javaJdkFileStructure.png)
+
+❓ What is java project in Eclipse?
+✔️ A java project in eclipse is a structured files system which include definition and configuration about the project, such as [.project] and [.classpath] files, [src], [bin] folder and more. the [src] folder is used for storing Java source code, and the [bin] folder is used for storing compiled bytecode files.
+
+[Online documentation and tutorial](https://www.tutorialspoint.com/eclipse/eclipse_create_java_project.htm)
+
+❓ What is package?
+✔️ A package in Java is used to group related classes. Think of it as **a folder in a file directory**.
+
+![](images/javaproject.png)
+
+
+```
+1. Create Java Project: langbasic
+2. Create Package: langbasic (by package name convention)
 <com, org>.<company name>.<project name>.<package name>...
 3. Create class: Hello.java
 for any class name by convention, use Upercase for first letter
 ```
 * [My First Java Program](../huaxia/src/com/huaxia/java1/Hello.java)
+  1. java reserved keyword in purple color: package,public,class,static,void
+  2. public and static is modifier which can be used to modify class, method, or variable
+  3. class is used to declare a java class
+  4. void is a method return data type, which means nothinbg to return
+  5. package is actual file folders
+  6. cannot use private modifier for class
+  7. default class can be used within same package
+  8. package declaration line cannot be removed
+  9. ❓how to rename class name: ✔️highlight class name > right-click > refactor > Rename
+  10. cannot remove public or static modifier and void return type from main() method.
+  11. cannot change main() method name. JRE will use it to run the class.
+  12. cannot change argument String[] in main() method, it is part of the signature of main().
+  13. the args variable name can be changed to something else.
+  14. ; cannot be removed, it is used to complete the java statement.
+  15. "" define a String object.
+  16. 😢System.out.println([String]), there are more than one signature for println() method, such as println([int]);
+
+### method signature:
+1. method name
+2. number of arguments
+3. type of arguments
+4. return data type(it may not belong to signature, but is part of method declaration)
+
 
 ❓ How to learn new computer language?
 ✔️
 1. do it by yourself
 2. learn from mistakes
+3. take good learning notes
+4. programming practice 
    
 ![How to learn](images/鲁班学艺的故事.png)
 
@@ -105,12 +172,6 @@ for any class name by convention, use Upercase for first letter
 
 ![Other's mistakes](images/MistakesHis.jpeg)
 
-
-### Check Software Installation
-```DOS
-java -version
-javac -version
-```
 
 ### Basic skills(questions and answers)
 
@@ -141,17 +202,19 @@ javac -version
 ### File Structure
 Organize Class Notes File Structure
 ```
-<java root>
+<java>
     ├── ReadMe.md
-    └── doc/
-         ├── images/
-         ├── homeworks/
-         |      ├── mardown01.md
-         |      └── mardown02.md
-         ├── eclipseTrics.md     
-         ├── markdownTrics.md     
-         ├── myIcons.md     
-         └── java.md     
+    ├── doc/
+    |    ├── images/
+    |    ├── homeworks/
+    |    |      ├── mardown01.md
+    |    |      └── mardown02.md
+    |    ├── eclipseTrics.md     
+    |    ├── markdownTrics.md     
+    |    ├── utilities.md     
+    |    └── java.md   
+    ├── langbasic/bin/ (byte code)
+    └── langbasic/src/ (source code)          
 ```
 
 [Homework 1](../homeworks/markdown01.md)
@@ -208,6 +271,13 @@ for any class name by convention, use Upercase for first letter
 2. %d placeholder for integer
 3. \n new line character
 4. // single line comment
+5. /**  ... */ multilines comment
+6. System.out.println()
+7. System.out.print()
+8. System.out.printf()
+
+❓ What are the differences between print(), println(), and printf() methods?
+✔️ (homework)
 
 * Homeworks
   1. [Math Competition](../homeworks/12023%20Harmoney%20School%20Houston.pdf)
@@ -220,19 +290,16 @@ for any class name by convention, use Upercase for first letter
 
 #### naming rules
 1. any variable name cannot start with number.
-2. variable name can be a combination of letters and numbers and '$', '_', not other special characters.
+2. variable name can be combination of letters and numbers $, _, a->z, A->Z, 0->9, no other special characters
 3. cannot use Java reservered keywords as variable name.
 4. cannot define same variable name within same code scope.
 5. you can re-assign new value on same variable without declaration.
-
-1. variable name cannot start with number
-2. variable can be combination of letters and numbers _, a~z, A~Z, 0~9, no other special characters
-3. don't use reserved keywords as variable name
    
 ![](images/javaKeywords.png)
 
 [define variable, assign value](../huaxia/src/com/huaxia/java1/Variable.java)
 
+📌❗️ **Knowlodge Base**
 >**the naming rules above is also apply for class name, method name.**
 
 ### Comment
@@ -244,7 +311,9 @@ for any class name by convention, use Upercase for first letter
 ### Scanner
 ❓ What is Scanner?
 ✔️ is Java built-in class which allow program to get user input from console.
+
 [Scanner](../huaxia/src/com/huaxia/java1/ScannerTest.java)
+
 1. System.in is the console
 2. **new** is a Java keyword used to create instance of a class.
 3. nextLine(), nextInt(), ..., find all other functions from Java API document👇 below.
@@ -252,7 +321,27 @@ for any class name by convention, use Upercase for first letter
 [Java API Document](https://docs.oracle.com/javase/8/docs/api/)
 seach for java.util.Scanner
 
+📌❗️ **Knowlodge Base**
 >❗️ public class name must to be the same as the java file name!
+
+❓can we run java programs on command prompt?
+✔️ Yes.
+1. make sure your JDK java compiler installed on your machine correctly.
+2. make sure your JDK bin path is set on your system path.
+```
+C:\Program Files\Java\jdk-15.0.1\bin
+javac.exe: java compiler which compiles java source code to byte code(.class)
+java.exe:  JRE, Java runtime environment
+```
+3. compile your source by using
+```
+javac <java file name include .jave extention>
+
+```
+4. Run your byte code by using JRE
+```
+java <class name>
+```
 
 ## Language Basics
 ```mermaid
@@ -278,6 +367,23 @@ class B,C,D,E html
 
   - Java built in data type (String, )
   - User defined data type
+  1. primitive data type (boolean, byte, short, int, long, float, double)
+  2. Java defined data type (String, StringBuffer, ... ...)
+  3. Developer defined data type
+> every class extends(inherits) from **java.lang.Object** which is the root class for all java classes
+> you can override toString() method to represent different object
+> if you create your own constructor, the default constructor no longer available
+
+❓ What is differences between Primitive and Java defined data type?
+>✔️ 1. java defined data type has a lot built in methods can be used.
+    1. java defined data type you need use **new** keyword to create an instance.
+
+📌❗️ **Knowlodge Base**
+> Java programming is nothing but create and use data type.
+> 
+![](images/chineseMedicine.jpg)
+
+![](images/memory.gif)
 
 ![](images/A65-ASCII.png)
 
@@ -286,8 +392,16 @@ class B,C,D,E html
   - int[] primitive array
   - String[] Java defined array
   - Cup[] Developer defined array
+  - Arrays.toString() method
+- 
+## ArrayList
+* [ArrayList Test](../huaxia/src/com/huaxia/java1/ArrayListTest.java)
+👎😢 Arrays.asList(iList) return Arrays$ArrayList which cannot use add() operation.
+✔️ iList = new ArrayList(iList); // then iList is a ArrayList.
+[](../src/com/huaxia/john/ArrayListTest.java)
 
 ## Operator
+❓ What are operators for java language?
 * [Operators.java](../huaxia/src/com/huaxia/java1/Operators.java)
   - Arithmatic operator: +,-,*,/,%
   - compound assignment operator: +=, -=, *=, /=, %= 
@@ -355,6 +469,10 @@ class E,E1 end1
 
 ## Loop
 * For loop
+* for loop (1. initial index; 2. loop condition; 3. adjust index), **continue**, **break**
+* for each loop
+> go through each element in the iterable variables such as array, ArrayList, ...
+>   
   ![](images/Loop.svg)
 * [for/while loop/do-while](../huaxia/src/com/huaxia/java1/Loop.java)
 * While loop
@@ -375,13 +493,26 @@ while loop has 3 part:
 graph TB
 
 A([java programing])
-B[class]
+B[class<br>Data Type]
 C[name]
 D[attributes]
 E[methods]
+F[constructor<br>return instance of the class]
+G[static method<br>called by class name]
+H[none-static method]
+I[abstract method]
 
 A --is nothing but write--> B
 B --includes--> C & D & E
+E --could be --> F & G & H & I
+
+classDef start fill:green,stroke:#DE9E1F,stroke-width:2px,color:white;
+classDef process fill:#F46624,stroke:#F46624,stroke-width:4px,color:white;
+classDef js fill:yellow,stroke:black,stroke-width:2px;
+
+class A start
+class B process
+class F,G,H,I js
 ```
 
 ## Java class
@@ -397,6 +528,9 @@ B --includes--> C & D & E
 
 
 ❓ What is method signature?
+
+When we define a method which includes the following parts
+
 ```mermaid
 graph LR
 
@@ -411,7 +545,9 @@ A--includes-->F & B & C & E & D
 ```
 ✔️ includes 1. method name; 2. parameter data type; 3. number of parameters;
 
-may concern a return type also as part of the signature;
+📌❗️ **Knowlodge Base**
+💡👉 may concern a return type also as part of the signature;
+💡👉 in one class there is only one method signature allowed. or cause compiler error.
 
 ❓ Parameter vs. argument
 ✔️ 
@@ -442,27 +578,22 @@ public class Example {
 ```
 where x, y are the arguments.
 
-## Exception
-❓ What is Exception?
-✔️ In java, Exception is a root class for all Exceptions.
+❓ How do I set arguments to main() method in eclipse?
+✔️ Right-Click class name > Properties > Run/Debug Settings > Click class name > Edit > Arguments > enter argument list > Apply and Close
 
-```mermaid
-classDiagram
+❓ How do I call java program from DOS command window?
+✔️ 
+1. Open DOS window
+2. change directory to the classes(bin) folder
+3. run java command on DOS window
 
-class Exception
-
-class InvalidInputDataException
-
-Exception <|--InvalidInputDataException:is
+```DOS
+C:\Users\12818\workspace\java\huaxia\bin>java com.huaxia.java1.Example1 4 5
+[4, 5]
+4 x 5 = 20.000000
+Hello, John
 ```
-* Using Exception root class in general cases
-* 
-[SimpleMath.div()](../src/com/huaxia/john/SimpleMath.java)
-
-* Create your own specific Exception
-[Create my own Exception](../src/com/huaxia/john/InvalidInputDateException.java)
-
-* try-catch block
+[](../huaxia/src/com/huaxia/java1/Example1.java)
 
 ## OOP
 ❓ What is OOP?
@@ -479,15 +610,92 @@ D[Polymorphism]
 E[Encapsulation]
 
 A--Features--> B & C & D & E
-classDef html fill:#F46624,stroke:#F46624,stroke-width:4px,color:white;
+classDef process fill:#F46624,stroke:#F46624,stroke-width:4px,color:white;
 classDef start fill:green,stroke:#DE9E1F,stroke-width:2px,color:white;
 
 class A start
-class B,C,D,E html
+class B,C,D,E process
 ```
-1. Encapsulation: private, protected
-❓What is private modifier?
->✔️private modifier make variable or method in the class can only be used within the class, which makes encapsulation possible.
+### Abstraction
+❓ What is **Abstraction**?
+✔️ Abstract object attributes and functionalities in the real world that only interested in the software to define a java class.
+
+[Student.java](../src/com/huaxia/john/Student.java)
+[Circle.java](../src/com/huaxia/john/Circle.java)
+
+❓ What is toString() method in java?
+✔️ toString() is a method defined in **Object** class which returns a String representation of the object. Developer can always override it in different return.
+
+❓ What is **Object** class in java
+✔️ Class Object is the root of the class hierarchy. Every class has Object as a superclass.
+
+### Inheritance
+❓ What is **Inheritance**?
+✔️ Subclass inherits features(attributes and methods) from superclass. (___is___ relationship)
+
+```mermaid
+classDiagram
+class Object{
+  constructor()
+  toString()
+  hashCode()
+  getClass()
+}
+
+class Occupation{
+  <<interface>>
+  getName()
+  getOccupation()
+}
+class Person{
+  <<abstract>>
+  *firstName:String
+  *lastName:String
+  *ssn:String
+  *age:int
+  *gender:String
+  getOccupation()
+  add(double x, double y)
+  getName()
+}
+
+class Student{
+  -studentId:String
+  -grad:int
+  +turnInHomework()
+  +doHomework()
+  +doExam()
+}
+
+class Teacher{
+  -id:String
+  -course:String
+  +gradExam()
+  +assignHomework()
+}
+
+class Engineer{
+  -employeeId:String
+  -skillList:List<string>
+  +addSkill(skill:String)
+}
+
+Object<|--Person:is-relation
+Person<|--Student:is
+Person<|--Teacher:is
+Person<|--Engineer:is
+Occupation<--Person
+```
+[Engineer.java](../src/com/huaxia/john/Engineer.java)
+[Test.java](../src/com/huaxia/john/Test.java)
+❓ How to check **is** relation in Java?
+✔️ instanceof keyword
+```java
+if(s1 instanceof Person){
+ ...
+}
+```
+
 2. Abstraction: abstract object in the real world to write a class.
   ![](images/ClassAbstraction.png)
 [First class](../huaxia/src/com/huaxia/java1/Cup.java)
@@ -543,12 +751,19 @@ where the Student class is subclass of Person class, we call the Person as Super
 * [Student, Subclass of Person](../huaxia/src/com/huaxia/java1/Student.java)
 * [Teacher, Subclass of Person](../huaxia/src/com/huaxia/java1/Teacher.java)
 
-4. Polymorphism: 
+### Polymorphism
+Polymorphism: 
 > allows a single task to be performed in different ways.
 > Polymorphism in Java is the ability of an object to take many forms, it allows us to perform the same action in many different ways. (method Overriding, Overloading, runtime polymorphism)
 > give different answer for the same question from different classes which inherit from same superclas or interface. (异类同功)
    
 [Test Polymorphism](../huaxia/test/com/huaxia/java1/Test.java)
+
+### Encapsulations
+to make our java code isolated from unexpected changes. Encapsulation: private, protected
+
+❓What is private modifier?
+>✔️private modifier make variable or method in the class can only be used within the class, which makes encapsulation possible.
 
 ## class
 ❓What functions defined in Object class which are useful for us?
@@ -656,6 +871,23 @@ class Color{
 ```
 
 ## interface
+❓ What is interface?
+
+✔️ the following definition
+
+❌👎Bad definition: An interface is a completely "abstract class" that is used to group related methods with empty bodies.
+> ✔️👍 An interface is a special java code block that define abstract methods, and possible constants.
+
+❓ What is an abstract methond?
+
+✔️ a method with an ***abstract*** modifier with all method signatures without implementation.
+
+1. All methods defined in interface are ***abstract***.
+2. All methods defined in interface are ***public***.
+3. All vriables defined in interface are ***static***, ***final*** constants.
+4. All classes implement the interface need implement all methods defined in the interface.
+5. An interface can not be used to create object.
+6. An interface can be used to delear variable or method return type.## interface
 ❓ What is interface?
 
 ✔️ the following definition
@@ -772,6 +1004,29 @@ class Demo extends Sum{
    }
 }
 ```
+## Exception
+❓ What is Exception?
+✔️ In java, Exception is a root class for all Exceptions.
+
+```mermaid
+classDiagram
+
+class Exception
+
+class InvalidInputDataException
+
+Exception <|--InvalidInputDataException:is
+```
+* Using Exception root class in general cases
+* 
+[SimpleMath.div()](../huaxia/src/com/huaxia/java1/math/SimpleMath.java)
+
+* Create your own specific Exception
+[Create my own Exception](../huaxia/src/com/huaxia/java1/math/InvalidInputDataException.java)
+
+* try-catch block
+
+
 ```mermaid
 graph LR
 
@@ -803,7 +1058,8 @@ classDef start fill:green,stroke:#DE9E1F,stroke-width:2px,color:white;
 class A start
 class C,E,F,D,J,GIT block1
 ```
-
+👎😢 throw Exception can help developer locate the problem, and root reason which causes the issues, but sometimes it is too late.
+ 
 ## Unit test
 ❓What is Unit Test?
 >✔️A unit is a specific piece of code to be tested, such as a function or a class. Unit tests are then other pieces of code that specifically exercise the code unit with a full range of different inputs, including boundary and edge cases.
@@ -824,6 +1080,8 @@ class B,C html
 In order to make the project or application work well, we need make sure each small unit works correctly.
 
 [Simple math Unittest](../huaxia/test/com/huaxia/java2/SimpleMathTest.java)
+
+## TDD (Test Driving Development)
 
 ## Logging
 

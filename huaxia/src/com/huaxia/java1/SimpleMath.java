@@ -1,9 +1,9 @@
 package com.huaxia.java1;
 
 public class SimpleMath {
-	public static double circleArea(double radius) throws InvalidInputDateException{ // this method only depends on the argument radius
+	public static double circleArea(double radius) throws InvalidInputDataException{ // this method only depends on the argument radius
 		if(radius<0) {
-			throw new InvalidInputDateException("Radius of a circle cannot be negative.");
+			throw new InvalidInputDataException("Radius of a circle cannot be negative.");
 		}
 		return Math.PI * Math.pow(radius, 2);
 	}

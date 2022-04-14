@@ -1,4 +1,4 @@
-package com.huaxia.java1;
+package com.huaxia.java1.math;
 
 public class InvalidInputDataException extends Exception {
 	private static final long serialVersionUID = 1L;

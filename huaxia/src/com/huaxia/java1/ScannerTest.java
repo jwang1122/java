@@ -22,6 +22,15 @@ public class ScannerTest {
 		String name = input.nextLine();
 		System.out.printf("Hello, %s!\n", name);
 		input.close();		
+		input = new Scanner(System.in); // System.in is the console
+		System.out.print("Enter your first name: ");
+		String firstName = input.nextLine();
+		
+		System.out.print("Enter your age: ");
+		int age = input.nextInt();
+		
+		input.close();
+		System.out.println("your first name is '" + firstName + "'" + " and " + age + " years old." );
 	}
 
 	@SuppressWarnings("resource")
