@@ -163,7 +163,6 @@ public class ArrayListTest {
 		iList.add(19);
 		System.out.println(iList);
 		// write while loop, only print the number >= 7 by using if condition
-		
 		// sort ArrayList
 		Collections.sort(iList);
 		System.out.println(iList);

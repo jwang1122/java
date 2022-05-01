@@ -11,7 +11,7 @@ public class Rect {
 		this.height = height;
 		updateValues();
 	}
-
+	
 	public Rect(Position pos, Size size) {
 		this.left = pos.x;
 		this.top = pos.y;
@@ -53,6 +53,12 @@ public class Rect {
 		updateValues();
 	}
 
+	public static Rect randomRect(int winWidth, int winHeight, int width, int height) {
+		Position pos = Position.randomPosition(winWidth, winHeight, width, height);
+		Size size = new Size(width, height);
+		return new Rect(pos, size);
+	}
+	
 	@Override
 	public String toString() {
 		return "Rect [left=" + left + ", top=" + top + "]";

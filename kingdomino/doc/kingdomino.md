@@ -1,5 +1,10 @@
 <h1>Kingdomino Game Specification and Design</h1>
 
+## Start the application
+
+Run Kingdomino.java file
+
+
 ## Play Ground
 ![](images/startingBoard.png)
 

@@ -1,7 +1,5 @@
 package snake;
 
-import javax.swing.JFrame;
-
 // total 147 lines of code
 public class SnakeEatApple {
 

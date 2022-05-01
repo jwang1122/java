@@ -16,7 +16,7 @@ public class Apple {
 	}
 
 	void locateApple() {
-		pos = Position.randomPos(Game.WIDTH, Game.HEIGHT);
+		pos = Position.randomPosition(Game.WIDTH-20, Game.HEIGHT-50, size.width, size.height);
 		rect.setTopLeft(pos);
 	}
 	

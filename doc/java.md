@@ -1,14 +1,15 @@
 <h1> 休斯顿华夏中文学校-Java Class Notes</h1>
-
+[Google Classroom](https://classroom.google.com/c/NDcyOTM2NjE2MzAx?cjc=eq2qw5x)
 [Java 8 API Document](https://docs.oracle.com/javase/8/docs/api/)
 [Java 16 API Document](https://docs.oracle.com/en/java/javase/16/docs/api/index.html)
 
 [](myIcons.md)
 [编程入门该学哪门语言?](https://www.youtube.com/watch?v=6B9Olpve4n0)
-酒店注册
+
 
 To-Do List
 1. ✔️ java1: add more many-to-many sample
+2. 酒店注册
 3. python1: add notepad app
 
 ## Table of Contents
@@ -46,11 +47,13 @@ To-Do List
 - [interface](#interface)
 - [abstract class](#abstract-class)
 - [concrete class](#concrete-class)
-  - [Method Overloading vs. Overriding](#method-overloading-vs-overriding)
-  - [An Abstract Class Example](#an-abstract-class-example)
+- [Method Overloading vs. Overriding](#method-overloading-vs-overriding)
+- [An Abstract Class Example](#an-abstract-class-example)
 - [Exception](#exception)
+- [Parts of Softwere development](#parts-of-softwere-development)
 - [Unit test](#unit-test)
 - [TDD (Test Driving Development)](#tdd-test-driving-development)
+  - [TDD (Test Driving Development)](#tdd-test-driving-development-1)
 - [Logging](#logging)
 - [Blackjack Card Game](#blackjack-card-game)
   - [Object relationship](#object-relationship)
@@ -98,6 +101,16 @@ Java HotSpot(TM) 64-Bit Server VM (build 16.0.2+7-67, mixed mode, sharing)
 C:\Users\12818\workspace\java>javac -version
 javac 16.0.2
 ```
+❓What is Java?
+✔️ Java is a general-purpose, class-based, object-oriented programming language ~~designed for having lesser implementation dependencies~~. It is a computing platform for application development. 
+1. define data type
+2. create object use the data type
+3. use the object to do the job (OOP)
+
+📌❗️ **Knowlodge Base**
+> No class no Java.
+> In order to run java application, you need JRE installed on your computer.
+> In order to compile java source code, you need JDK installed on your computer.
 
 ❓ what is JVM?
 ✔️ The JVM stands for Java Virtual Machine, which manages system memory and provides a portable execution environment for Java-based applications
@@ -107,6 +120,16 @@ javac 16.0.2
 
 ❓ What is JDK? (javac.exe)
 ✔️ THe JDK stands for Java Development Kit, which is a software development environment used for developing Java applications and applets. It includes JRE, an interpreter/loader (java.exe), a compiler (javac.exe) and archiver (jar.exe), a documentation generator (javadoc.exe), and more...
+
+```mermaid
+graph TB
+JVM[JVM<br>Manage Memory]
+JRE[JRE<br>Execute Java App]
+JDK[JDK<br>Build Java APp]
+
+JRE--includes-->JVM
+JDK--includes-->JRE
+```
 
 ![JDK Installed file structure](images/javaJdkFileStructure.png)
 
@@ -887,27 +910,12 @@ class Color{
 3. All vriables defined in interface are ***static***, ***final*** constants.
 4. All classes implement the interface need implement all methods defined in the interface.
 5. An interface can not be used to create object.
-6. An interface can be used to delear variable or method return type.## interface
-❓ What is interface?
-
-✔️ the following definition
-
-❌👎Bad definition: An interface is a completely "abstract class" that is used to group related methods with empty bodies.
-> ✔️👍 Better definition: An interface is a special java code block that define abstract methods, and possible constants.
-
-❓ What is an abstract methond?
-
-✔️ a method with an ***abstract*** modifier with all method signatures without implementation.
-
-1. All methods defined in interface are ***abstract***.
-2. All methods defined in interface are ***public***.
-3. All vriables defined in interface are ***static***, ***final*** constants.
-4. All classes implement the interface need implement all methods defined in the interface.
-5. An interface can not be used to create object.
-
+6. An interface can be used to delear variable or method return type.
+   
 ## abstract class
 ❓ What is an abstract class?
-✔️
+✔️ Abstract classes are similar to interfaces. You cannot instantiate them, and they may contain a mix of methods declared with or without an implementation. Abstract class: is a restricted class 💡that cannot be used to create objects (to access it, it must be inherited from another class).
+
 1. the abstract class can leave method as abstract. (can have abstract methods)
 2. An abstract class can not used to create object.
 3. if the abstract class implements an abstract method defined in the interface, its subclass won't be necessary to implement that method.
@@ -921,14 +929,6 @@ class Color{
 
 3. use **abstract** modifier to make the class abstract which allow no implementation of the abstract method defined in interface.
  
-❓What is abstract class?
-✔️Abstract classes are similar to interfaces. You cannot instantiate them, and they may contain a mix of methods declared with or without an implementation. Abstract class: is a restricted class 💡that cannot be used to create objects (to access it, it must be inherited from another class).
-
-1. it can define abstract method; 
-2. avoid to be instantiated(Cannot instantiate the type Person); 
-3. only implements common used methods.
-
-
 * Inherit from Abstract class
   1. need implements all abstract methods or make itself to be abstract 
   
@@ -951,11 +951,13 @@ Abstract method: can only be used in an abstract class, and it does not have a b
 
 [Test.java](../huaxia/test/com/huaxia/java1/Test.java)  
 
-### Method Overloading vs. Overriding
+## Method Overloading vs. Overriding
 * Overloading:
+> same method name within a class with different signature.
 * Overriding: 
-  
-### An Abstract Class Example
+> same method name and signature defined in subclass
+
+## An Abstract Class Example
 
 ```mermaid
 graph TB
@@ -991,20 +993,23 @@ class Demo extends Sum{
     * program will throw compilation error.
     */
    public int sumOfTwo(int num1, int num2){
-	return num1+num2;
+	  return num1+num2;
    }
    public int sumOfThree(int num1, int num2, int num3){
-	return num1+num2+num3;
+	  return num1+num2+num3;
    }
    public static void main(String args[]){
-	Sum obj = new Demo();
-	System.out.println(obj.sumOfTwo(3, 7));
-	System.out.println(obj.sumOfThree(4, 3, 19));
-	obj.disp();
-   }
+      Sum obj = new Demo();
+      System.out.println(obj.sumOfTwo(3, 7));
+      System.out.println(obj.sumOfThree(4, 3, 19));
+      obj.disp();
+    }
 }
 ```
 ## Exception
+* calculate Circle Area without throwing Exception
+[Circle area with radius=-2](../huaxia/src/com/huaxia/java1/NeedException.java)
+
 ❓ What is Exception?
 ✔️ In java, Exception is a root class for all Exceptions.
 
@@ -1026,7 +1031,10 @@ Exception <|--InvalidInputDataException:is
 
 * try-catch block
 
+❓ throw Exception is good enough for java app?
+✔️ No. most of times it is too late.
 
+## Parts of Softwere development
 ```mermaid
 graph LR
 
@@ -1082,6 +1090,29 @@ In order to make the project or application work well, we need make sure each sm
 [Simple math Unittest](../huaxia/test/com/huaxia/java2/SimpleMathTest.java)
 
 ## TDD (Test Driving Development)
+1. create new folder under project folder: unittest
+2. add unittest folder to the source
+right-click project name ==> Properties ==> Java Build Path ==> Source (tab) ==> Add Folder (button) ==> unittest folder to source.
+
+![](images/unittest-setting.png)
+
+3. create a new package: com.huaxia.javaclass
+4. right-click package name ==> New ==> JUnit Test Case ==> enter the class name ==> finish(button)
+   
+![](images/simpleMathTestCase.png)
+
+❓ How to run all unit test in once?
+✔️ Right-click unittest package name ==> Run As ==> JUnit Test or,
+
+Highlight unittest package name ==> Run(menu) ==> Run As ==> JUnit Test or,
+
+Highlight unittest package name ==> Alt+shift+x, t
+
+![](images/runAllTests.png)
+
+### TDD (Test Driving Development)
+❓ What is TDD?
+✔️
 
 ## Logging
 
@@ -1239,11 +1270,11 @@ class A,D,C,E if
   
 * [Face.java](../john/src/com/john/blackjack/Face.java)
 * [Suit.java](../john/src/com/john/blackjack/Suit.java)
-* [Card.java](../john/src/com/john/blackjack/Card.java)
-* [Deck.java](../john/src/com/john/blackjack/Deck.java)
-* [Player.java](../john/src/com/john/blackjack/Player.java)
-* [Dealer.java](../john/src/com/john/blackjack/Dealer.java)
-* [Game.java](../john/src/com/john/blackjack/Game.java)
+* [Card.java](../huaxia/src/blackjack/Card.java)
+* [Deck.java](../huaxia/src/blackjack/Deck.java)
+* [Player.java](../huaxia/src/blackjack/Player.java)
+* [Dealer.java](../huaxia/src/blackjack/Dealer.java)
+* [Game.java](../huaxia/src/blackjack/Game.java)
 
 ## using logging
 1. create a static logger instance of Logger class in Game class.
@@ -1986,6 +2017,9 @@ B--false-->P
 * [TreeSet ](../huaxia/src/com/huaxia/java2/treemap/TreeSetExample.java)
 * [TreeSetDemo](../huaxia/src/com/huaxia/java2/treemap/TreeSetDemo.java)
 * [Video for insertion sort](images/insertionsort.mp4)
+
+## Java Module
+[YouTube Understand Java Module](https://www.youtube.com/watch?v=22OW5t_Mbnk)
 
 ## References
 * [👍 All excercises](https://www.w3resource.com/java-exercises/index.php)
