@@ -134,5 +134,54 @@ public void setVisible(boolean b)	|sets the visibility of the component. It is b
 * AddTextField.java
 * AddLabel.java
 
+## Blackjack Card Game
+
+Board or card game, no object motion
+
+## Snake Eat Apple
+object motion game
+[](../snake/src/snake/SnakeEatApple.java)
+
+## Kingdomino
+Board or card game, no object motion
+
+[](https://www.gamesweb.dk/spilleregler/kingdomino_eng.pdf)
+
+[](../kingdomino/src/com/huaxia/kingdomino/Kingdomino.java)
+
+![](images/bigwinner.png)
+🎯 Difficulty
+> Calculate the score (顺藤摸瓜-Follow the trail)
+
+## Five in line
+[](../fiveinline/src/fiveinline/FiveInLine.java)
+🎯 Difficulty
+> How to determine 5 chesses in line?
+
+![](images/fileinline.png)
+
+
+## Tetris
+[](../tetris/src/tetris/TetrisApp.java)
+🎯 Difficulty
+> 1. How to build a tetris shape?
+> 2. how to turn the tetris shape?
+> 3. how to figure out the tetris touch another onw?
+> 4. how to determine the one line is filled up, so we can remove it.
+
+## kick Brick down
+🎯 Difficulty
+> how to determine the ball hit the brick
+
+## Yahtzee Rules
+
+[Dice game](https://www.hasbro.com/common/instruct/yahtzee.pdf)
+
+## Cannon Bumb
+![](../kingdomino/doc/images/canyonBomber.gif)
+
+## JetFighter
+![](../kingdomino/doc/images/jetFighter.gif)
+
 ## References
 [Java tutorial](http://www.java2s.com/Tutorial/Java/0240__Swing/BoxcreateVerticalGlue.htm)

@@ -198,3 +198,51 @@ class Rect{
     collideRect()
 }
 ```
+
+* moveIp(Position) retrun nothing, but move the rect to the new relative position. 
+* collidePoint() method return true if the point in the rect, otherwise return false.
+* collideRect() method return true if the two rect overlap each other, otherwise return false.
+
+![CollideRect idea](colliderect.png)
+
+![](distance.png)
+
+
+💡👇 **Knowlodge Base**
+> 1. try to test all cases(try different input value especially for extreme case)
+> 2. modify souce code or test code if it is necessary.
+> 3. keep your test code for future use.
+
+* [replace Position to Rect for using colliderect()](../old/Snake5.java)
+* [](../old/BoardPanel5.java)
+* [](../old/Rect5.java)
+* [](../old/RectTest5.java)
+
+* [Build one-way relation between Snake and Apple](../old/Game6.java)
+  
+👎😢 **Issue**
+> the apple is not located on the grid?
+👍😄 **Conclusion**
+
+the apple is on grid but sometimes is out of window
+```java
+	static Position randomPos(int width, int height, int gridWidth) {
+		Random rand = new Random();
+//		int x = Math.abs(rand.nextInt()) % (width-20);
+//		int y = Math.abs(rand.nextInt()) % (height-50);
+		int x = rand.nextInt(width/gridWidth) * gridWidth; // x will be on the grid
+		int y = rand.nextInt(height/gridWidth) * gridWidth;
+		return new Position(x, y);
+	}
+```
+
+## create new project game2D
+
+1. create new project game2D
+2. move Position and Rect classes to the new project
+
+## use the new project
+1. one way is add related project to the project.
+2. build a jar file for reference.
+
+![](addjar.png)

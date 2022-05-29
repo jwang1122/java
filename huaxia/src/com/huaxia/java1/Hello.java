@@ -7,6 +7,15 @@ public class Hello {
 	}
 	public static void main(String[] args) {
 		System.out.println("Hello, World!");
+		int z = MyMath.add(12,34); 
+		System.out.println(z);
+		
+		MyMath mm = new MyMath();
+		System.out.println(mm.add(11, 9));
+		
+		Hello h = new Hello("John");
+		Test t = h.new Test();
+		System.out.println(t.sub(2.4, 9.1));
 	}
 	public String getName() {
 		return name;
@@ -15,4 +24,11 @@ public class Hello {
 		this.name = name;
 	}
 
+	private class Test{
+		double sub(double x, double y) {
+			return x - y;
+		}
+	}
+
 }
+

@@ -17,6 +17,7 @@ To-Do List
 - [Getting Start](#getting-start)
   - [Check Software Installation](#check-software-installation)
   - [method signature:](#method-signature)
+  - [static method](#static-method)
   - [Basic skills(questions and answers)](#basic-skillsquestions-and-answers)
   - [File Structure](#file-structure)
   - [My First Java Program](#my-first-java-program)
@@ -81,6 +82,7 @@ To-Do List
   - [one-to-many relationship](#one-to-many-relationship)
   - [many-to-many relationship](#many-to-many-relationship)
 - [Data Structure](#data-structure)
+- [Java Module](#java-module)
 - [References](#references)
 
 
@@ -157,7 +159,7 @@ for any class name by convention, use Upercase for first letter
   3. class is used to declare a java class
   4. void is a method return data type, which means nothinbg to return
   5. package is actual file folders
-  6. cannot use private modifier for class
+  6. cannot use private modifier for class (inner class is ok.)
   7. default class can be used within same package
   8. package declaration line cannot be removed
   9. ❓how to rename class name: ✔️highlight class name > right-click > refactor > Rename
@@ -175,6 +177,15 @@ for any class name by convention, use Upercase for first letter
 3. type of arguments
 4. return data type(it may not belong to signature, but is part of method declaration)
 
+### static method
+
+* [](../huaxia/src/com/huaxia/java1/MyMath.java)
+
+💡👉 **Knowlodge Base**
+> 1. static method can be called by using the class name;
+> 2. static meshod can be called by instance;
+> 2. static method cannot use instance variables. (indipendent from instance)
+
 
 ❓ How to learn new computer language?
 ✔️
@@ -182,6 +193,7 @@ for any class name by convention, use Upercase for first letter
 2. learn from mistakes
 3. take good learning notes
 4. programming practice 
+5. teach someone else
    
 ![How to learn](images/鲁班学艺的故事.png)
 

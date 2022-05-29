@@ -36,8 +36,8 @@ public class Tetris {
 
 	public Tetris() {
 		coordinates = new int[][][] { // Coordinates array for all 7 shapes
-				{ { 0, -1 }, { 0, 0 }, { -1, 0 }, { -1, 1 } }, // ZShape
-				{ { 0, -1 }, { 0, 0 }, { 1, 0 }, { 1, 1 } }, // SShape
+				{ { 0, -1 }, { 0, 0 }, { -1, 0 }, { 1, 1 } }, // ZShape
+				{ { 0, -1 }, { 0, 0 }, { 1, 0 }, { -1, 1 } }, // SShape
 				{ { 0, -1 }, { 0, 0 }, { 0, 1 }, { 0, 2 } }, // LineShape
 				{ { -1, 0 }, { 0, 0 }, { 1, 0 }, { 0, 1 } }, // TShape
 				{ { 0, 0 }, { 1, 0 }, { 0, 1 }, { 1, 1 } }, // SquareShape
