@@ -20,6 +20,17 @@ public class Print {
 		
 		String name = "John";
 		System.out.println(String.format("Hello, %s!", name));
+		
+		char d = 65;
+		System.out.println(d);
+		System.out.printf("%s\n",'0'+Integer.toBinaryString(d));
+		
+		char e = 'A';
+		System.out.println(e);
+		
+		int f = 65;
+		System.out.println((char)f);
+		
 	}
 
 }

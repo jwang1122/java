@@ -1,16 +1,12 @@
 <h1> 休斯顿华夏中文学校-Java Class Notes</h1>
-[Google Classroom](https://classroom.google.com/c/NDcyOTM2NjE2MzAx?cjc=eq2qw5x)
-[Java 8 API Document](https://docs.oracle.com/javase/8/docs/api/)
-[Java 16 API Document](https://docs.oracle.com/en/java/javase/16/docs/api/index.html)
 
-[](myIcons.md)
-[编程入门该学哪门语言?](https://www.youtube.com/watch?v=6B9Olpve4n0)
+* [Google Classroom](https://classroom.google.com/c/NDcyOTM2NjE2MzAx?cjc=eq2qw5x)
+* [Java 8 API Document](https://docs.oracle.com/javase/8/docs/api/)
+* [Java 16 API Document](https://docs.oracle.com/en/java/javase/16/docs/api/index.html)
 
-
-To-Do List
-1. ✔️ java1: add more many-to-many sample
-2. 酒店注册
-3. python1: add notepad app
+* [Useful icons and mermaid](utilities.md)
+  
+* [编程入门该学哪门语言?](https://www.youtube.com/watch?v=6B9Olpve4n0)
 
 ## Table of Contents
 - [Table of Contents](#table-of-contents)
@@ -103,6 +99,25 @@ Java HotSpot(TM) 64-Bit Server VM (build 16.0.2+7-67, mixed mode, sharing)
 C:\Users\12818\workspace\java>javac -version
 javac 16.0.2
 ```
+
+❓ What is computer?
+>✔️ the computer is nothing but CPU and memory.
+
+![](images/computer.svg)
+
+❓ Why we need programing language? 
+>✔️ tell CPU what to do through programing language.
+> people write the code using the programing language to make the computer understand and to what has been told.
+
+![Very old computer](images/punchMachine.webp)
+![punch paper program](images/ppt-roll.jpg)
+![Language level](images/languageLevel.png)
+
+❓ Why different language?
+> 1. from low level to high level development;
+> 2. server different purpose;
+> 3. the old language dies, new comes, some of the old language still in service.
+
 ❓What is Java?
 ✔️ Java is a general-purpose, class-based, object-oriented programming language ~~designed for having lesser implementation dependencies~~. It is a computing platform for application development. 
 1. define data type
@@ -127,7 +142,7 @@ javac 16.0.2
 graph TB
 JVM[JVM<br>Manage Memory]
 JRE[JRE<br>Execute Java App]
-JDK[JDK<br>Build Java APp]
+JDK[JDK<br>Build Java App]
 
 JRE--includes-->JVM
 JDK--includes-->JRE
@@ -170,6 +185,33 @@ for any class name by convention, use Upercase for first letter
   14. ; cannot be removed, it is used to complete the java statement.
   15. "" define a String object.
   16. 😢System.out.println([String]), there are more than one signature for println() method, such as println([int]);
+
+
+❓ What does class means?
+>✔️ write Java is nothing but design class, which is user defined data type can be used to create new instance of that class.
+
+```mermaid
+classDiagram
+
+class ClassName {
+  attributes
+  methods()
+}
+
+class Student{
+  firstName:String
+  lastName:String
+  age:int
+  gender:String
+  grade:int
+  enroll()
+  turninHomework()
+}
+```
+
+💡🔑 **Knowlodge Base**
+> 1. public modifier on main() method (funtion) is part of main() cannot be removed.
+> 2. write Java program means to create class.
 
 ### method signature:
 1. method name
@@ -311,6 +353,22 @@ for any class name by convention, use Upercase for first letter
 7. System.out.print()
 8. System.out.printf()
 
+* place holder (%s, %d, %f)
+* print with tuple
+* formated print: print(f"x={x}") 
+
+❓ What is ASCII code?
+>✔️ASCII Table: American Standard Code for Information Interchange
+
+![](images/USASCII_code_chart.png)
+
+[ASCII website](https://ascii-tables.com/)
+
+* Homeworks
+    - [Math Competition](../homeworks/12023%20Harmoney%20School%20Houston.pdf)
+    - [print-01](homeworks/print01.md)
+    - [print-02](homeworks/print02.md)
+    - 
 ❓ What are the differences between print(), println(), and printf() methods?
 ✔️ (homework)
 
