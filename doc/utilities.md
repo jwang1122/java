@@ -18,12 +18,12 @@
 * [YouTube Google Classroom](https://www.youtube.com/watch?v=5yoKprcfHR8&t=1509s)
 
 ## Notations
-💡🔑 **Knowlodge Base**
+🔑💡 **Knowlodge Base**
 👍😄 **Conclusion**
-📝 **Source Code**
-❌ **Mistake:**
-👌 **Reasong:**
-✔️ **Solution:**
+📝🔍 **Source Code**
+❌😢 **Mistake:**
+👌😄 **Reasong:**
+✔️😄 **Solution:**
 
 ## Fast way to learn something new:
   1. DIY (do it yourself);

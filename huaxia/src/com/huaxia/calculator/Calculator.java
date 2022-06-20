@@ -124,8 +124,8 @@ class Calculator extends JFrame implements ActionListener {
 		// add panel to frame 
 		f.add(p); 
 
-		f.setSize(350, 230); 
-//		f.setResizable(false);
+		f.setSize(220, 210); 
+		f.setResizable(false);
 		f.setVisible(true);; 
 	} 
 	public void actionPerformed(ActionEvent e) 
