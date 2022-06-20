@@ -20,10 +20,10 @@
 ## Notations
 🔑💡 **Knowlodge Base**
 👍😄 **Conclusion**
-📝 **Source Code**
-❌ **Mistake:**
-👌 **Reasong:**
-✔️ **Solution:**
+📝🔍 **Source Code**
+❌😢 **Mistake:**
+👌😄 **Reasong:**
+✔️😄 **Solution:**
 
 ## Fast way to learn something new:
   1. DIY (do it yourself);
