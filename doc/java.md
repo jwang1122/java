@@ -20,11 +20,12 @@
   - [Getting farmiliar with your keyboard](#getting-farmiliar-with-your-keyboard)
   - [Print](#print)
   - [Variable](#variable)
-    - [naming rules](#naming-rules)
+    - [variable naming rules](#variable-naming-rules)
   - [Comment](#comment)
   - [Scanner](#scanner)
 - [Language Basics](#language-basics)
 - [Data Type](#data-type)
+  - [Understand data type casting](#understand-data-type-casting)
 - [Array](#array)
 - [ArrayList](#arraylist)
 - [Operator](#operator)
@@ -306,16 +307,20 @@ Organize Class Notes File Structure
 for any class name by convention, use Upercase for first letter
 ```
 * [My First Java Program](../huaxia/src/com/huaxia/java1/Hello.java)
-    - System.out.println()
-    - // single line comment
-    - every Java statement line ends with ;
-    - public before the class is not important
-    - main() method must be public
-    - main() method must be static
-    - void on main() method is return type
-    - main() method name is special, change it will cause main() not found error.
-    - String[] is part of main() method signature, cannot be changed
-    - args is variable name which can be changed.
+
+💡🔑 **Knowlodge Base**
+> System.out.println()
+>    - // single line comment
+>    - every Java statement line ends with ;
+>    - public before the class is not important
+>    - main() method must be public
+>    - main() method must be static
+>    - void on main() method is return type
+>    - main() method name is special, change it will cause main() not found error.
+>    - String[] is part of main() method signature, cannot be changed
+>    - args is variable name which can be changed.
+
+👍😄 **Conclusion**
   1. java reserved keyword in purple color: package,public,class,static,void
   2. public and static is modifier which can be used to modify class, method, or variable
   3. class is used to declare a java class
@@ -364,6 +369,32 @@ for any class name by convention, use Upercase for first letter
 
 [ASCII website](https://ascii-tables.com/)
 
+![](images/letterA.png)
+❓ how to make eclipse console display utf-8?
+
+```
+1. Window -> Preferences -> Expand General and click Workspace, text file encoding (near bottom) has an encoding chooser.
+2. Select "Other" radio button -> Select UTF-8 from the drop down.
+3. Click Apply and OK button OR click simply OK button.
+```
+
+❓ What is a binary number?
+>✔️ a binary number is 2 based number.
+
+$$0\cdot 2^7+ 1\cdot 2^6 + 0\cdot 2^5+ 0\cdot 2^4+ 0\cdot 2^3+ 0\cdot 2^2+ 0\cdot 2^1+ 1\cdot 2^0 = 65$$
+$$1 ⋅ 2^6 = 2^3 × 2^3 = 2\cdot 2 \cdot 2\times2\cdot 2 \cdot 2=8\times 8=64 $$
+
+* Hexadecimal number is 16 based number: 0xFF= 0b1111_1111; from 0x00 to 0xFF, 0==>9,A→F, 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F, add 0x1 to 0xF make it 0x10=16
+
+$$4\cdot 16^1 + 1\cdot 16^0 = 4\times 16 + 1= 65$$
+
+$$ 2^0=16^0=10^0=1$$
+  
+* Decimal NUmber is based on 10, 0→9, add 1 to 9 make 10
+  
+$$6\cdot 10^1 + 5\cdot 10 ^0 = 65$$
+
+
 * Homeworks
     - [Math Competition](../homeworks/12023%20Harmoney%20School%20Houston.pdf)
     - [print-01](homeworks/print01.md)
@@ -378,32 +409,55 @@ for any class name by convention, use Upercase for first letter
   3. [variable02](../homeworks/variable02.md)
 
 ### Variable
+❓ What is a variable?
+>✔️ a variable in Java has 3 parts:
+> 1. data type;
+> 2. name of the variable;
+> 3. a value of the variable.
+
+💡🔑 **Knowlodge Base**
+> 1. you have to define a data type and name when you declare a variable.
+> 2. you have to assign a value to the declared variable when you use it.
+> 3. variable be defined once, and used many times;
+> 4. if you make change, it changs all over the place;
+
 ❓ Why using variable?
 ✔️ we can define variable once, and use it at many place, so that you only make less change when you need change the value.
 
-#### naming rules
+#### variable naming rules
 1. any variable name cannot start with number.
 2. variable name can be combination of letters and numbers $, _, a->z, A->Z, 0->9, no other special characters
 3. cannot use Java reservered keywords as variable name.
+
+![](images/JavaKeywords.png)
+
 4. cannot define same variable name within same code scope.
 5. you can re-assign new value on same variable without declaration.
-   
-![](images/javaKeywords.png)
+6. Never ever use java core class name as your variable name, or that class cannot be used.
+
+```java
+int System = 9; // override System from existing class System
+System.out.println(System); // does NOT work.
+```
+
+![](images/memory.png)
 
 [define variable, assign value](../huaxia/src/com/huaxia/java1/Variable.java)
 
-📌❗️ **Knowlodge Base**
+💡🔑 **Knowlodge Base**
 >**the naming rules above is also apply for class name, method name.**
 
 ### Comment
-1. single line comment
-2. multiple line comment
-3. for document
-4. block code from executing
+comment is used in java to document your source code, so that other team member can understand your code, include yourself.
+> 1. inline comment: //...; JDK will ignore the text from // to end of line
+> 2. flexible comment: /* ... */ can be used inline or block
+> 3. document comment: /** ... */, will be used for javadoc 
+> 4. everything within the above comments will be ignored.
+
 
 ### Scanner
 ❓ What is Scanner?
-✔️ is Java built-in class which allow program to get user input from console.
+✔️ Scanner is Java built-in class which allow program to get user input from console.
 
 [Scanner](../huaxia/src/com/huaxia/java1/ScannerTest.java)
 
@@ -414,7 +468,7 @@ for any class name by convention, use Upercase for first letter
 [Java API Document](https://docs.oracle.com/javase/8/docs/api/)
 seach for java.util.Scanner
 
-📌❗️ **Knowlodge Base**
+🔑💡 **Knowlodge Base**
 >❗️ public class name must to be the same as the java file name!
 
 ❓can we run java programs on command prompt?
@@ -471,14 +525,27 @@ class B,C,D,E html
 >✔️ 1. java defined data type has a lot built in methods can be used.
     1. java defined data type you need use **new** keyword to create an instance.
 
-📌❗️ **Knowlodge Base**
+
+🔑💡 **Knowlodge Base**
 > Java programming is nothing but create and use data type.
-> 
+
 ![](images/chineseMedicine.jpg)
 
 ![](images/memory.gif)
 
 ![](images/A65-ASCII.png)
+
+### Understand data type casting
+> Casting between primitive types enables you to convert the value of one type to another primitive type is called Primitive Type Casting.
+
+![](images/JavaDataTypeBytes.png)
+
+![Primitive Data Type casting](images/casting.png)
+
+🔑💡 **Knowlodge Base**
+> 1. small value can be assigned to larger container automatically without casting.
+> 2. large value need to be casted before assign to small container.
+
 
 ## Array
 * [ArrayTester.java](../huaxia/src/com/huaxia/java1/ArrayTester.java)

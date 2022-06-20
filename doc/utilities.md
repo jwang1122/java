@@ -18,7 +18,7 @@
 * [YouTube Google Classroom](https://www.youtube.com/watch?v=5yoKprcfHR8&t=1509s)
 
 ## Notations
-💡🔑 **Knowlodge Base**
+🔑💡 **Knowlodge Base**
 👍😄 **Conclusion**
 📝 **Source Code**
 ❌ **Mistake:**
