@@ -482,15 +482,16 @@ java.exe:  JRE, Java runtime environment
 ```
 3. compile your source by using
 ```
-javac <java file name include .jave extention>
+javac <java file name include package folder and .jave extention>
 
 ```
 4. Run your byte code by using JRE
 ```
-java <class name>
+java <full class name>
 ```
 
 ## Language Basics
+
 ```mermaid
 graph TB
 A([Programming Language])
@@ -517,6 +518,7 @@ class B,C,D,E html
   1. primitive data type (boolean, byte, short, int, long, float, double)
   2. Java defined data type (String, StringBuffer, ... ...)
   3. Developer defined data type
+  4. 
 > every class extends(inherits) from **java.lang.Object** which is the root class for all java classes
 > you can override toString() method to represent different object
 > if you create your own constructor, the default constructor no longer available
@@ -570,6 +572,7 @@ class B,C,D,E html
   - logical operator: && and, || or, ! not
   - ternary operator: a<b?a:b
   - bitwise operator: &, |, ^
+  - . operator
   - precendence: *, /; +, -; ()
 ``` 
 		 &: bitwise and
@@ -686,6 +689,7 @@ class F,G,H,I js
 3. the constructor has no return data type, since it retuens the instance of this class;
 4. there can be more than one constructors with different signatures so called method overloading;
 
+![](images/abstraction.png)
 
 ❓ What is method signature?
 

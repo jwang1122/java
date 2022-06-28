@@ -1,6 +1,13 @@
 package com.huaxia.java1;
 
 public class Operators {
+	
+	public static void main(String[] args) {
+//		arithmeticOps();
+		comparisonOps();
+	}
+
+	
 	static void arithmeticOps() {
 		// arithmetic operators +, -, *, /, % (mod or remainder)
 		int a, b, c;
@@ -59,9 +66,13 @@ public class Operators {
 		char f = 'F';
 		char w = 'W';
 		System.out.println(f<w);
-		System.out.printf("%s(%d) is less than %s(%d)\n",f,(int)f,w,(int)w);
+		System.out.printf("The letter %s(%d) is less than letter %s(%d)\n",f,(int)f,w,(int)w);
 		
-
+		DataType type1 = new DataType();
+		DataType type2 = new DataType();
+		DataType type3 = type1;
+		System.out.printf("Is type1 and type2 the same? %s\n",type1==type2);
+		System.out.printf("Is type1 and type3 the same? %s\n",type1==type3);
 	}
 	
 	static void logicalOps() {
@@ -85,7 +96,7 @@ public class Operators {
 		System.out.println(max);		
 	}
 	
-	public static void main(String[] args) {
+	public static void bitwiseOperator() {
 		// bitwise operator:
 		// &: bitwise and
 		// |: bitwise or
@@ -105,8 +116,9 @@ public class Operators {
 		System.out.println(formatByte(b1));
 		System.out.println(formatByte(b2));
 		System.out.println(formatByte(b6));
-		System.out.println(formatByte(b5));
+		System.out.println(formatByte(b5));		
 	}
+	
 
 	static String formatByte(byte b) {
 		String s = String.format("%8s", Integer.toBinaryString(b));
