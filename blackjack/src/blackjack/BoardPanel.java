@@ -37,7 +37,7 @@ public class BoardPanel extends JPanel {
 		this.parent = parent;
 		this.playerList = playerList;
 		this.setLayout(null);
-		this.setBackground(BLUE); // set default background
+		this.setBackground(BLUE); // set deffault background
 		setPlayerNames();
 		String imageFileName = "resources/backR.gif";
 		URL url = this.getClass().getClassLoader().getResource(imageFileName);

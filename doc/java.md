@@ -33,6 +33,7 @@
   - [if-else](#if-else)
   - [switch](#switch)
 - [Loop](#loop)
+- [Java Programing](#java-programing)
 - [Java class](#java-class)
 - [OOP](#oop)
   - [Abstraction](#abstraction)
@@ -652,6 +653,8 @@ while loop has 3 part:
 ❓ What is **static** method?
 ✔️ a static method can be called by the class name, the method has nothing to do with the class attributes.
 
+## Java Programing
+
 ```mermaid
 graph TB
 
@@ -707,7 +710,38 @@ F[scope modifier]
 
 A--includes-->F & B & C & E & D
 ```
-✔️ includes 1. method name; 2. parameter data type; 3. number of parameters;
+
+
+❓ What is method in Java?
+>✔️ the method is a java code block. method has 5 parts.
+> 1. method name;
+> 2. arguments list;
+> 3. code block;
+> 4. return type;
+> 5. modifier (public, static, private, protected)
+
+```java syntax of method
+[modifiers] <return type> <method name>([arguments list: type-name pair]){
+	[code block]
+	[return <type>]
+}
+```
+
+❓ What is the signature(finger print) of method?
+✔️ the method signature uniquely determine one method from another, which has 3 parts:
+> 1. method name;
+> 2. number of parameters; 
+> 3. data type of each parameter.
+> 4. and order of each parameter.
+
+💡🔑 **Knowlodge Base**
+> we can defined more than one method in same class as long as they have different signature.
+
+❓ What is **method overloading** in Java?
+✔️ the methods have **same name** with different signature in one class is called method overloading.👎😢
+
+❓ What is **method overridden** in Java?
+✔️ subclass defines same method (**same signature**) as its superclass is called **method overridden**.
 
 📌❗️ **Knowlodge Base**
 💡👉 may concern a return type also as part of the signature;
