@@ -207,7 +207,4 @@ public class MainFrame extends JFrame {
 		currentPlayer = getCurrentPlayer();
 		controlPnl.setPlayer(currentPlayer);
 	}
-	
-	
-	
 }

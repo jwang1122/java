@@ -818,8 +818,8 @@ class B,C,D,E process
 ❓ What is **Abstraction**?
 ✔️ Abstract object attributes and functionalities in the real world that only interested in the software to define a java class.
 
-[Student.java](../src/com/huaxia/john/Student.java)
-[Circle.java](../src/com/huaxia/john/Circle.java)
+[Student.java](../huaxia/src/com/huaxia/java1/Student.java)
+[Circle.java](../huaxia/src/com/huaxia/java1/math/SimpleMath.java)
 
 ❓ What is toString() method in java?
 ✔️ toString() is a method defined in **Object** class which returns a String representation of the object. Developer can always override it in different return.
@@ -1245,7 +1245,7 @@ class C,E,F,D,J,GIT block1
  
 ## Unit test
 ❓What is Unit Test?
->✔️A unit is a specific piece of code to be tested, such as a function or a class. Unit tests are then other pieces of code that specifically exercise the code unit with a full range of different inputs, including boundary and edge cases.
+>✔️A unit is a specific piece of code to test other unit code block, such as a function or a class. Unit tests are then other pieces of code that specifically exercise the code unit with a full range of different inputs, including boundary and edge cases.
 
 ```mermaid
 graph TB
@@ -1263,6 +1263,7 @@ class B,C html
 In order to make the project or application work well, we need make sure each small unit works correctly.
 
 [Simple math Unittest](../huaxia/test/com/huaxia/java2/SimpleMathTest.java)
+
 
 ## TDD (Test Driving Development)
 1. create new folder under project folder: unittest
