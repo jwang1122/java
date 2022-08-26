@@ -61,6 +61,16 @@ public class MyMath{
 
 ```
 
+⭐️ learn all concepts, throuth sample code
+👎😢 loose interests, connot remember all concepts, don't know how to use them
+
+👍 Add more homeworks, and homework solution class.
+👍 Don't learn all concepts, introduce application such as blackjack game, review concepts learned, and learn more new concept once needed.
+👍 learn graphics game, learn how to write complicated java application
+![](images/blackjack.png)
+
+
+  
 ## Python
 
 ```mermaid
