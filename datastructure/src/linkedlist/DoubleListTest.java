@@ -1,4 +1,4 @@
-package com.huaxia.linkedlist;
+package linkedlist;
 
 import static org.junit.Assert.assertEquals;
 

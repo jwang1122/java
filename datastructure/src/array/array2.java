@@ -1,4 +1,4 @@
-package com.huaxia.datastructures;
+package array;
 
 public class array2 {
 

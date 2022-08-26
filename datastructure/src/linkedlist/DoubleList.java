@@ -1,4 +1,4 @@
-package com.huaxia.linkedlist;
+package linkedlist;
 
 public class DoubleList {
 	private DoubleNode front, back;
