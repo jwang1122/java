@@ -1,4 +1,4 @@
-package com.huaxia.datastructure;
+package sort;
 
 import java.util.Arrays;
 

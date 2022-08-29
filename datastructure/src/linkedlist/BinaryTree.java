@@ -1,4 +1,4 @@
-package com.huaxia.datastructure;
+package linkedlist;
 
 import java.util.Queue;
 

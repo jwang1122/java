@@ -1,4 +1,4 @@
-package com.huaxia.datastructure;
+package sort;
 
 //Java program for implementation of Insertion Sort
 class InsertionSort {

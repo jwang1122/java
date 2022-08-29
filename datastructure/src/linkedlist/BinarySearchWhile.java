@@ -1,4 +1,4 @@
-package com.huaxia.datastructure;
+package linkedlist;
 
 /**
  * use while loop do the binary search. 

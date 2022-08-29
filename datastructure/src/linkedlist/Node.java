@@ -1,4 +1,4 @@
-package com.huaxia.datastructure;
+package linkedlist;
 
 public class Node<T> { // generics data type
 	private Node<T> prev;

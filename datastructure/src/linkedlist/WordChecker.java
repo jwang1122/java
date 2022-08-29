@@ -12,8 +12,8 @@ public class WordChecker
 		Scanner input = new Scanner(new File("WordChecker.txt"));
 		
 		int x = input.nextInt();
-//		while(x>0)
-//		{
+		while(x>0)
+		{
 			x--;
 			DoubleList test = new DoubleList();
 			input.nextLine();
@@ -24,7 +24,8 @@ public class WordChecker
 			test.printNodes();
 //			System.out.println(test.size());
 			out.println("Removing E");
-			int returnedValue = test.remove("E");
+//			int returnedValue = test.remove("E");
+			test.remove("E");
 			System.out.println("The new Double Linked List");			
 			test.printNodes();
 			
@@ -35,6 +36,6 @@ public class WordChecker
 		//	out.println("The New Double Linked List");
 		//	out.println(test);
 		//	out.println();
-//		}
+		}
 	}
 }

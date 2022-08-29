@@ -1,4 +1,4 @@
-package com.huaxia.datastructure;
+package linkedlist;
 
 /**
  * recursive function call for binary search

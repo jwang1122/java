@@ -1,4 +1,4 @@
-package com.huaxia.datastructure;
+package linkedlist;
 
 public class LinkedList<T> {
 	private Node<T> head; //

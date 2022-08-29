@@ -1,4 +1,4 @@
-package structures;
+package builtins;
 
 import java.util.LinkedList;
 import java.util.Queue;

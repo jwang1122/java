@@ -1,4 +1,4 @@
-<h1>Getting Started</h1>
+f<h1>Getting Started</h1>
 
 ## Check Software Installation
 ```DOS
@@ -83,25 +83,8 @@ JDK--includes-->JRE
 <com, org>.<company name>.<project name>.<package name>...
 3. Create class: Hello.java
 for any class name by convention, use Upercase for first letter
-```
-* [My First Java Program](../huaxia/src/com/huaxia/java1/Hello.java)
-  1. java reserved keyword in purple color: package,public,class,static,void
-  2. public and static is modifier which can be used to modify class, method, or variable
-  3. class is used to declare a java class
-  4. void is a method return data type, which means nothinbg to return
-  5. package is actual file folders
-  6. cannot use private modifier for class (inner class is ok.)
-  7. default class can be used within same package
-  8. package declaration line cannot be removed
-  9. ❓how to rename class name: ✔️highlight class name > right-click > refactor > Rename
-  10. cannot remove public or static modifier and void return type from main() method.
-  11. cannot change main() method name. JRE will use it to run the class.
-  12. cannot change argument String[] in main() method, it is part of the signature of main().
-  13. the args variable name can be changed to something else.
-  14. ; cannot be removed, it is used to complete the java statement.
-  15. "" define a String object.
-  16. 😢System.out.println([String]), there are more than one signature for println() method, such as println([int]);
 
+```
 
 ❓ What does class means?
 >✔️ write Java is nothing but design class, which is user defined data type can be used to create new instance of that class.

@@ -1,4 +1,4 @@
-package com.huaxia.datastructure;
+package linkedlist;
 
 public class LinearSearchExample {
 	public static int linearSearch(int[] arr, int key) {
