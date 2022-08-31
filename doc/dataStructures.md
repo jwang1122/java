@@ -1,8 +1,38 @@
-# Java Data Structures
+<h1> Java Data Structures & Algorithms</h1>
 
+- [Data Structure & Algorithms](#data-structure--algorithms)
+- [Data Structure Category](#data-structure-category)
+  - [Data Management](#data-management)
+  - [Data Usage](#data-usage)
+- [Array](#array)
+  - [Lambda Expression](#lambda-expression)
+  - [Stream](#stream)
+  - [Java Generics](#java-generics)
+- [Java Built-ins Data Structure](#java-built-ins-data-structure)
+  - [ArrayList](#arraylist)
+  - [Vector](#vector)
+  - [Hashtable](#hashtable)
+  - [HashMap](#hashmap)
+  - [Linked List](#linked-list)
+  - [HashSet](#hashset)
+  - [TreeSet](#treeset)
+  - [StringBuffer](#stringbuffer)
+  - [StringBuilder](#stringbuilder)
+- [Linked List](#linked-list-1)
+- [Data Structure](#data-structure)
+  - [Queue](#queue)
+  - [Stack](#stack)
+  - [Set](#set)
+  - [HashSet](#hashset-1)
+  - [TreeSet](#treeset-1)
+  - [Search](#search)
+  - [Sort](#sort)
+- [HashCode() and equals()](#hashcode-and-equals)
+- [References](#references)
 
 ❓ Why we want to learn data structure?
->✔️
+>✔️ The reason for learning about data structures is because adding structure to our data can make the algorithms much simpler, easier to maintain, and often faster.
+
 
 ## Data Structure & Algorithms
 
@@ -37,14 +67,18 @@ STATIC[Static Data Structure]
 NONSTATIC[Non-static Data Structure]
 DS1-->STATIC & NONSTATIC
 ```
+
 ❓ What is data structure?
->✔️A data structure is a named location that can be used to store and organize data. And, an algorithm is a collection of steps to solve a particular problem. Learning data structures and algorithms allow us to write efficient and optimized computer programs.
+>✔️A data structure is a named location that can be used to store and organize data. 
+
+❓ What is algorithm?
+>✔️an algorithm is a collection of steps to solve a particular problem. Informally, an algorithm is nothing but a mention of steps to solve a problem. They are essentially a solution.
+
+Learning data structures and algorithms allow us to write efficient and optimized computer programs.
 
 * [Array](../datastructure/src/array/array1.java)
 * [Array List](../datastructure/src/builtins/MyArrayList.java)
 
-❓ What are Algorithms?
->✔️ Informally, an algorithm is nothing but a mention of steps to solve a problem. They are essentially a solution.
 
 🔑💡 **Knowlodge Base**
 ### Data Management
@@ -92,37 +126,69 @@ $$list.stream.map(f)$$
 $$result: f(a_1),f(a_2),...,f(a_n)$$
 
 ### Lambda Expression
+Lambda expression provides implementation of functional interface.
 
 ```
 ([argument list])->{[function code block]};
+
+(variables) -> {
+
+}
 ```
 
-* [lambda forEach]()
+* [lambda for](../datastructure/src/lambda/Lambda1.java)
+
 ### Stream
+
+* [Sample stream](../datastructure/src/array/array5.java)
 
 ### Java Generics
 ❓ What is Generics?
 >✔️Generics add stability to your code by making more of your bugs detectable at compile time. In Java, Generics data structure handle any other data type in more generic way.
 
+* [Java ArrayList](../datastructure/src/builtins/MyArrayList.java)
+* [Define own generic class](../datastructure/src/linkedlist/Node.java)
+* [Java Collections](../datastructure/src/builtins/MyCollections.java)
 
-
-## Built-ins Data Structure
+## Java Built-ins Data Structure
+* [Understand Collections.sort()]()
 >1. ArrayList
 >2. Vector
 >3. Hashtable
 >4. HashMap
->5. TreeSet
+>5. HashSet
+>6. TreeSet
+
 ### ArrayList
 
-* [ArrayList]()
+* [ArrayList](../datastructure/src/builtins/MyArrayList.java)
 
 ### Vector
+* [Vector](../datastructure/src/builtins/MyVector.java)
 
+### Hashtable
+* [Hashtable](../datastructure/src/builtins/MyHashtable.java)
+
+### HashMap
+* [HashMap](../datastructure/src/builtins/MyHashMap.java)
 
 ### Linked List
 [Linked List website](https://www.geeksforgeeks.org/data-structures/linked-list/)
 
-* [Sigle linked list]()
+### HashSet
+* [HashSet](../datastructure/src/builtins/MyHashSet.java)
+
+### TreeSet
+* [TreeSet](../datastructure/src/builtins/MyTreeSet.java)
+
+### StringBuffer
+* []()
+### StringBuilder
+
+
+## Linked List
+
+* [Sigle linked list](../datastructure/src/linkedlist/LinkedList.java)
 ![](images/Linkedlist.png)
 
 
@@ -196,7 +262,38 @@ class Stack{
 
 
 ### Set
+list of element with no duplication.
+
+```mermaid
+classDiagram
+
+class Set{
+<<interface>>
+  of()
+  add()
+  remove()
+  isEmpty()
+}
+
+class SortedSet{
+  <<interface>>
+  comparator()
+}
+
+class TreeSet{
+  iterator()
+}
+
+SortedSet <-- TreeSet:implements
+Set <-- SortedSet:implements
+```
+
+
 * [Set]()
+
+### HashSet
+* []()
+
 
 ### TreeSet
 * [Tree]()

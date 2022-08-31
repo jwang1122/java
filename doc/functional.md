@@ -1,5 +1,16 @@
 <h1>Functional Programing</h1>
 
+- [Anonymous class](#anonymous-class)
+- [lambda expression](#lambda-expression)
+- [map](#map)
+- [filter](#filter)
+- [reduce](#reduce)
+- [stream()](#stream)
+- [pass function as parameter](#pass-function-as-parameter)
+- [callback](#callback)
+- [References](#references)
+
+
 ❓ What is Functional Programing?
 >✔️ Basically, functional programming is a style of writing computer programs that treat computations as evaluating mathematical functions.
 
@@ -33,12 +44,31 @@ Collections.sort(numbers, new Comparator<Integer>() { // anonymous class
 
 ## reduce
 
+```
+stream.reduce(initialValue, func);
+stream.reduce(func);
+```
 * [Java reduce() function](../datastructure/src/functional/Reduce.java)
 
 ## stream()
+
+![](images/stream.png)
+
 * [stram, map, average()](../datastructure/src/array/array5.java)
 * [Vector, stream, map, average()](../datastructure/src/builtins/MyVector.java)
-* []()
+* [normal loop vs. functional](../datastructure/src/functional/Stream.java)
+* [Stream sort](../datastructure/src/functional/StreamSort.java)
+
+## pass function as parameter
+
+* [Pass interface as parameter](../datastructure/src/functional/PassFunction.java)
+* [Pass function by reflect](../datastructure/src/functional/PassFunction1.java)
+
+
+## callback
+
+* [Java Callback Function](../datastructure/src/functional/Callback.java)
 
 ## References
 * [Optional Parameters](https://devwithus.com/java-optional-parameters/)
+* [Pass function](https://www.delftstack.com/howto/java/how-to-pass-a-function-as-a-parameter-in-java/)
