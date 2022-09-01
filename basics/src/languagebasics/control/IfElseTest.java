@@ -1,4 +1,4 @@
-package com.huaxia.java1;
+package languagebasics.control;
 
 public class IfElseTest {
 	static String[] weekdays = { "No such day", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",

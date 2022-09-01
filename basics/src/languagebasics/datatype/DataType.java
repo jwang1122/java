@@ -1,6 +1,8 @@
-package com.huaxia.java1;
+package languagebasics.datatype;
 
 import java.util.Arrays;
+
+import languagebasics.Hello;
 
 public class DataType {
 

@@ -1,4 +1,4 @@
-package com.huaxia.java1;
+package linkedlist;
 
 // Java implementation of recursive Binary Search 
 class BinarySearch {

@@ -1,4 +1,4 @@
-package com.huaxia.java1;
+package languagebasics;
 
 import java.util.Random;
 import java.util.Scanner;

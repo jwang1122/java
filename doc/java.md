@@ -18,28 +18,28 @@
 - [Parts of Softwere development](#parts-of-softwere-development)
 - [Unit test](#unit-test)
 - [TDD (Test Driving Development)](#tdd-test-driving-development)
-  - [TDD (Test Driving Development)](#tdd-test-driving-development-1)
+	- [TDD (Test Driving Development)](#tdd-test-driving-development-1)
 - [Logging](#logging)
 - [Blackjack Card Game](#blackjack-card-game)
 - [using logging](#using-logging)
-  - [load logging.properties from file](#load-loggingproperties-from-file)
-  - [load logging.properties from classpath](#load-loggingproperties-from-classpath)
-  - [load logging.properties from InputSream](#load-loggingproperties-from-inputsream)
-  - [Understand log message format](#understand-log-message-format)
+	- [load logging.properties from file](#load-loggingproperties-from-file)
+	- [load logging.properties from classpath](#load-loggingproperties-from-classpath)
+	- [load logging.properties from InputSream](#load-loggingproperties-from-inputsream)
+	- [Understand log message format](#understand-log-message-format)
 - [Integration Test](#integration-test)
 - [Documentation](#documentation)
-  - [Java Doc](#java-doc)
+	- [Java Doc](#java-doc)
 - [Software development life cycle](#software-development-life-cycle)
 - [Deployment(jar file)](#deploymentjar-file)
-  - [create jar file use ant](#create-jar-file-use-ant)
-  - [use jar](#use-jar)
-  - [view jar](#view-jar)
+	- [create jar file use ant](#create-jar-file-use-ant)
+	- [use jar](#use-jar)
+	- [view jar](#view-jar)
 - [Data Structure & Algorithms](#data-structure--algorithms)
-- [Java IO](#java-io)
 - [Java Multithreaded processing](#java-multithreaded-processing)
 - [Java Regular Expressions](#java-regular-expressions)
 - [Java Collections](#java-collections)
-- [Java Map](#java-map)
+- [Java IO](#java-io)
+- [Simple Math](#simple-math)
 - [Java Properties](#java-properties)
 - [Design Pattern](#design-pattern)
 - [MongoDB](#mongodb)
@@ -481,7 +481,6 @@ Window ⟹ show view ⟹ Project Explore ⟹ click arrow on the jar file
 
 * [Data Structures](dataStructures.md)
 
-## Java IO
 
 ## Java Multithreaded processing
 
@@ -489,12 +488,28 @@ Window ⟹ show view ⟹ Project Explore ⟹ click arrow on the jar file
 
 ## Java Collections
 
-## Java Map
+## Java IO
+* [read file](../basics/src/languagebasics/fileio/ReadFile.java)
+* [write file](../basics/src/languagebasics/fileio/WriteFile.java)
+* [Reac CSV file](../basics/src/languagebasics/fileio/ReadCSV.java)
+* [JSon file handler](../basics/src/languagebasics/fileio/GsonExample1.java)
+
+## Simple Math
+* [Prime](../basics/src/simplemath/Prime.java)
+* [GCD: Greatest Common Divisor](../basics/src/simplemath/GCD1.java)
+* [GCD: Greatest Common Divisor](../basics/src/simplemath/GCD2.java)
+* [GCF: Greatest Common Factor](../basics/src/simplemath/GCF.java)
+* [LCM: Least Common Multiple](../basics/src/simplemath/LCM.java)
+* [Linear algebra:赶集](../basics/src/simplemath/Linear1.java)
+* [Linear algebra:年龄](../basics/src/simplemath/Linear2.java)
+* [RollDice 1](../basics/src/simplemath/RollDice1.java)
+* [RollDice 2](../basics/src/simplemath/RollDice2.java)
+* [RollDice 3](../basics/src/simplemath/RollDice3.java)
 
 ## Java Properties
 
 ## Design Pattern
-* []()
+* [Design pattern](designPattern.md)
 
 ## MongoDB
 

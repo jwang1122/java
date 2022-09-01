@@ -1,4 +1,4 @@
-package com.huaxia.java1;
+package simplemath;
 
 public class MyMath {
 	public static int add(int x, int y) {

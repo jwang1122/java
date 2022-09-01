@@ -1,9 +1,10 @@
 package com.huaxia.java1;
 
-import com.huaxia.java1.Hello;
 import com.huaxia.java1.Engineer;
 import com.huaxia.java1.Occupation;
 import com.huaxia.java1.Teacher;
+
+import languagebasics.control.Hello;
 
 public class Test {
 

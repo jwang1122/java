@@ -1,4 +1,6 @@
-package com.huaxia.java1;
+package languagebasics.operators;
+
+import languagebasics.datatype.DataType;
 
 public class Operators {
 	

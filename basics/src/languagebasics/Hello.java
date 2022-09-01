@@ -1,8 +1,8 @@
-package com.huaxia.java1;
+package languagebasics;
 
 public class Hello {
 	private String name;
-	Hello(String name){
+	public Hello(String name){
 		this.name = name;
 	}
 	public static void main(String[] args) {
@@ -10,8 +10,8 @@ public class Hello {
 		int z = MyMath.add(12,34); 
 		System.out.println(z);
 		
-		MyMath mm = new MyMath();
-		System.out.println(mm.add(11, 9));
+//		MyMath mm = new MyMath();
+		System.out.println(MyMath.add(11, 9));
 		
 		Hello h = new Hello("John");
 		Test t = h.new Test();

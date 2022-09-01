@@ -1,4 +1,4 @@
-package com.huaxia.java1.loop;
+package languagebasics.loop;
 /*
  * break loop on condition
  */
