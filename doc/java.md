@@ -44,7 +44,6 @@
 - [Design Pattern](#design-pattern)
 - [MongoDB](#mongodb)
 - [SQL](#sql)
-- [Data Structure](#data-structure)
 - [Java Module](#java-module)
 - [References](#references)
 
@@ -519,7 +518,6 @@ Window ⟹ show view ⟹ Project Explore ⟹ click arrow on the jar file
 
 * [SQL Database basics](sql.md)
   
-## Data Structure
 
 ## Java Module
 [YouTube Understand Java Module](https://www.youtube.com/watch?v=22OW5t_Mbnk)

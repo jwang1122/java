@@ -1,4 +1,4 @@
-package behavioral;
+package behavioral.observer;
 
 public class HexObserver extends Observer{
 
