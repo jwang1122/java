@@ -1,4 +1,4 @@
-package com.huaxia.designpattern.factory;
+package creational.factory;
 
 public abstract class Computer {
 	public abstract String getRAM();

@@ -1,22 +1,23 @@
-package com.huaxia.designpattern.singleton;
+package creational.singleton;
 
 public class ThreadSafeSingleton {
-    private static ThreadSafeSingleton instance;
-    
-    private int x = 5;
-    
-    private ThreadSafeSingleton(){}
-    
-    public static synchronized ThreadSafeSingleton getInstance(){
-        if(instance == null){
-            synchronized (ThreadSafeSingleton.class) {
-                if(instance == null){
-                    instance = new ThreadSafeSingleton();
-                }
-            }
-        }
-        return instance;
-    }
+	private static ThreadSafeSingleton instance;
+
+	private int x = 5;
+
+	private ThreadSafeSingleton() {
+	}
+
+	public static synchronized ThreadSafeSingleton getInstance() {
+		if (instance == null) {
+			synchronized (ThreadSafeSingleton.class) {
+				if (instance == null) {
+					instance = new ThreadSafeSingleton();
+				}
+			}
+		}
+		return instance;
+	}
 
 	public int getX() {
 		return x;

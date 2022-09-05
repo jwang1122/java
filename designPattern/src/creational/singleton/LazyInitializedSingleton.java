@@ -1,4 +1,4 @@
-package com.huaxia.designpattern.singleton;
+package creational.singleton;
 
 public class LazyInitializedSingleton {
 	private static LazyInitializedSingleton instance;

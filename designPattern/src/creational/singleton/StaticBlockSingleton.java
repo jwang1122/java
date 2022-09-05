@@ -1,4 +1,4 @@
-package com.huaxia.designpattern.singleton;
+package creational.singleton;
 /*
  * provides option for exception handling.
  */

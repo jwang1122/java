@@ -1,4 +1,4 @@
-package com.huaxia.designpattern.singleton;
+package creational.singleton;
 
 public class BillPughSingleton {
 	private int x = 5;

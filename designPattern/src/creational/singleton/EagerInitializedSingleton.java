@@ -1,4 +1,4 @@
-package com.huaxia.designpattern.singleton;
+package creational.singleton;
 /**
  * it has a drawback that instance is created even though client application 
  * might not be using it.

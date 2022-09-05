@@ -1,4 +1,4 @@
-package com.huaxia.designpattern.factory;
+package creational.factory;
 
 import java.lang.reflect.Constructor;
 

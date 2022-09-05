@@ -1,4 +1,4 @@
-package com.huaxia.designpattern.factory;
+package creational.factory;
 
 public class FactoryPatternTester {
 
@@ -8,7 +8,7 @@ public class FactoryPatternTester {
 		System.out.println(computer instanceof Server);
 		System.out.println(computer.getClass().getName());
 
-		computer = ComputerFactory.getComputer("com.huaxia.designpattern.factory.Server");
+		computer = ComputerFactory.getComputer("creational.factory.Server");
 		System.out.println(computer.getClass().getName());
 	}
 }

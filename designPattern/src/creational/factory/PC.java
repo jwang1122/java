@@ -1,4 +1,4 @@
-package com.huaxia.designpattern.factory;
+package creational.factory;
 
 public class PC extends Computer {
 	private String ram;
