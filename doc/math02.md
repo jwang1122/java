@@ -1,0 +1,1 @@
+02. Graph $Δ$ABC with vertices A(-3,2), B(5,3), and C(2,-5) and its image under a half turn about (2, -1). State the coordinates for the images. Label all vertices with the appropriate letters.

@@ -1,0 +1,1 @@
+03. Graph quadrilateral ABCD with A(-6,4), B(6,0), C(4,-4), and D(-4,-2). Perform a dilation of the quadrilateral centered at the origin with a scale factor $\frac 1 2$. State the coordinates for the image. To receive credit, label all vertices with the appropriate letter.
