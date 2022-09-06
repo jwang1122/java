@@ -1,4 +1,4 @@
-package languagebasics;
+package simplemath;
 
 /*
  * Two six-sided dice are rolled. What is the probability 

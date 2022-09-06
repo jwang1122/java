@@ -1,5 +1,7 @@
 package languagebasics;
 
+import simplemath.MyMath;
+
 public class Hello {
 	private String name;
 	public Hello(String name){

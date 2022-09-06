@@ -1,4 +1,4 @@
-package com.huaxia.designpattern.observer;
+package behavioral.observer1;
 
 public interface Subject {
 	//methods to register and unregister observers

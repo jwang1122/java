@@ -1,4 +1,4 @@
-package com.huaxia.java1.math;
+package simplemath;
 
 public class AllPermutations {
 	static int count = 1;

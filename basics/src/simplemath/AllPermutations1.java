@@ -1,4 +1,4 @@
-package com.huaxia.java1.math;
+package simplemath;
 
 import java.util.Scanner;
 

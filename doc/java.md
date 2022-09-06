@@ -18,9 +18,9 @@
 - [Parts of Softwere development](#parts-of-softwere-development)
 - [Unit test](#unit-test)
 - [TDD (Test Driving Development)](#tdd-test-driving-development)
-	- [TDD (Test Driving Development)](#tdd-test-driving-development-1)
-- [Logging](#logging)
 - [Blackjack Card Game](#blackjack-card-game)
+- [chart](#chart)
+- [Logging](#logging)
 - [using logging](#using-logging)
 	- [load logging.properties from file](#load-loggingproperties-from-file)
 	- [load logging.properties from classpath](#load-loggingproperties-from-classpath)
@@ -194,9 +194,17 @@ Highlight unittest package name ==> Alt+shift+x, t
 
 ![](images/runAllTests.png)
 
-### TDD (Test Driving Development)
 ❓ What is TDD?
 ✔️
+
+## Blackjack Card Game
+
+* [Blackjack Card game document](blackjack.md)
+
+
+## chart
+* [Java chart](chart.md)
+
 
 ## Logging
 
@@ -211,11 +219,6 @@ Highlight unittest package name ==> Alt+shift+x, t
 [log to File](../huaxia/src/com/huaxia/java1/loggerExample2.java)
 [console log message](../huaxia/src/com/huaxia/java1/loggerExample1.java)
 [log to File](../huaxia/src/com/huaxia/java1/loggerExample3.java)
-
-## Blackjack Card Game
-
-* [](blackjack.md)
-
 
 ## using logging
 1. create a static logger instance of Logger class in Game class.

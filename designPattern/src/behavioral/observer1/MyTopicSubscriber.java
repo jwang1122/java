@@ -1,4 +1,4 @@
-package com.huaxia.designpattern.observer;
+package behavioral.observer1;
 
 public class MyTopicSubscriber implements Observer {
 	private String name;

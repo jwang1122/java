@@ -1,4 +1,4 @@
-package com.huaxia.chart;
+package chart;
 
 import java.util.ArrayList;
 
@@ -9,8 +9,6 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
-
-import com.huaxia.java1.FileTest;
 
 public class StudentScoreChart extends ApplicationFrame{
 

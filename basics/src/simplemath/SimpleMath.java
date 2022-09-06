@@ -1,9 +1,7 @@
-package com.huaxia.java1.math;
+package simplemath;
 
 import java.util.Random;
 import java.util.Scanner;
-
-import javax.sound.midi.InvalidMidiDataException;
 
 public class SimpleMath {
 

@@ -1,4 +1,4 @@
-package com.huaxia.chart;
+package chart;
 
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartFactory;

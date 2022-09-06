@@ -1,4 +1,4 @@
-package com.huaxia.designpattern.observer;
+package behavioral.observer1;
 
 import java.util.ArrayList;
 import java.util.List;

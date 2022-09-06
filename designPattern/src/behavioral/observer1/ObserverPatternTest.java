@@ -1,4 +1,4 @@
-package com.huaxia.designpattern.observer;
+package behavioral.observer1;
 
 public class ObserverPatternTest {
 	public static void main(String[] args) {
