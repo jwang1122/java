@@ -9,6 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ControlPanel extends JPanel implements ActionListener{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	MainFrame parent;
 	Player player;
 	JButton dealBtn = new JButton("Deal Card");

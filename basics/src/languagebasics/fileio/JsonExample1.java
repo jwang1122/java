@@ -44,7 +44,7 @@ public class JsonExample1 {
 				return false;
 			}
 
-			public boolean shouldSkipClass(Class aClass) {
+			public boolean shouldSkipClass(@SuppressWarnings("rawtypes") Class aClass) {
 				return false;
 			}
 		};

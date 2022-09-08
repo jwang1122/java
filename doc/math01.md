@@ -1,1 +1,1 @@
-01. calculate $ -9\sqrt {27} + 6\sqrt {45}$
+01. symplify radicals $ -9\sqrt {27} + 6\sqrt {45}$

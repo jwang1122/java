@@ -9,8 +9,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+@SuppressWarnings("deprecation")
 public class JsonFileTest {
-	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		JsonFileTest test = new JsonFileTest();
 		//		test.jsonWrite();

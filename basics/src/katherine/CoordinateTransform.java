@@ -9,8 +9,12 @@ public class CoordinateTransform {
 	 * @param p
 	 * @return
 	 */
-	public static Point transform(Point p1, Point p2) {
-		return new Point(p1.x - p2.x, p1.y - p2.y, p1.label);
+	public static Point translate(Point p1, Point p2) {
+		String label = p1.label;
+		if(!label.endsWith("'")) {
+			label += "'";
+		}
+		return new Point(p1.x - p2.x, p1.y - p2.y, label);
 	}
 
 	/**
@@ -41,9 +45,9 @@ public class CoordinateTransform {
 	 * @return
 	 */
 	public static Point rotate(Point p, double angle, Point turningPoint) {
-		Point o = transform(p, turningPoint);
+		Point o = translate(p, turningPoint);
 		o= rotate(o, angle); // rotate about the origin
-		return transform(o, negate(turningPoint));
+		return translate(o, negate(turningPoint));
 	}
 
 	public static Point negate(Point p) {
@@ -53,7 +57,7 @@ public class CoordinateTransform {
 	public static void transformTest() {
 		Point p1 = new Point(2,2,"p");
 		Point newOrigin = new Point(1,1,"o");
-		Point p = transform(p1, newOrigin);
+		Point p = translate(p1, newOrigin);
 		System.out.println(p);		
 	}
 	
@@ -102,11 +106,8 @@ public class CoordinateTransform {
 		}
 		return newPoints;
 	}
-	public static void main(String[] args) {
-//		transformTest();
-//		rotateOriginTest();
-//		rotateGeneralTest();
-//		rotatePointArrayTest();
+	
+	public static void rotateAboutPointTest() {
 		Point[] points = new Point[4];
 		points[0] = new Point(-6,4,"A");
 		points[1] = new Point(6,0,"B");
@@ -114,6 +115,21 @@ public class CoordinateTransform {
 		points[3] = new Point(-4, -2, "D");
 		points = scalePointArray(points, 0.5);
 		System.out.println(Arrays.toString(points));
-		
+	}
+	
+	public static void translateTest() {
+		Point a = new Point(-5, 6, "A");
+		Point delta = new Point(7, 0, "Delta");
+		Point a_ = translate(a, negate(delta));
+		System.out.println(a_);
+	}
+	
+	public static void main(String[] args) {
+//		transformTest();
+//		rotateOriginTest();
+//		rotateGeneralTest();
+//		rotatePointArrayTest();
+//		rotateAboutPointTest();
+		translateTest();
 	}
 }

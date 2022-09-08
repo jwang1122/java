@@ -500,3 +500,70 @@ class Demo extends Sum{
     }
 }
 ```
+
+## Practices
+
+### PrimeFactor
+* [Math01](math01.md)
+* [Square root](../basics/src/katherine/SquareRootSample.java)
+* [Prime Factors](../basics/src/katherine/PrimeFactor.java)
+
+### Prime number
+* [is Prime](../basics/src/katherine/Prime.java)
+  
+### Perfact number
+* [is Perfect Number](../basics/src/katherine/PerfactNumber.java)
+
+### Translation
+
+```mermaid
+classDiagram
+
+class Point{
+  x:double
+  y:double
+  label:String
+  toString()
+}
+```
+
+> $x' = x + \Delta x$
+> $y' = y + \Delta y$
+
+A(-5, 6), B(-2, 6), C(-2, 2)
+$\Delta x = 7, \Delta y = 0$
+
+after translation, we get
+A'(2, 6), B'(5, 6), C'(5, 2)
+
+![](images/triangle-translation-shape-only-animation.gif)
+
+### Rotation
+
+![](images/transform2D.png)
+![](images/Rotation_of_coordinates.png)
+
+![](images/rotation-by_90-360_animation.gif)
+
+$x' = x cos \theta + y sin \theta$
+$y' = - x sin \theta + y cos \theta$
+
+$x = x' cos \theta - y' sin \theta$
+$y = x' sin \theta + y' cos \theta$
+
+* [Math02](math02.md)
+
+## Dilation
+![](images/dilation.gif)
+* [Math03](math03.md)
+
+* [Math04](math04.md)
+* [Math05](math05.md)
+* [Coordinate transform](../basics/src/katherine/CoordinateTransform.java)
+
+![](images/triangle-rotation.png)
+
+## References
+
+* [坐标变换动画](https://www.mathwarehouse.com/animated-gifs/transformations.php)
+* [数学动画](https://www.mathwarehouse.com/animated-gifs/)

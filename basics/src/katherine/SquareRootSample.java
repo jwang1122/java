@@ -67,21 +67,4 @@ public class SquareRootSample {
 
 }
 
-class Point{
-	String label;
-	double x;
-	double y;
-	
-	public Point(double x, double y, String label) {
-		this.x = x;
-		this.y = y;
-		this.label = label;
-	}
-	
-	@Override
-	public String toString() {
-		return String.format("%s(%.2f, %.2f)", label, x, y);
-	}
-	
-	
-}
+
