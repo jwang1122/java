@@ -69,6 +69,13 @@ stream.reduce(func);
 
 * [Java Callback Function](../datastructure/src/functional/Callback.java)
 
+## RxJava
+[RxJava API Documentation](https://javadoc.io/doc/io.reactivex.rxjava3/rxjava/latest/index.html)
+* [Just wrapper](../functional/src/functional/RxTest.java)
+* [Observable](../functional/src/functional/ObservableTest.javae)
+
 ## References
 * [Optional Parameters](https://devwithus.com/java-optional-parameters/)
 * [Pass function](https://www.delftstack.com/howto/java/how-to-pass-a-function-as-a-parameter-in-java/)
+* [RxJava tutorial](https://www.tutorialspoint.com/rxjava/rxjava_environment_setup.htm)
+* [RxJava jar files download ](https://jar-download.com/artifact-search/rxjava)
