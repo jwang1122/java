@@ -18,6 +18,10 @@ build/
 lib/
 api/
 mytomcat/
+caches/
+daemon/
+*.dll
+*.lock
 *.class
 .classpath
 .project

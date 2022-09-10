@@ -521,6 +521,9 @@ Window ⟹ show view ⟹ Project Explore ⟹ click arrow on the jar file
 
 * [SQL Database basics](sql.md)
   
+## Functional Programming
+
+[Functional programing](functional.md)
 
 ## Java Module
 [YouTube Understand Java Module](https://www.youtube.com/watch?v=22OW5t_Mbnk)
