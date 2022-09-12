@@ -2,7 +2,7 @@ package functional;
 
 import io.reactivex.rxjava3.core.Observable;
 
-public class ObservableTest8 {
+public class ObservableTest08 {
 	public static void main(String[] args) {
 		final StringBuilder result = new StringBuilder();
 		Observable.empty().defaultIfEmpty("No Data").subscribe(s -> result.append(s));

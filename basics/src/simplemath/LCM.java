@@ -20,6 +20,6 @@ public class LCM {
 		return lcm;
 	}
 	public static void main(String[] args) {
-		System.out.println(lcm(15,6));
+		System.out.println("最小公约数： " + lcm(15,6));
 	}
 }

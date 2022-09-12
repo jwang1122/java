@@ -32,12 +32,13 @@ class B,C,D,E html
   - primitive data type (boolean, byte, char, short, int, long, float, double)
 >cast: small value can assign to large container; must cast large value before assign to small container.
 
-  - Java built in data type (String, )
+  - Java built in data type (String, Array, ArrayList, Hashtable, )
   - User defined data type
+
   1. primitive data type (boolean, byte, short, int, long, float, double)
   2. Java defined data type (String, StringBuffer, ... ...)
   3. Developer defined data type
-  4. 
+
 > every class extends(inherits) from **java.lang.Object** which is the root class for all java classes
 > you can override toString() method to represent different object
 > if you create your own constructor, the default constructor no longer available

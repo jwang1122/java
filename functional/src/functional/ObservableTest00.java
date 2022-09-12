@@ -7,7 +7,7 @@ import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class ObservableTest {
+public class ObservableTest00 {
 
 	public static void main(String[] args) throws InterruptedException {
 	      //Create the observable
@@ -20,7 +20,7 @@ public class ObservableTest {
 	         new DisposableSingleObserver<String>() {
 
 	         @Override
-	         public void onError(Throwable e) { 
+	         public void onError(Throwable e) {
 //	            e.printStackTrace();
 	            System.out.println(e.getMessage());
 	         }
@@ -29,7 +29,7 @@ public class ObservableTest {
 	         public void onSuccess(String value) {
 	            System.out.println(value);
 	         }
-	      }); 
+	      });
 	      Thread.sleep(3000);
 	      //start observing
 	      disposable.dispose();	}

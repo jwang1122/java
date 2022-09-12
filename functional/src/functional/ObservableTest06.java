@@ -2,7 +2,7 @@ package functional;
 
 import io.reactivex.rxjava3.core.Observable;
 
-public class ObservableTest6 {
+public class ObservableTest06 {
 	public static void main(String[] args) {
 		Integer[] numbers = { 1, 2, 3, 4, 5, 6 };
 		String[] letters = { "a", "b", "c", "d", "e", "f", "g" };

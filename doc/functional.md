@@ -8,6 +8,7 @@
 - [stream()](#stream)
 - [pass function as parameter](#pass-function-as-parameter)
 - [callback](#callback)
+- [RxJava](#rxjava)
 - [References](#references)
 
 
@@ -17,6 +18,27 @@
 In mathematics, a function is an expression that relates an input set to an output set.
 
 $$ f(x) = ax^3 + bx^2 + cx + d$$
+
+```mermaid
+graph LR
+
+Shop(Shopping Process)
+LIST[Create a shopping list]
+Lock[Lock door]
+DRIVE[Drive out]
+GAS{Check gas}
+STATION[Gas Station]
+SUP[Super market]
+PICK[Pick up items]
+CHECKOUT[Check out]
+BACK[Back home]
+
+Shop-->LIST-->Lock-->DRIVE-->GAS
+GAS--need more-->STATION
+GAS--OK-->SUP
+STATION-->SUP
+SUP-->PICK-->CHECKOUT-->BACK
+```
 
 ## Anonymous class
 
@@ -33,7 +55,8 @@ Collections.sort(numbers, new Comparator<Integer>() { // anonymous class
 
 
 ## lambda expression
-* [Simple lambda expression](../datastructure/src/functional/Lambda.java)
+* [Simple lambda expression](../functional/src/functional/Lambda01.java)
+* [Function lambda expression](../functional/src/functional/Lambda02.java)
 
 ## map
 * [Java map() function](../datastructure/src/functional/Map.java)
@@ -61,18 +84,83 @@ stream.reduce(func);
 
 ## pass function as parameter
 
-* [Pass interface as parameter](../datastructure/src/functional/PassFunction.java)
-* [Pass function by reflect](../datastructure/src/functional/PassFunction1.java)
+* [Pass interface as parameter](../functional/src/functional/PassFunction.java)
+* [Pass function by reflect](../functional/src/functional/PassFunction1.java)
+* [Pass function by reflect](../functional/src/functional/PassFunction2.java)
 
+## Function Interface
 
+```java
+String s = "John";
+int i = 10;
+Function f = <Lambda Expression>;
+```
 ## callback
 
 * [Java Callback Function](../datastructure/src/functional/Callback.java)
 
 ## RxJava
+❓ What are the issues RxJava try to solve?
+> 1. Null point
+> 2. Error Handling
+> 3. pre-defined execution functions
+> 4. execution chain
+> 5. repeat job without loop
+> 6. filter selection without if-else
+
+```java
+source
+  .operator1()
+  .operator2()
+  .operator3()
+  .subscribe(consumer)
+```
+
+```mermaid
+graph LR
+
+SRC(Source <br>Observable <br>Stream)
+OPR[Operations]
+SUB[Subscribe]
+ERR[onError]
+SUC[onSuccess]
+STA[onStart]
+COM[onComplete]
+
+SRC--> OPR -->SUB
+SUB -->STA & ERR  & SUC & COM
+```
+
+
 [RxJava API Documentation](https://javadoc.io/doc/io.reactivex.rxjava3/rxjava/latest/index.html)
-* [Just wrapper](../functional/src/functional/RxTest.java)
-* [Observable](../functional/src/functional/ObservableTest.javae)
+* [Flowable Just](../functional/src/functional/RxTest.java)
+* []()
+* [Single just](../functional/src/functional/ObservableTest00.java)
+
+> The Single class implements the Reactive Pattern for a single value response.
+
+```mermaid
+classDiagram
+
+class Single{
+    subscribe(Consumer onSuccess, Consumer onError)
+}
+```
+
+* [Maybe Single](../functional/src/functional/ObservableTest01.java)
+* [Completable](../functional/src/functional/ObservableTest02.java)
+* [Observable](../functional/src/functional/ObservableTest03.java)
+* [Observable](../functional/src/functional/ObservableTest04.java)
+* [Observable](../functional/src/functional/ObservableTest05.java)
+* [Observable](../functional/src/functional/ObservableTest06.java)
+* [Observable](../functional/src/functional/ObservableTest07.java)
+* [Observable](../functional/src/functional/ObservableTest08.java)
+* [Observable](../functional/src/functional/ObservableTest09.java)
+* [Observable](../functional/src/functional/ObservableTest10.java)
+* [Observable](../functional/src/functional/ObservableTest11.java)
+* [Observable](../functional/src/functional/ObservableTest12.java)
+
+## Error Handling
 
 ## References
 * [Optional Parameters](https://devwithus.com/java-optional-parameters/)

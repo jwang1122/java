@@ -44,6 +44,7 @@
 - [Design Pattern](#design-pattern)
 - [MongoDB](#mongodb)
 - [SQL](#sql)
+- [Functional Programming](#functional-programming)
 - [Java Module](#java-module)
 - [References](#references)
 
@@ -539,3 +540,4 @@ Window ⟹ show view ⟹ Project Explore ⟹ click arrow on the jar file
 * [Good Java Tutorial WebSite](https://beginnersbook.com/2014/07/how-to-sort-a-treemap-by-value-in-java/)
 * [Java Point](https://www.javatpoint.com/java-tutorial)
 * [Linked List](https://www.javatpoint.com/singly-linked-list-vs-doubly-linked-list)
+* [Functor, applicative, monad](https://dzone.com/articles/functor-and-monad-examples-in-plain-java)

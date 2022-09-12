@@ -8,7 +8,7 @@ public class Hello {
 		this.name = name;
 	}
 	public static void main(String[] args) {
-		System.out.println("Hello, World!");
+		System.out.println("世界您好!");
 		int z = MyMath.add(12,34); 
 		System.out.println(z);
 		

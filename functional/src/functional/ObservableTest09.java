@@ -1,11 +1,8 @@
 package functional;
 
-import java.util.List;
-
 import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.core.Single;
 
-public class ObservableTest9 {
+public class ObservableTest09 {
 	public static void main(String[] args) throws InterruptedException {
 		Integer[] numbers = { 1, 2, 3, 4, 5, 6 };
 		String[] letters = { "a", "b", "c", "d", "e", "f", "g" };
@@ -15,5 +12,8 @@ public class ObservableTest9 {
 		Observable.concat(observable1, observable2).subscribe(letter -> result.append(letter));
 		System.out.println(result);
 		observable2.map(x -> x*x).forEach(System.out::println);
+		System.out.println("number of items: " +observable2.count().blockingGet());
+		System.out.println("sum of items: " +observable2.reduce((x,y) -> (x+y)).blockingGet());
+
 	}
 }

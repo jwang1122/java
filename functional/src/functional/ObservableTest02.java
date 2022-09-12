@@ -7,7 +7,7 @@ import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.observers.DisposableCompletableObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class ObservableTest2 {
+public class ObservableTest02 {
 	public static void main(String[] args) throws InterruptedException {
 
 		// Create an observer

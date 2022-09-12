@@ -10,7 +10,7 @@ import io.reactivex.rxjava3.observers.DisposableMaybeObserver;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class ObservableTest3 {
+public class ObservableTest03 {
 	public static void main(String[] args) throws InterruptedException {
 		CompositeDisposable compositeDisposable = new CompositeDisposable();
 
@@ -26,7 +26,7 @@ public class ObservableTest3 {
 				System.out.println(value);
 			}
 		});
-		
+
 		String h = "Hi";
 
 		// Create an observer
