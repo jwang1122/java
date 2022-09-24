@@ -4,6 +4,11 @@
 - [Data Structure Category](#data-structure-category)
   - [Data Management](#data-management)
   - [Data Usage](#data-usage)
+- [Squencial Search](#squencial-search)
+- [Selection Sort](#selection-sort)
+- [Shuffle left](#shuffle-left)
+- [Copy over](#copy-over)
+- [Converging Pointers](#converging-pointers)
 - [Array](#array)
   - [Lambda Expression](#lambda-expression)
   - [Stream](#stream)
@@ -76,6 +81,43 @@ DS1-->STATIC & NONSTATIC
 
 Learning data structures and algorithms allow us to write efficient and optimized computer programs.
 
+🔑💡 **Knowlodge Base**: Attributes of Algorithms
+> 1. existence and correctness; (wrong result worse than not working at all)
+> 2. practical consideration;
+
+[sample of finding Prime number]()
+
+❓Does Linux support CRLF?
+>✔️in Windows both a CR and LF are required to note the end of a line, whereas in Linux/UNIX a LF is only required.
+
+```linux
+sed 's/\r$//' file.txt > out.txt
+tr -d '\r' input.txt > out.txt
+sudo apt install dos2unix 
+```
+
+```mermaid
+graph TB
+
+ALG(Algorithm)
+CORR[Correctness & Existence]
+PRAC[Practical Constidration]
+EASY[Ease of Handling]
+CODE[Code Readability]
+DOC[Documentation]
+SEPA[Logical Separation]
+STYLE[Elegant Style<br>Efficience]
+
+ALG-->CORR & PRAC
+PRAC-->EASY
+PRAC-->STYLE
+EASY-->DOC
+EASY-->CODE
+EASY-->SEPA
+```
+
+
+
 * [Array](../datastructure/src/array/array1.java)
 * [Array List](../datastructure/src/builtins/MyArrayList.java)
 
@@ -92,9 +134,27 @@ Learning data structures and algorithms allow us to write efficient and optimize
 > 2. sort
 > 3. search
 
+## Squencial Search
+* [Squential search](../datastructure\src\algorithms\SquentialSearch.java)
+
+## Selection Sort
+* [Selection sort](../datastructure\src\algorithms\SelectionSort.java)
+
+## Shuffle left
+* [Shuffle left](../datastructure\src\algorithms\ShuffleLeft.java)
+
+## Copy over
+* [Copy over](../datastructure\src\algorithms\CopyOver.java)
+
+## Converging Pointers
+* [Converging Pointers](../datastructure\src\algorithms\ConvergingPointers.java)
+  
+## Binary Search
+* []()
 
 ❓ What is data traverse?
 >✔️Traversing a data structure means: "visiting" or "touching" the elements of the structure, and doing something with the data. (Traversing is also sometimes called iterating over the data structure)
+
 
 ## Array
 
@@ -405,5 +465,5 @@ B--false-->P
 ## References
 * [Wetsite tutorial](https://jenkov.com/tutorials/java-collections/queue.html)
 * [Algorithms](https://www.programiz.com/dsa/why-algorithms)
-* []()
+* [CSC150 Chapter 3:Efficiency of Algoritms](http://faculty.otterbein.edu/psanderson/csc150/notes/chapter3.html)
 * []()

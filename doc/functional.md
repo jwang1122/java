@@ -7,8 +7,10 @@
 - [reduce](#reduce)
 - [stream()](#stream)
 - [pass function as parameter](#pass-function-as-parameter)
+- [Function Interface](#function-interface)
 - [callback](#callback)
 - [RxJava](#rxjava)
+- [Error Handling](#error-handling)
 - [References](#references)
 
 
@@ -39,6 +41,7 @@ GAS--OK-->SUP
 STATION-->SUP
 SUP-->PICK-->CHECKOUT-->BACK
 ```
+Company Main Office send calculation function series to subbranch.
 
 ## Anonymous class
 
@@ -91,10 +94,25 @@ stream.reduce(func);
 ## Function Interface
 
 ```java
+interface Function<T,R>{
+    play(T);
+}
+```
+T: input Type
+R: Return type
+
+```java
 String s = "John";
 int i = 10;
 Function f = <Lambda Expression>;
 ```
+
+* [Quadratic function](../functional/src/functional/CreateFunction01.java)
+* [Lambda half](../functional/src/functional/CreateFunction02.java)
+* [andThen](../functional/src/functional/CreateFunction03.java)
+* [Compose](../functional/src/functional/CreateFunction04.java)
+* [Compose null](../functional/src/functional/CreateFunction05.java)
+
 ## callback
 
 * [Java Callback Function](../datastructure/src/functional/Callback.java)
@@ -167,3 +185,4 @@ class Single{
 * [Pass function](https://www.delftstack.com/howto/java/how-to-pass-a-function-as-a-parameter-in-java/)
 * [RxJava tutorial](https://www.tutorialspoint.com/rxjava/rxjava_environment_setup.htm)
 * [RxJava jar files download ](https://jar-download.com/artifact-search/rxjava)
+* [YouTube Channel Function interface](https://www.youtube.com/channel/UCVIWn7o3162j_lJFJfs7mDA)

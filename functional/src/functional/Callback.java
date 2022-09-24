@@ -7,7 +7,7 @@ public class Callback {
 
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the Employee Name: ");
+        System.out.print("Enter the Employee Class Name: ");
 
         // name of the employee
         String Employee = sc.next();
