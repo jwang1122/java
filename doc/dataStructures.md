@@ -9,6 +9,9 @@
 - [Shuffle left](#shuffle-left)
 - [Copy over](#copy-over)
 - [Converging Pointers](#converging-pointers)
+- [Binary Search](#binary-search)
+- [Pattern Matching](#pattern-matching)
+- [Assembly Language](#assembly-language)
 - [Array](#array)
   - [Lambda Expression](#lambda-expression)
   - [Stream](#stream)
@@ -134,27 +137,63 @@ EASY-->SEPA
 > 2. sort
 > 3. search
 
+* [Order of Magnitude](python/algorithmOrder.py)
+
 ## Squencial Search
-* [Squential search](../datastructure\src\algorithms\SquentialSearch.java)
+* [Squential search](../datastructure\src\algorithms\chapter3/SquentialSearch.java)
 
 ## Selection Sort
-* [Selection sort](../datastructure\src\algorithms\SelectionSort.java)
+* [Selection sort](../datastructure\src\algorithms\chapter3/SelectionSort.java)
 
 ## Shuffle left
-* [Shuffle left](../datastructure\src\algorithms\ShuffleLeft.java)
+* [Shuffle left](../datastructure\src\algorithms\chapter3/ShuffleLeft.java)
 
 ## Copy over
-* [Copy over](../datastructure\src\algorithms\CopyOver.java)
+* [Copy over](../datastructure\src\algorithms\chapter3/CopyOver.java)
 
 ## Converging Pointers
-* [Converging Pointers](../datastructure\src\algorithms\ConvergingPointers.java)
+* [Converging Pointers](../datastructure\src\algorithms\chapter3/ConvergingPointers.java)
   
 ## Binary Search
-* []()
+* [Binary Search](../datastructure\src\algorithms\chapter3/BinarySearch.java)
+
+![](images/binary_search.gif)
+
+```mermaid
+graph TB
+
+A((4))
+B((2))
+C((1))
+D((3))
+E((6))
+F((5))
+G((7))
+
+A-->B & E
+B-->C & D
+E-->F & G
+```
+* [Binary Search Plot](python/binarySearch.py)
+
+## Pattern Matching
+* [Pattern Matching](../datastructure\src\algorithms\chapter3/PatternMatching.java)
+
+## Assembly Language
+* [AT89C51 assembly language instruction system](http://www.dwenzhao.cn/profession/mcu/mcu51ins.html)
+* [89C52 assembly pdf document](STC89C52.pdf), page 82, 264
+* [8051 系列单片机C程序设计完全手册](20180405185442_82059.pdf)
+
 
 ❓ What is data traverse?
 >✔️Traversing a data structure means: "visiting" or "touching" the elements of the structure, and doing something with the data. (Traversing is also sometimes called iterating over the data structure)
 
+
+❓ What is graph?
+>✔️ A collection of nodes and connecting edges is called graph.
+
+❓ What is Hamiltonian circuit?
+>✔️A path through a graph that begins and ends at the same node and goes through all other nodes exactly once is called a Hamiltonian circuit.
 
 ## Array
 

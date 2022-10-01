@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.chapter3;
 
 public class StopWatch {
 	long start;

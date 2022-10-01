@@ -109,8 +109,8 @@ public class CoordinateTransform {
 	
 	public static void rotateAboutPointTest() {
 		Point[] points = new Point[4];
-		points[0] = new Point(-6,4,"A");
-		points[1] = new Point(6,0,"B");
+		points[0] = new Point(-6, 4, "A");
+		points[1] = new Point(6, 0, "B");
 		points[2] = new Point(4, -4, "C");
 		points[3] = new Point(-4, -2, "D");
 		points = scalePointArray(points, 0.5);

@@ -54,6 +54,7 @@ a (ɑ) e i o u ü A E I O U Ü
 ∞ | infty
 ϕ | phi
 Φ | Phi
+Θ | Theta
 θ | theta
 α | alpha
 β | beta

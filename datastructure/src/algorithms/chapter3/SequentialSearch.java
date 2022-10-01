@@ -1,8 +1,8 @@
-package algorithms;
+package algorithms.chapter3;
 
 import java.util.List;
 
-public class SquentialSearch {
+public class SequentialSearch {
 	public static Long find(Long n, List<Long> list) throws NotFoundException{
 		long count = 0;
 		for(Long l: list) {

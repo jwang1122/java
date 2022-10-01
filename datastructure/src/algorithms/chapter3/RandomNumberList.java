@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.chapter3;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +11,7 @@ public class RandomNumberList {
 		for(long i=1; i<=n; i++) {
 			list.add(i);
 		}
-//		Collections.shuffle(list);
+		Collections.shuffle(list);
 		return list;
 	}
 }

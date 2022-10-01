@@ -19,6 +19,7 @@ lib/
 api/
 mytomcat/
 caches/
+env/
 daemon/
 *.dll
 *.lock
