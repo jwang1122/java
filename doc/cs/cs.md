@@ -14,6 +14,8 @@
   - [Not Gate](#not-gate)
   - [Transistor as switch](#transistor-as-switch)
   - [Practice Problems](#practice-problems-1)
+  - [CE Compare-for-Equality](#ce-compare-for-equality)
+  - [Add Circuit](#add-circuit)
 - [References](#references)
 
 
@@ -199,11 +201,12 @@ case1: $\bar a\cdot  b \cdot \bar c$
 case2: $a\cdot  b \cdot \bar c$
 combination use OR gate: $O_1=(\bar a\cdot  b \cdot \bar c) + (a\cdot  b \cdot \bar c)$
 
+![](output1.png)
 Output 2:
 case1: $\bar b \cdot \bar c$
 case2: $b \cdot \bar c$
 case3: $b \cdot c$
-combination use OR gate: $O_2=(\bar b \cdot \bar c) + (b \cdot c) + (b \cdot \bar c)$
+combination use OR gate: $O_2=(\bar b \cdot \bar c) + (b \cdot \bar c) + (b \cdot c)$
 
 ![](output2.png)
 
@@ -211,6 +214,21 @@ combination use OR gate: $O_2=(\bar b \cdot \bar c) + (b \cdot c) + (b \cdot \ba
 
 2. $output=(\bar a \cdot \bar b) + (\bar a \cdot b) + (a \cdot \bar b) + \overline {(a \cdot b)}$
 ![](problem2.png)
+
+### CE Compare-for-Equality
+
+a | b | output
+---|---|---|
+0|0|1
+0|1|0
+1|0|0
+1|1|1
+
+### Add Circuit
+1-bit add: sum,carry = a + b + c, where c: carry
+$s=(\bar a\cdot \bar b \cdot c) + (\bar a\cdot  b \cdot \bar c) + (a\cdot \bar b \cdot c) + (a\cdot  b \cdot c)$
+$c=(\bar a\cdot b \cdot c) + (a\cdot \bar b \cdot c) + (a\cdot b \cdot \bar c) + (a\cdot  b \cdot c)$
+
 
 ## References
 * [👍😄transistor as switch](https://www.electronics-tutorials.ws/transistor/tran_4.html)
