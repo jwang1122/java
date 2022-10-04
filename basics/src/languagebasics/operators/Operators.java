@@ -6,7 +6,8 @@ public class Operators {
 	
 	public static void main(String[] args) {
 //		arithmeticOps();
-		comparisonOps();
+//		comparisonOps();
+		bitwiseOperator();
 	}
 
 	
@@ -114,16 +115,24 @@ public class Operators {
 		System.out.println(b3==b4);
 		byte b5 = 0b00111101;
 		byte b6 = (byte)(b1 | b2);
+		byte b7 = 0b0000_1000;
+		byte b8 = (byte)2;
+		byte b9 = (byte)-2;
+		byte b10 = (byte)(b8 + b9);
 		System.out.println(b5==b6);
 		System.out.println(formatByte(b1));
 		System.out.println(formatByte(b2));
 		System.out.println(formatByte(b6));
 		System.out.println(formatByte(b5));		
+		System.out.println(formatByte(b7));
+		System.out.println(formatByte(b8));		
+		System.out.println(formatByte(b9));		
+		System.out.println(formatByte(b10));		
 	}
 	
 
 	static String formatByte(byte b) {
-		String s = String.format("%8s", Integer.toBinaryString(b));
+		String s = String.format("%32s", Integer.toBinaryString(b));
 		return s.replace(' ', '0');
 	}
 

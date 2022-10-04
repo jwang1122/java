@@ -14,7 +14,7 @@ public class StopWatch {
 	 */
 	public double stop() {
 		stop = System.currentTimeMillis();
-		duration = (stop-start)/60000.0;
+		duration = (stop-start)/1000.0;
 		return duration;
 	}
 

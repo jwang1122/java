@@ -561,7 +561,25 @@ $y = x' sin \theta + y' cos \theta$
 * [Math05](math05.md)
 * [Coordinate transform](../basics/src/katherine/CoordinateTransform.java)
 
+
 ![](images/triangle-rotation.png)
+
+## Fabonacci Sequence
+* [Fibonacci Sequence](../basics/src/justin/FibonacciSequence.java)
+
+### Array
+1. create an array:
+
+```java
+Point[] triangleVertices = {a, b, c};
+int[] fibonacci = new int[n]; 
+```
+2. Once an array is created, the number of elements in the array is fixed. so array is a static data structure.
+3. to display an array:
+
+```java
+System.out.print(Arrays.toString(arr));
+```
 
 ## References
 
