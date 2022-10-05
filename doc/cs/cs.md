@@ -8,18 +8,46 @@
   - [Graph](#graph)
 - [Chapter 4](#chapter-4)
   - [binary](#binary)
+  - [Fraction Number](#fraction-number)
+  - [two's complement representation](#twos-complement-representation)
   - [Sound](#sound)
   - [image](#image)
   - [Practice Problems](#practice-problems)
   - [Not Gate](#not-gate)
   - [Transistor as switch](#transistor-as-switch)
   - [Practice Problems](#practice-problems-1)
+  - [sequential circute](#sequential-circute)
   - [CE Compare-for-Equality](#ce-compare-for-equality)
-  - [Add Circuit](#add-circuit)
+  - [Add 2 bits Circuit](#add-2-bits-circuit)
+  - [Control Circuits](#control-circuits)
+  - [Exercises](#exercises)
+  - [Challenge work](#challenge-work)
+- [Chapter 5](#chapter-5)
 - [References](#references)
 
 
 ## Chapter 1
+❓ What is computer science?
+>✔️ Design and develop algorithms to solve a range of important problems.
+
+To Solve the problem:
+1. understand the problem;
+2. find solution;
+3. create algorithms
+4. select better algorithms
+5. check the result.
+
+One word to it: 🔍🔨✔️do it right! (not just read text book)
+
+❓ What is Algorithms?
+>✔️procedure for solving a mathematical problems in a finite number of steps that frequently involves repetition of an operation; broadly: a step-by-step methodfor accomplishing some task.
+
+❓ Algorithms operations?
+>1. Sequential operations (PC: Program Counter)
+>2. Conditional operations (Logical comparison => PC adjust)
+>3. Iteration operations (Jump back to DPTR)
+
+* [Page 9:Add 2 numbers](../../cs/src/chapter1/AddTwoWithCarry.java)
 
 ## Chapter 2
 ❓ What is Pseudocode?
@@ -29,12 +57,12 @@
 > 3. Conditional; (If-Else)
 > 4. Iterative. (While-do-Step)
 
-* [Squential Search](../../datastructure/src/algorithms/chapter2/SquentialSearch.java)
-* [Find largest](../../datastructure/src/algorithms/chapter2/FindLargest.java)
-* [Meeting your match](../../datastructure/src/algorithms/chapter2/PatternMatching.java)
-* [Problem 1](../../datastructure/src/algorithms/chapter2/Problem1.java)
+* [Squential Search](../../cs/src/chapter2/SquentialSearch.java)
+* [Find largest](../../cs/src/chapter2/FindLargest.java)
+* [Meeting your match](../../cs/src/chapter2/PatternMatching.java)
+* [Problem 1](../../cs/src/chapter2/Problem1.java)
 * [Challenge 1: Python plot ](../python/findRoot.py)
-* [Challenge 1: FindRoot](../../datastructure/src/algorithms/chapter2/Challenge1.java)
+* [Challenge 1: FindRoot](../../cs/src/chapter2/Challenge1.java)
 
 ### practice
 1. write pseudocodev from above sample code;
@@ -56,34 +84,34 @@
 2. there are best-case, worst-case, and average.
 3. As we have seen, if an $Θ(n^2)$ algorithm and an $Θ(n)$ algorithm exist for the same task, then for large enough n, the $Θ(n^2)$ algorithm does more work and takes longer to execute, regardless of the constant factors for peripheral work. This is the rationale for ignoring constant factors and concentTat'int on the basic order of magnitude of algorithms
 
-* [Find Prime](../../datastructure/src/algorithms/chapter3/Prime01.java)
+* [Find Prime](../../cs/src/chapter3/Prime01.java)
   
-* [Sequential Search](../../datastructure/src/algorithms/chapter3/SequentialSearch.java)
+* [Sequential Search](../../cs/src/chapter3/SequentialSearch.java)
 ![](sequentialSearch.gif)
 
-* [Selection Sort](../../datastructure/src/algorithms/chapter3/SelectionSort.java)
+* [Selection Sort](../../cs/src/chapter3/SelectionSort.java)
 ![](selectionSort.gif)
 
 * [Practice Problem](../python/algorithmOrder.py)
-* [Data Cleanup-Shuffle left](../../datastructure/src/algorithms/chapter3/ShuffleLeft.java)
-* [Data Cleanup-Copy over](../../datastructure/src/algorithms/chapter3/CopyOver.java)
-* [Converging Pointers](../../datastructure/src/algorithms/chapter3/ConvergingPointers.java)
+* [Data Cleanup-Shuffle left](../../cs/src/chapter3/ShuffleLeft.java)
+* [Data Cleanup-Copy over](../../cs/src/chapter3/CopyOver.java)
+* [Converging Pointers](../../cs/src/chapter3/ConvergingPointers.java)
 
-* [Binary Search](../../datastructure/src/algorithms/chapter3/BinarySearch.java)
+* [Binary Search](../../cs/src/chapter3/BinarySearch.java)
 ![](binary_search.gif)
 
-* [Problem 1](../../datastructure/src/algorithms/chapter3/ShuffleLeft.java)
-* [Problem 2](../../datastructure/src/algorithms/chapter3/CopyOver.java)
-* [Problem 3](../../datastructure/src/algorithms/chapter3/ConvergingPointers.java)
-* [Pattern Matching](../../datastructure/src/algorithms/chapter3/PatternMatching.java)
+* [Problem 1](../../cs/src/chapter3/ShuffleLeft.java)
+* [Problem 2](../../cs/src/chapter3/CopyOver.java)
+* [Problem 3](../../cs/src/chapter3/ConvergingPointers.java)
+* [Pattern Matching](../../cs/src/chapter3/PatternMatching.java)
 
-* [quick sort](../../datastructure/src/algorithms/chapter3/QuickSort.java)
+* [quick sort](../../cs/src/chapter3/QuickSort.java)
 ![](quicksort.gif)
 
-* [Insertion Sort](../../datastructure/src/algorithms/chapter3/InsertionSort.java)
+* [Insertion Sort](../../cs/src/chapter3/InsertionSort.java)
 ![](insertionSort.gif)
  
-* [Merge Sort](../../datastructure/src/algorithms/chapter3/MergeSort.java)
+* [Merge Sort](../../cs/src/chapter3/MergeSort.java)
 ![](mergeSort.gif)
 
 ### Graph
@@ -93,7 +121,7 @@
 ❓ What is Hamiltonian circut?
 >✔️A path through a graph that begins and ends at the same node and goes through all other nodes exactly once is called a Hamiltonian circuit. (page 113)
 
-* [Find Graph](../../datastructure/src/algorithms/chapter3/HamiltonianCycle.java)
+* [Find Graph](../../cs/src/chapter3/HamiltonianCycle.java)
 * [Practice Problem 1]
 
 ```mermaid
@@ -132,6 +160,19 @@ B3r==>A4r
 ![](../images/A65-ASCII.png)
 ![](../images/letterA.png)
 
+❓ Why use Binary?
+>✔️ Reliability. (Electric hardware bistable environment)
+
+Binary Storage
+1. 0 or 1
+2. no change by accident
+3. easy read
+4. easy to change
+
+### Fraction Number
+
+### two's complement representation
+* [See bitwise operators](../../basics/src/languagebasics/operators/Operators.java)
 
 ### Sound
 * [Shoot](../python/whiff.wav)
@@ -161,20 +202,11 @@ Amazon Search：8051 microcontroller $19
 4.1 3 min=180 sec. if 256 kbps(kilo-bytes per second) ⟶ 180*256 = 46080 KB= 46080*1024*8 bits = 377487360 bits.
 
 
-❓ Why use Binary?
->✔️ Reliability. (Electric hardware bistable environment)
-
-Binary Storage
-1. 0 or 1
-2. no change by accident
-3. easy read
-4. easy to change
-
 ### Not Gate
 * Ohm's Law
 ![](OhmsLawOneResistor.png)
 ![](OhmsLaw.png)
-* [Ohm's Law calculator](../../datastructure/src/algorithms/chapter4/OhmsLaw.java)
+* [Ohm's Law calculator](../../cs/src/chapter4/OhmsLaw.java)
   
 ### Transistor as switch
 ![](transistor.png)
@@ -215,21 +247,110 @@ combination use OR gate: $O_2=(\bar b \cdot \bar c) + (b \cdot \bar c) + (b \cdo
 2. $output=(\bar a \cdot \bar b) + (\bar a \cdot b) + (a \cdot \bar b) + \overline {(a \cdot b)}$
 ![](problem2.png)
 
+### sequential circute
+a|b|$O_1$
+|---|---|---|
+0|0|0
+0|1|1
+1|0|1
+1|1|1
+
+a|b|$O_2$
+|---|---|---|
+0|0|1
+0|1|1
+1|0|0
+1|1|1
+
+$O_1 = (a+b)$
+$O_2 = \overline {(a+b) \cdot \bar b}$
+
+a=0 ⟶ b==>$O_1$
+a=1 ⟶ b==>$O_2$
+
+a makes b goes to different output.
+
 ### CE Compare-for-Equality
 
-a | b | output
+a|b|output
 ---|---|---|
 0|0|1
 0|1|0
 1|0|0
 1|1|1
 
-### Add Circuit
+### Add 2 bits Circuit
 1-bit add: sum,carry = a + b + c, where c: carry
 $s=(\bar a\cdot \bar b \cdot c) + (\bar a\cdot  b \cdot \bar c) + (a\cdot \bar b \cdot c) + (a\cdot  b \cdot c)$
 $c=(\bar a\cdot b \cdot c) + (a\cdot \bar b \cdot c) + (a\cdot b \cdot \bar c) + (a\cdot  b \cdot c)$
 
+❓ How many transistors needed for NOT-Gate, AND-Gate, and OR-Gate?
+>✔️
 
+❓ How OR-Gate builds up? explain why?
+>✔️
+
+### Control Circuits
+
+1. Multicomplexers
+  * $2^n$ input with n selector, and 1 output, the output value will depends on selected input.
+  * address(selector):input(select certain register)⟶output(will be selected register value) 
+  
+Sample of $2^1$/1==>1
+
+a|b|s|output
+|---|---|---|---|
+0||0|0
+1||0|1
+||1|1|1
+||0|1|0
+
+$output=(a\cdot \bar s) + (b \cdot s)$
+
+1. Decoders
+  * n input and $2^n$ output;
+  * based on input code, determine what circuit to start.
+
+Sample 2⟶$2^2=4$
+a|b|o0|
+|---|---|---|
+0|0|1
+
+a|b|o1|
+|---|---|---|
+0|1|1
+
+a|b|o2|
+|---|---|---|
+1|0|1
+
+a|b|o3|
+|---|---|---|
+1|1|1
+
+$O_0=(\bar a \cdot \bar b)$
+$O_1=(\bar a \cdot b)$
+$O_2=(a \cdot \bar b)$
+$O_3=(a \cdot b)$
+
+### Exercises
+6. a) 71=0x47=0b0010_0111; 
+   b) 1 = 0b0000_0001, 1+-1=0, -1 = 0b1111_1111; 
+      -1 = 0b1 0000001 (sign/magnitude format)
+   c) -81 = 0x51 = 0b0101_0001, -81=0b1010_1111;
+      -81 = 0b1 1010001 (sign/magnitude format)
+10. Assume that our computer stores decimal numbers using 16 bits—10 bits for a sign/magnitude mantissa and 6 bits for a sign/ the same representation shown on page 1 62) Show the internal representation of the followingdecimal quantities.  
+    a) 7.5 = 0b0 111100000_0 00011 (float point)
+    b) -20.25 = 0b1 101000100_0 00101
+    c) -1/64 = 0b1100000000_100101
+
+### Challenge work
+1. $sum=(\bar a \cdot \bar b \cdot c) + (\bar a \cdot b \cdot \bar c) + (a \cdot \bar b \cdot \bar c) + (a \cdot b \cdot c) = \bar a \cdot [(\bar b \cdot c)+(b \cdot \bar c)] + a \cdot [(\bar b \cdot \bar c) + (b \cdot c)]$
+
+![](challenge4-1.png)
+
+
+## Chapter 5
 ## References
 * [👍😄transistor as switch](https://www.electronics-tutorials.ws/transistor/tran_4.html)
 
