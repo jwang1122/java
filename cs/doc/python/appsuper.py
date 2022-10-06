@@ -44,7 +44,7 @@ def randomRects(n, width, height):
 #     return rects
 
 def loadImage(filename, scale=1):
-    filename = os.path.join('doc/python',filename)
+    filename = os.path.join('cs/doc/python',filename)
     image = pygame.image.load(filename)
     image = pygame.transform.scale(image, (image.get_width()*scale, image.get_height()*scale))
     rect = image.get_rect()
@@ -53,7 +53,7 @@ def loadImage(filename, scale=1):
 def loadSound(filename):
     pygame.mixer.init()
     # filename = os.path.join('src/resources', filename)
-    filename = os.path.join('doc/python', filename)
+    filename = os.path.join('cs/doc/python', filename)
     return pygame.mixer.Sound(filename)
 
 class AppSuper:

@@ -17,6 +17,7 @@
   - [Transistor as switch](#transistor-as-switch)
   - [Practice Problems](#practice-problems-1)
   - [sequential circute](#sequential-circute)
+  - [SR Latch](#sr-latch)
   - [CE Compare-for-Equality](#ce-compare-for-equality)
   - [Add 2 bits Circuit](#add-2-bits-circuit)
   - [Control Circuits](#control-circuits)
@@ -57,12 +58,13 @@ One word to it: 🔍🔨✔️do it right! (not just read text book)
 > 3. Conditional; (If-Else)
 > 4. Iterative. (While-do-Step)
 
-* [Squential Search](../../cs/src/chapter2/SquentialSearch.java)
-* [Find largest](../../cs/src/chapter2/FindLargest.java)
-* [Meeting your match](../../cs/src/chapter2/PatternMatching.java)
-* [Problem 1](../../cs/src/chapter2/Problem1.java)
+* [Add two number](../src/chapter2/Add2Numbers.java)
+* [Squential Search](../src/chapter2/SquentialSearch.java)
+* [Find largest](../src/chapter2/FindLargest.java)
+* [Meeting your match](../src/chapter2/PatternMatching.java)
+* [Problem 1](../src/chapter2/Problem1.java)
 * [Challenge 1: Python plot ](../python/findRoot.py)
-* [Challenge 1: FindRoot](../../cs/src/chapter2/Challenge1.java)
+* [Challenge 1: FindRoot](../src/chapter2/Challenge1.java)
 
 ### practice
 1. write pseudocodev from above sample code;
@@ -84,34 +86,34 @@ One word to it: 🔍🔨✔️do it right! (not just read text book)
 2. there are best-case, worst-case, and average.
 3. As we have seen, if an $Θ(n^2)$ algorithm and an $Θ(n)$ algorithm exist for the same task, then for large enough n, the $Θ(n^2)$ algorithm does more work and takes longer to execute, regardless of the constant factors for peripheral work. This is the rationale for ignoring constant factors and concentTat'int on the basic order of magnitude of algorithms
 
-* [Find Prime](../../cs/src/chapter3/Prime01.java)
+* [Find Prime](../src/chapter3/Prime01.java)
   
-* [Sequential Search](../../cs/src/chapter3/SequentialSearch.java)
+* [Sequential Search](../src/chapter3/SequentialSearch.java)
 ![](sequentialSearch.gif)
 
-* [Selection Sort](../../cs/src/chapter3/SelectionSort.java)
+* [Selection Sort](../src/chapter3/SelectionSort.java)
 ![](selectionSort.gif)
 
 * [Practice Problem](../python/algorithmOrder.py)
-* [Data Cleanup-Shuffle left](../../cs/src/chapter3/ShuffleLeft.java)
-* [Data Cleanup-Copy over](../../cs/src/chapter3/CopyOver.java)
-* [Converging Pointers](../../cs/src/chapter3/ConvergingPointers.java)
+* [Data Cleanup-Shuffle left](../src/chapter3/ShuffleLeft.java)
+* [Data Cleanup-Copy over](../src/chapter3/CopyOver.java)
+* [Converging Pointers](../src/chapter3/ConvergingPointers.java)
 
-* [Binary Search](../../cs/src/chapter3/BinarySearch.java)
+* [Binary Search](../src/chapter3/BinarySearch.java)
 ![](binary_search.gif)
 
-* [Problem 1](../../cs/src/chapter3/ShuffleLeft.java)
-* [Problem 2](../../cs/src/chapter3/CopyOver.java)
-* [Problem 3](../../cs/src/chapter3/ConvergingPointers.java)
-* [Pattern Matching](../../cs/src/chapter3/PatternMatching.java)
+* [Problem 1](../src/chapter3/ShuffleLeft.java)
+* [Problem 2](../src/chapter3/CopyOver.java)
+* [Problem 3](../src/chapter3/ConvergingPointers.java)
+* [Pattern Matching](../src/chapter3/PatternMatching.java)
 
-* [quick sort](../../cs/src/chapter3/QuickSort.java)
+* [quick sort](../src/chapter3/QuickSort.java)
 ![](quicksort.gif)
 
-* [Insertion Sort](../../cs/src/chapter3/InsertionSort.java)
+* [Insertion Sort](../src/chapter3/InsertionSort.java)
 ![](insertionSort.gif)
  
-* [Merge Sort](../../cs/src/chapter3/MergeSort.java)
+* [Merge Sort](../src/chapter3/MergeSort.java)
 ![](mergeSort.gif)
 
 ### Graph
@@ -121,7 +123,7 @@ One word to it: 🔍🔨✔️do it right! (not just read text book)
 ❓ What is Hamiltonian circut?
 >✔️A path through a graph that begins and ends at the same node and goes through all other nodes exactly once is called a Hamiltonian circuit. (page 113)
 
-* [Find Graph](../../cs/src/chapter3/HamiltonianCycle.java)
+* [Find Graph](../src/chapter3/HamiltonianCycle.java)
 * [Practice Problem 1]
 
 ```mermaid
@@ -157,8 +159,8 @@ B3r==>A4r
 ## Chapter 4
 
 ### binary
-![](../images/A65-ASCII.png)
-![](../images/letterA.png)
+![](images/A65-ASCII.png)
+![](images/letterA.png)
 
 ❓ Why use Binary?
 >✔️ Reliability. (Electric hardware bistable environment)
@@ -175,14 +177,14 @@ Binary Storage
 * [See bitwise operators](../../basics/src/languagebasics/operators/Operators.java)
 
 ### Sound
-* [Shoot](../python/whiff.wav)
-* [云雀](../python/yunque.mp3)
+* [Shoot](python/whiff.wav)
+* [云雀](python/yunque.mp3)
 
 ### image
-* [Chimp](../python/chimp.png
-* [apple](../python/apple1.jpg)
-* [Fist-Chimp](../python/FistRolloverChimp.py)
-* [image modify](../python/changeImage.py) RGBA
+![Chimp](python/chimp.png
+![apple](python/apple1.jpg)
+* [Fist-Chimp](python/FistRolloverChimp.py)
+* [image modify](python/changeImage.py) RGBA
 
 Amazon Search：8051 microcontroller $19
 ![](Stc89c58rd-40i-pdip40MicrocontrollerSingleChipMicrocomputer.png)
@@ -204,15 +206,15 @@ Amazon Search：8051 microcontroller $19
 
 ### Not Gate
 * Ohm's Law
-![](OhmsLawOneResistor.png)
-![](OhmsLaw.png)
-* [Ohm's Law calculator](../../cs/src/chapter4/OhmsLaw.java)
+![](images/OhmsLawOneResistor.png)
+![](images/OhmsLaw.png)
+* [Ohm's Law calculator](../src/chapter4/OhmsLaw.java)
   
 ### Transistor as switch
-![](transistor.png)
-![](transistorAsSwitch.png)
-![](transistorSwitch.gif)
-![](transistors-characteristic-curves.webp)
+![](images/transistor.png)
+![](images/transistorAsSwitch.png)
+![](images/transistorSwitch.gif)
+![](images/transistors-characteristic-curves.webp)
 
 ❓ What are the differences between PNP and NPN transistor?
 > 1. While both have the ability to amplify signals or even act to switch larger currents on and off, they accomplish this signal boosting ability in different ways.
@@ -221,10 +223,10 @@ Amazon Search：8051 microcontroller $19
 
 * [transistor as switch](https://www.electronics-tutorials.ws/transistor/tran_4.html)
 
-![](NotGate.png)
-![](DigitalLogicTransistorSwitch.gif)
-![](npnTransistorSwitch.gif)
-![](pnpTransistorSwitch.gif)
+![](images/NotGate.png)
+![](images/DigitalLogicTransistorSwitch.gif)
+![](images/npnTransistorSwitch.gif)
+![](images/pnpTransistorSwitch.gif)
 
 💡👉Understand Circuit Design
 
@@ -245,30 +247,62 @@ combination use OR gate: $O_2=(\bar b \cdot \bar c) + (b \cdot \bar c) + (b \cdo
 ### Practice Problems
 
 2. $output=(\bar a \cdot \bar b) + (\bar a \cdot b) + (a \cdot \bar b) + \overline {(a \cdot b)}$
-![](problem2.png)
+![](images/problem2.png)
 
 ### sequential circute
-a|b|$O_1$
+Page 194
+* [Sequential Circuits YouTube](https://www.youtube.com/watch?v=fLN1YOmuAr8)
+
+a: control bit;
+b: data bit;
+when a=0; b==>c
+when a=1; b==>d
+
+a|b|c
 |---|---|---|
 0|0|0
-0|1|1
+0|1|1 
 1|0|1
 1|1|1
 
-a|b|$O_2$
+a|b|d
 |---|---|---|
 0|0|1
 0|1|1
 1|0|0
-1|1|1
+1|1|1 
 
-$O_1 = (a+b)$
-$O_2 = \overline {(a+b) \cdot \bar b}$
+a|b|c|d
+|---|---|---|---|
+1|0|1|0
+1|1|1|1
+0|0|0|1
+0|1|1|1
 
-a=0 ⟶ b==>$O_1$
-a=1 ⟶ b==>$O_2$
+$c = (a+b)$
+$d = \overline {(a+b) \cdot \bar b}$
+
+* Output depends on the present inputs and past inputs/outputs
+
+![](images/sequentialCircuits.svg)
+![](images/clock.png)
+
+a=0 ⟶ b==>c
+a=1 ⟶ b==>d
 
 a makes b goes to different output.
+
+### SR Latch
+
+s|r|q|$\bar q$
+|---|---|---|---|
+0|0|1|0
+|||0|1
+0|1|0|1
+1|0|1|0
+1|1|0|0 invalid|
+
+r:restore, s:set, Q: queue
 
 ### CE Compare-for-Equality
 
@@ -289,6 +323,8 @@ $c=(\bar a\cdot b \cdot c) + (a\cdot \bar b \cdot c) + (a\cdot b \cdot \bar c) +
 
 ❓ How OR-Gate builds up? explain why?
 >✔️
+
+![](images/adder.svg)
 
 ### Control Circuits
 
@@ -347,12 +383,16 @@ $O_3=(a \cdot b)$
 ### Challenge work
 1. $sum=(\bar a \cdot \bar b \cdot c) + (\bar a \cdot b \cdot \bar c) + (a \cdot \bar b \cdot \bar c) + (a \cdot b \cdot c) = \bar a \cdot [(\bar b \cdot c)+(b \cdot \bar c)] + a \cdot [(\bar b \cdot \bar c) + (b \cdot c)]$
 
-![](challenge4-1.png)
+![](images/challenge4-1.png)
 
 
 ## Chapter 5
+
+
 ## References
 * [👍😄transistor as switch](https://www.electronics-tutorials.ws/transistor/tran_4.html)
+* [👍😄SR Latch](https://www.youtube.com/watch?v=-aQH0ybMd3U&list=PLTd6ceoshpreKyY55hA4vpzAUv9hSut1H)
+* [Digital Electronics serise](https://www.youtube.com/watch?v=DBTna2ydmC0&list=PLwjK_iyK4LLBC_so3odA64E2MLgIRKafl)
 
 * [Chapter 4 Practice Problems](https://www.chegg.com/homework-help/questions-and-answers/practice-problems-1-using-mp3-many-bits-required-store-3-minute-song-uncompressed-format-i-q34574883)
 
@@ -372,3 +412,7 @@ B: register
 PC: Program Counter
 DPTR: Data Pointer
 SP: Stack Pointer
+ALU: Arithmetic/Logic Unit
+RAM: Random Access Memory
+CELL: Minimum unit of access
+
