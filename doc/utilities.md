@@ -56,6 +56,7 @@ a (ɑ) e i o u ü A E I O U Ü
 Φ | Phi
 Θ | Theta
 θ | theta
+Ω | Om
 α | alpha
 β | beta
 γ | gamma

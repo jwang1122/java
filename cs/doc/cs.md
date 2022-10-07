@@ -23,6 +23,7 @@
   - [Control Circuits](#control-circuits)
   - [Exercises](#exercises)
   - [Challenge work](#challenge-work)
+  - [Transistor Amplifier](#transistor-amplifier)
 - [Chapter 5](#chapter-5)
 - [References](#references)
 
@@ -385,8 +386,35 @@ $O_3=(a \cdot b)$
 
 ![](images/challenge4-1.png)
 
+### Transistor Amplifier
+
+![](images/transistorAmplifier.png)
+* [transistor amplifier plot](python/transistor.py)
+$I_2 = I_{R_1}-I_{R_2}=\frac {V_a-V_b} {R_1} - \frac {V_c} {R_2}$
+$I_3=I_1-\frac {V_a-V_b} {R_1}$
+$\beta = \frac {I_3} {I_2}$
 
 ## Chapter 5
+
+❓ What is memory?
+>✔️memory is the functional unit of a computer that stores and retrieves instructions and data.  
+1. cells and address;
+2. cell is minimum unit of access;
+3. same access time for all cells.
+
+❓ What are difference between RAM and ROM, EROM?
+>✔️RAM: random access memory; ROM: read only memory; EROM: erasable read only memory.
+
+use multiple memory cells (byte) to store single data value.
+
+❓ difference between an address and the contents of that address?
+>✔️
+
+❓ nondestructive fatch?
+>✔️
+1. fatch
+2. store
+
 
 
 ## References
