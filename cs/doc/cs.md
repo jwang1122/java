@@ -59,7 +59,7 @@ One word to it: 🔍🔨✔️do it right! (not just read text book)
 > 3. Conditional; (If-Else)
 > 4. Iterative. (While-do-Step)
 
-* [Add two number](../src/chapter2/Add2Numbers.java)
+* [Add two number](../src/chapter2/Add2Numbers.java) (page. 47)
 * [Squential Search](../src/chapter2/SquentialSearch.java)
 * [Find largest](../src/chapter2/FindLargest.java)
 * [Meeting your match](../src/chapter2/PatternMatching.java)
@@ -90,12 +90,9 @@ One word to it: 🔍🔨✔️do it right! (not just read text book)
 * [Find Prime](../src/chapter3/Prime01.java)
   
 * [Sequential Search](../src/chapter3/SequentialSearch.java)
-![](sequentialSearch.gif)
+![](images/sequentialSearch.gif)
 
-* [Selection Sort](../src/chapter3/SelectionSort.java)
-![](selectionSort.gif)
-
-* [Practice Problem](../python/algorithmOrder.py)
+* [Practice Problem](python/algorithmOrder.py)
 * [Data Cleanup-Shuffle left](../src/chapter3/ShuffleLeft.java)
 * [Data Cleanup-Copy over](../src/chapter3/CopyOver.java)
 * [Converging Pointers](../src/chapter3/ConvergingPointers.java)
@@ -108,14 +105,20 @@ One word to it: 🔍🔨✔️do it right! (not just read text book)
 * [Problem 3](../src/chapter3/ConvergingPointers.java)
 * [Pattern Matching](../src/chapter3/PatternMatching.java)
 
-* [quick sort](../src/chapter3/QuickSort.java)
-![](quicksort.gif)
+* [Bubble sort](../src/chapter3/BubbleSort.java) Page 114
+![](images/bubbleSort.gif)
 
-* [Insertion Sort](../src/chapter3/InsertionSort.java)
-![](insertionSort.gif)
+* [Selection Sort](../src/chapter3/SelectionSort.java) Page 103, 114
+![](images/selectionSort.gif)
+
+* [quick sort](../src/chapter3/QuickSort.java)page 114, 138（laboratoryExperience4,6）
+![](images/quicksort.gif)
+
+* [Insertion Sort](../src/chapter3/InsertionSort.java)page 114, 138（laboratoryExperience4,6）
+![](images/insertionSort.gif)
  
 * [Merge Sort](../src/chapter3/MergeSort.java)
-![](mergeSort.gif)
+![](images/mergeSort.gif)
 
 ### Graph
 ❓ What is graph?
@@ -420,6 +423,8 @@ use multiple memory cells (byte) to store single data value.
 ## References
 * [👍😄transistor as switch](https://www.electronics-tutorials.ws/transistor/tran_4.html)
 * [👍😄SR Latch](https://www.youtube.com/watch?v=-aQH0ybMd3U&list=PLTd6ceoshpreKyY55hA4vpzAUv9hSut1H)
+* [👍😄三极管是如何导电？](https://www.youtube.com/watch?v=nn82iIt8uKE)
+* [三极管开关状态的常见应用](https://www.youtube.com/watch?v=ODj_jjPvMJc)
 * [Digital Electronics serise](https://www.youtube.com/watch?v=DBTna2ydmC0&list=PLwjK_iyK4LLBC_so3odA64E2MLgIRKafl)
 
 * [Chapter 4 Practice Problems](https://www.chegg.com/homework-help/questions-and-answers/practice-problems-1-using-mp3-many-bits-required-store-3-minute-song-uncompressed-format-i-q34574883)
